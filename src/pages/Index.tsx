@@ -1,21 +1,23 @@
 
 import React from 'react';
-import Header from '@/components/Header';
-import Experience from '@/components/Experience';
-import Skills from '@/components/Skills';
-import Portfolio from '@/components/Portfolio';
-import Education from '@/components/Education';
-import Contact from '@/components/Contact';
+import Navigation from '@/components/Navigation';
+import HeroSection from '@/components/HeroSection';
+import AboutSection from '@/components/AboutSection';
+import ExperienceSection from '@/components/ExperienceSection';
+import ProjectsSection from '@/components/ProjectsSection';
+import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Header />
-      <Experience />
-      <Skills />
-      <Portfolio />
-      <Education />
-      <Contact />
+      <Navigation />
+      <HeroSection />
+      <AboutSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 };
