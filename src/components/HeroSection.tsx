@@ -1,6 +1,5 @@
-
 import React, { useEffect, useState } from 'react';
-import { ChevronDown, Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, MapPin, Phone, Download } from 'lucide-react';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,6 +10,16 @@ const HeroSection = () => {
 
   const scrollToAbout = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const downloadCV = () => {
+    // Créer un lien de téléchargement pour le CV
+    const link = document.createElement('a');
+    link.href = '/cv-razafimahafaly-jean-elson.pdf'; // Vous devrez ajouter votre CV dans le dossier public
+    link.download = 'CV-RAZAFIMAHAFALY-Jean-Elson.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -103,6 +112,13 @@ const HeroSection = () => {
                 className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               >
                 Découvrir mon parcours
+              </button>
+              <button 
+                onClick={downloadCV}
+                className="bg-gradient-to-r from-green-600 to-cyan-600 text-white px-8 py-3 rounded-lg font-medium hover:from-green-700 hover:to-cyan-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center gap-2"
+              >
+                <Download size={20} />
+                Télécharger CV
               </button>
               <a 
                 href="#contact"
