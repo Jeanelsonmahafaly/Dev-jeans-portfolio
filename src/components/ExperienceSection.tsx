@@ -27,85 +27,145 @@ const ExperienceSection = () => {
 
   const experiences = [
     {
-      period: "Fév 2023 - Présent",
-      company: "DRIM VTC LTD - ECRN",
-      position: "Développeur Full-Stack Senior",
+      period: "Juin 2025 - À ce jour",
+      company: "ESN ILOMAD",
+      position: "Développeur Back-end .NET",
       location: "Madagascar",
       type: "CDI",
-      description: "Développement d'applications web multi-fonctionnelles avec focus sur l'expérience utilisateur.",
+      description: "Développement de services back-end dans une architecture microservices avec déploiement sur Microsoft Azure.",
       tasks: [
-        "Architecture et développement back-end/front-end",
-        "Contrôle qualité et tests fonctionnels",
-        "Fonctionnalités UX avancées",
-        "Applications mobiles natives"
+        "Développement de services back-end dans une architecture microservices",
+        "Conception et implémentation d'APIs REST sécurisées",
+        "Mise en place de pipelines CI/CD pour les déploiements automatisés",
+        "Déploiement des applications sur Microsoft Azure (App Service, Azure SQL)",
+        "Collaboration via Jira et gestion du code source via GitLab"
       ],
-      technologies: ["Symfony", "React", "Angular", "Docker", "Kubernetes", "MongoDB"],
-      color: "from-blue-500 to-purple-500"
+      technologies: [".NET", "React", "ASP.NET Core", "Docker", "GitLab", "Jira", "Azure"],
+      color: "from-blue-500 to-cyan-500"
     },
     {
-      period: "Jan 2024 - Fév 2024",
-      company: "DRIM - FINTECH",
-      position: "Développeur Mobile & Backend",
+      period: "Fév 2024 - Juin 2025",
+      company: "ESN RTS LINE",
+      position: "Développeur Fullstack Symfony",
       location: "Madagascar",
-      type: "Freelance",
-      description: "Système de gestion de tickets de loteries avec intégrations API avancées.",
+      type: "CDI",
+      description: "Développement robuste de back-ends et d'interfaces utilisateurs intuitives avec tests automatisés.",
       tasks: [
-        "Intégration APIs tierces",
-        "Algorithmes de validation",
-        "Architecture distribuée",
-        "Performance & scalabilité"
+        "Analyse approfondie des besoins fonctionnels et techniques",
+        "Développement robuste de back-ends et d'interfaces utilisateurs intuitives",
+        "Garantie de la qualité du code par la mise en place de tests fonctionnels et unitaires",
+        "Déploiement efficace et sécurisé grâce à des pipelines CI/CD automatisés"
       ],
-      technologies: ["Flutter", "Symfony", "Angular", "Zephyr"],
-      color: "from-green-500 to-blue-500"
+      technologies: ["Symfony", "Angular", "Webpack", "jQuery", "Ajax", "GitLab", "Docker", "Kubernetes", "Firebase"],
+      color: "from-green-500 to-teal-500"
+    },
+    {
+      period: "Jan 2024",
+      company: "EMIT - EMITECH",
+      position: "Développeur Back-end Symfony",
+      location: "Madagascar",
+      type: "Travail en équipe",
+      description: "Développement d'une application mobile pour la gestion des tickets de tombola du 25ᵉ anniversaire de l'EMIT.",
+      tasks: [
+        "Génération de codes QR uniques pour chaque ticket",
+        "Implémentation d'algorithmes avancés pour la sécurisation des tickets",
+        "Déploiement du back-end sur la plateforme Tranokala Malagasy"
+      ],
+      technologies: ["Symfony", "Flutter", "GitHub"],
+      color: "from-orange-500 to-amber-500"
     },
     {
       period: "Déc 2023 - Jan 2024",
-      company: "ESMT - Projet Recherche",
+      company: "EMIT",
       position: "Développeur IA",
       location: "Madagascar",
-      type: "Projet étudiant",
-      description: "Classification d'images médicales par intelligence artificielle.",
+      type: "Projet d'école - mini mémoire",
+      description: "Développement d'un système de classification d'images d'animaux par intelligence artificielle.",
       tasks: [
-        "Collecte et préparation de datasets",
-        "Réseaux de neurones convolutifs",
-        "Entraînement et évaluation",
-        "Métriques de performance"
+        "Collecte de dataset d'images d'animaux provenant de sources en ligne",
+        "Classification d'images avec un modèle de réseau de neurones convolutif",
+        "Entraînement et évaluation des performances du modèle"
       ],
-      technologies: ["Python", "PyTorch", "Keras", "TensorFlow", "Jupyter"],
-      color: "from-purple-500 to-pink-500"
+      technologies: ["Jupyter", "Python", "Keras", "TensorFlow"],
+      color: "from-indigo-500 to-blue-500"
     },
     {
       period: "Nov 2023",
-      company: "Business Kintana",
-      position: "Développeur Web",
+      company: "CHU Andrainjato",
+      position: "Datawarehouse Engineer",
       location: "Madagascar",
-      type: "Freelance",
-      description: "Applications web robustes pour systèmes hospitaliers.",
+      type: "Stage",
+      description: "Développement d'un data warehouse pour stocker et centraliser les données hospitalières.",
       tasks: [
-        "Gestion systèmes hospitaliers",
-        "Interface utilisateur optimisée",
-        "Modules de demandes",
-        "Tableaux de bord analytiques"
+        "Collecte de données et développement d'un pipeline ETL",
+        "Modélisation et structuration du Data Warehouse",
+        "Création de modèles de données et développement de tableaux de bord"
       ],
-      technologies: ["Flutter", "Power BI", "DAX", "Oracle"],
-      color: "from-orange-500 to-red-500"
+      technologies: ["Python", "Power BI", "DAX", "Oracle"],
+      color: "from-emerald-500 to-green-500"
+    },
+    {
+      period: "Sept - Nov 2023",
+      company: "CHU Andrainjato",
+      position: "Développeur Back-end Symfony",
+      location: "Madagascar",
+      type: "Stage - Équipe SUPERNOVA",
+      description: "Solution numérique pour optimiser la gestion des rendez-vous et améliorer la communication patient-médecin.",
+      tasks: [
+        "Développement d'une plateforme de gestion des rendez-vous médicaux",
+        "Implémentation d'un système de communication sécurisé pour l'envoi d'ordonnances",
+        "Déploiement et intégration dans l'environnement hospitalier"
+      ],
+      technologies: ["Symfony", "React", "Flutter", "MySQL"],
+      color: "from-teal-500 to-cyan-500"
+    },
+    {
+      period: "Mai - Oct 2023",
+      company: "ESN ARATO",
+      position: "Développeur Backend .NET",
+      location: "Madagascar",
+      type: "Stage / Alternance",
+      description: "Développement d'applications de gestion et de paris sportifs avec architecture microservices.",
+      tasks: [
+        "Application de gestion de stock d'hôtel (Zomatel - Fianarantsoa)",
+        "Application mobile et bot messenger pour paris sportifs",
+        "Architecture microservice en Spring Boot",
+        "Développement d'un chatbot Messenger avec Ampalibe"
+      ],
+      technologies: [".NET", "Angular", "Flutter", "Ampalibe", "Docker", "Ngrok", "MySQL", "GitLab"],
+      color: "from-blue-500 to-indigo-500"
+    },
+    {
+      period: "Mai - Oct 2023",
+      company: "LAZAN'I BETSILEO",
+      position: "Développeur .NET",
+      location: "Madagascar",
+      type: "Stage",
+      description: "Conception et réalisation d'une plateforme e-commerce pour la vente de vin.",
+      tasks: [
+        "Développement d'une application d'achat de vins",
+        "Navigation par catégories, ajout au panier",
+        "Gestion complète des achats"
+      ],
+      technologies: [".NET", "jQuery", "MySQL", "GitHub"],
+      color: "from-red-500 to-orange-500"
     }
   ];
 
   return (
-    <section id="experience" ref={ref} className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 relative overflow-hidden">
+    <section id="experience" ref={ref} className="py-20 bg-gradient-to-br from-slate-900 to-blue-900 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-10 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Mon <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Parcours</span>
+            Expérience <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Professionnelle</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full"></div>
           <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
             Plus de 2 ans d'expérience dans le développement d'applications innovantes
           </p>
@@ -113,7 +173,7 @@ const ExperienceSection = () => {
 
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-0.5 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-500 rounded-full hidden md:block"></div>
+          <div className="absolute left-1/2 transform -translate-x-0.5 w-1 h-full bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full hidden md:block"></div>
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -160,7 +220,7 @@ const ExperienceSection = () => {
 
                       {/* Tasks */}
                       <div className="mb-4">
-                        <h5 className="text-white font-medium mb-2 text-sm">Réalisations clés :</h5>
+                        <h5 className="text-white font-medium mb-2 text-sm">Missions réalisées :</h5>
                         <ul className="space-y-1">
                           {exp.tasks.map((task, taskIndex) => (
                             <li key={taskIndex} className="text-gray-300 text-xs flex items-start">
