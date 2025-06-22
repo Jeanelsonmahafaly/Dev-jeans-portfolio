@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Code2, Database, Smartphone, Brain, Trophy, Users } from 'lucide-react';
+import { Code2, Database, Server, Shield, Trophy, Users, GitBranch, TestTube } from 'lucide-react';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,16 +24,18 @@ const AboutSection = () => {
   }, []);
 
   const skills = [
-    { icon: <Code2 className="w-8 h-8" />, title: "Développement Web", desc: "Symfony, React, TypeScript" },
-    { icon: <Smartphone className="w-8 h-8" />, title: "Mobile", desc: "Flutter, Applications natives" },
-    { icon: <Database className="w-8 h-8" />, title: "Bases de données", desc: "MySQL, PostgreSQL, MongoDB" },
-    { icon: <Brain className="w-8 h-8" />, title: "IA", desc: "PyTorch, TensorFlow, Keras" }
+    { icon: <Code2 className="w-8 h-8" />, title: "Développement .NET", desc: "C#, ASP.NET Core, Entity Framework" },
+    { icon: <Server className="w-8 h-8" />, title: "APIs REST", desc: "Conception et développement d'APIs" },
+    { icon: <Database className="w-8 h-8" />, title: "Bases de données", desc: "SQL Server, PostgreSQL, MongoDB" },
+    { icon: <Shield className="w-8 h-8" />, title: "Sécurité", desc: "Authentication, Authorization, HTTPS" },
+    { icon: <GitBranch className="w-8 h-8" />, title: "Microservices", desc: "Architecture distribuée" },
+    { icon: <TestTube className="w-8 h-8" />, title: "Tests", desc: "Tests unitaires et d'intégration" }
   ];
 
   const stats = [
     { number: "2+", label: "Années d'expérience" },
     { number: "15+", label: "Projets réalisés" },
-    { number: "5+", label: "Technologies maîtrisées" },
+    { number: "10+", label: "Technologies maîtrisées" },
     { number: "100%", label: "Satisfaction client" }
   ];
 
@@ -55,22 +57,21 @@ const AboutSection = () => {
           {/* Content */}
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <h3 className="text-2xl font-bold text-gray-800 mb-6">
-              Développeur passionné par l'innovation
+              Développeur .NET passionné par l'innovation
             </h3>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Avec plus de <span className="font-semibold text-blue-600">2 ans d'expérience</span> en développement, 
-                je maîtrise le cycle complet du développement d'applications web et mobile.
+                Avec plus de <span className="font-semibold text-blue-600">2 ans d'expérience</span> en développement .NET, 
+                je maîtrise la conception, le développement et la maintenance d'applications web robustes et sécurisées.
               </p>
               <p>
-                Mon expertise s'étend de la <span className="font-semibold text-purple-600">conception</span> à la 
-                <span className="font-semibold text-green-600"> maintenance</span>, en passant par les 
-                <span className="font-semibold text-orange-600"> tests</span> et l'optimisation des performances.
+                Mon expertise s'étend des <span className="font-semibold text-purple-600">architectures microservices</span> au 
+                <span className="font-semibold text-green-600"> développement d'APIs REST</span>, en passant par les 
+                <span className="font-semibold text-orange-600"> tests automatisés</span> et les pipelines CI/CD.
               </p>
               <p>
-                Passionné par les nouvelles technologies, je me spécialise également en 
-                <span className="font-semibold text-pink-600"> intelligence artificielle</span> et en 
-                <span className="font-semibold text-cyan-600"> architecture logicielle</span>.
+                Je m'intègre facilement en <span className="font-semibold text-pink-600">équipe agile</span> et veille constamment à la 
+                <span className="font-semibold text-cyan-600"> qualité des solutions</span> livrées.
               </p>
             </div>
 
