@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Code2, Database, Server, Shield, Trophy, Users, GitBranch, TestTube } from 'lucide-react';
+import { Code2, Database, Server, Shield, Trophy, Users, GitBranch, TestTube, Brain, Zap } from 'lucide-react';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,10 +32,16 @@ const AboutSection = () => {
     { icon: <TestTube className="w-8 h-8" />, title: "Tests", desc: "Tests unitaires et d'intégration" }
   ];
 
+  const achievements = [
+    { icon: <Brain className="w-6 h-6" />, title: "Classification d'images", desc: "Réseaux neuronaux convolutifs" },
+    { icon: <Zap className="w-6 h-6" />, title: "Chatbot intelligent", desc: "Paris sportifs" },
+    { icon: <Trophy className="w-6 h-6" />, title: "2ᵉ place Hackathon", desc: "Villes intelligentes" }
+  ];
+
   const stats = [
     { number: "2+", label: "Années d'expérience" },
+    { number: "3", label: "ESN partenaires" },
     { number: "15+", label: "Projets réalisés" },
-    { number: "10+", label: "Technologies maîtrisées" },
     { number: "100%", label: "Satisfaction client" }
   ];
 
@@ -53,7 +59,7 @@ const AboutSection = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-glacier-600 to-glacier-500 mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Content */}
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <h3 className="text-2xl font-bold text-gray-800 mb-6">
@@ -61,17 +67,56 @@ const AboutSection = () => {
             </h3>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Avec plus de <span className="font-semibold text-glacier-600">2 ans d'expérience</span> en développement .NET, 
-                je maîtrise la conception, le développement et la maintenance d'applications web robustes et sécurisées.
+                Je cumule plus de <span className="font-semibold text-glacier-600">2 ans d'expérience</span> dans le 
+                développement d'applications web <span className="font-semibold text-glacier-700">robustes, évolutives et sécurisées</span>.
               </p>
+              
+              <div className="bg-white rounded-xl p-6 border border-glacier-100 shadow-sm">
+                <h4 className="font-semibold text-glacier-800 mb-3">Mon parcours professionnel :</h4>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-glacier-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>1 an</strong> en tant que stagiaire puis alternant chez <strong>ARATO</strong></span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-glacier-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span><strong>1 an et demi</strong> chez <strong>RTS Line</strong>, participation à des projets d'envergure</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-glacier-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span>Actuellement chez <strong>ILOMAD</strong> en tant qu'ingénieur confirmé</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-gradient-to-r from-glacier-50 to-glacier-100 rounded-xl p-6 border border-glacier-200">
+                <h4 className="font-semibold text-glacier-800 mb-3 flex items-center gap-2">
+                  <Brain className="w-5 h-5 text-glacier-600" />
+                  Passionné par l'IA
+                </h4>
+                <div className="grid gap-3">
+                  {achievements.map((achievement, index) => (
+                    <div key={index} className="flex items-center gap-3 bg-white rounded-lg p-3 border border-glacier-100">
+                      <div className="text-glacier-600">{achievement.icon}</div>
+                      <div>
+                        <div className="font-medium text-gray-800 text-sm">{achievement.title}</div>
+                        <div className="text-gray-600 text-xs">{achievement.desc}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
               <p>
-                Mon expertise s'étend des <span className="font-semibold text-glacier-700">architectures microservices</span> au 
-                <span className="font-semibold text-glacier-500"> développement d'APIs REST</span>, en passant par les 
-                <span className="font-semibold text-glacier-800"> tests automatisés</span> et les pipelines CI/CD.
+                Mon expertise technique couvre les <span className="font-semibold text-glacier-600">architectures microservices</span>, 
+                le <span className="font-semibold text-glacier-700">développement d'API REST sécurisées</span>, les 
+                <span className="font-semibold text-glacier-800"> tests automatisés</span> et les 
+                <span className="font-semibold text-glacier-500"> pipelines CI/CD</span>.
               </p>
+              
               <p>
-                Je m'intègre facilement en <span className="font-semibold text-glacier-600">équipe agile</span> et veille constamment à la 
-                <span className="font-semibold text-glacier-700"> qualité des solutions</span> livrées.
+                Je m'intègre naturellement aux <span className="font-semibold text-glacier-600">équipes agiles</span> et mets un point d'honneur à 
+                livrer des solutions <span className="font-semibold text-glacier-700">fiables, maintenables et performantes</span>.
               </p>
             </div>
 
@@ -121,8 +166,8 @@ const AboutSection = () => {
                 <div className="flex items-center justify-center gap-3 bg-gradient-to-r from-glacier-50 to-glacier-100 rounded-lg p-4 border border-glacier-200">
                   <Trophy className="w-6 h-6 text-glacier-600" />
                   <div>
-                    <div className="font-semibold text-gray-800 text-sm">Prix Meilleur Singleton</div>
-                    <div className="text-gray-600 text-xs">ORGANISTECH 2023</div>
+                    <div className="font-semibold text-gray-800 text-sm">Agent d'automatisation IA</div>
+                    <div className="text-gray-600 text-xs">Contribution chez ILOMAD</div>
                   </div>
                 </div>
               </div>
