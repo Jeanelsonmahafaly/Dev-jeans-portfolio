@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, Github, Linkedin, Mail, MapPin, Phone, Download } from 'lucide-react';
 
@@ -23,20 +24,20 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden flex items-center">
+    <section id="home" className="min-h-screen bg-gradient-to-br from-slate-900 via-teal-900 to-emerald-900 relative overflow-hidden flex items-center">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-3/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 left-1/2 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-teal-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-3/4 right-1/4 w-64 h-64 bg-emerald-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/2 w-64 h-64 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
       </div>
 
       {/* Floating Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
-        <div className="absolute top-40 right-32 w-1 h-1 bg-purple-400 rounded-full animate-ping animation-delay-1000"></div>
-        <div className="absolute bottom-40 left-32 w-3 h-3 bg-pink-400 rounded-full animate-ping animation-delay-3000"></div>
-        <div className="absolute bottom-20 right-20 w-2 h-2 bg-cyan-400 rounded-full animate-ping animation-delay-2000"></div>
+        <div className="absolute top-20 left-20 w-2 h-2 bg-teal-400 rounded-full animate-ping"></div>
+        <div className="absolute top-40 right-32 w-1 h-1 bg-emerald-400 rounded-full animate-ping animation-delay-1000"></div>
+        <div className="absolute bottom-40 left-32 w-3 h-3 bg-cyan-400 rounded-full animate-ping animation-delay-3000"></div>
+        <div className="absolute bottom-20 right-20 w-2 h-2 bg-teal-300 rounded-full animate-ping animation-delay-2000"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -51,7 +52,7 @@ const HeroSection = () => {
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
                 />
               </div>
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-30 blur-xl animate-pulse"></div>
+              <div className="absolute -inset-4 bg-gradient-to-r from-teal-500 via-emerald-500 to-cyan-500 rounded-full opacity-30 blur-xl animate-pulse"></div>
             </div>
           </div>
 
@@ -60,11 +61,11 @@ const HeroSection = () => {
             <div className="mb-6">
               <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4">
                 RAZAFIMAHAFALY
-                <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
                   JEAN ELSON
                 </span>
               </h1>
-              <h2 className="text-xl lg:text-2xl font-medium text-blue-200 mb-6">
+              <h2 className="text-xl lg:text-2xl font-medium text-teal-200 mb-6">
                 Développeur .NET
               </h2>
               <p className="text-lg text-gray-300 leading-relaxed max-w-2xl">
@@ -109,13 +110,13 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button 
                 onClick={scrollToAbout}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                className="bg-gradient-to-r from-teal-600 to-emerald-600 text-white px-8 py-3 rounded-lg font-medium hover:from-teal-700 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               >
                 Découvrir mon parcours
               </button>
               <button 
                 onClick={downloadCV}
-                className="bg-gradient-to-r from-green-600 to-cyan-600 text-white px-8 py-3 rounded-lg font-medium hover:from-green-700 hover:to-cyan-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center gap-2"
+                className="bg-gradient-to-r from-emerald-600 to-cyan-600 text-white px-8 py-3 rounded-lg font-medium hover:from-emerald-700 hover:to-cyan-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center gap-2"
               >
                 <Download size={20} />
                 Télécharger CV
