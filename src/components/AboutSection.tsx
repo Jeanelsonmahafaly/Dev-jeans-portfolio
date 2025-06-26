@@ -25,11 +25,11 @@ const AboutSection = () => {
 
   const skills = [
     { icon: <Code2 className="w-8 h-8" />, title: "Développement .NET", desc: "C#, ASP.NET Core, Entity Framework" },
-    { icon: <Server className="w-8 h-8" />, title: "APIs REST", desc: "Conception et développement d'APIs" },
+    { icon: <Server className="w-8 h-8" />, title: "APIs REST", desc: "Conception et développement d'APIs sécurisées" },
     { icon: <Database className="w-8 h-8" />, title: "Bases de données", desc: "SQL Server, PostgreSQL, MongoDB" },
     { icon: <Shield className="w-8 h-8" />, title: "Sécurité", desc: "Authentication, Authorization, HTTPS" },
     { icon: <GitBranch className="w-8 h-8" />, title: "Microservices", desc: "Architecture distribuée" },
-    { icon: <TestTube className="w-8 h-8" />, title: "Tests", desc: "Tests unitaires et d'intégration" }
+    { icon: <TestTube className="w-8 h-8" />, title: "Tests & CI/CD", desc: "Tests automatisés et pipelines" }
   ];
 
   const achievements = [
@@ -84,7 +84,7 @@ const AboutSection = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-glacier-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Actuellement chez <strong>ILOMAD</strong> en tant qu'ingénieur confirmé</span>
+                    <span>Actuellement chez <strong>ILOMAD</strong> en tant qu'ingénieur confirmé, responsable du développement et de la livraison des projets</span>
                   </li>
                 </ul>
               </div>
@@ -94,6 +94,9 @@ const AboutSection = () => {
                   <Brain className="w-5 h-5 text-glacier-600" />
                   Passionné par l'IA
                 </h4>
+                <p className="text-sm text-gray-600 mb-4">
+                  J'ai également contribué à la mise en place d'agents d'automatisation basés sur l'intelligence artificielle et réalisé plusieurs projets personnels dans ce domaine.
+                </p>
                 <div className="grid gap-3">
                   {achievements.map((achievement, index) => (
                     <div key={index} className="flex items-center gap-3 bg-white rounded-lg p-3 border border-glacier-100">
@@ -107,12 +110,18 @@ const AboutSection = () => {
                 </div>
               </div>
 
-              <p>
-                Mon expertise technique couvre les <span className="font-semibold text-glacier-600">architectures microservices</span>, 
-                le <span className="font-semibold text-glacier-700">développement d'API REST sécurisées</span>, les 
-                <span className="font-semibold text-glacier-800"> tests automatisés</span> et les 
-                <span className="font-semibold text-glacier-500"> pipelines CI/CD</span>.
-              </p>
+              <div className="bg-white rounded-xl p-6 border border-glacier-100 shadow-sm">
+                <h4 className="font-semibold text-glacier-800 mb-3 flex items-center gap-2">
+                  <Code2 className="w-5 h-5 text-glacier-600" />
+                  Mon expertise technique
+                </h4>
+                <p className="text-sm text-gray-600">
+                  Mon expertise couvre les <span className="font-semibold text-glacier-600">architectures microservices</span>, 
+                  le <span className="font-semibold text-glacier-700">développement d'API REST sécurisées</span>, les 
+                  <span className="font-semibold text-glacier-800"> tests automatisés</span> (unitaires, fonctionnels) et les 
+                  <span className="font-semibold text-glacier-500"> pipelines CI/CD</span> (GitLab, Docker, etc.).
+                </p>
+              </div>
               
               <p>
                 Je m'intègre naturellement aux <span className="font-semibold text-glacier-600">équipes agiles</span> et mets un point d'honneur à 
