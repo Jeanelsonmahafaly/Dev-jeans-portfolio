@@ -47,7 +47,7 @@ const HeroSection = () => {
             <div className="relative">
               <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl backdrop-blur-sm">
                 <img 
-                  src="/lovable-uploads/726eed3b-e3c3-4db7-8a54-52d0fc86c5b8.png" 
+                  src="/lovable-uploads/58a5f867-0a5a-47e2-93ac-6f7bff166743.png" 
                   alt="Razafimahafaly Jean Elson - Développeur .NET"
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
                 />
