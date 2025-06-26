@@ -46,7 +46,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm flex items-center gap-1">
-              Fait avec <Heart className="w-4 h-4 text-red-500 animate-pulse" /> à Madagascar
+              Fait avec <Heart className="w-4 h-4 text-red-500 animate-pulse" /> à Fianarantsoa
             </p>
             <p className="text-gray-400 text-sm">
               © 2024 Jean Elson. Tous droits réservés.
