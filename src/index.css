@@ -197,17 +197,47 @@ html {
   background: linear-gradient(45deg, #0d9488, #0f766e);
 }
 
-/* Glassmorphism effect */
+/* Enhanced Glassmorphism Effects */
 .glass {
-  background: rgba(20, 184, 166, 0.1);
-  backdrop-filter: blur(10px);
+  background: rgba(20, 184, 166, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(20, 184, 166, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(20, 184, 166, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+  background: rgba(20, 184, 166, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(20, 184, 166, 0.25);
+  box-shadow: 
+    0 12px 40px rgba(20, 184, 166, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, 
+    rgba(240, 253, 249, 0.9) 0%, 
+    rgba(204, 253, 247, 0.6) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(20, 184, 166, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(20, 184, 166, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .glass-dark {
-  background: rgba(15, 118, 110, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(15, 118, 110, 0.2);
+  background: rgba(4, 47, 46, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(94, 234, 212, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(4, 47, 46, 0.3),
+    inset 0 1px 0 rgba(94, 234, 212, 0.1);
 }
 
 /* Gradient text animation - vert glacier */
@@ -220,15 +250,135 @@ html {
   background-clip: text;
 }
 
-/* Hover effects - vert glacier */
+/* Enhanced Hover Effects */
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(20, 184, 166, 0.5);
-  transition: box-shadow 0.3s ease;
+  box-shadow: 
+    0 0 30px rgba(20, 184, 166, 0.4),
+    0 0 60px rgba(20, 184, 166, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover-lift:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px) rotateX(5deg);
+  box-shadow: 
+    0 20px 40px rgba(20, 184, 166, 0.15),
+    0 0 0 1px rgba(20, 184, 166, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Isometric Effects */
+.isometric {
+  transform: rotateX(30deg) rotateY(-45deg);
   transition: transform 0.3s ease;
+}
+
+.isometric:hover {
+  transform: rotateX(30deg) rotateY(-45deg) scale(1.05);
+}
+
+.isometric-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.isometric-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.isometric-front {
+  transform: translateZ(20px);
+}
+
+.isometric-back {
+  transform: rotateY(180deg) translateZ(20px);
+}
+
+.isometric-right {
+  transform: rotateY(90deg) translateZ(20px);
+}
+
+.isometric-left {
+  transform: rotateY(-90deg) translateZ(20px);
+}
+
+.isometric-top {
+  transform: rotateX(90deg) translateZ(20px);
+}
+
+.isometric-bottom {
+  transform: rotateX(-90deg) translateZ(20px);
+}
+
+/* Floating Animation */
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Link Hover Effect */
+.story-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.story-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, 
+    hsl(var(--glacier-500)), 
+    hsl(var(--glacier-300)));
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.story-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.story-link:hover {
+  color: hsl(var(--glacier-600));
+}
+
+/* Pulse Effects */
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(20, 184, 166, 0.6);
+  }
+}
+
+/* Circuit Animation */
+@keyframes circuit-flow {
+  0% { 
+    opacity: 0; 
+    transform: translateX(-100%); 
+  }
+  50% { 
+    opacity: 1; 
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateX(100%); 
+  }
+}
+
+.circuit-line {
+  animation: circuit-flow 3s infinite linear;
 }
 
 /* Loading animation */

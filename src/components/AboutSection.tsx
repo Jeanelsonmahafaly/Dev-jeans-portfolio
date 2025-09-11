@@ -1,6 +1,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Code2, Database, Server, Shield, Trophy, Users, GitBranch, TestTube, Brain, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
+import IsometricCard from './IsometricCard';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
