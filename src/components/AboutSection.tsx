@@ -69,6 +69,18 @@ const AboutSection = () => {
             </h3>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
+                Passionné par le <span className="font-semibold text-glacier-600">développement .NET</span>, je maîtrise l'ensemble de son écosystème, depuis la conception et le développement jusqu'au déploiement continu via Azure DevOps et d'autres outils modernes.
+              </p>
+              
+              <p>
+                Fortement impliqué dans le domaine de l'<span className="font-semibold text-glacier-700">intelligence artificielle</span>, je conçois et entraîne des modèles de machine learning et deep learning, et je mets en place des solutions d'automatisation intelligente, notamment à travers des workflows avancés avec n8n.
+              </p>
+              
+              <p>
+                <span className="font-semibold text-glacier-800">Mon objectif</span> : allier performance, innovation et automatisation pour créer des solutions qui apportent une réelle valeur ajoutée.
+              </p>
+              
+              <p>
                 Je cumule plus de <span className="font-semibold text-glacier-600">2 ans d'expérience</span> dans le 
                 développement d'applications web <span className="font-semibold text-glacier-700">robustes, évolutives et sécurisées</span>.
               </p>
