@@ -1,9 +1,119 @@
 
-import React from 'react';
-import { Code, Database, Smartphone, Cloud, Globe, Brain, Shield, Wrench } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { Code, Database, Smartphone, Cloud, Globe, Brain, Shield, Wrench, GitBranch, Layers, Settings, Zap, BarChart, Lock, Server, Monitor } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 
 const Skills = () => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  // Hard Skills data avec icônes correspondantes
+  const hardSkills = [
+    // Langages / Frameworks
+    { name: "JavaScript", icon: <Code className="w-6 h-6" />, category: "Frontend" },
+    { name: "React", icon: <Code className="w-6 h-6" />, category: "Frontend" },
+    { name: "Angular", icon: <Code className="w-6 h-6" />, category: "Frontend" },
+    { name: "PHP", icon: <Code className="w-6 h-6" />, category: "Backend" },
+    { name: "Laravel", icon: <Server className="w-6 h-6" />, category: "Backend" },
+    { name: "Symfony", icon: <Server className="w-6 h-6" />, category: "Backend" },
+    { name: "Python", icon: <Code className="w-6 h-6" />, category: "Backend" },
+    { name: "Django", icon: <Server className="w-6 h-6" />, category: "Backend" },
+    { name: "C#", icon: <Code className="w-6 h-6" />, category: "Backend" },
+    { name: ".NET", icon: <Server className="w-6 h-6" />, category: "Backend" },
+    { name: "Entity Framework", icon: <Database className="w-6 h-6" />, category: "Backend" },
+    { name: "Flutter", icon: <Smartphone className="w-6 h-6" />, category: "Mobile" },
+    { name: "React Native", icon: <Smartphone className="w-6 h-6" />, category: "Mobile" },
+    
+    // Gestion de versions
+    { name: "Git", icon: <GitBranch className="w-6 h-6" />, category: "DevOps" },
+    { name: "GitLab", icon: <GitBranch className="w-6 h-6" />, category: "DevOps" },
+    { name: "GitHub", icon: <GitBranch className="w-6 h-6" />, category: "DevOps" },
+    
+    // Bases de données & Big Data
+    { name: "MySQL", icon: <Database className="w-6 h-6" />, category: "Database" },
+    { name: "PostgreSQL", icon: <Database className="w-6 h-6" />, category: "Database" },
+    { name: "Oracle", icon: <Database className="w-6 h-6" />, category: "Database" },
+    { name: "MongoDB", icon: <Database className="w-6 h-6" />, category: "NoSQL" },
+    { name: "HDFS", icon: <Server className="w-6 h-6" />, category: "BigData" },
+    { name: "Spark SQL", icon: <BarChart className="w-6 h-6" />, category: "BigData" },
+    
+    // BI & Data Warehouse
+    { name: "Power BI", icon: <BarChart className="w-6 h-6" />, category: "BI" },
+    { name: "Talend", icon: <Settings className="w-6 h-6" />, category: "ETL" },
+    { name: "SSIS", icon: <Settings className="w-6 h-6" />, category: "ETL" },
+    { name: "SSAS", icon: <BarChart className="w-6 h-6" />, category: "BI" },
+    { name: "SSRS", icon: <Monitor className="w-6 h-6" />, category: "BI" },
+    
+    // Réseaux & Sécurité
+    { name: "Firewall", icon: <Shield className="w-6 h-6" />, category: "Security" },
+    { name: "Proxy", icon: <Shield className="w-6 h-6" />, category: "Security" },
+    
+    // Architecture
+    { name: "Microservices", icon: <Layers className="w-6 h-6" />, category: "Architecture" },
+    
+    // Intelligence Artificielle
+    { name: "Keras", icon: <Brain className="w-6 h-6" />, category: "AI" },
+    { name: "NumPy", icon: <Brain className="w-6 h-6" />, category: "AI" },
+    { name: "Pandas", icon: <Brain className="w-6 h-6" />, category: "AI" },
+    { name: "PyTorch", icon: <Brain className="w-6 h-6" />, category: "AI" },
+    { name: "TensorFlow", icon: <Brain className="w-6 h-6" />, category: "AI" },
+    { name: "OpenAI", icon: <Brain className="w-6 h-6" />, category: "AI" },
+    { name: "LangChain", icon: <Brain className="w-6 h-6" />, category: "AI" },
+    { name: "Hugging Face", icon: <Brain className="w-6 h-6" />, category: "AI" },
+    
+    // Automatisation
+    { name: "n8n", icon: <Zap className="w-6 h-6" />, category: "Automation" },
+    { name: "Zapier", icon: <Zap className="w-6 h-6" />, category: "Automation" },
+    { name: "Make", icon: <Zap className="w-6 h-6" />, category: "Automation" },
+    { name: "Selenium", icon: <Settings className="w-6 h-6" />, category: "Automation" },
+    { name: "BeautifulSoup", icon: <Code className="w-6 h-6" />, category: "Scraping" },
+    { name: "Puppeteer", icon: <Settings className="w-6 h-6" />, category: "Scraping" },
+    
+    // Déploiement & Monitoring
+    { name: "Docker", icon: <Server className="w-6 h-6" />, category: "DevOps" },
+    { name: "Grafana", icon: <Monitor className="w-6 h-6" />, category: "Monitoring" },
+    { name: "Prometheus", icon: <Monitor className="w-6 h-6" />, category: "Monitoring" },
+    { name: "Jupyter", icon: <Code className="w-6 h-6" />, category: "Development" },
+    { name: "Postman", icon: <Settings className="w-6 h-6" />, category: "API" },
+    { name: "Swagger", icon: <Settings className="w-6 h-6" />, category: "API" },
+    { name: "Jira", icon: <Settings className="w-6 h-6" />, category: "Project" }
+  ];
+
+  // Auto-scroll effect
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    let scrollPosition = 0;
+    const scrollSpeed = 1;
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+    const autoScroll = () => {
+      scrollPosition += scrollSpeed;
+      if (scrollPosition >= maxScroll) {
+        scrollPosition = 0;
+      }
+      carousel.scrollLeft = scrollPosition;
+    };
+
+    const intervalId = setInterval(autoScroll, 50);
+
+    // Pause on hover
+    const handleMouseEnter = () => clearInterval(intervalId);
+    const handleMouseLeave = () => {
+      const newIntervalId = setInterval(autoScroll, 50);
+      return newIntervalId;
+    };
+
+    carousel.addEventListener('mouseenter', handleMouseEnter);
+    carousel.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      clearInterval(intervalId);
+      carousel.removeEventListener('mouseenter', handleMouseEnter);
+      carousel.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
   const skillCategories = [
     {
       icon: <Code className="w-8 h-8" />,
@@ -137,6 +247,53 @@ const Skills = () => {
             Compétences <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Techniques</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-600 mx-auto rounded-full"></div>
+        </div>
+        
+        {/* Hard Skills Section - Carrousel animé */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
+              ⚙️ <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Hard Skills</span>
+            </h3>
+            <p className="text-gray-600">Technologies et outils maîtrisés</p>
+          </div>
+          
+          <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 p-6">
+            <div 
+              ref={carouselRef}
+              className="flex gap-6 overflow-x-hidden scrollbar-hide"
+              style={{ width: 'fit-content' }}
+            >
+              {/* Dupliquer les skills pour un effet de loop continu */}
+              {[...hardSkills, ...hardSkills].map((skill, index) => (
+                <div
+                  key={`${skill.name}-${index}`}
+                  className="group relative flex-shrink-0 w-20 h-20 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center cursor-pointer border border-gray-100"
+                >
+                  <div className="text-gray-700 group-hover:text-blue-600 transition-colors duration-300">
+                    {skill.icon}
+                  </div>
+                  
+                  {/* Tooltip au survol */}
+                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-900 text-white text-xs rounded-lg px-3 py-2 whitespace-nowrap z-10">
+                    {skill.name}
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                  </div>
+                  
+                  {/* Badge catégorie */}
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs px-2 py-1 rounded-full">
+                      {skill.category}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Gradient fade effects */}
+            <div className="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-blue-50 to-transparent pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-pink-50 to-transparent pointer-events-none"></div>
+          </div>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
