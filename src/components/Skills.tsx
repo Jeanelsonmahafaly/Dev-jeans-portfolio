@@ -84,31 +84,44 @@ const Skills = () => {
     if (!carousel) return;
 
     let scrollPosition = 0;
-    const scrollSpeed = 1;
-    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    const scrollSpeed = 0.5;
+    let animationId: number;
+    let isRunning = true;
 
     const autoScroll = () => {
+      if (!isRunning) return;
+      
       scrollPosition += scrollSpeed;
+      const maxScroll = carousel.scrollWidth / 2; // Puisqu'on duplique les skills
+      
       if (scrollPosition >= maxScroll) {
         scrollPosition = 0;
       }
+      
       carousel.scrollLeft = scrollPosition;
+      animationId = requestAnimationFrame(autoScroll);
     };
 
-    const intervalId = setInterval(autoScroll, 50);
+    // Démarrer l'animation
+    animationId = requestAnimationFrame(autoScroll);
 
     // Pause on hover
-    const handleMouseEnter = () => clearInterval(intervalId);
+    const handleMouseEnter = () => {
+      isRunning = false;
+      if (animationId) cancelAnimationFrame(animationId);
+    };
+    
     const handleMouseLeave = () => {
-      const newIntervalId = setInterval(autoScroll, 50);
-      return newIntervalId;
+      isRunning = true;
+      animationId = requestAnimationFrame(autoScroll);
     };
 
     carousel.addEventListener('mouseenter', handleMouseEnter);
     carousel.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
-      clearInterval(intervalId);
+      isRunning = false;
+      if (animationId) cancelAnimationFrame(animationId);
       carousel.removeEventListener('mouseenter', handleMouseEnter);
       carousel.removeEventListener('mouseleave', handleMouseLeave);
     };
@@ -261,8 +274,10 @@ const Skills = () => {
           <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 p-6">
             <div 
               ref={carouselRef}
-              className="flex gap-6 overflow-x-hidden scrollbar-hide"
-              style={{ width: 'fit-content' }}
+              className="flex gap-6 overflow-x-auto scrollbar-hide"
+              style={{ 
+                width: 'max-content'
+              }}
             >
               {/* Dupliquer les skills pour un effet de loop continu */}
               {[...hardSkills, ...hardSkills].map((skill, index) => (
