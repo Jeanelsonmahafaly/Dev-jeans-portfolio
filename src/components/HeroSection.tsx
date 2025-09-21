@@ -139,7 +139,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Jean Elson ILOMBO
+            Jean Elson RAZAFIMAHAFALY
           </motion.h1>
           
           {/* Enhanced Subtitle with Glassmorphism */}
@@ -150,11 +150,13 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <h2 className="text-2xl md:text-3xl font-semibold text-glacier-700 mb-3">
-              Développeur .NET & Passionné d'IA
+              Développeur .NET & AI | Automatisation & Intelligence Artificielle
             </h2>
             <p className="text-lg text-glacier-600 leading-relaxed">
-              Ingénieur logiciel spécialisé en architectures microservices et intelligence artificielle, 
-              avec plus de 2 ans d'expérience dans le développement d'applications robustes et innovantes.
+              Ingénieur logiciel spécialisé en .NET et intelligence artificielle, avec plus de 2 ans d'expérience dans le développement d'applications robustes, innovantes et évolutives.
+              Passionné par le développement .NET, je maîtrise l'ensemble de son écosystème, depuis la conception et le développement jusqu'au déploiement continu via Azure DevOps et d'autres outils modernes.
+              Fortement impliqué dans le domaine de l'IA, je conçois et entraîne des modèles de machine learning et deep learning, et je mets en place des solutions d'automatisation intelligente, notamment à travers des workflows avancés avec n8n.
+              Mon objectif : allier performance, innovation et automatisation pour créer des solutions qui apportent une réelle valeur ajoutée.
             </p>
           </motion.div>
 
