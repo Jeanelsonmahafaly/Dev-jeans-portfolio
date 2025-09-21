@@ -109,7 +109,7 @@ const AboutSection = () => {
                   Passionné par l'IA
                 </h4>
                 <p className="text-sm text-gray-600 mb-4">
-                  J'ai également contribué à la mise en place d'agents d'automatisation basés sur l'intelligence artificielle et réalisé plusieurs projets personnels dans ce domaine.
+                  Spécialisé dans la <span className="font-semibold text-glacier-600">mise en place d'automatisation IA</span>, j'ai contribué au développement d'agents d'automatisation basés sur l'intelligence artificielle et réalisé plusieurs projets personnels dans ce domaine.
                 </p>
                 <div className="grid gap-3">
                   {achievements.map((achievement, index) => (
