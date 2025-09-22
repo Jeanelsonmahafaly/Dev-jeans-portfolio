@@ -9,73 +9,86 @@ const Skills = () => {
   // Hard Skills data avec icônes correspondantes
   const hardSkills = [
     // Langages / Frameworks
-    { name: "JavaScript", icon: <Code className="w-6 h-6" />, category: "Frontend" },
-    { name: "React", icon: <Code className="w-6 h-6" />, category: "Frontend" },
-    { name: "Angular", icon: <Code className="w-6 h-6" />, category: "Frontend" },
-    { name: "PHP", icon: <Code className="w-6 h-6" />, category: "Backend" },
-    { name: "Laravel", icon: <Server className="w-6 h-6" />, category: "Backend" },
-    { name: "Symfony", icon: <Server className="w-6 h-6" />, category: "Backend" },
-    { name: "Python", icon: <Code className="w-6 h-6" />, category: "Backend" },
-    { name: "Django", icon: <Server className="w-6 h-6" />, category: "Backend" },
-    { name: "C#", icon: <Code className="w-6 h-6" />, category: "Backend" },
-    { name: ".NET", icon: <Server className="w-6 h-6" />, category: "Backend" },
-    { name: "Entity Framework", icon: <Database className="w-6 h-6" />, category: "Backend" },
-    { name: "Flutter", icon: <Smartphone className="w-6 h-6" />, category: "Mobile" },
-    { name: "React Native", icon: <Smartphone className="w-6 h-6" />, category: "Mobile" },
+    { name: "JavaScript", icon: <Code className="w-6 h-6" /> },
+    { name: "React", icon: <Code className="w-6 h-6" /> },
+    { name: "Angular", icon: <Code className="w-6 h-6" /> },
+    { name: "PHP", icon: <Code className="w-6 h-6" /> },
+    { name: "Laravel", icon: <Server className="w-6 h-6" /> },
+    { name: "Symfony", icon: <Server className="w-6 h-6" /> },
+    { name: "Python", icon: <Code className="w-6 h-6" /> },
+    { name: "Django", icon: <Server className="w-6 h-6" /> },
+    { name: "Ampalibe", icon: <Server className="w-6 h-6" /> },
+    { name: "C#", icon: <Code className="w-6 h-6" /> },
+    { name: ".NET", icon: <Server className="w-6 h-6" /> },
+    { name: "Entity Framework Core", icon: <Database className="w-6 h-6" /> },
+    { name: "Flutter", icon: <Smartphone className="w-6 h-6" /> },
+    { name: "React Native", icon: <Smartphone className="w-6 h-6" /> },
     
     // Gestion de versions
-    { name: "Git", icon: <GitBranch className="w-6 h-6" />, category: "DevOps" },
-    { name: "GitLab", icon: <GitBranch className="w-6 h-6" />, category: "DevOps" },
-    { name: "GitHub", icon: <GitBranch className="w-6 h-6" />, category: "DevOps" },
+    { name: "Git", icon: <GitBranch className="w-6 h-6" /> },
+    { name: "GitLab", icon: <GitBranch className="w-6 h-6" /> },
+    { name: "GitHub", icon: <GitBranch className="w-6 h-6" /> },
     
     // Bases de données & Big Data
-    { name: "MySQL", icon: <Database className="w-6 h-6" />, category: "Database" },
-    { name: "PostgreSQL", icon: <Database className="w-6 h-6" />, category: "Database" },
-    { name: "Oracle", icon: <Database className="w-6 h-6" />, category: "Database" },
-    { name: "MongoDB", icon: <Database className="w-6 h-6" />, category: "NoSQL" },
-    { name: "HDFS", icon: <Server className="w-6 h-6" />, category: "BigData" },
-    { name: "Spark SQL", icon: <BarChart className="w-6 h-6" />, category: "BigData" },
+    { name: "MySQL", icon: <Database className="w-6 h-6" /> },
+    { name: "PostgreSQL", icon: <Database className="w-6 h-6" /> },
+    { name: "Oracle", icon: <Database className="w-6 h-6" /> },
+    { name: "MongoDB", icon: <Database className="w-6 h-6" /> },
+    { name: "HDFS", icon: <Server className="w-6 h-6" /> },
+    { name: "MapReduce", icon: <Settings className="w-6 h-6" /> },
+    { name: "YARN", icon: <Settings className="w-6 h-6" /> },
+    { name: "Spark SQL", icon: <BarChart className="w-6 h-6" /> },
     
     // BI & Data Warehouse
-    { name: "Power BI", icon: <BarChart className="w-6 h-6" />, category: "BI" },
-    { name: "Talend", icon: <Settings className="w-6 h-6" />, category: "ETL" },
-    { name: "SSIS", icon: <Settings className="w-6 h-6" />, category: "ETL" },
-    { name: "SSAS", icon: <BarChart className="w-6 h-6" />, category: "BI" },
-    { name: "SSRS", icon: <Monitor className="w-6 h-6" />, category: "BI" },
+    { name: "Power BI", icon: <BarChart className="w-6 h-6" /> },
+    { name: "Talend (TOS)", icon: <Settings className="w-6 h-6" /> },
+    { name: "SSIS", icon: <Settings className="w-6 h-6" /> },
+    { name: "SSAS", icon: <BarChart className="w-6 h-6" /> },
+    { name: "SSRS", icon: <Monitor className="w-6 h-6" /> },
     
     // Réseaux & Sécurité
-    { name: "Firewall", icon: <Shield className="w-6 h-6" />, category: "Security" },
-    { name: "Proxy", icon: <Shield className="w-6 h-6" />, category: "Security" },
+    { name: "LAN", icon: <Globe className="w-6 h-6" /> },
+    { name: "MAN", icon: <Globe className="w-6 h-6" /> },
+    { name: "WAN", icon: <Globe className="w-6 h-6" /> },
+    { name: "Firewall", icon: <Shield className="w-6 h-6" /> },
+    { name: "Proxy", icon: <Shield className="w-6 h-6" /> },
     
-    // Architecture
-    { name: "Microservices", icon: <Layers className="w-6 h-6" />, category: "Architecture" },
+    // Architecture Logicielle
+    { name: "Monolithique", icon: <Layers className="w-6 h-6" /> },
+    { name: "Microservices", icon: <Layers className="w-6 h-6" /> },
     
-    // Intelligence Artificielle
-    { name: "Keras", icon: <Brain className="w-6 h-6" />, category: "AI" },
-    { name: "NumPy", icon: <Brain className="w-6 h-6" />, category: "AI" },
-    { name: "Pandas", icon: <Brain className="w-6 h-6" />, category: "AI" },
-    { name: "PyTorch", icon: <Brain className="w-6 h-6" />, category: "AI" },
-    { name: "TensorFlow", icon: <Brain className="w-6 h-6" />, category: "AI" },
-    { name: "OpenAI", icon: <Brain className="w-6 h-6" />, category: "AI" },
-    { name: "LangChain", icon: <Brain className="w-6 h-6" />, category: "AI" },
-    { name: "Hugging Face", icon: <Brain className="w-6 h-6" />, category: "AI" },
+    // Intelligence Artificielle & Data Science
+    { name: "Keras", icon: <Brain className="w-6 h-6" /> },
+    { name: "NumPy", icon: <Brain className="w-6 h-6" /> },
+    { name: "Pandas", icon: <Brain className="w-6 h-6" /> },
+    { name: "PyTorch", icon: <Brain className="w-6 h-6" /> },
+    { name: "TensorFlow", icon: <Brain className="w-6 h-6" /> },
+    { name: "OpenAI (GPT)", icon: <Brain className="w-6 h-6" /> },
+    { name: "LangChain", icon: <Brain className="w-6 h-6" /> },
+    { name: "Hugging Face", icon: <Brain className="w-6 h-6" /> },
     
-    // Automatisation
-    { name: "n8n", icon: <Zap className="w-6 h-6" />, category: "Automation" },
-    { name: "Zapier", icon: <Zap className="w-6 h-6" />, category: "Automation" },
-    { name: "Make", icon: <Zap className="w-6 h-6" />, category: "Automation" },
-    { name: "Selenium", icon: <Settings className="w-6 h-6" />, category: "Automation" },
-    { name: "BeautifulSoup", icon: <Code className="w-6 h-6" />, category: "Scraping" },
-    { name: "Puppeteer", icon: <Settings className="w-6 h-6" />, category: "Scraping" },
+    // Automatisation & Scraping
+    { name: "n8n", icon: <Zap className="w-6 h-6" /> },
+    { name: "Zapier", icon: <Zap className="w-6 h-6" /> },
+    { name: "Make", icon: <Zap className="w-6 h-6" /> },
+    { name: "Selenium", icon: <Settings className="w-6 h-6" /> },
+    { name: "BeautifulSoup", icon: <Code className="w-6 h-6" /> },
+    { name: "Puppeteer", icon: <Settings className="w-6 h-6" /> },
+    
+    // Outils de stockage & Data Engineering
+    { name: "CSV", icon: <Database className="w-6 h-6" /> },
+    { name: "JSON", icon: <Database className="w-6 h-6" /> },
+    { name: "XML", icon: <Database className="w-6 h-6" /> },
     
     // Déploiement & Monitoring
-    { name: "Docker", icon: <Server className="w-6 h-6" />, category: "DevOps" },
-    { name: "Grafana", icon: <Monitor className="w-6 h-6" />, category: "Monitoring" },
-    { name: "Prometheus", icon: <Monitor className="w-6 h-6" />, category: "Monitoring" },
-    { name: "Jupyter", icon: <Code className="w-6 h-6" />, category: "Development" },
-    { name: "Postman", icon: <Settings className="w-6 h-6" />, category: "API" },
-    { name: "Swagger", icon: <Settings className="w-6 h-6" />, category: "API" },
-    { name: "Jira", icon: <Settings className="w-6 h-6" />, category: "Project" }
+    { name: "Docker", icon: <Server className="w-6 h-6" /> },
+    { name: "Grafana", icon: <Monitor className="w-6 h-6" /> },
+    { name: "Prometheus", icon: <Monitor className="w-6 h-6" /> },
+    { name: "Jupyter", icon: <Code className="w-6 h-6" /> },
+    { name: "Ngrok", icon: <Globe className="w-6 h-6" /> },
+    { name: "Postman", icon: <Settings className="w-6 h-6" /> },
+    { name: "Swagger", icon: <Settings className="w-6 h-6" /> },
+    { name: "Jira", icon: <Settings className="w-6 h-6" /> }
   ];
 
   // Auto-scroll effect
@@ -293,13 +306,6 @@ const Skills = () => {
                   <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-900 text-white text-xs rounded-lg px-3 py-2 whitespace-nowrap z-10">
                     {skill.name}
                     <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
-                  </div>
-                  
-                  {/* Badge catégorie */}
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs px-2 py-1 rounded-full">
-                      {skill.category}
-                    </span>
                   </div>
                 </div>
               ))}
