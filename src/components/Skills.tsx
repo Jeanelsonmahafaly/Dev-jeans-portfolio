@@ -32,45 +32,99 @@ const Skills = () => {
     }
   ];
 
-  // Technology logos data with realistic representations
+  // Technology logos data with comprehensive list
   const technologies = [
+    // Langages / Frameworks
     { name: "JavaScript", icon: <span className="text-2xl font-bold text-yellow-400">JS</span> },
     { name: "React", icon: <span className="text-2xl font-bold text-blue-400">⚛️</span> },
     { name: "Angular", icon: <span className="text-2xl font-bold text-red-500">A</span> },
     { name: "Vue.js", icon: <span className="text-2xl font-bold text-green-500">V</span> },
     { name: "PHP", icon: <span className="text-xl font-bold text-purple-500">PHP</span> },
     { name: "Laravel", icon: <span className="text-2xl text-red-600">🔺</span> },
-    { name: "Symfony", icon: <span className="text-2xl text-gray-800">S</span> },
+    { name: "Symfony", icon: <span className="text-2xl font-bold text-gray-800">S</span> },
     { name: "Python", icon: <span className="text-2xl">🐍</span> },
     { name: "Django", icon: <span className="text-xl font-bold text-green-600">DJ</span> },
+    { name: "Ampalibe", icon: <span className="text-xl font-bold text-blue-500">AMP</span> },
     { name: "C#", icon: <span className="text-xl font-bold text-purple-600">C#</span> },
     { name: ".NET", icon: <span className="text-xl font-bold text-blue-600">.NET</span> },
+    { name: "Entity Framework", icon: <span className="text-xl font-bold text-indigo-600">EF</span> },
     { name: "Flutter", icon: <span className="text-2xl text-cyan-500">🦋</span> },
     { name: "React Native", icon: <span className="text-xl font-bold text-blue-400">RN</span> },
-    { name: "MySQL", icon: <span className="text-2xl text-orange-500">🐬</span> },
-    { name: "PostgreSQL", icon: <span className="text-2xl text-blue-600">🐘</span> },
-    { name: "MongoDB", icon: <span className="text-2xl text-green-600">🍃</span> },
+    
+    // Gestion de versions
     { name: "Git", icon: <span className="text-xl font-bold text-orange-600">Git</span> },
     { name: "GitHub", icon: <span className="text-2xl text-gray-800">🐙</span> },
-    { name: "Docker", icon: <span className="text-2xl text-blue-500">🐋</span> },
-    { name: "Kubernetes", icon: <span className="text-2xl text-blue-400">☸️</span> },
+    { name: "GitLab", icon: <span className="text-2xl text-orange-600">🦊</span> },
+    
+    // Bases de données & Big Data
+    { name: "MySQL", icon: <span className="text-2xl text-orange-500">🐬</span> },
+    { name: "PostgreSQL", icon: <span className="text-2xl text-blue-600">🐘</span> },
+    { name: "Oracle", icon: <span className="text-xl font-bold text-red-600">ORA</span> },
+    { name: "MongoDB", icon: <span className="text-2xl text-green-600">🍃</span> },
+    { name: "HDFS", icon: <span className="text-xl font-bold text-yellow-600">HD</span> },
+    { name: "MapReduce", icon: <span className="text-xl font-bold text-blue-500">MR</span> },
+    { name: "YARN", icon: <span className="text-xl font-bold text-purple-500">YN</span> },
+    { name: "Spark SQL", icon: <span className="text-xl font-bold text-orange-500">⚡</span> },
+    
+    // BI & Data Warehouse
     { name: "Power BI", icon: <span className="text-xl font-bold text-yellow-600">BI</span> },
+    { name: "Talend", icon: <span className="text-xl font-bold text-blue-500">TOS</span> },
+    { name: "SSIS", icon: <span className="text-xl font-bold text-green-500">SSIS</span> },
+    { name: "SSAS", icon: <span className="text-xl font-bold text-purple-500">SSAS</span> },
+    { name: "SSRS", icon: <span className="text-xl font-bold text-red-500">SSRS</span> },
+    
+    // Réseaux & Sécurité
+    { name: "LAN/WAN", icon: <span className="text-2xl">🌐</span> },
+    { name: "Firewall", icon: <span className="text-2xl">🔥</span> },
+    { name: "Proxy", icon: <span className="text-2xl">🛡️</span> },
+    
+    // Architecture
+    { name: "Microservices", icon: <span className="text-2xl">🏗️</span> },
+    { name: "Monolithique", icon: <span className="text-2xl">🏛️</span> },
+    
+    // Intelligence Artificielle & Data Science
     { name: "TensorFlow", icon: <span className="text-xl font-bold text-orange-600">TF</span> },
     { name: "PyTorch", icon: <span className="text-2xl text-red-500">🔥</span> },
-    { name: "OpenAI", icon: <span className="text-xl font-bold text-green-500">AI</span> },
-    { name: "Selenium", icon: <span className="text-2xl text-green-600">🕷️</span> },
+    { name: "Keras", icon: <span className="text-xl font-bold text-red-500">K</span> },
+    { name: "NumPy", icon: <span className="text-xl font-bold text-blue-500">NP</span> },
+    { name: "Pandas", icon: <span className="text-2xl">🐼</span> },
+    { name: "OpenAI GPT", icon: <span className="text-2xl">🤖</span> },
+    { name: "LangChain", icon: <span className="text-xl font-bold text-green-500">🔗</span> },
+    { name: "Hugging Face", icon: <span className="text-2xl">🤗</span> },
+    { name: "RAG", icon: <span className="text-xl font-bold text-purple-500">RAG</span> },
+    
+    // Automatisation & Scraping
+    { name: "n8n", icon: <span className="text-xl font-bold text-pink-500">n8n</span> },
     { name: "Zapier", icon: <span className="text-2xl text-orange-500">⚡</span> },
-    { name: "Grafana", icon: <span className="text-xl font-bold text-orange-600">G</span> },
-    { name: "Postman", icon: <span className="text-2xl text-orange-500">📮</span> }
+    { name: "Make", icon: <span className="text-xl font-bold text-blue-500">Make</span> },
+    { name: "Selenium", icon: <span className="text-2xl text-green-600">🕷️</span> },
+    { name: "BeautifulSoup", icon: <span className="text-xl font-bold text-yellow-500">BS</span> },
+    { name: "Puppeteer", icon: <span className="text-2xl">🎭</span> },
+    
+    // Déploiement & Monitoring
+    { name: "Docker", icon: <span className="text-2xl text-blue-500">🐋</span> },
+    { name: "Kubernetes", icon: <span className="text-2xl text-blue-400">☸️</span> },
+    { name: "Grafana", icon: <span className="text-xl font-bold text-orange-600">📊</span> },
+    { name: "Prometheus", icon: <span className="text-xl font-bold text-red-500">⏱️</span> },
+    { name: "Jupyter", icon: <span className="text-xl font-bold text-orange-500">📓</span> },
+    { name: "Ngrok", icon: <span className="text-xl font-bold text-purple-500">🚇</span> },
+    { name: "Postman", icon: <span className="text-2xl text-orange-500">📮</span> },
+    { name: "Swagger", icon: <span className="text-xl font-bold text-green-500">📋</span> },
+    { name: "Jira", icon: <span className="text-xl font-bold text-blue-600">🎯</span> },
+    
+    // Formats de données
+    { name: "CSV", icon: <span className="text-xl font-bold text-green-500">CSV</span> },
+    { name: "JSON", icon: <span className="text-xl font-bold text-yellow-500">{ }</span> },
+    { name: "XML", icon: <span className="text-xl font-bold text-red-500">&lt;/&gt;</span> }
   ];
 
-  // Auto-scroll effect
+  // Auto-scroll effect with improved speed
   useEffect(() => {
     const carousel = carouselRef.current;
     if (!carousel) return;
 
     let scrollPosition = 0;
-    const scrollSpeed = 1;
+    const scrollSpeed = 1.5; // Increased speed for better visibility
     let animationId: number;
 
     const autoScroll = () => {
@@ -85,7 +139,10 @@ const Skills = () => {
       animationId = requestAnimationFrame(autoScroll);
     };
 
-    animationId = requestAnimationFrame(autoScroll);
+    // Start animation after a small delay
+    setTimeout(() => {
+      animationId = requestAnimationFrame(autoScroll);
+    }, 100);
 
     return () => {
       if (animationId) cancelAnimationFrame(animationId);
