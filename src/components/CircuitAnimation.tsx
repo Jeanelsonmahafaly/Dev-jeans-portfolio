@@ -44,7 +44,7 @@ export const CircuitAnimation: React.FC = () => {
             {/* Animated flowing line */}
             <motion.path
               d={path}
-              stroke="#2dd4bf"
+              stroke="#10B981"
               strokeWidth="2"
               fill="none"
               strokeDasharray="10 20"
@@ -84,14 +84,14 @@ export const CircuitAnimation: React.FC = () => {
         {/* Gradients */}
         <defs>
           <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#14b8a6" stopOpacity="0.2" />
-            <stop offset="50%" stopColor="#0d9488" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#2dd4bf" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="#10B981" stopOpacity="0.2" />
+            <stop offset="50%" stopColor="#059669" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#34D399" stopOpacity="0.2" />
           </linearGradient>
           
           <radialGradient id="nodeGradient">
-            <stop offset="0%" stopColor="#5eead4" />
-            <stop offset="100%" stopColor="#14b8a6" />
+            <stop offset="0%" stopColor="#34D399" />
+            <stop offset="100%" stopColor="#10B981" />
           </radialGradient>
         </defs>
       </svg>
@@ -101,7 +101,7 @@ export const CircuitAnimation: React.FC = () => {
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={`packet-${i}`}
-            className="absolute w-2 h-2 bg-glacier-400 rounded-full shadow-lg"
+            className="absolute w-2 h-2 bg-[#10B981] rounded-full shadow-lg"
             animate={{
               x: [0, 100, 200, 300, 400],
               y: [50 + i * 50, 25 + i * 50, 100 + i * 50, 150 + i * 50, 200 + i * 50],
@@ -114,7 +114,7 @@ export const CircuitAnimation: React.FC = () => {
               ease: "easeInOut",
             }}
             style={{
-              filter: 'drop-shadow(0 0 4px rgba(20, 184, 166, 0.6))',
+              filter: 'drop-shadow(0 0 4px rgba(16, 185, 129, 0.6))',
             }}
           />
         ))}

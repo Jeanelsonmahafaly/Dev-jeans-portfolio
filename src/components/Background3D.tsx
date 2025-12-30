@@ -22,7 +22,7 @@ const Stars = ({ count = 5000 }) => {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
-          color="#14b8a6"
+          color="#10B981"
           size={0.002}
           sizeAttenuation={true}
           depthWrite={false}
@@ -47,7 +47,7 @@ const FloatingCubes = () => {
     <mesh ref={meshRef} position={[2, 0, -2]}>
       <boxGeometry args={[0.2, 0.2, 0.2]} />
       <meshStandardMaterial 
-        color="#0d9488" 
+        color="#10B981" 
         transparent 
         opacity={0.6}
         wireframe
@@ -84,7 +84,7 @@ const CircuitLines = () => {
       {points.map((point, index) => (
         <mesh key={index} position={point as [number, number, number]}>
           <sphereGeometry args={[0.01, 8, 8]} />
-          <meshBasicMaterial color="#2dd4bf" />
+          <meshBasicMaterial color="#10B981" />
         </mesh>
       ))}
     </group>

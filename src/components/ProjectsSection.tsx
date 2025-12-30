@@ -1,9 +1,31 @@
-
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ExternalLink, Github, Smartphone, Globe, Database, Code2 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const ProjectsSection = () => {
+  const [visibleProjects, setVisibleProjects] = useState<number[]>([]);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.getAttribute('data-index') || '0');
+            setVisibleProjects(prev => [...prev, index]);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    const elements = ref.current?.querySelectorAll('[data-index]');
+    elements?.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  // TOUS les projets conservés
   const projects = [
     {
       title: "DRIM VTC - Plateforme de Gestion",
@@ -16,8 +38,7 @@ const ProjectsSection = () => {
         "Système de réservation en temps réel",
         "Architecture microservices avec Docker",
         "Tests automatisés et débogage fonctionnel"
-      ],
-      gradient: "from-glacier-500 to-glacier-600"
+      ]
     },
     {
       title: "FINTECH - Système de Loteries",
@@ -30,8 +51,7 @@ const ProjectsSection = () => {
         "Algorithmes de validation des tickets",
         "Intégration d'APIs tierces",
         "Architecture distribuée scalable"
-      ],
-      gradient: "from-glacier-600 to-glacier-700"
+      ]
     },
     {
       title: "Classification d'Images Médicales IA",
@@ -44,8 +64,7 @@ const ProjectsSection = () => {
         "Préprocessing d'images médicales",
         "Métriques de performance avancées",
         "Interface Jupyter pour l'analyse"
-      ],
-      gradient: "from-glacier-700 to-glacier-800"
+      ]
     },
     {
       title: "Business Kintana - Système Hospitalier",
@@ -58,34 +77,19 @@ const ProjectsSection = () => {
         "Tableaux de bord Power BI",
         "Optimisation des performances",
         "Interface utilisateur intuitive"
-      ],
-      gradient: "from-glacier-500 to-glacier-700"
+      ]
     }
   ];
 
-  const getCategoryColor = (category: string) => {
-    const colors = {
-      "Web Application": "bg-glacier-100 text-glacier-800 border-glacier-200",
-      "Mobile & Backend": "bg-glacier-200 text-glacier-900 border-glacier-300",
-      "Intelligence Artificielle": "bg-glacier-300 text-glacier-900 border-glacier-400",
-      "Healthcare System": "bg-glacier-100 text-glacier-800 border-glacier-200"
-    };
-    return colors[category as keyof typeof colors] || "bg-glacier-100 text-glacier-800 border-glacier-200";
-  };
-
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-glacier-50 to-white relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-glacier-100 to-glacier-200 rounded-full transform -translate-x-48 -translate-y-48 opacity-50"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-glacier-200 to-glacier-300 rounded-full transform translate-x-48 translate-y-48 opacity-50"></div>
-
+    <section id="projects" ref={ref} className="py-20 bg-[#111827] relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Mes <span className="bg-gradient-to-r from-glacier-600 to-glacier-500 bg-clip-text text-transparent">Projets</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Mes <span className="text-[#10B981]">Projets</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-glacier-600 to-glacier-500 mx-auto rounded-full mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <div className="w-24 h-1 bg-[#10B981] mx-auto rounded-full mb-6"></div>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
             Découvrez quelques-uns de mes projets récents qui démontrent mon expertise 
             en développement full-stack, mobile et intelligence artificielle.
           </p>
@@ -94,34 +98,40 @@ const ProjectsSection = () => {
         <div className="grid lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div 
-              key={index} 
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-glacier-100 hover:border-glacier-200 transform hover:scale-105 group"
+              key={index}
+              data-index={index}
+              className={`bg-[#030712] rounded-2xl p-8 border border-[#1F2937] hover:border-[#10B981] card-glow transition-all duration-500 ${
+                visibleProjects.includes(index)
+                  ? 'animate-fade-in-up opacity-100'
+                  : 'opacity-0'
+              }`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-center gap-4 mb-6">
-                <div className={`p-3 rounded-xl bg-gradient-to-r ${project.gradient} text-white group-hover:scale-110 transition-transform duration-300`}>
+                <div className="p-3 rounded-xl bg-[#10B981]/20 text-[#10B981] group-hover:scale-110 transition-transform duration-300">
                   {project.icon}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
-                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(project.category)}`}>
+                  <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                  <span className="inline-block px-3 py-1 bg-[#1F2937] text-gray-300 rounded-full text-xs font-medium border border-[#374151]">
                     {project.category}
                   </span>
                 </div>
               </div>
               
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 {project.description}
               </p>
               
               <div className="mb-6">
-                <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                  <div className="w-2 h-2 bg-glacier-500 rounded-full"></div>
+                <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
+                  <div className="w-2 h-2 bg-[#10B981] rounded-full"></div>
                   Fonctionnalités clés
                 </h4>
                 <ul className="space-y-2">
                   {project.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="text-gray-600 text-sm flex items-start gap-2">
-                      <div className="w-1 h-1 bg-glacier-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <li key={featureIndex} className="text-gray-400 text-sm flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 bg-[#10B981] rounded-full mt-2 flex-shrink-0"></span>
                       {feature}
                     </li>
                   ))}
@@ -133,7 +143,7 @@ const ProjectsSection = () => {
                   {project.technologies.map((tech, techIndex) => (
                     <span 
                       key={techIndex} 
-                      className="bg-glacier-50 text-glacier-700 px-3 py-1 rounded-full text-xs font-medium border border-glacier-200 hover:bg-glacier-100 transition-colors"
+                      className="bg-[#1F2937] text-gray-300 px-3 py-1 rounded-full text-xs font-medium border border-[#374151] hover:border-[#10B981] hover:text-[#10B981] transition-colors"
                     >
                       {tech}
                     </span>
@@ -142,11 +152,18 @@ const ProjectsSection = () => {
               </div>
               
               <div className="flex gap-3">
-                <Button variant="outline" size="sm" className="flex items-center gap-2 border-glacier-300 text-glacier-700 hover:bg-glacier-50">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="flex items-center gap-2 border-[#374151] text-gray-300 hover:bg-[#1F2937] hover:border-[#10B981] hover:text-[#10B981] btn-micro-bounce transition-all duration-300"
+                >
                   <Github className="w-4 h-4" />
                   Code
                 </Button>
-                <Button size="sm" className="flex items-center gap-2 bg-gradient-to-r from-glacier-600 to-glacier-500 hover:from-glacier-700 hover:to-glacier-600">
+                <Button 
+                  size="sm" 
+                  className="flex items-center gap-2 bg-[#10B981] hover:bg-[#059669] text-white border-0 btn-micro-bounce transition-all duration-300"
+                >
                   <ExternalLink className="w-4 h-4" />
                   Démo
                 </Button>
@@ -156,7 +173,11 @@ const ProjectsSection = () => {
         </div>
         
         <div className="text-center mt-16">
-          <Button size="lg" variant="outline" className="border-glacier-400 text-glacier-700 hover:bg-glacier-50 px-8 py-3">
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="border-[#10B981] text-[#10B981] hover:bg-[#10B981]/10 px-8 py-3 btn-micro-bounce transition-all duration-300"
+          >
             Voir tous mes projets
           </Button>
         </div>

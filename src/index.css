@@ -7,74 +7,36 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark Mode Premium - Portfolio */
+    --background: 222 47% 3%; /* #030712 */
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 222 47% 7%; /* #111827 */
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 222 47% 7%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 168 76% 36%;
+    --primary: 158 64% 52%; /* #10B981 - Vert Émeraude */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 168 19% 95%;
-    --secondary-foreground: 168 76% 15%;
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 168 19% 95%;
-    --muted-foreground: 168 15% 46%;
+    --muted: 222 47% 11%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 168 19% 95%;
-    --accent-foreground: 168 76% 15%;
+    --accent: 158 64% 52%; /* Vert Émeraude */
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 168 31% 91%;
-    --input: 168 31% 91%;
-    --ring: 168 76% 36%;
+    --border: 222 47% 15%;
+    --input: 222 47% 15%;
+    --ring: 158 64% 52%; /* Vert Émeraude */
 
     --radius: 0.5rem;
-
-    --sidebar-background: 168 100% 99%;
-    --sidebar-foreground: 168 26% 15%;
-    --sidebar-primary: 168 76% 36%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 168 48% 96%;
-    --sidebar-accent-foreground: 168 76% 15%;
-    --sidebar-border: 168 20% 90%;
-    --sidebar-ring: 168 91% 59%;
-  }
-
-  .dark {
-    --background: 168 84% 4%;
-    --foreground: 168 40% 98%;
-    --card: 168 84% 4%;
-    --card-foreground: 168 40% 98%;
-    --popover: 168 84% 4%;
-    --popover-foreground: 168 40% 98%;
-    --primary: 168 40% 98%;
-    --primary-foreground: 168 47% 11%;
-    --secondary: 168 33% 17%;
-    --secondary-foreground: 168 40% 98%;
-    --muted: 168 33% 17%;
-    --muted-foreground: 168 20% 65%;
-    --accent: 168 33% 17%;
-    --accent-foreground: 168 40% 98%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 168 40% 98%;
-    --border: 168 33% 17%;
-    --input: 168 33% 17%;
-    --ring: 168 27% 84%;
-    --sidebar-background: 168 59% 10%;
-    --sidebar-foreground: 168 48% 96%;
-    --sidebar-primary: 168 76% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 168 37% 16%;
-    --sidebar-accent-foreground: 168 48% 96%;
-    --sidebar-border: 168 37% 16%;
-    --sidebar-ring: 168 91% 59%;
   }
 }
 
@@ -84,7 +46,8 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-[#030712] text-white;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   }
 }
 
@@ -106,6 +69,26 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.8);
   }
 }
 
@@ -144,6 +127,24 @@
   animation: fade-in 0.6s ease-out forwards;
 }
 
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Micro-rebond pour boutons (scale 1.05) */
+.btn-micro-bounce {
+  transition: transform 0.3s ease;
+}
+
+.btn-micro-bounce:hover {
+  transform: scale(1.05);
+}
+
+/* Glow animé pour bordures */
+.glow-border {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
 .animation-delay-1000 {
   animation-delay: 1s;
 }
@@ -174,75 +175,89 @@
   animation: float 3s ease-in-out infinite;
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling - lent et fluide */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
-/* Custom scrollbar - thème vert glacier */
+/* Smooth scroll personnalisé */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom scrollbar - Vert Émeraude */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #030712;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #14b8a6, #0d9488);
+  background: #10B981;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #0d9488, #0f766e);
+  background: #059669;
 }
 
-/* Enhanced Glassmorphism Effects */
+/* Enhanced Glassmorphism Effects - Dark Premium avec Vert Émeraude */
 .glass {
-  background: rgba(20, 184, 166, 0.08);
+  background: rgba(17, 24, 39, 0.6); /* #111827 avec transparence */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(20, 184, 166, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.2); /* #10B981 */
   box-shadow: 
-    0 8px 32px rgba(20, 184, 166, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(16, 185, 129, 0.1);
 }
 
 .glass-strong {
-  background: rgba(20, 184, 166, 0.15);
+  background: rgba(17, 24, 39, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(20, 184, 166, 0.25);
+  border: 1px solid rgba(16, 185, 129, 0.3);
   box-shadow: 
-    0 12px 40px rgba(20, 184, 166, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(16, 185, 129, 0.15);
 }
 
 .glass-card {
-  background: linear-gradient(135deg, 
-    rgba(240, 253, 249, 0.9) 0%, 
-    rgba(204, 253, 247, 0.6) 100%);
+  background: rgba(17, 24, 39, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(20, 184, 166, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.25);
   box-shadow: 
-    0 8px 32px rgba(20, 184, 166, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(16, 185, 129, 0.1);
 }
 
 .glass-dark {
-  background: rgba(4, 47, 46, 0.15);
+  background: rgba(3, 7, 18, 0.8); /* #030712 */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(94, 234, 212, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.3);
   box-shadow: 
-    0 8px 32px rgba(4, 47, 46, 0.3),
-    inset 0 1px 0 rgba(94, 234, 212, 0.1);
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(16, 185, 129, 0.15);
 }
 
-/* Gradient text animation - vert glacier */
+/* Glassmorphism pour navigation sticky */
+.glass-nav {
+  background: rgba(3, 7, 18, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Gradient text animation - Vert Émeraude */
 .gradient-text-animated {
-  background: linear-gradient(-45deg, #14b8a6, #0d9488, #2dd4bf, #5eead4);
+  background: linear-gradient(-45deg, #10B981, #059669, #34D399, #6EE7B7);
   background-size: 400% 400%;
   animation: gradient-x 3s ease infinite;
   -webkit-background-clip: text;
@@ -250,21 +265,31 @@ html {
   background-clip: text;
 }
 
-/* Enhanced Hover Effects */
+/* Enhanced Hover Effects - Vert Émeraude */
 .hover-glow:hover {
   box-shadow: 
-    0 0 30px rgba(20, 184, 166, 0.4),
-    0 0 60px rgba(20, 184, 166, 0.2);
+    0 0 30px rgba(16, 185, 129, 0.4),
+    0 0 60px rgba(16, 185, 129, 0.2);
   transform: translateY(-2px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
 }
 
 .hover-lift:hover {
-  transform: translateY(-8px) rotateX(5deg);
+  transform: translateY(-8px);
   box-shadow: 
-    0 20px 40px rgba(20, 184, 166, 0.15),
-    0 0 0 1px rgba(20, 184, 166, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    0 20px 40px rgba(16, 185, 129, 0.2),
+    0 0 0 1px rgba(16, 185, 129, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Carte qui s'illumine au survol */
+.card-glow:hover {
+  border-color: #10B981;
+  box-shadow: 
+    0 0 30px rgba(16, 185, 129, 0.3),
+    0 10px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
 }
 
 /* Isometric Effects */
@@ -355,10 +380,10 @@ html {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
   }
   50% {
-    box-shadow: 0 0 30px rgba(20, 184, 166, 0.6);
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.8);
   }
 }
 
@@ -392,7 +417,7 @@ html {
 }
 
 .shimmer {
-  background: linear-gradient(90deg, transparent, rgba(20, 184, 166, 0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.4), transparent);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }

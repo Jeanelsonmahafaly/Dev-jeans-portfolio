@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Calendar, MapPin, Building2 } from 'lucide-react';
+import { Calendar, MapPin, Building2, TrendingUp, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const ExperienceSection = () => {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
@@ -24,6 +25,7 @@ const ExperienceSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  // TOUTES les expériences conservées - TRIÉES PAR DATE (du plus récent au plus ancien)
   const experiences = [
     {
       period: "Juin 2025 - À ce jour",
@@ -39,7 +41,10 @@ const ExperienceSection = () => {
         "Déploiement des applications sur Microsoft Azure (App Service, Azure SQL)",
         "Collaboration via Jira et gestion du code source via GitLab"
       ],
-      technologies: [".NET", "React", "ASP.NET Core", "Docker", "GitLab", "Jira", "Azure"]
+      technologies: [".NET", "React", "ASP.NET Core", "Docker", "GitLab", "Jira", "Azure"],
+      duration: "En cours",
+      level: 8,
+      startDate: new Date('2025-06-01')
     },
     {
       period: "Fév 2024 - Juin 2025",
@@ -54,7 +59,10 @@ const ExperienceSection = () => {
         "Garantie de la qualité du code par la mise en place de tests fonctionnels et unitaires",
         "Déploiement efficace et sécurisé grâce à des pipelines CI/CD automatisés"
       ],
-      technologies: ["Symfony", "Angular", "Webpack", "jQuery", "Ajax", "GitLab", "Docker", "Kubernetes", "Firebase"]
+      technologies: ["Symfony", "Angular", "Webpack", "jQuery", "Ajax", "GitLab", "Docker", "Kubernetes", "Firebase"],
+      duration: "1 an 4 mois",
+      level: 7,
+      startDate: new Date('2024-02-01')
     },
     {
       period: "Jan 2024",
@@ -68,7 +76,10 @@ const ExperienceSection = () => {
         "Implémentation d'algorithmes avancés pour la sécurisation des tickets",
         "Déploiement du back-end sur la plateforme Tranokala Malagasy"
       ],
-      technologies: ["Symfony", "Flutter", "GitHub"]
+      technologies: ["Symfony", "Flutter", "GitHub"],
+      duration: "1 mois",
+      level: 6,
+      startDate: new Date('2024-01-01')
     },
     {
       period: "Déc 2023 - Jan 2024",
@@ -82,7 +93,10 @@ const ExperienceSection = () => {
         "Classification d'images avec un modèle de réseau de neurones convolutif",
         "Entraînement et évaluation des performances du modèle"
       ],
-      technologies: ["Jupyter", "Python", "Keras", "TensorFlow"]
+      technologies: ["Jupyter", "Python", "Keras", "TensorFlow"],
+      duration: "2 mois",
+      level: 5,
+      startDate: new Date('2023-12-01')
     },
     {
       period: "Nov 2023",
@@ -96,7 +110,10 @@ const ExperienceSection = () => {
         "Modélisation et structuration du Data Warehouse",
         "Création de modèles de données et développement de tableaux de bord"
       ],
-      technologies: ["Python", "Power BI", "DAX", "Oracle"]
+      technologies: ["Python", "Power BI", "DAX", "Oracle"],
+      duration: "1 mois",
+      level: 4,
+      startDate: new Date('2023-11-01')
     },
     {
       period: "Sept - Nov 2023",
@@ -110,7 +127,10 @@ const ExperienceSection = () => {
         "Implémentation d'un système de communication sécurisé pour l'envoi d'ordonnances",
         "Déploiement et intégration dans l'environnement hospitalier"
       ],
-      technologies: ["Symfony", "React", "Flutter", "MySQL"]
+      technologies: ["Symfony", "React", "Flutter", "MySQL"],
+      duration: "3 mois",
+      level: 3,
+      startDate: new Date('2023-09-01')
     },
     {
       period: "Mai - Oct 2023",
@@ -125,7 +145,10 @@ const ExperienceSection = () => {
         "Architecture microservice en Spring Boot",
         "Développement d'un chatbot Messenger avec Ampalibe"
       ],
-      technologies: [".NET", "Angular", "Flutter", "Ampalibe", "Docker", "Ngrok", "MySQL", "GitLab"]
+      technologies: [".NET", "Angular", "Flutter", "Ampalibe", "Docker", "Ngrok", "MySQL", "GitLab"],
+      duration: "6 mois",
+      level: 2,
+      startDate: new Date('2023-05-01')
     },
     {
       period: "Mai - Oct 2023",
@@ -139,109 +162,182 @@ const ExperienceSection = () => {
         "Navigation par catégories, ajout au panier",
         "Gestion complète des achats"
       ],
-      technologies: [".NET", "jQuery", "MySQL", "GitHub"]
+      technologies: [".NET", "jQuery", "MySQL", "GitHub"],
+      duration: "6 mois",
+      level: 1,
+      startDate: new Date('2023-05-01')
     }
-  ];
+  ].sort((a, b) => b.startDate.getTime() - a.startDate.getTime()); // Tri par date décroissante
+
+  // Calculer les positions pour le graphique avec plus d'espace
+  const spacing = 380; // Espacement augmenté entre chaque expérience pour éviter les chevauchements
+  const chartHeight = experiences.length * spacing + 400; // Hauteur totale avec padding
 
   return (
-    <section id="experience" ref={ref} className="py-16 bg-gradient-to-br from-glacier-900 via-glacier-800 to-glacier-900 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-32 h-32 border border-glacier-500/30 rounded-lg rotate-12"></div>
-        <div className="absolute bottom-40 right-20 w-24 h-24 border border-glacier-400/20 rounded-lg -rotate-12"></div>
-      </div>
-
+    <section id="experience" ref={ref} className="py-20 bg-[#030712] relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-            Expérience <span className="text-glacier-400">Professionnelle</span>
+            Expérience <span className="text-[#10B981]">Professionnelle</span>
           </h2>
-          <div className="w-16 h-1 bg-glacier-400 mx-auto rounded-full mb-3"></div>
-          <p className="text-glacier-300 text-sm md:text-base max-w-xl mx-auto">
+          <div className="w-16 h-1 bg-[#10B981] mx-auto rounded-full mb-3"></div>
+          <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto">
             Plus de 2 ans d'expérience dans le développement d'applications innovantes
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="relative max-w-5xl mx-auto">
-          {/* Timeline Line - Center */}
-          <div className="absolute left-4 md:left-1/2 md:-translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-glacier-400 via-glacier-500 to-glacier-600"></div>
-
-          <div className="space-y-6">
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                data-index={index}
-                className={`relative transition-all duration-700 ${
-                  visibleItems.includes(index) 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-8'
-                }`}
-              >
-                {/* Timeline Dot */}
-                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-3 h-3 bg-glacier-400 rounded-full border-2 border-glacier-900 z-10 mt-6"></div>
-
-                {/* Card Container */}
-                <div className={`ml-10 md:ml-0 md:w-[calc(50%-24px)] ${
-                  index % 2 === 0 ? 'md:mr-auto md:pr-0' : 'md:ml-auto md:pl-0'
-                }`}>
-                  <div className="bg-glacier-800/60 backdrop-blur-sm rounded-xl p-4 border border-glacier-700/50 hover:border-glacier-500/50 transition-all duration-300 hover:bg-glacier-800/80">
-                    {/* Top Row - Type, Date, Location */}
-                    <div className="flex flex-wrap items-center gap-2 mb-3 text-xs">
-                      <span className="px-2 py-0.5 bg-glacier-500 text-white rounded font-medium">
-                        {exp.type}
-                      </span>
-                      <div className="flex items-center text-glacier-300 gap-1">
-                        <Calendar size={11} />
-                        <span>{exp.period}</span>
-                      </div>
-                      <div className="flex items-center text-glacier-300 gap-1">
-                        <MapPin size={11} />
-                        <span>{exp.location}</span>
-                      </div>
-                    </div>
-
-                    {/* Company */}
-                    <div className="flex items-center gap-2 mb-1">
-                      <Building2 size={16} className="text-glacier-400" />
-                      <h3 className="text-base font-bold text-white">{exp.company}</h3>
-                    </div>
-
-                    {/* Position */}
-                    <h4 className="text-glacier-400 font-semibold text-sm mb-2">{exp.position}</h4>
-
-                    {/* Description */}
-                    <p className="text-glacier-200 text-xs mb-3 leading-relaxed">{exp.description}</p>
-
-                    {/* Tasks */}
-                    <div className="mb-3">
-                      <h5 className="text-white font-medium text-xs mb-1.5">Missions réalisées :</h5>
-                      <ul className="space-y-0.5">
-                        {exp.tasks.slice(0, 4).map((task, taskIndex) => (
-                          <li key={taskIndex} className="text-glacier-300 text-xs flex items-start gap-1.5">
-                            <span className="w-1 h-1 bg-glacier-400 rounded-full mt-1.5 flex-shrink-0"></span>
-                            <span className="leading-relaxed">{task}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-1.5">
-                      {exp.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-2 py-0.5 bg-glacier-900/80 text-glacier-300 rounded text-xs border border-glacier-600/40 hover:border-glacier-400/60 transition-colors"
-                        >
-                          {tech}
+        {/* Graphique/Diagramme d'expérience avec ligne continue */}
+        <div className="max-w-7xl mx-auto">
+          <div className="relative">
+            {/* Ligne centrale continue verticale - traverse tout le graphique */}
+            <div 
+              className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-[#10B981] via-[#10B981] to-[#10B981] opacity-40"
+              style={{
+                top: '0',
+                height: `${chartHeight}px`,
+                zIndex: 1
+              }}
+            ></div>
+            
+            {/* Graphique avec barres et connexions - Plus d'espace entre chaque */}
+            <div className="relative" style={{ height: `${chartHeight}px`, minHeight: '2800px' }}>
+              {experiences.map((exp, index) => {
+                const isLeft = index % 2 === 0;
+                // Position verticale basée sur l'index avec espacement régulier augmenté
+                const yPosition = (index * spacing) + 200;
+                
+                return (
+                  <motion.div
+                    key={index}
+                    data-index={index}
+                    className={`absolute transition-all duration-700 ${
+                      visibleItems.includes(index) 
+                        ? 'opacity-100 scale-100' 
+                        : 'opacity-0 scale-0'
+                    }`}
+                    style={{
+                      left: isLeft ? '5%' : 'auto',
+                      right: isLeft ? 'auto' : '5%',
+                      top: `${yPosition}px`,
+                      transform: 'translateY(-50%)',
+                      zIndex: 10
+                    }}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ 
+                      opacity: visibleItems.includes(index) ? 1 : 0,
+                      y: visibleItems.includes(index) ? 0 : 50
+                    }}
+                    transition={{ delay: index * 0.15 }}
+                  >
+                    {/* Ligne de connexion horizontale vers le centre */}
+                    <div 
+                      className="absolute w-0.5 bg-[#10B981]/50"
+                      style={{
+                        width: isLeft ? 'calc(50% - 5%)' : 'calc(50% - 5%)',
+                        height: '2px',
+                        top: '50%',
+                        left: isLeft ? '100%' : 'auto',
+                        right: isLeft ? 'auto' : '100%',
+                        transform: 'translateY(-50%)',
+                        zIndex: 2
+                      }}
+                    ></div>
+                    
+                    {/* Point de connexion sur la ligne centrale */}
+                    <div 
+                      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-[#10B981] rounded-full border-4 border-[#030712] z-20 shadow-lg shadow-[#10B981]/50"
+                      style={{
+                        left: '50%'
+                      }}
+                    ></div>
+                    
+                    {/* Carte d'expérience AGRANDIE avec TOUS les détails */}
+                    <div 
+                      className={`glass rounded-xl p-7 border border-[#1F2937] hover:border-[#10B981] card-glow w-[420px] transition-all duration-300 mb-8 ${
+                        isLeft ? 'mr-20' : 'ml-20'
+                      }`}
+                    >
+                      {/* En-tête avec plus d'espace */}
+                      <div className="flex items-center gap-3 mb-5">
+                        <Building2 size={20} className="text-[#10B981]" />
+                        <h3 className="text-xl font-bold text-white">{exp.company}</h3>
+                        <span className="ml-auto px-3 py-1.5 bg-[#10B981]/20 text-[#10B981] rounded-md text-xs font-medium border border-[#10B981]/30">
+                          {exp.type}
                         </span>
-                      ))}
+                      </div>
+
+                      {/* Position */}
+                      <h4 className="text-[#10B981] font-semibold text-base mb-4">{exp.position}</h4>
+
+                      {/* Période, durée et localisation avec plus d'espace */}
+                      <div className="space-y-2 mb-5">
+                        <div className="flex items-center gap-3 text-sm text-gray-400">
+                          <Calendar size={14} className="text-[#10B981]" />
+                          <span className="font-medium">{exp.period}</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-sm text-gray-400">
+                          <TrendingUp size={14} className="text-[#10B981]" />
+                          <span>Durée : {exp.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-sm text-gray-400">
+                          <MapPin size={14} className="text-[#10B981]" />
+                          <span>{exp.location}</span>
+                        </div>
+                      </div>
+
+                      {/* Description complète */}
+                      <div className="mb-5">
+                        <p className="text-gray-300 text-sm leading-relaxed">{exp.description}</p>
+                      </div>
+
+                      {/* Missions réalisées - TOUTES les tâches affichées */}
+                      <div className="mb-5">
+                        <h5 className="text-white font-semibold text-sm mb-3 flex items-center gap-2">
+                          <CheckCircle2 size={16} className="text-[#10B981]" />
+                          Missions réalisées :
+                        </h5>
+                        <ul className="space-y-2">
+                          {exp.tasks.map((task, taskIndex) => (
+                            <li key={taskIndex} className="text-gray-400 text-sm flex items-start gap-2.5">
+                              <span className="w-1.5 h-1.5 bg-[#10B981] rounded-full mt-2 flex-shrink-0"></span>
+                              <span className="leading-relaxed">{task}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Technologies - TOUTES affichées */}
+                      <div>
+                        <h5 className="text-white font-semibold text-sm mb-3">Technologies utilisées :</h5>
+                        <div className="flex flex-wrap gap-2">
+                          {exp.technologies.map((tech, techIndex) => (
+                            <span
+                              key={techIndex}
+                              className="px-3 py-1.5 bg-[#1F2937] text-gray-300 rounded-md text-xs font-medium border border-[#374151] hover:border-[#10B981] hover:text-[#10B981] transition-colors"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Légende du graphique */}
+            <div className="mt-16 flex justify-center items-center gap-8 text-sm text-gray-400">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-[#10B981] rounded-full"></div>
+                <span>Expérience actuelle</span>
               </div>
-            ))}
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-[#10B981]/50 rounded-full"></div>
+                <span>Expériences passées</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

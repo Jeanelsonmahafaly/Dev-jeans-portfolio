@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Mail, Phone, MapPin, Download, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { ChevronDown, Mail, Phone, MapPin, Download, Github, Linkedin, ExternalLink, Code, Brain, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import Background3D from './Background3D';
@@ -26,232 +26,231 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Enhanced 3D Background */}
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#030712]">
+      {/* Enhanced 3D Background avec format IA */}
       <Background3D />
       <CircuitAnimation />
       
-      {/* Enhanced Gradient Background with Glassmorphism */}
-      <div className="absolute inset-0 bg-gradient-to-br from-glacier-50/90 via-glacier-100/70 to-glacier-200/90 backdrop-blur-sm">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-glacier-400/20 via-transparent to-glacier-600/10" />
+      {/* Dark Premium Background avec effet IA */}
+      <div className="absolute inset-0 bg-[#030712]">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#10B981]/10 via-transparent to-transparent" />
+        {/* Pattern de grille IA */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }}></div>
       </div>
 
-      {/* Enhanced Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-glacier-400/20 to-glacier-600/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-l from-glacier-300/15 to-glacier-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-        
-        {/* Floating Isometric Elements */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-4 h-4 glass rounded-lg"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, 15, 0],
-              rotateX: [0, 180, 360],
-              rotateY: [0, 180, 360],
-            }}
-            transition={{
-              duration: 5 + i,
-              repeat: Infinity,
-              delay: i * 0.5,
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-        <div className={`transform transition-all duration-1000 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-        }`}>
-          
-          {/* Enhanced Profile Image with Glassmorphism */}
-          <motion.div 
-            className="mb-8 flex justify-center"
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ 
-              duration: 1, 
-              type: "spring",
-              stiffness: 100,
-              damping: 15
-            }}
-          >
-            <div className="relative group">
-              {/* Isometric Shadow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-glacier-400/30 to-glacier-600/30 rounded-full blur-xl transform translate-x-4 translate-y-4 group-hover:translate-x-6 group-hover:translate-y-6 transition-all duration-300" />
-              
-              {/* Main Image Container with enhanced glassmorphism */}
-              <div className="relative w-48 h-48 glass-strong rounded-full p-2 hover-lift">
-                <div className="w-full h-full rounded-full overflow-hidden border-4 border-white/30">
-                  <img
-                    src="/lovable-uploads/58a5f867-0a5a-47e2-93ac-6f7bff166743.png"
-                    alt="Profile"
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Colonne gauche : Photo + Titre animé */}
+          <div className={`transform transition-all duration-1000 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}>
+            {/* Photo à gauche avec bordure animée verte */}
+            <motion.div 
+              className="mb-8 flex justify-center lg:justify-start"
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ 
+                duration: 1, 
+                type: "spring",
+                stiffness: 100,
+                damping: 15
+              }}
+            >
+              <div className="relative group">
+                {/* Bordure néon verte animée (glow) */}
+                <div className="absolute inset-0 rounded-full bg-[#10B981] blur-2xl opacity-50 animate-pulse glow-border"></div>
+                
+                {/* Photo agrandie et parfaitement circulaire */}
+                <div className="relative w-64 h-64 rounded-full p-1 bg-gradient-to-r from-[#10B981] to-[#059669]">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-[#111827] p-1">
+                    <img
+                      src="/lovable-uploads/58a5f867-0a5a-47e2-93ac-6f7bff166743.png"
+                      alt="Profile"
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
                 </div>
-                
-                {/* Animated Ring */}
-                <motion.div 
-                  className="absolute inset-0 rounded-full border-2 border-glacier-400/50"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                />
-                
-                {/* Corner Lights */}
-                <div className="absolute top-2 right-2 w-3 h-3 bg-gradient-to-r from-glacier-400 to-glacier-600 rounded-full animate-pulse" />
-                <div className="absolute bottom-2 left-2 w-2 h-2 bg-gradient-to-r from-glacier-300 to-glacier-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+              </div>
+            </motion.div>
+
+            {/* Titre animé */}
+            <motion.h1 
+              className="text-4xl md:text-6xl font-bold mb-4 text-white"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Jean Elson <span className="text-[#10B981]">RAZAFIMAHAFALY</span>
+            </motion.h1>
+            
+            {/* Sous-titre animé */}
+            <motion.h2 
+              className="text-xl md:text-2xl font-semibold mb-8 text-[#10B981]"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Développeur .NET & Ingénieur IA
+            </motion.h2>
+
+            {/* Contact Info compact */}
+            <motion.div 
+              className="flex flex-wrap gap-3 mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              {[
+                { icon: <Mail className="w-4 h-4" />, text: "jeanelsonilombo@gmail.com", href: "mailto:jeanelsonilombo@gmail.com" },
+                { icon: <Phone className="w-4 h-4" />, text: "+261 34 71 786 95", href: "tel:+261347178695" },
+                { icon: <MapPin className="w-4 h-4" />, text: "Antananarivo", href: "#" }
+              ].map((item, index) => (
+                <motion.a
+                  key={index}
+                  href={item.href}
+                  className="glass rounded-lg px-3 py-2 flex items-center gap-2 text-xs text-gray-300 hover:text-[#10B981] hover-lift group transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="text-[#10B981] group-hover:scale-110 transition-transform">
+                    {item.icon}
+                  </span>
+                  {item.text}
+                </motion.a>
+              ))}
+            </motion.div>
+
+            {/* Boutons avec micro-rebond */}
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button 
+                  onClick={downloadCV}
+                  size="lg" 
+                  className="glass-strong text-base px-6 py-3 bg-[#10B981] hover:bg-[#059669] text-white border-0 shadow-2xl btn-micro-bounce"
+                >
+                  <Download className="mr-2 h-4 w-4" />
+                  Télécharger CV
+                </Button>
+              </motion.div>
+              
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button 
+                  onClick={scrollToAbout}
+                  variant="outline" 
+                  size="lg" 
+                  className="glass text-base px-6 py-3 border-[#10B981]/50 text-[#10B981] hover:bg-[#10B981]/10 hover:border-[#10B981] shadow-lg btn-micro-bounce"
+                >
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  En savoir plus
+                </Button>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Colonne droite : Passion pour attirer le visiteur */}
+          <motion.div 
+            className="space-y-6"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            {/* Carte principale passion */}
+            <div className="glass rounded-2xl p-8 border border-[#1F2937] hover:border-[#10B981] card-glow">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-[#10B981]/20 flex items-center justify-center">
+                  <Sparkles className="w-6 h-6 text-[#10B981]" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">Ma Passion</h3>
+              </div>
+              
+              <p className="text-gray-300 leading-relaxed mb-6">
+                Passionné par le <span className="font-semibold text-[#10B981]">développement .NET</span> et l'<span className="font-semibold text-[#10B981]">intelligence artificielle</span>, je transforme des idées complexes en solutions innovantes et performantes.
+              </p>
+
+              {/* Deux cartes : Dev .NET et Dev IA */}
+              <div className="grid md:grid-cols-2 gap-4">
+                {/* Carte Dev .NET */}
+                <div className="glass rounded-xl p-6 border border-[#1F2937] hover:border-[#10B981] card-glow transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center">
+                      <Code className="w-5 h-5 text-[#10B981]" />
+                    </div>
+                    <h4 className="text-lg font-semibold text-white">Développement .NET</h4>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    Architecture microservices, APIs REST sécurisées, CI/CD Azure, Entity Framework. Plus de 2 ans d'expérience dans le développement d'applications robustes et évolutives.
+                  </p>
+                </div>
+
+                {/* Carte Dev IA */}
+                <div className="glass rounded-xl p-6 border border-[#1F2937] hover:border-[#10B981] card-glow transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center">
+                      <Brain className="w-5 h-5 text-[#10B981]" />
+                    </div>
+                    <h4 className="text-lg font-semibold text-white">Ingénierie IA</h4>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    RAG, LLM, LangChain, Machine Learning, Deep Learning. Conception et entraînement de modèles d'IA pour l'automatisation intelligente et l'analyse de données.
+                  </p>
+                </div>
+              </div>
+
+              {/* Stats rapides */}
+              <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-[#1F2937]">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-[#10B981]">2+</div>
+                  <div className="text-xs text-gray-400">Années</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-[#10B981]">15+</div>
+                  <div className="text-xs text-gray-400">Projets</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-[#10B981]">100%</div>
+                  <div className="text-xs text-gray-400">Satisfaction</div>
+                </div>
               </div>
             </div>
-          </motion.div>
 
-          {/* Enhanced Title with Gradient Animation */}
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-4 gradient-text-animated"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Jean Elson RAZAFIMAHAFALY
-          </motion.h1>
-          
-          {/* Enhanced Subtitle with Glassmorphism */}
-          <motion.div 
-            className="glass-card rounded-2xl p-6 mb-8 max-w-2xl mx-auto hover-glow"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <h2 className="text-2xl md:text-3xl font-semibold text-glacier-700 mb-3">
-              Développeur .NET & AI
-            </h2>
-            <p className="text-lg text-glacier-600 leading-relaxed">
-              Ingénieur logiciel spécialisé en .NET et intelligence artificielle, 
-              avec plus de 2 ans d'expérience dans le développement d'applications innovantes.
-            </p>
-          </motion.div>
-
-          {/* Enhanced Contact Info with Isometric Cards */}
-          <motion.div 
-            className="flex flex-wrap justify-center gap-4 mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            {[
-              { icon: <Mail className="w-4 h-4" />, text: "jeanelsonilombo@gmail.com", href: "mailto:jeanelsonilombo@gmail.com" },
-              { icon: <Phone className="w-4 h-4" />, text: "+33 6 12 34 56 78", href: "tel:+33612345678" },
-              { icon: <MapPin className="w-4 h-4" />, text: "Paris, France", href: "#" }
-            ].map((item, index) => (
-              <motion.a
-                key={index}
-                href={item.href}
-                className="glass rounded-xl px-4 py-3 flex items-center gap-2 text-sm text-glacier-700 hover-lift group transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="text-glacier-500 group-hover:text-glacier-400 transition-colors">
-                  {item.icon}
-                </span>
-                {item.text}
-              </motion.a>
-            ))}
-          </motion.div>
-
-          {/* Enhanced Action Buttons with 3D Effects */}
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                onClick={downloadCV}
-                size="lg" 
-                className="glass-strong text-lg px-8 py-4 bg-gradient-to-r from-glacier-500 to-glacier-600 hover:from-glacier-600 hover:to-glacier-700 text-white border-0 shadow-2xl group relative overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                <Download className="mr-2 h-5 w-5" />
-                Télécharger CV
-              </Button>
-            </motion.div>
-            
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                onClick={scrollToAbout}
-                variant="outline" 
-                size="lg" 
-                className="glass text-lg px-8 py-4 border-glacier-300/50 text-glacier-700 hover:bg-glacier-50/50 hover:border-glacier-400/50 shadow-lg group"
-              >
-                <ExternalLink className="mr-2 h-5 w-5 group-hover:rotate-45 transition-transform duration-300" />
-                En savoir plus
-              </Button>
-            </motion.div>
-          </motion.div>
-
-          {/* Enhanced Social Links with Floating Effect */}
-          <motion.div 
-            className="flex justify-center gap-6 mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-          >
-            {[
-              { icon: <Github className="w-6 h-6" />, href: "#", color: "from-gray-600 to-gray-800" },
-              { icon: <Linkedin className="w-6 h-6" />, href: "#", color: "from-blue-600 to-blue-800" }
-            ].map((social, index) => (
-              <motion.a
-                key={index}
-                href={social.href}
-                className={`glass-strong rounded-full p-4 bg-gradient-to-r ${social.color} text-white hover-glow group float-animation`}
-                style={{ animationDelay: `${index * 0.2}s` }}
-                whileHover={{ scale: 1.1, rotateY: 180 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <span className="group-hover:scale-110 transition-transform duration-300 block">
-                  {social.icon}
-                </span>
-              </motion.a>
-            ))}
+            {/* Social Links */}
+            <div className="flex justify-center gap-4">
+              {[
+                { icon: <Github className="w-5 h-5" />, href: "#" },
+                { icon: <Linkedin className="w-5 h-5" />, href: "#" }
+              ].map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.href}
+                  className="glass-strong rounded-full p-3 bg-[#111827] text-[#10B981] hover-glow group btn-micro-bounce"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <span className="group-hover:scale-110 transition-transform duration-300 block">
+                    {social.icon}
+                  </span>
+                </motion.a>
+              ))}
+            </div>
           </motion.div>
         </div>
 
-        {/* Enhanced Scroll Indicator with Circuit Animation */}
+        {/* Scroll Indicator */}
         <motion.div 
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
           <div className="glass-strong rounded-full p-3 cursor-pointer hover-glow group" onClick={scrollToAbout}>
-            <ChevronDown className="h-6 w-6 text-glacier-600 group-hover:text-glacier-700 transition-colors" />
+            <ChevronDown className="h-6 w-6 text-[#10B981] group-hover:scale-110 transition-transform" />
           </div>
         </motion.div>
       </div>
