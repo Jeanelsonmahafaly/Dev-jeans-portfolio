@@ -77,7 +77,7 @@ const HeroSection = () => {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.25 }}
                 >
-                  <div className="text-lg md:text-xl font-bold text-white">RAZAFIMAHAFALY</div>
+                  <div className="text-lg md:text-xl font-bold text-white">RAZAFIMAHAFALY Jean Elson</div>
                   <div className="text-sm md:text-base text-[#10B981] font-semibold">Développeur .NET & Ingénieur IA</div>
                   <div className="text-xs md:text-sm text-gray-300 mt-2 max-w-lg">Je conçois des solutions intelligentes et performantes pour vos défis techniques.</div>
                 </motion.div>
