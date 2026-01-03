@@ -266,7 +266,6 @@ const ExperienceSection = () => {
                       className={`glass rounded-xl p-7 themed-border themed-border-hover card-glow w-[420px] md:w-[520px] transition-all duration-300 mb-8 ${
                         isLeft ? 'mr-20 hover:-translate-x-2' : 'ml-20 hover:translate-x-2'
                       }`}>
-                    >
                       {/* En-tête avec plus d'espace */}
                       <div className="flex items-center gap-3 mb-5">
                         <Building2 size={20} className="text-[#10B981]" />
