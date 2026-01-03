@@ -37,14 +37,14 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       label: "Email",
-      value: "razafimahafaly@gmail.com",
-      link: "mailto:razafimahafaly@gmail.com"
+      value: "jelsonmahafaly@gmail.com",
+      link: "mailto:jelsonmahafaly@gmail.com"
     },
     {
       icon: <Phone className="w-6 h-6" />,
       label: "Téléphone",
       value: "+261 34 71 786 95",
-      link: "tel:+261347178695"
+      link: "tel:+261347216656"
     },
     {
       icon: <MapPin className="w-6 h-6" />,

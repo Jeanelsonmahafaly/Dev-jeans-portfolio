@@ -26,14 +26,14 @@ const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
     toast({
       title: "Message envoyé avec succès ! 🎉",
       description: "Je vous répondrai dans les plus brefs délais.",
     });
-    
+
     setFormData({ name: '', email: '', subject: '', message: '' });
     setIsSubmitting(false);
   };
@@ -42,15 +42,15 @@ const ContactSection = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      value: "jeanelsonilombo@gmail.com",
-      link: "mailto:jeanelsonilombo@gmail.com",
+      value: "jelsonmahafaly@gmail.com",
+      link: "mailto:jelsonmahafaly@gmail.com",
       description: "Écrivez-moi pour toute question"
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Téléphone",
-      value: "+261 34 71 786 95",
-      link: "tel:+261347178695",
+      value: "+261 34 72 166 56",
+      link: "tel:+2613472116656",
       description: "Appelons-nous directement"
     },
     {
@@ -84,8 +84,8 @@ const ContactSection = () => {
                 Restons en contact
               </h3>
               <p className="text-gray-400 leading-relaxed mb-8">
-                Je suis toujours ouvert aux nouvelles opportunités et aux projets passionnants. 
-                Que vous ayez besoin d'un développeur full-stack, d'expertise en IA, ou simplement 
+                Je suis toujours ouvert aux nouvelles opportunités et aux projets passionnants.
+                Que vous ayez besoin d'un développeur full-stack, d'expertise en IA, ou simplement
                 d'un conseil technique, n'hésitez pas à me contacter.
               </p>
             </div>
@@ -93,7 +93,7 @@ const ContactSection = () => {
             {/* Contact Methods */}
             <div className="space-y-6">
               {contactMethods.map((method, index) => (
-                <div 
+                <div
                   key={index}
                   className="group glass rounded-2xl p-6 hover:border-[#10B981] card-glow transition-all duration-300"
                 >
@@ -105,7 +105,7 @@ const ContactSection = () => {
                       <h4 className="font-semibold text-white mb-1">{method.title}</h4>
                       <p className="text-gray-400 text-sm mb-2">{method.description}</p>
                       {method.link ? (
-                        <a 
+                        <a
                           href={method.link}
                           className="text-[#10B981] hover:text-[#059669] transition-colors font-medium"
                         >
@@ -124,22 +124,32 @@ const ContactSection = () => {
             <div className="pt-8 themed-border-t">
               <h4 className="text-lg font-semibold text-white mb-4">Suivez-moi</h4>
               <div className="flex gap-4">
-                <Button 
-                  variant="outline" 
-                  size="lg" 
+                <Button asChild variant="outline" size="lg"
                   className="flex-1 themed-border text-gray-300 hover:bg-[#10B981]/10 hover:border-[#10B981] hover:text-[#10B981] group bg-transparent btn-micro-bounce"
                 >
-                  <Github className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                  GitHub
+                  <a
+                    href="https://github.com/Jeanelsonmahafaly"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                    GitHub
+                  </a>
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
+
+                <Button asChild variant="outline" size="lg"
                   className="flex-1 themed-border text-gray-300 hover:bg-[#10B981]/10 hover:border-[#10B981] hover:text-[#10B981] group bg-transparent btn-micro-bounce"
                 >
-                  <Linkedin className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                  LinkedIn
+                  <a
+                    href="https://www.linkedin.com/in/jean-elson-razafimahafaly"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Linkedin className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                    LinkedIn
+                  </a>
                 </Button>
+
               </div>
             </div>
           </div>
@@ -165,7 +175,7 @@ const ContactSection = () => {
                     className="pl-12 bg-[#030712] themed-border text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300"
                   />
                 </div>
-                
+
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#10B981]" />
                   <Input
@@ -179,7 +189,7 @@ const ContactSection = () => {
                   />
                 </div>
               </div>
-              
+
               <div className="relative">
                 <FileText className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#10B981]" />
                 <Input
@@ -189,10 +199,10 @@ const ContactSection = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                    className="pl-12 bg-[#030712] themed-border text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300"
+                  className="pl-12 bg-[#030712] themed-border text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300"
                 />
               </div>
-              
+
               <div className="relative">
                 <MessageCircle className="absolute left-3 top-4 w-5 h-5 text-[#10B981]" />
                 <Textarea
@@ -205,10 +215,10 @@ const ContactSection = () => {
                   className="pl-12 bg-[#030712] themed-border text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300 resize-none"
                 />
               </div>
-              
-              <Button 
-                type="submit" 
-                size="lg" 
+
+              <Button
+                type="submit"
+                size="lg"
                 disabled={isSubmitting}
                 className="w-full bg-[#10B981] hover:bg-[#059669] text-white font-semibold py-4 btn-micro-bounce transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
