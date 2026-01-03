@@ -94,8 +94,8 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               {[
-                { icon: <Mail className="w-4 h-4" />, text: "jeanelsonilombo@gmail.com", href: "mailto:jeanelsonilombo@gmail.com" },
-                { icon: <Phone className="w-4 h-4" />, text: "+261 34 71 786 95", href: "tel:+261347178695" },
+                { icon: <Mail className="w-4 h-4" />, text: "jelsonmahafaly@gmail.com", href: "mailto:jelsonmahafaly@gmail.com" },
+                { icon: <Phone className="w-4 h-4" />, text: "+261 34 21 166 56", href: "tel:+261347216656" },
                 { icon: <MapPin className="w-4 h-4" />, text: "Antananarivo", href: "#" }
               ].map((item, index) => (
                 <motion.a

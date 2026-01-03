@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 const Skills = () => {
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef(null);
 
   // Auto horizontal scroll effect
   useEffect(() => {
@@ -9,8 +9,8 @@ const Skills = () => {
     if (!carousel) return;
 
     let scrollPosition = 0;
-    const scrollSpeed = 0.35; // slow horizontal scroll
-    let animationId: number;
+    const scrollSpeed = 0.35;
+    let animationId;
 
     const autoScroll = () => {
       scrollPosition += scrollSpeed;
@@ -29,137 +29,107 @@ const Skills = () => {
     };
   }, []);
 
-  // TOUTES les technologies conservées - Monochrome avec icônes
+  // Toutes les technologies avec leurs vraies icônes
   const technologies = [
     // Langages / Frameworks
-    { name: "JavaScript", icon: <div className="text-sm font-bold text-black px-2 py-1 rounded" style={{background:'#F7DF1E'}}>JS</div> },
-    { name: "React", icon: <div className="text-sm font-bold text-white px-2 py-1 rounded" style={{background:'#61DAFB', color:'#000'}}>R</div> },
-    { name: "Angular", icon: <span className="text-2xl font-bold">A</span> },
-    { name: "Vue.js", icon: <span className="text-2xl font-bold">V</span> },
-    { name: "PHP", icon: <span className="text-xl font-bold">PHP</span> },
-    { name: "Laravel", icon: <span className="text-2xl">🔺</span> },
-    { name: "Symfony", icon: <span className="text-2xl font-bold">S</span> },
-    { name: "Python", icon: <span className="text-2xl">🐍</span> },
-    { name: "Django", icon: <span className="text-xl font-bold">DJ</span> },
-    { name: "Ampalibe", icon: <span className="text-xl font-bold">AMP</span> },
-    { name: "C#", icon: <span className="text-xl font-bold">C#</span> },
-    { name: ".NET", icon: <div className="text-xs font-semibold px-2 py-1 rounded" style={{background:'#512BD4', color:'#fff'}}>.NET</div> },
-    { name: "Entity Framework", icon: <span className="text-xl font-bold">EF</span> },
-    { name: "Flutter", icon: <span className="text-2xl">🦋</span> },
-    { name: "React Native", icon: <span className="text-xl font-bold">RN</span> },
+    { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+    { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+    { name: "Angular", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
+    { name: "Vue.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" },
+    { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+    { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" },
+    { name: "Symfony", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/symfony/symfony-original.svg" },
+    { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+    { name: "Django", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
+    { name: "C#", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+    { name: ".NET", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" },
+    { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
+    { name: "React Native", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
     
     // Gestion de versions
-    { name: "Git", icon: <span className="text-xl font-bold">Git</span> },
-    { name: "GitHub", icon: <span className="text-2xl">🐙</span> },
-    { name: "GitLab", icon: <span className="text-2xl">🦊</span> },
+    { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+    { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+    { name: "GitLab", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" },
     
     // Bases de données & Big Data
-    { name: "MySQL", icon: <span className="text-2xl">🐬</span> },
-    { name: "PostgreSQL", icon: <span className="text-2xl">🐘</span> },
-    { name: "Oracle", icon: <span className="text-xl font-bold">ORA</span> },
-    { name: "MongoDB", icon: <span className="text-2xl">🍃</span> },
-    { name: "HDFS", icon: <span className="text-xl font-bold">HD</span> },
-    { name: "MapReduce", icon: <span className="text-xl font-bold">MR</span> },
-    { name: "YARN", icon: <span className="text-xl font-bold">YN</span> },
-    { name: "Spark SQL", icon: <span className="text-xl font-bold">⚡</span> },
+    { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+    { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+    { name: "Oracle", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" },
+    { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
     
-    // BI & Data Warehouse
-    { name: "Power BI", icon: <span className="text-xl font-bold">BI</span> },
-    { name: "Talend", icon: <span className="text-xl font-bold">TOS</span> },
-    { name: "SSIS", icon: <span className="text-xl font-bold">SSIS</span> },
-    { name: "SSAS", icon: <span className="text-xl font-bold">SSAS</span> },
-    { name: "SSRS", icon: <span className="text-xl font-bold">SSRS</span> },
+    // Outils & Frameworks
+    { name: "TensorFlow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+    { name: "PyTorch", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" },
+    { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+    { name: "NumPy", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
     
-    // Réseaux & Sécurité
-    { name: "LAN/WAN", icon: <span className="text-2xl">🌐</span> },
-    { name: "Firewall", icon: <span className="text-2xl">🔥</span> },
-    { name: "Proxy", icon: <span className="text-2xl">🛡️</span> },
+    // DevOps & Déploiement
+    { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+    { name: "Kubernetes", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+    { name: "Grafana", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" },
+    { name: "Jupyter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" },
     
-    // Architecture
-    { name: "Microservices", icon: <span className="text-2xl">🏗️</span> },
-    { name: "Monolithique", icon: <span className="text-2xl">🏛️</span> },
-    
-    // Intelligence Artificielle & Data Science
-    { name: "TensorFlow", icon: <span className="text-xl font-bold">TF</span> },
-    { name: "PyTorch", icon: <span className="text-2xl">🔥</span> },
-    { name: "Keras", icon: <span className="text-xl font-bold">K</span> },
-    { name: "NumPy", icon: <span className="text-xl font-bold">NP</span> },
-    { name: "Pandas", icon: <span className="text-2xl">🐼</span> },
-    { name: "OpenAI GPT", icon: <span className="text-2xl">🤖</span> },
-    { name: "LangChain", icon: <span className="text-xl font-bold">🔗</span> },
-    { name: "Hugging Face", icon: <span className="text-2xl">🤗</span> },
-    { name: "RAG", icon: <span className="text-xl font-bold">RAG</span> },
-    
-    // Automatisation & Scraping
-    { name: "n8n", icon: <span className="text-xl font-bold">n8n</span> },
-    { name: "Zapier", icon: <span className="text-2xl">⚡</span> },
-    { name: "Make", icon: <span className="text-xl font-bold">Make</span> },
-    { name: "Selenium", icon: <span className="text-2xl">🕷️</span> },
-    { name: "BeautifulSoup", icon: <span className="text-xl font-bold">BS</span> },
-    { name: "Puppeteer", icon: <span className="text-2xl">🎭</span> },
-    
-    // Déploiement & Monitoring
-    { name: "Docker", icon: <span className="text-2xl">🐋</span> },
-    { name: "Kubernetes", icon: <span className="text-2xl">☸️</span> },
-    { name: "Grafana", icon: <span className="text-xl font-bold">📊</span> },
-    { name: "Prometheus", icon: <span className="text-xl font-bold">⏱️</span> },
-    { name: "Jupyter", icon: <span className="text-xl font-bold">📓</span> },
-    { name: "Ngrok", icon: <span className="text-xl font-bold">🚇</span> },
-    { name: "Postman", icon: <span className="text-2xl">📮</span> },
-    { name: "Swagger", icon: <span className="text-xl font-bold">📋</span> },
-    { name: "Jira", icon: <span className="text-xl font-bold">🎯</span> },
-    
-    // Formats de données
-    { name: "CSV", icon: <span className="text-xl font-bold">CSV</span> },
-    { name: "JSON", icon: <span className="text-xl font-bold">{ }</span> },
-    { name: "XML", icon: <span className="text-xl font-bold">&lt;/&gt;</span> }
+    // Autres technologies importantes
+    { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+    { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+    { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" },
+    { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+    { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+    { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
+    { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
+    { name: "Nginx", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
+    { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+    { name: "Ubuntu", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" },
+    { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+    { name: "Firebase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
+    { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+    { name: "WordPress", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" },
   ];
 
-  const slugify = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-
-  const IconImg: React.FC<{ name: string; fallback?: React.ReactNode }> = ({ name }) => {
-    const src = `/icons/${slugify(name)}.svg`;
-    return (
-      <img
-        src={src}
-        alt={name}
-        className="w-10 h-10 object-contain bg-white/5 p-1 rounded"
-        onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/icons/fallback.svg'; (e.currentTarget as HTMLImageElement).style.background='transparent'; }}
-      />
-    );
-  };
-
   return (
-    <section className="py-20 bg-[#030712]">
+    <section className="py-20 bg-gray-950">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Compétences
           </h2>
-          <div className="w-16 h-1 bg-[#10B981] mx-auto rounded-full"></div>
+          <div className="w-16 h-1 bg-emerald-500 mx-auto rounded-full"></div>
         </div>
 
-        {/* Grille d'icônes animée - Monochrome devenant vert au survol */}
+        {/* Carrousel d'icônes avec scroll automatique */}
         <div className="relative">
-          <div className="overflow-hidden rounded-xl bg-[#111827] themed-border themed-border-hover">
-            <div ref={carouselRef} className="flex gap-8 py-8 px-4 overflow-x-auto scrollbar-hide">
+          <div className="overflow-hidden rounded-xl bg-gray-900 border border-gray-800">
+            <div 
+              ref={carouselRef} 
+              className="flex gap-6 py-8 px-4 overflow-x-auto" 
+              style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}
+            >
               {[...technologies, ...technologies].map((tech, index) => (
                 <div
                   key={`${tech.name}-${index}`}
-                  className="flex-shrink-0 w-28 h-28 bg-[#030712] rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center group cursor-pointer border border-[#1F2937] hover:border-[#10B981]"
+                  className="flex-shrink-0 w-32 h-32 bg-gray-950 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:scale-110 flex flex-col items-center justify-center gap-3 group cursor-pointer border border-gray-800 hover:border-emerald-500 p-4"
                 >
-                  <div className="mb-2 text-gray-300">
-                    <IconImg name={tech.name} />
+                  <div className="w-14 h-14 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <img 
+                      src={tech.icon} 
+                      alt={tech.name}
+                      className="w-full h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
                   </div>
-                  <div className="text-xs text-white text-center px-1">{tech.name}</div>
+                  <div className="text-xs text-gray-300 group-hover:text-emerald-400 text-center font-medium transition-colors duration-300">
+                    {tech.name}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
           
           {/* Gradient fade effects */}
-          <div className="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-[#030712] to-transparent pointer-events-none z-10" />
-          <div className="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-[#030712] to-transparent pointer-events-none z-10" />
+          <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-gray-950 to-transparent pointer-events-none z-10" />
+          <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-gray-950 to-transparent pointer-events-none z-10" />
         </div>
       </div>
     </section>
