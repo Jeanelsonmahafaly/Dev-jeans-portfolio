@@ -214,8 +214,8 @@ const HeroSection = () => {
             {/* Social Links */}
             <div className="flex justify-center gap-4">
               {[
-                { icon: <Github className="w-5 h-5" />, href: "#" },
-                { icon: <Linkedin className="w-5 h-5" />, href: "#" }
+                { icon: <Github className="w-5 h-5" />, href: "https://github.com/Jeanelsonmahafaly" },
+                { icon: <Linkedin className="w-5 h-5" />, href: "https://www.linkedin.com/in/jean-elson-razafimahafaly" }
               ].map((social, index) => (
                 <motion.a
                   key={index}
