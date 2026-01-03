@@ -1,10 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Download } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+// Navigation UI
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+
+  useEffect(() => {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light' || saved === 'dark') {
+      setTheme(saved);
+      document.documentElement.classList.toggle('dark', saved === 'dark');
+    } else {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial = prefersDark ? 'dark' : 'light';
+      setTheme(initial);
+      document.documentElement.classList.toggle('dark', initial === 'dark');
+    }
+  }, []);
+
+  const setThemeHandler = (value: 'light' | 'dark') => {
+    setTheme(value);
+    localStorage.setItem('theme', value);
+    document.documentElement.classList.toggle('dark', value === 'dark');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,8 +44,8 @@ const Navigation = () => {
 
   const downloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/cv-razafimahafaly-jean-elson.pdf';
-    link.download = 'CV-RAZAFIMAHAFALY-Jean-Elson.pdf';
+    link.href = '/cv/Dev-AI-cv.pdf';
+    link.download = 'Dev-AI-cv.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -42,7 +62,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item, index) => (
               <a
                 key={index}
@@ -53,13 +73,19 @@ const Navigation = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#10B981] transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
-            <Button 
-              onClick={downloadCV}
-              className="bg-[#10B981] hover:bg-[#059669] text-white border-0 btn-micro-bounce"
-            >
-              <Download className="w-4 h-4 mr-2" />
-              CV
-            </Button>
+            {/* Theme radio toggles */}
+            <div className="flex items-center gap-2 bg-white/5 rounded-full p-1">
+              <label className={`flex items-center gap-2 px-3 py-1 rounded-full cursor-pointer transition-colors ${theme === 'light' ? 'bg-white/10' : ''}`}>
+                <input type="radio" name="theme" value="light" className="hidden" onChange={() => setThemeHandler('light')} checked={theme === 'light'} />
+                <Sun className="w-4 h-4 text-yellow-300" />
+                <span className="text-xs text-gray-200">Clair</span>
+              </label>
+              <label className={`flex items-center gap-2 px-3 py-1 rounded-full cursor-pointer transition-colors ${theme === 'dark' ? 'bg-white/10' : ''}`}>
+                <input type="radio" name="theme" value="dark" className="hidden" onChange={() => setThemeHandler('dark')} checked={theme === 'dark'} />
+                <Moon className="w-4 h-4 text-indigo-300" />
+                <span className="text-xs text-gray-200">Sombre</span>
+              </label>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -86,13 +112,18 @@ const Navigation = () => {
                 {item.label}
               </a>
             ))}
-            <Button 
-              onClick={downloadCV}
-              className="w-full mt-4 bg-[#10B981] hover:bg-[#059669] text-white btn-micro-bounce"
-            >
-              <Download className="w-4 h-4 mr-2" />
-              Télécharger CV
-            </Button>
+            <div className="flex items-center gap-2 bg-white/5 rounded-full p-1 px-4">
+              <label className={`flex items-center gap-2 px-3 py-1 rounded-full cursor-pointer transition-colors ${theme === 'light' ? 'bg-white/10' : ''}`}>
+                <input type="radio" name="theme" value="light" className="hidden" onChange={() => setThemeHandler('light')} checked={theme === 'light'} />
+                <Sun className="w-4 h-4 text-yellow-300" />
+                <span className="text-sm text-gray-200">Clair</span>
+              </label>
+              <label className={`flex items-center gap-2 px-3 py-1 rounded-full cursor-pointer transition-colors ${theme === 'dark' ? 'bg-white/10' : ''}`}>
+                <input type="radio" name="theme" value="dark" className="hidden" onChange={() => setThemeHandler('dark')} checked={theme === 'dark'} />
+                <Moon className="w-4 h-4 text-indigo-300" />
+                <span className="text-sm text-gray-200">Sombre</span>
+              </label>
+            </div>
           </div>
         </div>
       </div>

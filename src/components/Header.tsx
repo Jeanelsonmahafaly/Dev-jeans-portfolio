@@ -7,10 +7,11 @@ const Header = () => {
     <header className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center gap-8">
-          <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg">
-            <img 
-              src="/lovable-uploads/e2657e37-3bc7-4106-80be-09dba89d8aa8.png" 
+          <div className="w-52 h-52 rounded-md overflow-hidden shadow-lg">
+            <img
+              src="/photo/logo.png"
               alt="Razafimahafaly Jean Elson"
+              onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/photo/photo-pholio.png'; }}
               className="w-full h-full object-cover"
             />
           </div>

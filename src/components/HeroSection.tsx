@@ -18,8 +18,8 @@ const HeroSection = () => {
 
   const downloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/cv-razafimahafaly-jean-elson.pdf';
-    link.download = 'CV-RAZAFIMAHAFALY-Jean-Elson.pdf';
+    link.href = '/cv/Dev-AI-cv.pdf';
+    link.download = 'Dev-AI-cv.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -60,41 +60,31 @@ const HeroSection = () => {
               }}
             >
               <div className="relative group">
-                {/* Bordure néon verte animée (glow) */}
-                <div className="absolute inset-0 rounded-full bg-[#10B981] blur-2xl opacity-50 animate-pulse glow-border"></div>
-                
-                {/* Photo agrandie et parfaitement circulaire */}
-                <div className="relative w-64 h-64 rounded-full p-1 bg-gradient-to-r from-[#10B981] to-[#059669]">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-[#111827] p-1">
-                    <img
-                      src="/lovable-uploads/58a5f867-0a5a-47e2-93ac-6f7bff166743.png"
-                      alt="Profile"
-                      className="w-full h-full object-cover rounded-full"
-                    />
-                  </div>
+                {/* Image moderne sans cadre: coins légèrement arrondis et ombre subtile */}
+                <div className="relative w-72 h-72 rounded-md overflow-hidden shadow-2xl">
+                  <img
+                    src="/photo/logo.png"
+                    alt="Profile"
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/photo/photo-pholio.png'; }}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
+
+                {/* Texte sous l'image (séparé de l'image) */}
+                <motion.div
+                  className="mt-6 text-center lg:text-left"
+                  initial={{ y: 10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.25 }}
+                >
+                  <div className="text-lg md:text-xl font-bold text-white">RAZAFIMAHAFALY</div>
+                  <div className="text-sm md:text-base text-[#10B981] font-semibold">Développeur .NET & Ingénieur IA</div>
+                  <div className="text-xs md:text-sm text-gray-300 mt-2 max-w-lg">Je conçois des solutions intelligentes et performantes pour vos défis techniques.</div>
+                </motion.div>
               </div>
             </motion.div>
-
-            {/* Titre animé */}
-            <motion.h1 
-              className="text-4xl md:text-6xl font-bold mb-4 text-white"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Jean Elson <span className="text-[#10B981]">RAZAFIMAHAFALY</span>
-            </motion.h1>
             
-            {/* Sous-titre animé */}
-            <motion.h2 
-              className="text-xl md:text-2xl font-semibold mb-8 text-[#10B981]"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              Développeur .NET & Ingénieur IA
-            </motion.h2>
+            {/* On retire les titres superflus précédents (déjà affichés sous l'image) */}
 
             {/* Contact Info compact */}
             <motion.div 
@@ -163,7 +153,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             {/* Carte principale passion */}
-            <div className="glass rounded-2xl p-8 border border-[#1F2937] hover:border-[#10B981] card-glow">
+            <div className="glass rounded-2xl p-8 themed-border themed-border-hover card-glow">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-[#10B981]/20 flex items-center justify-center">
                   <Sparkles className="w-6 h-6 text-[#10B981]" />
@@ -178,7 +168,7 @@ const HeroSection = () => {
               {/* Deux cartes : Dev .NET et Dev IA */}
               <div className="grid md:grid-cols-2 gap-4">
                 {/* Carte Dev .NET */}
-                <div className="glass rounded-xl p-6 border border-[#1F2937] hover:border-[#10B981] card-glow transition-all duration-300">
+                <div className="glass rounded-xl p-6 themed-border themed-border-hover card-glow transition-all duration-300">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center">
                       <Code className="w-5 h-5 text-[#10B981]" />
@@ -191,7 +181,7 @@ const HeroSection = () => {
                 </div>
 
                 {/* Carte Dev IA */}
-                <div className="glass rounded-xl p-6 border border-[#1F2937] hover:border-[#10B981] card-glow transition-all duration-300">
+                <div className="glass rounded-xl p-6 themed-border themed-border-hover card-glow transition-all duration-300">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center">
                       <Brain className="w-5 h-5 text-[#10B981]" />
@@ -205,7 +195,7 @@ const HeroSection = () => {
               </div>
 
               {/* Stats rapides */}
-              <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-[#1F2937]">
+              <div className="grid grid-cols-3 gap-4 mt-6 pt-6 themed-border-t">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-[#10B981]">2+</div>
                   <div className="text-xs text-gray-400">Années</div>

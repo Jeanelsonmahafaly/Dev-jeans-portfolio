@@ -121,13 +121,13 @@ const ContactSection = () => {
             </div>
 
             {/* Social Links */}
-            <div className="pt-8 border-t border-[#1F2937]">
+            <div className="pt-8 themed-border-t">
               <h4 className="text-lg font-semibold text-white mb-4">Suivez-moi</h4>
               <div className="flex gap-4">
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="flex-1 border-[#1F2937] text-gray-300 hover:bg-[#10B981]/10 hover:border-[#10B981] hover:text-[#10B981] group bg-transparent btn-micro-bounce"
+                  className="flex-1 themed-border text-gray-300 hover:bg-[#10B981]/10 hover:border-[#10B981] hover:text-[#10B981] group bg-transparent btn-micro-bounce"
                 >
                   <Github className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   GitHub
@@ -135,7 +135,7 @@ const ContactSection = () => {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="flex-1 border-[#1F2937] text-gray-300 hover:bg-[#10B981]/10 hover:border-[#10B981] hover:text-[#10B981] group bg-transparent btn-micro-bounce"
+                  className="flex-1 themed-border text-gray-300 hover:bg-[#10B981]/10 hover:border-[#10B981] hover:text-[#10B981] group bg-transparent btn-micro-bounce"
                 >
                   <Linkedin className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   LinkedIn
@@ -145,7 +145,7 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="glass rounded-3xl p-8 border border-[#1F2937]">
+          <div className="glass rounded-3xl p-8 themed-border themed-border-hover">
             <div className="flex items-center gap-3 mb-6">
               <MessageCircle className="w-8 h-8 text-[#10B981]" />
               <h3 className="text-xl font-bold text-white">Envoyez-moi un message</h3>
@@ -162,7 +162,7 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="pl-12 bg-[#030712] border-[#1F2937] text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300"
+                    className="pl-12 bg-[#030712] themed-border text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300"
                   />
                 </div>
                 
@@ -175,7 +175,7 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="pl-12 bg-[#030712] border-[#1F2937] text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300"
+                    className="pl-12 bg-[#030712] themed-border text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300"
                   />
                 </div>
               </div>
@@ -189,7 +189,7 @@ const ContactSection = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="pl-12 bg-[#030712] border-[#1F2937] text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300"
+                    className="pl-12 bg-[#030712] themed-border text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300"
                 />
               </div>
               
@@ -202,7 +202,7 @@ const ContactSection = () => {
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className="pl-12 bg-[#030712] border-[#1F2937] text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300 resize-none"
+                  className="pl-12 bg-[#030712] themed-border text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300 resize-none"
                 />
               </div>
               
@@ -226,7 +226,7 @@ const ContactSection = () => {
               </Button>
             </form>
 
-            <div className="mt-6 pt-6 border-t border-[#1F2937] text-center">
+            <div className="mt-6 pt-6 themed-border-t text-center">
               <p className="text-gray-400 text-sm">
                 Temps de réponse moyen : <span className="text-[#10B981] font-medium">24h</span>
               </p>

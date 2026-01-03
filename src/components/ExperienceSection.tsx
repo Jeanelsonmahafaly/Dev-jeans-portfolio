@@ -230,19 +230,28 @@ const ExperienceSection = () => {
                     }}
                     transition={{ delay: index * 0.15 }}
                   >
-                    {/* Ligne de connexion horizontale vers le centre */}
-                    <div 
-                      className="absolute w-0.5 bg-[#10B981]/50"
+                    {/* Ligne de connexion horizontale vers le centre avec flèche animée */}
+                    <div
+                      className="absolute top-1/2 transform -translate-y-1/2"
                       style={{
-                        width: isLeft ? 'calc(50% - 5%)' : 'calc(50% - 5%)',
-                        height: '2px',
-                        top: '50%',
                         left: isLeft ? '100%' : 'auto',
                         right: isLeft ? 'auto' : '100%',
-                        transform: 'translateY(-50%)',
-                        zIndex: 2
+                        width: 'calc(50% - 5%)',
+                        zIndex: 2,
+                        pointerEvents: 'none'
                       }}
-                    ></div>
+                    >
+                      <div className="h-0.5 bg-[#10B981]/40 w-full rounded" />
+                      <motion.div
+                        className="w-6 h-6 rounded-full bg-[#10B981] flex items-center justify-center shadow-md mt-[-0.75rem]"
+                        animate={{ x: [isLeft ? '-10%' : '10%', 0, isLeft ? '-10%' : '10%'] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                      >
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M8 5l8 7-8 7" stroke="#021015" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </motion.div>
+                    </div>
                     
                     {/* Point de connexion sur la ligne centrale */}
                     <div 
@@ -254,9 +263,9 @@ const ExperienceSection = () => {
                     
                     {/* Carte d'expérience AGRANDIE avec TOUS les détails */}
                     <div 
-                      className={`glass rounded-xl p-7 border border-[#1F2937] hover:border-[#10B981] card-glow w-[420px] transition-all duration-300 mb-8 ${
-                        isLeft ? 'mr-20' : 'ml-20'
-                      }`}
+                      className={`glass rounded-xl p-7 themed-border themed-border-hover card-glow w-[420px] md:w-[520px] transition-all duration-300 mb-8 ${
+                        isLeft ? 'mr-20 hover:-translate-x-2' : 'ml-20 hover:translate-x-2'
+                      }`}>
                     >
                       {/* En-tête avec plus d'espace */}
                       <div className="flex items-center gap-3 mb-5">

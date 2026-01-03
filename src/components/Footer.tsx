@@ -8,7 +8,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#030712] text-white relative overflow-hidden border-t border-[#1F2937]">
+    <footer className="bg-[#030712] text-white relative overflow-hidden themed-border-t">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{

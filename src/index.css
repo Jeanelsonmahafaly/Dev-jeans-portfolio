@@ -37,8 +37,22 @@
     --ring: 158 64% 52%; /* Vert Émeraude */
 
     --radius: 0.5rem;
+    /* Themed border color (will be overridden in dark mode via .dark class) */
+    --themed-border: rgba(15, 23, 42, 0.12); /* light subtle */
+    --themed-border-hover: rgba(16,185,129,0.18);
   }
 }
+
+/* Dark theme overrides */
+.dark {
+  --themed-border: rgba(16,185,129,0.14);
+  --themed-border-hover: rgba(16,185,129,0.32);
+}
+
+/* Themed border utilities */
+.themed-border { border: 1px solid var(--themed-border); }
+.themed-border-t { border-top: 1px solid var(--themed-border); }
+.themed-border-hover:hover { border-color: var(--themed-border-hover); }
 
 @layer base {
   * {
@@ -130,6 +144,18 @@
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease-out forwards;
 }
+
+/* Theme toggle styles (small pills) */
+.theme-toggle { display: inline-flex; gap: 6px; }
+
+/* Vertical skills list styles */
+.vertical-scroll-container { position: relative; }
+.vertical-list { display: flex; flex-direction: column; }
+.vertical-item { transition: background 0.25s ease, transform 0.25s ease; }
+.vertical-item:hover { transform: translateX(6px); }
+
+/* Tech icon box */
+.tech-icon { width: 44px; height: 28px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:700; }
 
 /* Micro-rebond pour boutons (scale 1.05) */
 .btn-micro-bounce {
@@ -430,4 +456,10 @@ html {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* Make sure hero banner is visible on mobile */
+@media (max-width: 768px) {
+  .vertical-list { gap: 6px; }
+  .vertical-item { padding: 10px; }
 }

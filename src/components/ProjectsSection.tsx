@@ -100,7 +100,7 @@ const ProjectsSection = () => {
             <div 
               key={index}
               data-index={index}
-              className={`bg-[#030712] rounded-2xl p-8 border border-[#1F2937] hover:border-[#10B981] card-glow transition-all duration-500 ${
+              className={`bg-[#030712] rounded-2xl p-8 themed-border themed-border-hover card-glow transition-all duration-500 ${
                 visibleProjects.includes(index)
                   ? 'animate-fade-in-up opacity-100'
                   : 'opacity-0'

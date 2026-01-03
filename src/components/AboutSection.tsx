@@ -79,7 +79,7 @@ const AboutSection = () => {
                 développement d'applications web <span className="font-semibold text-[#10B981]">robustes, évolutives et sécurisées</span>.
               </p>
               
-              <div className="glass rounded-xl p-6 border border-[#1F2937]">
+              <div className="glass rounded-xl p-6 themed-border themed-border-hover">
                 <h4 className="font-semibold text-white mb-3">Mon parcours professionnel :</h4>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start">
@@ -108,7 +108,7 @@ const AboutSection = () => {
               {skills.map((skill, index) => (
                 <div 
                   key={index}
-                  className={`glass rounded-xl p-4 border border-[#1F2937] hover:border-[#10B981] card-glow transition-all duration-500 ${
+                  className={`glass rounded-xl p-4 themed-border themed-border-hover card-glow transition-all duration-500 ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
                   }`}
                   style={{ transitionDelay: `${(index + 4) * 100}ms` }}
@@ -126,7 +126,7 @@ const AboutSection = () => {
           {/* Colonne droite : Stats et Achievements */}
           <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             {/* Stats */}
-            <div className="glass rounded-2xl p-8 border border-[#1F2937] mb-8">
+            <div className="glass rounded-2xl p-8 themed-border mb-8 themed-border-hover">
               <h3 className="text-xl font-bold text-white mb-8 text-center">Mes réalisations</h3>
               <div className="grid grid-cols-2 gap-6">
                 {stats.map((stat, index) => (
@@ -146,8 +146,8 @@ const AboutSection = () => {
               </div>
 
               {/* Awards Section */}
-              <div className="mt-8 pt-6 border-t border-[#1F2937]">
-                <div className="flex items-center justify-center gap-3 glass rounded-lg p-4 border border-[#1F2937]">
+              <div className="mt-8 pt-6 themed-border-t">
+                <div className="flex items-center justify-center gap-3 glass rounded-lg p-4 themed-border themed-border-hover">
                   <Trophy className="w-6 h-6 text-[#10B981]" />
                   <div>
                     <div className="font-semibold text-white text-sm">Agent d'automatisation IA</div>
@@ -158,7 +158,7 @@ const AboutSection = () => {
             </div>
 
             {/* Passionné par l'IA - Déplacé à droite */}
-            <div className="glass rounded-xl p-6 border border-[#1F2937] mb-8">
+            <div className="glass rounded-xl p-6 themed-border mb-8 themed-border-hover">
               <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                 <Brain className="w-5 h-5 text-[#10B981]" />
                 Passionné par l'IA
@@ -168,7 +168,7 @@ const AboutSection = () => {
               </p>
               <div className="grid gap-3">
                 {achievements.map((achievement, index) => (
-                  <div key={index} className="flex items-center gap-3 glass rounded-lg p-3 border border-[#1F2937]">
+                  <div key={index} className="flex items-center gap-3 glass rounded-lg p-3 themed-border themed-border-hover">
                     <div className="text-[#10B981]">{achievement.icon}</div>
                     <div>
                       <div className="font-medium text-white text-sm">{achievement.title}</div>
@@ -180,7 +180,7 @@ const AboutSection = () => {
             </div>
 
             {/* Expertise technique - Déplacé à droite */}
-            <div className="glass rounded-xl p-6 border border-[#1F2937]">
+            <div className="glass rounded-xl p-6 themed-border themed-border-hover">
               <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                 <Code2 className="w-5 h-5 text-[#10B981]" />
                 Mon expertise technique
