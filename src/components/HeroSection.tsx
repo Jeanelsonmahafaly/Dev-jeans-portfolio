@@ -60,8 +60,8 @@ const HeroSection = () => {
               }}
             >
               <div className="relative group">
-                {/* Image moderne sans cadre: coins légèrement arrondis et ombre subtile */}
-                <div className="relative w-72 h-72 rounded-md overflow-hidden shadow-2xl">
+                {/* Image moderne circulaire avec bordure theme */}
+                <div className="relative w-72 h-72 rounded-full overflow-hidden shadow-2xl themed-border border-2">
                   <img
                     src="/photo/logo.png"
                     alt="Profile"

@@ -7,7 +7,7 @@ const Header = () => {
     <header className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center gap-8">
-          <div className="w-52 h-52 rounded-md overflow-hidden shadow-lg">
+          <div className="w-52 h-52 rounded-full overflow-hidden shadow-2xl themed-border border-2">
             <img
               src="/photo/logo.png"
               alt="Razafimahafaly Jean Elson"
