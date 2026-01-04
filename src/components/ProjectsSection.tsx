@@ -6,6 +6,39 @@ const ProjectsSection = () => {
   const [visibleProjects, setVisibleProjects] = useState<number[]>([]);
   const ref = useRef<HTMLDivElement>(null);
 
+  const getTechIcon = (name: string) => {
+    const techIcons: Record<string, string> = {
+      'React 18': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+      'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+      'TypeScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+      'Tailwind CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
+      'Shadcn/UI': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+      'Recharts': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+      'Python': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'Machine Learning': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'LLM': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'LangChain': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'IoT': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'ESP32': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'Edge Computing': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
+      'Symfony': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/symfony/symfony-original.svg',
+      'Docker': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+      'MongoDB': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+      'Flutter': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg',
+      'Angular': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
+      'API REST': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+      'PyTorch': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'Keras': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg',
+      'TensorFlow': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg',
+      'Jupyter': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg',
+      'Power BI': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg',
+      'DAX': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg',
+      'Oracle': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg',
+    };
+    
+    return techIcons[name] || 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg';
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -169,14 +202,27 @@ const ProjectsSection = () => {
               </div>
               
               <div className="mb-6">
-                <div className="flex flex-wrap gap-2">
+                <h4 className="font-semibold text-white mb-3 flex items-center gap-2 text-sm">
+                  <div className="w-2 h-2 bg-[#10B981] rounded-full"></div>
+                  Technologies & Outils
+                </h4>
+                <div className="flex flex-wrap gap-3">
                   {project.technologies.map((tech, techIndex) => (
-                    <span 
+                    <div 
                       key={techIndex} 
-                      className="bg-[#1F2937] text-gray-300 px-3 py-1 rounded-full text-xs font-medium border border-[#374151] hover:border-[#10B981] hover:text-[#10B981] transition-colors"
+                      className="flex items-center gap-2 bg-[#1F2937] hover:bg-[#374151] rounded-lg px-3 py-2 transition-colors border border-[#374151] hover:border-[#10B981]"
+                      title={tech}
                     >
-                      {tech}
-                    </span>
+                      <img 
+                        src={getTechIcon(tech)}
+                        alt={tech}
+                        className="w-4 h-4 object-contain"
+                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      />
+                      <span className="text-gray-300 text-xs font-medium hover:text-[#10B981] transition-colors">
+                        {tech}
+                      </span>
+                    </div>
                   ))}
                 </div>
               </div>

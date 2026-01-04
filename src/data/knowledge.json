@@ -1,0 +1,240 @@
+{
+  "profile": {
+    "name": "Razafimahafaly Jean Elson",
+    "title": "Développeur .NET & Ingénieur IA",
+    "email": "jelsonmahafaly@gmail.com",
+    "phone": "+261 34 21 166 56",
+    "location": "Antananarivo, Madagascar",
+    "bio": "Développeur .NET passionné par l'innovation et l'intelligence artificielle. Avec plus de 2 ans d'expérience, je conçois des solutions robustes, évolutives et sécurisées qui allient performance et innovation.",
+    "summary": "Je suis spécialisé dans le développement d'applications web et mobiles, l'intelligence artificielle, et l'automatisation intelligente. J'intègre les derniers LLMs et crée des modèles d'IA sur mesure adaptés aux besoins spécifiques.",
+    "cv_url": "/cv/Dev-AI-cv.pdf"
+  },
+  "expertise": {
+    "core_skills": [
+      "Développement .NET / ASP.NET Core",
+      "Intelligence Artificielle & Machine Learning",
+      "Architectures Microservices",
+      "APIs REST sécurisées",
+      "React & Frontend moderne",
+      "Bases de données (SQL, NoSQL)",
+      "DevOps & CI/CD",
+      "Cloud (Microsoft Azure)",
+      "RAG (Retrieval-Augmented Generation)",
+      "LLMs et LangChain"
+    ],
+    "technical_expertise": {
+      "backend": [".NET", "ASP.NET Core", "Symfony", "FastAPI"],
+      "frontend": ["React", "Angular", "TypeScript", "Tailwind CSS"],
+      "mobile": ["Flutter"],
+      "ai_ml": ["LangChain", "OpenAI", "Scikit-learn", "TensorFlow", "Keras", "RAG", "NLP"],
+      "data": ["Python", "Pandas", "Power BI", "Oracle", "MySQL", "MongoDB"],
+      "devops": ["Docker", "Kubernetes", "Azure DevOps", "GitLab CI/CD", "N8N"]
+    },
+    "specializations": [
+      "Intégration IA avancée dans des plateformes existantes",
+      "Création de projets IA de A à Z",
+      "Développement et entraînement de modèles d'IA",
+      "Systèmes embarqués intelligents avec IoT",
+      "Automatisation intelligente avec RAG et LLMs",
+      "Architectures microservices scalables"
+    ]
+  },
+  "experiences": [
+    {
+      "period": "Juin 2025 - À ce jour",
+      "company": "ESN ILOMAD",
+      "position": "Développeur .NET / Automatisation IA",
+      "location": "Madagascar",
+      "type": "CDI",
+      "duration": "En cours",
+      "description": "Développement de services back-end robustes dans une architecture microservices moderne avec déploiement sur Microsoft Azure. Intégration avancée de solutions d'automatisation intelligentes basées sur l'IA générative (RAG, LLMs).",
+      "key_achievements": [
+        "Architecture et développement de services back-end scalables",
+        "Intégration de solutions d'automatisation IA (RAG, LLMs)",
+        "Mise en place de pipelines CI/CD avec Azure DevOps",
+        "Déploiement sur Microsoft Azure (App Service, SQL Database)",
+        "Développement de workflows d'automatisation avec N8N et MCP"
+      ]
+    },
+    {
+      "period": "Nov 2024 - Avril 2025",
+      "company": "EMIT",
+      "position": "Développeur Agent IA",
+      "location": "Madagascar",
+      "type": "Projet de mémoire (M2)",
+      "duration": "6 mois",
+      "description": "Conception et développement d'un système intelligent de suivi de véhicules intégrant des modèles d'IA pour la détection d'anomalies en temps réel.",
+      "key_achievements": [
+        "Pipeline d'ingestion de données télématiques en temps réel",
+        "Modèles ML pour détection d'anomalies (Scikit-learn)",
+        "Tableau de bord analytique avec visualisation avancée",
+        "Assistant conversationnel basé sur RAG (Qdrant + LangChain)",
+        "Containerisation complète avec Docker"
+      ],
+      "technologies": ["Symfony", "FastAPI", "Python", "Docker", "Scikit-learn", "LangChain", "RAG"]
+    },
+    {
+      "period": "Fév 2024 - Juin 2025",
+      "company": "ESN RTS LINE",
+      "position": "Développeur Fullstack Symfony",
+      "location": "Madagascar",
+      "type": "CDI",
+      "duration": "1 an 4 mois",
+      "description": "Développement fullstack d'applications web complexes avec intégration de solutions d'intelligence artificielle pour automatiser des tâches.",
+      "key_achievements": [
+        "Développement robuste de back-ends avec Symfony",
+        "Interfaces modernes avec Angular et React",
+        "Intégration de solutions d'IA pour automatisation",
+        "Tests automatisés (Behat, PHPUnit)",
+        "Déploiement efficace via CI/CD"
+      ],
+      "technologies": ["Symfony", "Angular", "React", "Webpack", "jQuery", "GitLab", "Docker"]
+    },
+    {
+      "period": "Mai - Oct 2023",
+      "company": "ESN ARATO",
+      "position": "Développeur Backend .NET",
+      "location": "Madagascar",
+      "type": "Stage / Alternance",
+      "duration": "6 mois",
+      "description": "Développement de solutions logicielles incluant applications de gestion hôtelière et plateforme de paris sportifs.",
+      "key_achievements": [
+        "Application de gestion de stock (.NET + Angular)",
+        "Plateforme de paris sportifs avec Flutter",
+        "Architecture microservices scalable",
+        "Bot Messenger intelligent (Ampalibe)"
+      ],
+      "technologies": [".NET", "Angular", "Flutter", "Docker", "MySQL", "GitLab"]
+    },
+    {
+      "period": "Sept - Nov 2023",
+      "company": "CHU Andrainjato",
+      "position": "Développeur Back-end Symfony",
+      "location": "Madagascar",
+      "type": "Stage",
+      "duration": "3 mois",
+      "description": "Développement d'une plateforme numérique pour la gestion des rendez-vous médicaux et communication sécurisée.",
+      "key_achievements": [
+        "Plateforme de gestion des rendez-vous avec système de disponibilités",
+        "Système de communication RGPD-compliant",
+        "API REST documentée",
+        "Interfaces adaptatives pour patients et médecins"
+      ],
+      "technologies": ["Symfony", "React", "Flutter", "MySQL"]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Smart Fire Guard - Système Anti-Feu Intelligent IoT",
+      "category": "IoT & Intelligence Artificielle",
+      "description": "Application PWA de surveillance et détection d'incendie en temps réel avec ESP32. Système intelligent utilisant modèles IA/ML et LangChain pour analyse intelligente des données capteurs.",
+      "key_features": [
+        "Surveillance en temps réel des températures",
+        "Détection automatique d'incendies basée sur IA/ML",
+        "Intégration LangChain pour traitement intelligent",
+        "Edge computing avec ESP32",
+        "Dashboard PWA responsive",
+        "Notifications et alertes intelligentes"
+      ],
+      "technologies": ["React 18", "TypeScript", "Python", "Machine Learning", "LLM", "LangChain", "IoT", "ESP32"],
+      "github": "https://github.com/Jeanelsonmahafaly/iot-ia",
+      "live": "https://iot-fire.onrender.com/"
+    },
+    {
+      "title": "DRIM VTC - Plateforme de Gestion",
+      "category": "Web Application",
+      "description": "Application web complète pour la gestion des services VTC avec interface avancée et système de réservation en temps réel.",
+      "key_features": [
+        "Interface utilisateur multi-fonctionnelle",
+        "Système de réservation en temps réel",
+        "Architecture microservices avec Docker",
+        "Tests automatisés et débogage fonctionnel"
+      ],
+      "technologies": ["Symfony", "React", "TypeScript", "Docker", "MongoDB"]
+    },
+    {
+      "title": "FINTECH - Système de Loteries",
+      "category": "Mobile & Backend",
+      "description": "Application mobile et backend pour la gestion des tickets de loteries avec validation avancée.",
+      "key_features": [
+        "Application mobile native Flutter",
+        "Algorithmes avancés de validation",
+        "Intégration d'APIs tierces",
+        "Architecture distribuée scalable"
+      ],
+      "technologies": ["Flutter", "Symfony", "Angular", "API REST"]
+    },
+    {
+      "title": "Classification d'Images Médicales IA",
+      "category": "Intelligence Artificielle",
+      "description": "Système d'IA pour la classification automatique d'images médicales utilisant réseaux de neurones convolutifs.",
+      "key_features": [
+        "Réseaux de neurones convolutifs (CNN)",
+        "Préprocessing d'images médicales",
+        "Métriques de performance avancées",
+        "Interface Jupyter pour analyse"
+      ],
+      "technologies": ["Python", "PyTorch", "Keras", "TensorFlow", "Jupyter"]
+    },
+    {
+      "title": "Business Kintana - Système Hospitalier",
+      "category": "Healthcare System",
+      "description": "Application web robuste pour la gestion des systèmes hospitaliers avec tableaux de bord analytiques.",
+      "key_features": [
+        "Gestion complète des systèmes hospitaliers",
+        "Tableaux de bord Power BI",
+        "Optimisation des performances",
+        "Interface utilisateur intuitive"
+      ],
+      "technologies": ["Flutter", "Power BI", "DAX", "Oracle"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master 2 (M2) - Ingénierie des Systèmes Informatiques",
+      "institution": "ESMT (École Supérieure Madagascar Technologie)",
+      "year": "2023-2024",
+      "focus": "Systèmes distribués, Intelligence Artificielle"
+    },
+    {
+      "degree": "License - Informatique",
+      "institution": "ESMT",
+      "year": "2021-2023"
+    }
+  ],
+  "achievements": [
+    {
+      "title": "Classification d'images",
+      "description": "Réseaux neuronaux convolutifs pour reconnaissance visuelle"
+    },
+    {
+      "title": "Chatbot intelligent",
+      "description": "Système conversationnel avec RAG et LLMs"
+    },
+    {
+      "title": "2ème place Hackathon",
+      "description": "Compétition villes intelligentes"
+    },
+    {
+      "title": "Système IoT intelligent",
+      "description": "Détection d'incendies avec IA embarquée"
+    }
+  ],
+  "faqs": {
+    "about_experience": "Je cumule plus de 2 ans d'expérience dans le développement d'applications web robustes, évolutives et sécurisées. J'ai travaillé avec plusieurs ESN à Madagascar et participé à des projets d'envergure.",
+    "about_ai": "Je suis spécialisé dans l'IA avec expertise en machine learning, deep learning, RAG (Retrieval-Augmented Generation), et intégration de LLMs. Je développe aussi des systèmes embarqués intelligents avec IoT.",
+    "about_tech_stack": "Mon stack technique couvre .NET/ASP.NET Core pour le backend, React/Angular pour le frontend, Flutter pour le mobile, et Python pour la data science et l'IA. Je maîtrise aussi les architectures microservices et le DevOps.",
+    "about_projects": "Mes projets incluent des applications web complètes, des systèmes IoT intelligents, des assistants conversationnels basés sur l'IA, et des solutions de machine learning pour la classification et la prédiction. Mon projet phare en IoT est Smart Fire Guard - un système intelligent de détection d'incendies avec IA embarquée. Vous pouvez le découvrir sur GitHub: https://github.com/Jeanelsonmahafaly/iot-ia et voir la démo en ligne: https://iot-fire.onrender.com/",
+    "about_iot_projects": "Oui! J'ai développé 'Smart Fire Guard - Système Anti-Feu Intelligent IoT', une application PWA pour la surveillance et détection d'incendie en temps réel utilisant ESP32 et l'IA/ML. C'est un système intelligent qui combine LangChain et des modèles IA pour analyser les données des capteurs. Vous pouvez voir le code sur GitHub (https://github.com/Jeanelsonmahafaly/iot-ia) et la démo live (https://iot-fire.onrender.com/). C'est du vrai IoT en production!",
+    "smart_fire_guard_link": "Bien sûr! Le projet Smart Fire Guard est disponible en ligne: GitHub: https://github.com/Jeanelsonmahafaly/iot-ia | Démo Live: https://iot-fire.onrender.com/ Ce projet démontre comment intégrer l'IA et l'IoT pour créer des solutions intelligentes et pratiques.",
+    "work_with_me": "Je suis disponible pour des projets impliquant développement backend, frontend, IA/ML, ou des solutions complètes fullstack. Je peux aussi intégrer l'IA dans vos plateformes existantes et développer des systèmes IoT intelligents.",
+    "contact": "Vous pouvez me contacter par email à jelsonmahafaly@gmail.com ou par téléphone au +261 34 21 166 56. Vous pouvez aussi consulter mon CV en téléchargeant le PDF depuis le portfolio."
+  },
+  "conversation_starters": [
+    "Parlez-moi de votre expérience",
+    "Quels sont vos projets récents ?",
+    "Quelles sont vos compétences en IA ?",
+    "Pouvez-vous intégrer l'IA dans mon projet ?",
+    "Comment vous contacter pour une mission ?"
+  ]
+}
