@@ -67,8 +67,39 @@ const AboutSection = () => {
               </p>
               
               <p>
-                Fortement impliqué dans le domaine de l'<span className="font-semibold text-[#10B981]">intelligence artificielle</span>, je conçois et entraîne des modèles de machine learning et deep learning, et je mets en place des solutions d'automatisation intelligente, notamment à travers des workflows avancés avec n8n.
+                Fortement impliqué dans le domaine de l'<span className="font-semibold text-[#10B981]">intelligence artificielle</span>, je conçois et entraîne des modèles de machine learning et deep learning, et je mets en place des solutions d'automatisation intelligente, notamment à travers des workflows avancés avec n8n. Je développe également des <span className="font-semibold text-[#10B981]">systèmes embarqués intelligents</span> utilisant LLMs et LangChain pour l'analyse et la prise de décision autonome sur des appareils IoT.
               </p>
+
+              {/* AI Expertise Highlights */}
+              <div className="my-6 space-y-3">
+                <div className="flex items-start gap-3 p-4 rounded-lg glass themed-border">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-6 w-6 rounded-md bg-[#10B981]/20 text-[#10B981] font-bold text-sm">✨</div>
+                  </div>
+                  <div>
+                    <p className="font-medium text-white">Intégration IA Avancée</p>
+                    <p className="text-sm text-gray-400">J'intègre des solutions d'IA sophistiquées dans des plateformes existantes, optimisant processus et augmentant l'intelligence des applications.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 rounded-lg glass themed-border">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-6 w-6 rounded-md bg-[#10B981]/20 text-[#10B981] font-bold text-sm">🤖</div>
+                  </div>
+                  <div>
+                    <p className="font-medium text-white">Création de Projets IA de A à Z</p>
+                    <p className="text-sm text-gray-400">De la conception à la production, je développe des solutions IA complètes : vision par ordinateur, NLP, prédiction, et systèmes décisionnels autonomes.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 rounded-lg glass themed-border">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-6 w-6 rounded-md bg-[#10B981]/20 text-[#10B981] font-bold text-sm">⚡</div>
+                  </div>
+                  <div>
+                    <p className="font-medium text-white">LLMs et Modèles Personnalisés</p>
+                    <p className="text-sm text-gray-400">J'intègre les derniers LLMs (GPT, Claude, Llama) et crée des modèles d'IA sur mesure adaptés à vos besoins spécifiques.</p>
+                  </div>
+                </div>
+              </div>
               
               <p>
                 <span className="font-semibold text-[#10B981]">Mon objectif</span> : allier performance, innovation et automatisation pour créer des solutions qui apportent une réelle valeur ajoutée.

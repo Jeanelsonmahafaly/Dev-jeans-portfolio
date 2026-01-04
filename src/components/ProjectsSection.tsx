@@ -28,6 +28,28 @@ const ProjectsSection = () => {
   // TOUS les projets conservés
   const projects = [
     {
+      title: "Smart Fire Guard - Système Anti-Feu Intelligent IoT",
+      description: "Application PWA de surveillance et détection d'incendie en temps réel, conçue pour fonctionner avec un ESP32 et des capteurs de température. Système intelligent utilisant des modèles d'IA/ML pour la détection prédictive d'incendies, intégrant LangChain pour l'analyse intelligente des données et des outils embarqués pour le traitement edge computing.",
+      technologies: ["React 18", "TypeScript", "Tailwind CSS", "Shadcn/UI", "Recharts", "Python", "Machine Learning", "LLM", "LangChain", "IoT", "ESP32", "Edge Computing"],
+      category: "IoT & Intelligence Artificielle",
+      icon: <Globe className="w-8 h-8" />,
+      features: [
+        "Surveillance en temps réel des températures intérieure et extérieure",
+        "Détection automatique des risques d'incendie basée sur l'écart de température",
+        "Modèles IA/ML pour la prédiction et l'analyse intelligente",
+        "Intégration LangChain pour le traitement intelligent des données de capteurs",
+        "Système de notifications et alertes avec buzzer",
+        "Gestion et configuration des capteurs à distance",
+        "Dashboard avec graphiques et historique 24h",
+        "Interface PWA responsive et offline-first",
+        "Edge computing avec ESP32 pour traitement local des données",
+        "Indicateurs visuels avec Glass morphism et animations fluides",
+        "Filtrage et statistiques des alertes"
+      ],
+      github: "https://github.com/Jeanelsonmahafaly/iot-ia",
+      demo: "https://iot-fire.onrender.com/"
+    },
+    {
       title: "DRIM VTC - Plateforme de Gestion",
       description: "Application web complète pour la gestion des services VTC avec interface utilisateur avancée et système de réservation en temps réel.",
       technologies: ["Symfony", "React", "TypeScript", "Docker", "MongoDB"],
@@ -38,7 +60,9 @@ const ProjectsSection = () => {
         "Système de réservation en temps réel",
         "Architecture microservices avec Docker",
         "Tests automatisés et débogage fonctionnel"
-      ]
+      ],
+      github: "#",
+      demo: "#"
     },
     {
       title: "FINTECH - Système de Loteries",
@@ -51,7 +75,9 @@ const ProjectsSection = () => {
         "Algorithmes de validation des tickets",
         "Intégration d'APIs tierces",
         "Architecture distribuée scalable"
-      ]
+      ],
+      github: "#",
+      demo: "#"
     },
     {
       title: "Classification d'Images Médicales IA",
@@ -64,7 +90,9 @@ const ProjectsSection = () => {
         "Préprocessing d'images médicales",
         "Métriques de performance avancées",
         "Interface Jupyter pour l'analyse"
-      ]
+      ],
+      github: "#",
+      demo: "#"
     },
     {
       title: "Business Kintana - Système Hospitalier",
@@ -77,7 +105,9 @@ const ProjectsSection = () => {
         "Tableaux de bord Power BI",
         "Optimisation des performances",
         "Interface utilisateur intuitive"
-      ]
+      ],
+      github: "#",
+      demo: "#"
     }
   ];
 
@@ -153,19 +183,25 @@ const ProjectsSection = () => {
               
               <div className="flex gap-3">
                 <Button 
+                  asChild
                   variant="outline" 
                   size="sm" 
                   className="flex items-center gap-2 border-[#374151] text-gray-300 hover:bg-[#1F2937] hover:border-[#10B981] hover:text-[#10B981] btn-micro-bounce transition-all duration-300"
                 >
-                  <Github className="w-4 h-4" />
-                  Code
+                  <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <Github className="w-4 h-4" />
+                    Code
+                  </a>
                 </Button>
                 <Button 
+                  asChild
                   size="sm" 
                   className="flex items-center gap-2 bg-[#10B981] hover:bg-[#059669] text-white border-0 btn-micro-bounce transition-all duration-300"
                 >
-                  <ExternalLink className="w-4 h-4" />
-                  Démo
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="w-4 h-4" />
+                    Démo
+                  </a>
                 </Button>
               </div>
             </div>
