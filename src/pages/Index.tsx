@@ -12,7 +12,7 @@ import Chatbot from '@/components/Chatbot';
 
 const Index = () => {
   return (
-    <div className="min-h-screen relative bg-[#030712]">
+    <div className="min-h-screen relative bg-background transition-colors duration-300">
       <Navigation />
       <HeroSection />
       <AboutSection />

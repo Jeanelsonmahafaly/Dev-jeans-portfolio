@@ -27,15 +27,46 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      // Préparer les données du formulaire pour Web3Forms
+      const formDataToSend = new FormData();
+      formDataToSend.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("subject", formData.subject);
+      formDataToSend.append("message", formData.message);
+      
+      // Ajouter des informations supplémentaires
+      formDataToSend.append("from_name", "Portfolio Contact Form");
+      formDataToSend.append("redirect", "false");
 
-    toast({
-      title: "Message envoyé avec succès ! 🎉",
-      description: "Je vous répondrai dans les plus brefs délais.",
-    });
+      // Envoyer à Web3Forms
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend
+      });
 
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: "Message envoyé avec succès ! 🎉",
+          description: "Je vous répondrai dans les plus brefs délais.",
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error(data.message || "Erreur lors de l'envoi");
+      }
+    } catch (error) {
+      console.error("Erreur lors de l'envoi du formulaire:", error);
+      toast({
+        title: "Erreur d'envoi ❌",
+        description: "Une erreur s'est produite. Veuillez réessayer ou m'envoyer un email directement.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
@@ -63,15 +94,15 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-[#111827] relative overflow-hidden">
+    <section id="contact" className="py-20 bg-card relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Travaillons <span className="text-[#10B981]">ensemble</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Travaillons <span className="text-primary">ensemble</span>
           </h2>
-          <div className="w-24 h-1 bg-[#10B981] mx-auto rounded-full mb-6"></div>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-6"></div>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             Prêt à donner vie à votre projet ? Contactez-moi pour discuter de vos besoins et transformer vos idées en réalité.
           </p>
         </div>
@@ -80,10 +111,10 @@ const ContactSection = () => {
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">
+              <h3 className="text-2xl font-bold text-foreground mb-6">
                 Restons en contact
               </h3>
-              <p className="text-gray-400 leading-relaxed mb-8">
+              <p className="text-muted-foreground leading-relaxed mb-8">
                 Je suis toujours ouvert aux nouvelles opportunités et aux projets passionnants.
                 Que vous ayez besoin d'un développeur full-stack, d'expertise en IA, ou simplement
                 d'un conseil technique, n'hésitez pas à me contacter.
@@ -95,24 +126,24 @@ const ContactSection = () => {
               {contactMethods.map((method, index) => (
                 <div
                   key={index}
-                  className="group glass rounded-2xl p-6 hover:border-[#10B981] card-glow transition-all duration-300"
+                  className="group glass rounded-2xl p-6 hover:border-primary card-glow transition-all duration-300"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-xl bg-[#10B981]/20 flex items-center justify-center text-[#10B981] group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
                       {method.icon}
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-white mb-1">{method.title}</h4>
-                      <p className="text-gray-400 text-sm mb-2">{method.description}</p>
+                      <h4 className="font-semibold text-foreground mb-1">{method.title}</h4>
+                      <p className="text-muted-foreground text-sm mb-2">{method.description}</p>
                       {method.link ? (
                         <a
                           href={method.link}
-                          className="text-[#10B981] hover:text-[#059669] transition-colors font-medium"
+                          className="text-primary hover:text-[#059669] transition-colors font-medium"
                         >
                           {method.value}
                         </a>
                       ) : (
-                        <span className="text-gray-300">{method.value}</span>
+                        <span className="text-muted-foreground">{method.value}</span>
                       )}
                     </div>
                   </div>
@@ -122,10 +153,10 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div className="pt-8 themed-border-t">
-              <h4 className="text-lg font-semibold text-white mb-4">Suivez-moi</h4>
+              <h4 className="text-lg font-semibold text-foreground mb-4">Suivez-moi</h4>
               <div className="flex gap-4">
                 <Button asChild variant="outline" size="lg"
-                  className="flex-1 themed-border text-gray-300 hover:bg-[#10B981]/10 hover:border-[#10B981] hover:text-[#10B981] group bg-transparent btn-micro-bounce"
+                  className="flex-1 themed-border text-muted-foreground hover:bg-primary/10 hover:border-primary hover:text-primary group bg-transparent btn-micro-bounce"
                 >
                   <a
                     href="https://github.com/Jeanelsonmahafaly"
@@ -138,7 +169,7 @@ const ContactSection = () => {
                 </Button>
 
                 <Button asChild variant="outline" size="lg"
-                  className="flex-1 themed-border text-gray-300 hover:bg-[#10B981]/10 hover:border-[#10B981] hover:text-[#10B981] group bg-transparent btn-micro-bounce"
+                  className="flex-1 themed-border text-muted-foreground hover:bg-primary/10 hover:border-primary hover:text-primary group bg-transparent btn-micro-bounce"
                 >
                   <a
                     href="https://www.linkedin.com/in/jean-elson-razafimahafaly"
@@ -157,14 +188,14 @@ const ContactSection = () => {
           {/* Contact Form */}
           <div className="glass rounded-3xl p-8 themed-border themed-border-hover">
             <div className="flex items-center gap-3 mb-6">
-              <MessageCircle className="w-8 h-8 text-[#10B981]" />
-              <h3 className="text-xl font-bold text-white">Envoyez-moi un message</h3>
+              <MessageCircle className="w-8 h-8 text-primary" />
+              <h3 className="text-xl font-bold text-foreground">Envoyez-moi un message</h3>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#10B981]" />
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-primary" />
                   <Input
                     type="text"
                     name="name"
@@ -172,12 +203,12 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="pl-12 bg-[#030712] themed-border text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300"
+                    className="pl-12 bg-background themed-border text-foreground placeholder:text-muted-foreground focus:bg-card focus:border-primary transition-all duration-300"
                   />
                 </div>
 
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#10B981]" />
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-primary" />
                   <Input
                     type="email"
                     name="email"
@@ -185,13 +216,13 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="pl-12 bg-[#030712] themed-border text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300"
+                    className="pl-12 bg-background themed-border text-foreground placeholder:text-muted-foreground focus:bg-card focus:border-primary transition-all duration-300"
                   />
                 </div>
               </div>
 
               <div className="relative">
-                <FileText className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#10B981]" />
+                <FileText className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-primary" />
                 <Input
                   type="text"
                   name="subject"
@@ -199,12 +230,12 @@ const ContactSection = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="pl-12 bg-[#030712] themed-border text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300"
+                  className="pl-12 bg-background themed-border text-foreground placeholder:text-muted-foreground focus:bg-card focus:border-primary transition-all duration-300"
                 />
               </div>
 
               <div className="relative">
-                <MessageCircle className="absolute left-3 top-4 w-5 h-5 text-[#10B981]" />
+                <MessageCircle className="absolute left-3 top-4 w-5 h-5 text-primary" />
                 <Textarea
                   name="message"
                   placeholder="Votre message détaillé..."
@@ -212,7 +243,7 @@ const ContactSection = () => {
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className="pl-12 bg-[#030712] themed-border text-white placeholder:text-gray-500 focus:bg-[#111827] focus:border-[#10B981] transition-all duration-300 resize-none"
+                  className="pl-12 bg-background themed-border text-foreground placeholder:text-muted-foreground focus:bg-card focus:border-primary transition-all duration-300 resize-none"
                 />
               </div>
 
@@ -220,7 +251,7 @@ const ContactSection = () => {
                 type="submit"
                 size="lg"
                 disabled={isSubmitting}
-                className="w-full bg-[#10B981] hover:bg-[#059669] text-white font-semibold py-4 btn-micro-bounce transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-primary hover:bg-[#059669] text-foreground font-semibold py-4 btn-micro-bounce transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <div className="flex items-center gap-2">
@@ -237,8 +268,8 @@ const ContactSection = () => {
             </form>
 
             <div className="mt-6 pt-6 themed-border-t text-center">
-              <p className="text-gray-400 text-sm">
-                Temps de réponse moyen : <span className="text-[#10B981] font-medium">24h</span>
+              <p className="text-muted-foreground text-sm">
+                Temps de réponse moyen : <span className="text-primary font-medium">24h</span>
               </p>
             </div>
           </div>

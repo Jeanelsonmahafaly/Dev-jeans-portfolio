@@ -247,45 +247,45 @@ const ExperienceSection = () => {
 
   // Composant de carte réutilisable
   const ExperienceCard = ({ exp }) => (
-    <div className="bg-gray-900 rounded-2xl p-6 md:p-8 border border-gray-800 hover:border-emerald-500 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10">
+    <div className="bg-card rounded-2xl p-6 md:p-8 border border-border hover:border-primary transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
       <div className="flex items-start justify-between mb-4 md:mb-6 flex-wrap gap-3">
         <div className="flex items-center gap-3">
-          <Building2 size={20} className="text-emerald-500 flex-shrink-0 md:w-[22px] md:h-[22px]" />
-          <h3 className="text-lg md:text-xl font-bold text-white">{exp.company}</h3>
+          <Building2 size={20} className="text-primary flex-shrink-0 md:w-[22px] md:h-[22px]" />
+          <h3 className="text-lg md:text-xl font-bold text-foreground">{exp.company}</h3>
         </div>
-        <span className="px-3 md:px-4 py-1 md:py-1.5 bg-emerald-500/20 text-emerald-400 rounded-lg text-xs md:text-sm font-semibold border border-emerald-500/30">
+        <span className="px-3 md:px-4 py-1 md:py-1.5 bg-primary/20 text-primary rounded-lg text-xs md:text-sm font-semibold border border-primary/30">
           {exp.type}
         </span>
       </div>
 
-      <h4 className="text-emerald-400 font-bold text-base md:text-lg mb-4 md:mb-5">{exp.position}</h4>
+      <h4 className="text-primary font-bold text-base md:text-lg mb-4 md:mb-5">{exp.position}</h4>
 
       <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
-        <div className="flex items-center gap-2 md:gap-3 text-gray-400 flex-wrap">
-          <Calendar size={14} className="text-emerald-500 flex-shrink-0 md:w-4 md:h-4" />
+        <div className="flex items-center gap-2 md:gap-3 text-muted-foreground flex-wrap">
+          <Calendar size={14} className="text-primary flex-shrink-0 md:w-4 md:h-4" />
           <span className="text-xs md:text-sm font-medium">{exp.period}</span>
-          <span className="text-emerald-500 mx-1 md:mx-2">•</span>
+          <span className="text-primary mx-1 md:mx-2">•</span>
           <span className="text-xs md:text-sm">{exp.duration}</span>
         </div>
-        <div className="flex items-center gap-2 md:gap-3 text-gray-400">
-          <MapPin size={14} className="text-emerald-500 flex-shrink-0 md:w-4 md:h-4" />
+        <div className="flex items-center gap-2 md:gap-3 text-muted-foreground">
+          <MapPin size={14} className="text-primary flex-shrink-0 md:w-4 md:h-4" />
           <span className="text-xs md:text-sm">{exp.location}</span>
         </div>
       </div>
 
-      <p className="text-gray-300 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 bg-gray-950/50 p-3 md:p-4 rounded-lg border border-gray-800">
+      <p className="text-muted-foreground text-xs md:text-sm leading-relaxed mb-4 md:mb-6 bg-background/50 p-3 md:p-4 rounded-lg border border-border">
         {exp.description}
       </p>
 
       <div className="mb-4 md:mb-6">
-        <h5 className="text-white font-bold text-xs md:text-sm mb-3 md:mb-4 flex items-center gap-2">
-          <CheckCircle2 size={16} className="text-emerald-500 md:w-[18px] md:h-[18px]" />
+        <h5 className="text-foreground font-bold text-xs md:text-sm mb-3 md:mb-4 flex items-center gap-2">
+          <CheckCircle2 size={16} className="text-primary md:w-[18px] md:h-[18px]" />
           Missions réalisées
         </h5>
         <ul className="space-y-2 md:space-y-3">
           {exp.tasks.map((task, taskIndex) => (
-            <li key={taskIndex} className="text-gray-400 text-xs md:text-sm flex items-start gap-2 md:gap-3">
-              <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full mt-1.5 md:mt-2 flex-shrink-0"></span>
+            <li key={taskIndex} className="text-muted-foreground text-xs md:text-sm flex items-start gap-2 md:gap-3">
+              <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 md:mt-2 flex-shrink-0"></span>
               <span className="leading-relaxed">{task}</span>
             </li>
           ))}
@@ -293,19 +293,19 @@ const ExperienceSection = () => {
       </div>
 
       <div>
-        <h5 className="text-white font-bold text-xs md:text-sm mb-3 md:mb-4">Technologies utilisées</h5>
+        <h5 className="text-foreground font-bold text-xs md:text-sm mb-3 md:mb-4">Technologies utilisées</h5>
         <div className="flex flex-wrap gap-2 md:gap-3">
           {exp.technologies.map((tech, techIndex) => (
             <div
               key={techIndex}
-              className="flex items-center gap-1.5 md:gap-2 bg-gray-950 px-2 md:px-3 py-1.5 md:py-2 rounded-lg border border-gray-800 hover:border-emerald-500 transition-all group"
+              className="flex items-center gap-1.5 md:gap-2 bg-background px-2 md:px-3 py-1.5 md:py-2 rounded-lg border border-border hover:border-primary transition-all group"
             >
               <img 
                 src={getTechIcon(tech)} 
                 alt={tech}
                 className="w-4 h-4 md:w-5 md:h-5 object-contain group-hover:scale-110 transition-transform"
               />
-              <span className="text-xs text-gray-300 group-hover:text-emerald-400 transition-colors font-medium">
+              <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors font-medium">
                 {tech}
               </span>
             </div>
@@ -316,14 +316,14 @@ const ExperienceSection = () => {
   );
 
   return (
-    <section id="experience" ref={ref} className="py-12 md:py-20 bg-gray-950 relative overflow-hidden">
+    <section id="experience" ref={ref} className="py-12 md:py-20 bg-background relative overflow-hidden transition-colors duration-300">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">
-            Expérience <span className="text-emerald-500">Professionnelle</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-4">
+            Expérience <span className="text-primary">Professionnelle</span>
           </h2>
-          <div className="w-12 md:w-16 h-1 bg-emerald-500 mx-auto rounded-full mb-3 md:mb-4"></div>
-          <p className="text-gray-400 text-sm md:text-base max-w-2xl mx-auto px-4">
+          <div className="w-12 md:w-16 h-1 bg-primary mx-auto rounded-full mb-3 md:mb-4"></div>
+          <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto px-4">
             Plus de 2 ans d'expérience dans le développement d'applications innovantes
           </p>
         </div>
@@ -378,9 +378,9 @@ const ExperienceSection = () => {
                     {/* Point central avec flèche */}
                     <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 flex items-center">
                       <div className={`flex items-center ${isLeft ? 'flex-row-reverse' : 'flex-row'}`}>
-                        <div className="w-6 h-6 bg-emerald-500 rounded-full border-4 border-gray-950 shadow-lg shadow-emerald-500/50"></div>
-                        <div className={`w-16 h-0.5 bg-emerald-500/60 ${isLeft ? 'mr-1' : 'ml-1'}`}></div>
-                        <ArrowRight className={`text-emerald-500 ${isLeft ? 'rotate-180' : ''}`} size={24} />
+                        <div className="w-6 h-6 bg-primary rounded-full border-4 border-gray-950 shadow-lg shadow-emerald-500/50"></div>
+                        <div className={`w-16 h-0.5 bg-primary/60 ${isLeft ? 'mr-1' : 'ml-1'}`}></div>
+                        <ArrowRight className={`text-primary ${isLeft ? 'rotate-180' : ''}`} size={24} />
                       </div>
                     </div>
 
@@ -396,13 +396,13 @@ const ExperienceSection = () => {
         </div>
 
         {/* Légende */}
-        <div className="mt-12 md:mt-20 flex justify-center items-center gap-6 md:gap-8 text-xs md:text-sm text-gray-400">
+        <div className="mt-12 md:mt-20 flex justify-center items-center gap-6 md:gap-8 text-xs md:text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <div className="w-2.5 md:w-3 h-2.5 md:h-3 bg-emerald-500 rounded-full shadow-lg shadow-emerald-500/50"></div>
+            <div className="w-2.5 md:w-3 h-2.5 md:h-3 bg-primary rounded-full shadow-lg shadow-emerald-500/50"></div>
             <span>Expérience actuelle</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-2.5 md:w-3 h-2.5 md:h-3 bg-emerald-500/50 rounded-full"></div>
+            <div className="w-2.5 md:w-3 h-2.5 md:h-3 bg-primary/50 rounded-full"></div>
             <span>Expériences passées</span>
           </div>
         </div>

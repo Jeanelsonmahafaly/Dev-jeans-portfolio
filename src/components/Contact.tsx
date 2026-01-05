@@ -55,7 +55,7 @@ const Contact = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+    <section className="py-16 bg-gradient-to-br from-gray-900 to-blue-900 text-foreground">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-center mb-12">
           Contactez-moi
@@ -67,7 +67,7 @@ const Contact = () => {
             <h3 className="text-2xl font-semibold mb-6">
               Parlons de votre projet
             </h3>
-            <p className="text-gray-300 mb-8 leading-relaxed">
+            <p className="text-muted-foreground mb-8 leading-relaxed">
               Je suis toujours ouvert aux nouvelles opportunités et aux projets passionnants. 
               N'hésitez pas à me contacter pour discuter de vos besoins en développement web ou mobile.
             </p>
@@ -79,16 +79,16 @@ const Contact = () => {
                     {info.icon}
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">{info.label}</p>
+                    <p className="text-muted-foreground text-sm">{info.label}</p>
                     {info.link ? (
                       <a 
                         href={info.link} 
-                        className="text-white hover:text-blue-300 transition-colors"
+                        className="text-foreground hover:text-blue-300 transition-colors"
                       >
                         {info.value}
                       </a>
                     ) : (
-                      <p className="text-white">{info.value}</p>
+                      <p className="text-foreground">{info.value}</p>
                     )}
                   </div>
                 </div>
@@ -96,11 +96,11 @@ const Contact = () => {
             </div>
 
             <div className="flex gap-4 mt-8">
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
+              <Button variant="outline" size="lg" className="border-white text-foreground hover:bg-white hover:text-gray-900">
                 <Github className="w-5 h-5 mr-2" />
                 GitHub
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
+              <Button variant="outline" size="lg" className="border-white text-foreground hover:bg-white hover:text-gray-900">
                 <Linkedin className="w-5 h-5 mr-2" />
                 LinkedIn
               </Button>
@@ -118,7 +118,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="bg-white/20 border-white/30 text-white placeholder:text-gray-300"
+                  className="bg-white/20 border-white/30 text-foreground placeholder:text-muted-foreground"
                 />
               </div>
               
@@ -130,7 +130,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="bg-white/20 border-white/30 text-white placeholder:text-gray-300"
+                  className="bg-white/20 border-white/30 text-foreground placeholder:text-muted-foreground"
                 />
               </div>
               
@@ -142,7 +142,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="bg-white/20 border-white/30 text-white placeholder:text-gray-300"
+                  className="bg-white/20 border-white/30 text-foreground placeholder:text-muted-foreground"
                 />
               </div>
               
@@ -154,7 +154,7 @@ const Contact = () => {
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className="bg-white/20 border-white/30 text-white placeholder:text-gray-300"
+                  className="bg-white/20 border-white/30 text-foreground placeholder:text-muted-foreground"
                 />
               </div>
               

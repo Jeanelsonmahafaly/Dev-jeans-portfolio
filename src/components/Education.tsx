@@ -61,7 +61,7 @@ const Education = () => {
                       <div className="flex-shrink-0 w-4 h-4 bg-blue-500 rounded-full mt-2"></div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
-                          <Calendar size={16} className="text-gray-500" />
+                          <Calendar size={16} className="text-muted-foreground" />
                           <span className="text-sm font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">{formation.period}</span>
                         </div>
                         <h4 className="text-lg font-bold text-gray-800 mb-1">{formation.degree}</h4>
@@ -107,7 +107,7 @@ const Education = () => {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-blue-600 to-cyan-600 text-white rounded-xl p-8 mt-8 shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="bg-gradient-to-br from-blue-600 to-cyan-600 text-foreground rounded-xl p-8 mt-8 shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <Award className="w-6 h-6" />
                 <h3 className="text-lg font-bold">Objectifs Professionnels</h3>

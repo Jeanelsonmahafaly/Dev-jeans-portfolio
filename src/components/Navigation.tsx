@@ -57,7 +57,7 @@ const Navigation = () => {
     }`}>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          <div className="text-xl font-bold text-white">
+          <div className="text-xl font-bold text-foreground">
             Jean Elson
           </div>
 
@@ -67,10 +67,10 @@ const Navigation = () => {
               <a
                 key={index}
                 href={item.href}
-                className="text-gray-300 hover:text-[#10B981] transition-colors duration-300 relative group"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 relative group"
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#10B981] transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
             {/* Theme radio toggles */}
@@ -91,7 +91,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-[#111827] transition-colors text-white"
+            className="md:hidden p-2 rounded-lg hover:bg-card transition-colors text-foreground"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -106,7 +106,7 @@ const Navigation = () => {
               <a
                 key={index}
                 href={item.href}
-                className="block px-4 py-2 text-gray-300 hover:text-[#10B981] hover:bg-[#111827] rounded-lg transition-colors"
+                className="block px-4 py-2 text-muted-foreground hover:text-primary hover:bg-card rounded-lg transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}

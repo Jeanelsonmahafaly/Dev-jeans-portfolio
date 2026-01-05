@@ -1,11 +1,32 @@
 
 import React from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Moon, Sun } from 'lucide-react';
+import { useTheme } from '@/contexts/ThemeContext';
+import { Button } from './ui/button';
 
 const Header = () => {
+  const { theme, toggleTheme } = useTheme();
+
   return (
-    <header className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
+    <header className="bg-gradient-to-r from-blue-600 to-purple-700 dark:from-blue-900 dark:to-purple-900 text-foreground py-16 transition-colors duration-300">
       <div className="container mx-auto px-6">
+        {/* Bouton de toggle du thème */}
+        <div className="flex justify-end mb-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleTheme}
+            className="text-foreground hover:bg-white/20 transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'light' ? (
+              <Moon className="h-5 w-5" />
+            ) : (
+              <Sun className="h-5 w-5" />
+            )}
+          </Button>
+        </div>
+
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="w-52 h-52 rounded-full overflow-hidden shadow-2xl themed-border border-2">
             <img
