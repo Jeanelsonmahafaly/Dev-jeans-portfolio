@@ -29,15 +29,43 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "49a90222-e709-458d-b53f-562f55836dea");
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("subject", formData.subject);
+      formDataToSend.append("message", formData.message);
 
-    toast({
-      title: t('contact.success'),
-      description: t('contact.successDesc'),
-    });
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend
+      });
 
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: t('contact.success'),
+          description: t('contact.successDesc'),
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        toast({
+          title: t('contact.error'),
+          description: "Une erreur s'est produite. Veuillez réessayer.",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      toast({
+        title: t('contact.error'),
+        description: "Une erreur s'est produite. Veuillez réessayer.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
