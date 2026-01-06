@@ -20,7 +20,8 @@
       "DevOps & CI/CD",
       "Cloud (Microsoft Azure)",
       "RAG (Retrieval-Augmented Generation)",
-      "LLMs et LangChain"
+      "LLMs et LangChain",
+      "N8N && MCP"
     ],
     "technical_expertise": {
       "backend": [".NET", "ASP.NET Core", "Symfony", "FastAPI"],
