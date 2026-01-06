@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 // Navigation UI
 
 const Navigation = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
@@ -35,11 +38,11 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { label: 'Accueil', href: '#hero' },
-    { label: 'À propos', href: '#about' },
-    { label: 'Expérience', href: '#experience' },
-    { label: 'Projets', href: '#projects' },
-    { label: 'Contact', href: '#contact' },
+    { label: t('nav.home'), href: '#hero' },
+    { label: t('nav.about'), href: '#about' },
+    { label: t('nav.experience'), href: '#experience' },
+    { label: t('nav.projects'), href: '#projects' },
+    { label: t('nav.contact'), href: '#contact' },
   ];
 
   const downloadCV = () => {
@@ -73,6 +76,8 @@ const Navigation = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#10B981] transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
+            {/* Language Switcher */}
+            <LanguageSwitcher />
             {/* Theme radio toggles */}
             <div className="flex items-center gap-2 bg-white/5 rounded-full p-1">
               <label className={`flex items-center gap-2 px-3 py-1 rounded-full cursor-pointer transition-colors ${theme === 'light' ? 'bg-white/10' : ''}`}>
@@ -112,6 +117,9 @@ const Navigation = () => {
                 {item.label}
               </a>
             ))}
+            <div className="flex items-center justify-center gap-2 px-4 py-2">
+              <LanguageSwitcher />
+            </div>
             <div className="flex items-center gap-2 bg-white/5 rounded-full p-1 px-4">
               <label className={`flex items-center gap-2 px-3 py-1 rounded-full cursor-pointer transition-colors ${theme === 'light' ? 'bg-white/10' : ''}`}>
                 <input type="radio" name="theme" value="light" className="hidden" onChange={() => setThemeHandler('light')} checked={theme === 'light'} />

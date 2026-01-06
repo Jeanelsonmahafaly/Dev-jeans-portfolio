@@ -1,8 +1,10 @@
 import React from 'react';
 import { Heart, ArrowUp } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -21,22 +23,28 @@ const Footer = () => {
           {/* Logo/Name */}
           <div className="mb-8">
             <h3 className="text-2xl font-bold text-[#10B981] mb-2">
-              Razafimahafaly Jean Elson
+              {t('footer.name')}
             </h3>
-            <p className="text-gray-400">Développeur .NET & Ingénieur IA</p>
+            <p className="text-gray-400">{t('footer.title')}</p>
           </div>
 
           {/* Quick Links */}
           <div className="flex flex-wrap justify-center gap-6 mb-8">
-            {['Accueil', 'À propos', 'Expérience', 'Projets', 'Contact'].map((link, index) => (
-              <a
-                key={index}
-                href={`#${link.toLowerCase().replace('à propos', 'about').replace('expérience', 'experience').replace('projets', 'projects')}`}
-                className="text-gray-400 hover:text-[#10B981] transition-colors duration-300 text-sm hover:underline"
-              >
-                {link}
-              </a>
-            ))}
+            <a href="#hero" className="text-gray-400 hover:text-[#10B981] transition-colors duration-300 text-sm hover:underline">
+              {t('footer.home')}
+            </a>
+            <a href="#about" className="text-gray-400 hover:text-[#10B981] transition-colors duration-300 text-sm hover:underline">
+              {t('footer.about')}
+            </a>
+            <a href="#experience" className="text-gray-400 hover:text-[#10B981] transition-colors duration-300 text-sm hover:underline">
+              {t('footer.experience')}
+            </a>
+            <a href="#projects" className="text-gray-400 hover:text-[#10B981] transition-colors duration-300 text-sm hover:underline">
+              {t('footer.projects')}
+            </a>
+            <a href="#contact" className="text-gray-400 hover:text-[#10B981] transition-colors duration-300 text-sm hover:underline">
+              {t('footer.contact')}
+            </a>
           </div>
 
           {/* Divider */}
@@ -45,10 +53,10 @@ const Footer = () => {
           {/* Copyright */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm flex items-center gap-1">
-              Fait avec <Heart className="w-4 h-4 text-[#10B981] animate-pulse" /> à Fianarantsoa
+              {t('footer.madeWith')} <Heart className="w-4 h-4 text-[#10B981] animate-pulse" /> {t('footer.madeIn')}
             </p>
             <p className="text-gray-400 text-sm">
-              © 2024 Jean Elson. Tous droits réservés.
+              {t('footer.copyright')}
             </p>
           </div>
         </div>

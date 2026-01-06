@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from 'react-i18next';
 
 const ContactSection = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,8 +32,8 @@ const ContactSection = () => {
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     toast({
-      title: "Message envoyé avec succès ! 🎉",
-      description: "Je vous répondrai dans les plus brefs délais.",
+      title: t('contact.success'),
+      description: t('contact.successDesc'),
     });
 
     setFormData({ name: '', email: '', subject: '', message: '' });
@@ -41,24 +43,24 @@ const ContactSection = () => {
   const contactMethods = [
     {
       icon: <Mail className="w-6 h-6" />,
-      title: "Email",
+      title: t('contact.emailTitle'),
       value: "jelsonmahafaly@gmail.com",
       link: "mailto:jelsonmahafaly@gmail.com",
-      description: "Écrivez-moi pour toute question"
+      description: t('contact.emailDesc')
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: "Téléphone",
+      title: t('contact.phone'),
       value: "+261 34 72 166 56",
       link: "tel:+2613472116656",
-      description: "Appelons-nous directement"
+      description: t('contact.phoneDesc')
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: "Localisation",
-      value: "Antananarivo, Madagascar",
+      title: t('contact.location'),
+      value: t('contact.locationValue'),
       link: "",
-      description: "Rencontrons-nous en personne"
+      description: t('contact.locationDesc')
     }
   ];
 
@@ -68,11 +70,11 @@ const ContactSection = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Travaillons <span className="text-[#10B981]">ensemble</span>
+            {t('contact.title')} <span className="text-[#10B981]">{t('contact.titleHighlight')}</span>
           </h2>
           <div className="w-24 h-1 bg-[#10B981] mx-auto rounded-full mb-6"></div>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Prêt à donner vie à votre projet ? Contactez-moi pour discuter de vos besoins et transformer vos idées en réalité.
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -81,12 +83,10 @@ const ContactSection = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">
-                Restons en contact
+                {t('contact.stayInTouch')}
               </h3>
               <p className="text-gray-400 leading-relaxed mb-8">
-                Je suis toujours ouvert aux nouvelles opportunités et aux projets passionnants.
-                Que vous ayez besoin d'un développeur full-stack, d'expertise en IA, ou simplement
-                d'un conseil technique, n'hésitez pas à me contacter.
+                {t('contact.intro')}
               </p>
             </div>
 
@@ -122,7 +122,7 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div className="pt-8 themed-border-t">
-              <h4 className="text-lg font-semibold text-white mb-4">Suivez-moi</h4>
+              <h4 className="text-lg font-semibold text-white mb-4">{t('contact.followMe')}</h4>
               <div className="flex gap-4">
                 <Button asChild variant="outline" size="lg"
                   className="flex-1 themed-border text-gray-300 hover:bg-[#10B981]/10 hover:border-[#10B981] hover:text-[#10B981] group bg-transparent btn-micro-bounce"
@@ -158,7 +158,7 @@ const ContactSection = () => {
           <div className="glass rounded-3xl p-8 themed-border themed-border-hover">
             <div className="flex items-center gap-3 mb-6">
               <MessageCircle className="w-8 h-8 text-[#10B981]" />
-              <h3 className="text-xl font-bold text-white">Envoyez-moi un message</h3>
+              <h3 className="text-xl font-bold text-white">{t('contact.sendMessage')}</h3>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -168,7 +168,7 @@ const ContactSection = () => {
                   <Input
                     type="text"
                     name="name"
-                    placeholder="Votre nom"
+                    placeholder={t('contact.namePlaceholder')}
                     value={formData.name}
                     onChange={handleInputChange}
                     required
@@ -181,7 +181,7 @@ const ContactSection = () => {
                   <Input
                     type="email"
                     name="email"
-                    placeholder="Votre email"
+                    placeholder={t('contact.emailPlaceholder')}
                     value={formData.email}
                     onChange={handleInputChange}
                     required
@@ -195,7 +195,7 @@ const ContactSection = () => {
                 <Input
                   type="text"
                   name="subject"
-                  placeholder="Sujet de votre message"
+                  placeholder={t('contact.subjectPlaceholder')}
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
@@ -207,7 +207,7 @@ const ContactSection = () => {
                 <MessageCircle className="absolute left-3 top-4 w-5 h-5 text-[#10B981]" />
                 <Textarea
                   name="message"
-                  placeholder="Votre message détaillé..."
+                  placeholder={t('contact.messagePlaceholder')}
                   value={formData.message}
                   onChange={handleInputChange}
                   required
@@ -225,12 +225,12 @@ const ContactSection = () => {
                 {isSubmitting ? (
                   <div className="flex items-center gap-2">
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                    Envoi en cours...
+                    {t('contact.sending')}
                   </div>
                 ) : (
                   <div className="flex items-center gap-2">
                     <Send className="w-5 h-5" />
-                    Envoyer le message
+                    {t('contact.send')}
                   </div>
                 )}
               </Button>
@@ -238,7 +238,7 @@ const ContactSection = () => {
 
             <div className="mt-6 pt-6 themed-border-t text-center">
               <p className="text-gray-400 text-sm">
-                Temps de réponse moyen : <span className="text-[#10B981] font-medium">24h</span>
+                {t('contact.responseTime')} <span className="text-[#10B981] font-medium">{t('contact.responseTimeValue')}</span>
               </p>
             </div>
           </div>

@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Code2, Database, Server, Shield, Trophy, Users, GitBranch, TestTube, Brain, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const AboutSection = () => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -24,25 +26,25 @@ const AboutSection = () => {
   }, []);
 
   const skills = [
-    { icon: <Code2 className="w-8 h-8" />, title: "Développement .NET", desc: "C#, ASP.NET Core, Entity Framework" },
-    { icon: <Server className="w-8 h-8" />, title: "APIs REST", desc: "Conception et développement d'APIs sécurisées" },
-    { icon: <Database className="w-8 h-8" />, title: "Bases de données", desc: "SQL Server, PostgreSQL, MongoDB" },
-    { icon: <Shield className="w-8 h-8" />, title: "Sécurité", desc: "Authentication, Authorization, HTTPS" },
-    { icon: <GitBranch className="w-8 h-8" />, title: "Microservices", desc: "Architecture distribuée" },
-    { icon: <TestTube className="w-8 h-8" />, title: "Tests & CI/CD", desc: "Tests automatisés et pipelines" }
+    { icon: <Code2 className="w-8 h-8" />, title: t('about.skills.development'), desc: t('about.skills.developmentDesc') },
+    { icon: <Server className="w-8 h-8" />, title: t('about.skills.apis'), desc: t('about.skills.apisDesc') },
+    { icon: <Database className="w-8 h-8" />, title: t('about.skills.database'), desc: t('about.skills.databaseDesc') },
+    { icon: <Shield className="w-8 h-8" />, title: t('about.skills.security'), desc: t('about.skills.securityDesc') },
+    { icon: <GitBranch className="w-8 h-8" />, title: t('about.skills.microservices'), desc: t('about.skills.microservicesDesc') },
+    { icon: <TestTube className="w-8 h-8" />, title: t('about.skills.tests'), desc: t('about.skills.testsDesc') }
   ];
 
   const achievements = [
-    { icon: <Brain className="w-6 h-6" />, title: "Classification d'images", desc: "Réseaux neuronaux convolutifs" },
-    { icon: <Zap className="w-6 h-6" />, title: "Chatbot intelligent", desc: "Paris sportifs" },
-    { icon: <Trophy className="w-6 h-6" />, title: "2ᵉ place Hackathon", desc: "Villes intelligentes" }
+    { icon: <Brain className="w-6 h-6" />, title: t('about.achievements.imageClassification'), desc: t('about.achievements.imageClassificationDesc') },
+    { icon: <Zap className="w-6 h-6" />, title: t('about.achievements.chatbot'), desc: t('about.achievements.chatbotDesc') },
+    { icon: <Trophy className="w-6 h-6" />, title: t('about.achievements.hackathon'), desc: t('about.achievements.hackathonDesc') }
   ];
 
   const stats = [
-    { number: "2+", label: "Années d'expérience" },
-    { number: "3", label: "ESN partenaires" },
-    { number: "15+", label: "Projets réalisés" },
-    { number: "100%", label: "Satisfaction client" }
+    { number: "2+", label: t('about.yearsExperience') },
+    { number: "3", label: t('about.partners') },
+    { number: "15+", label: t('about.projects') },
+    { number: "100%", label: t('about.satisfaction') }
   ];
 
   return (
@@ -50,7 +52,7 @@ const AboutSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            À propos de <span className="text-[#10B981]">moi</span>
+            {t('about.title')}
           </h2>
           <div className="w-24 h-1 bg-[#10B981] mx-auto rounded-full"></div>
         </div>
@@ -59,15 +61,15 @@ const AboutSection = () => {
           {/* Colonne gauche : Contenu principal */}
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <h3 className="text-2xl font-bold text-white mb-6">
-              Développeur .NET passionné par l'innovation
+              {t('about.subtitle')}
             </h3>
             <div className="space-y-4 text-gray-400 leading-relaxed">
               <p>
-                Passionné par le <span className="font-semibold text-[#10B981]">développement .NET</span>, je maîtrise l'ensemble de son écosystème, depuis la conception et le développement jusqu'au déploiement continu via Azure DevOps et d'autres outils modernes.
+                {t('about.intro1')} <span className="font-semibold text-[#10B981]">{t('about.intro1Bold')}</span>{t('about.intro1End')}
               </p>
               
               <p>
-                Fortement impliqué dans le domaine de l'<span className="font-semibold text-[#10B981]">intelligence artificielle</span>, je conçois et entraîne des modèles de machine learning et deep learning, et je mets en place des solutions d'automatisation intelligente, notamment à travers des workflows avancés avec n8n. Je développe également des <span className="font-semibold text-[#10B981]">systèmes embarqués intelligents</span> utilisant LLMs et LangChain pour l'analyse et la prise de décision autonome sur des appareils IoT.
+                {t('about.intro2Start')}<span className="font-semibold text-[#10B981]">{t('about.intro2AI')}</span>{t('about.intro2Middle')} <span className="font-semibold text-[#10B981]">{t('about.intro2Systems')}</span> {t('about.intro2End')}
               </p>
 
               {/* AI Expertise Highlights */}
@@ -77,8 +79,8 @@ const AboutSection = () => {
                     <div className="flex items-center justify-center h-6 w-6 rounded-md bg-[#10B981]/20 text-[#10B981] font-bold text-sm">✨</div>
                   </div>
                   <div>
-                    <p className="font-medium text-white">Intégration IA Avancée</p>
-                    <p className="text-sm text-gray-400">J'intègre des solutions d'IA sophistiquées dans des plateformes existantes, optimisant processus et augmentant l'intelligence des applications.</p>
+                    <p className="font-medium text-white">{t('about.aiIntegration')}</p>
+                    <p className="text-sm text-gray-400">{t('about.aiIntegrationDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-4 rounded-lg glass themed-border">
@@ -86,8 +88,8 @@ const AboutSection = () => {
                     <div className="flex items-center justify-center h-6 w-6 rounded-md bg-[#10B981]/20 text-[#10B981] font-bold text-sm">🤖</div>
                   </div>
                   <div>
-                    <p className="font-medium text-white">Création de Projets IA de A à Z</p>
-                    <p className="text-sm text-gray-400">De la conception à la production, je développe des solutions IA complètes : vision par ordinateur, NLP, prédiction, et systèmes décisionnels autonomes.</p>
+                    <p className="font-medium text-white">{t('about.aiProjects')}</p>
+                    <p className="text-sm text-gray-400">{t('about.aiProjectsDesc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-4 rounded-lg glass themed-border">
@@ -95,42 +97,40 @@ const AboutSection = () => {
                     <div className="flex items-center justify-center h-6 w-6 rounded-md bg-[#10B981]/20 text-[#10B981] font-bold text-sm">⚡</div>
                   </div>
                   <div>
-                    <p className="font-medium text-white">LLMs et Modèles Personnalisés</p>
-                    <p className="text-sm text-gray-400">J'intègre les derniers LLMs (GPT, Claude, Llama) et crée des modèles d'IA sur mesure adaptés à vos besoins spécifiques.</p>
+                    <p className="font-medium text-white">{t('about.llmModels')}</p>
+                    <p className="text-sm text-gray-400">{t('about.llmModelsDesc')}</p>
                   </div>
                 </div>
               </div>
               
               <p>
-                <span className="font-semibold text-[#10B981]">Mon objectif</span> : allier performance, innovation et automatisation pour créer des solutions qui apportent une réelle valeur ajoutée.
+                <span className="font-semibold text-[#10B981]">{t('about.objective')}</span>{t('about.objectiveDesc')}
               </p>
               
               <p>
-                Je cumule plus de <span className="font-semibold text-[#10B981]">2 ans d'expérience</span> dans le 
-                développement d'applications web <span className="font-semibold text-[#10B981]">robustes, évolutives et sécurisées</span>.
+                {t('about.experienceYears')} <span className="font-semibold text-[#10B981]">{t('about.experienceYearsNumber')}</span> {t('about.experienceDesc')} <span className="font-semibold text-[#10B981]">{t('about.experienceQuality')}</span>.
               </p>
               
               <div className="glass rounded-xl p-6 themed-border themed-border-hover">
-                <h4 className="font-semibold text-white mb-3">Mon parcours professionnel :</h4>
+                <h4 className="font-semibold text-white mb-3">{t('about.careerTitle')}</h4>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-[#10B981] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span className="text-gray-300"><strong className="text-white">1 an</strong> en tant que stagiaire puis alternant chez <strong className="text-[#10B981]">ARATO</strong></span>
+                    <span className="text-gray-300"><strong className="text-white">{t('about.careerAratoDuration')}</strong> {t('about.careerArato')} <strong className="text-[#10B981]">ARATO</strong></span>
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-[#10B981] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span className="text-gray-300"><strong className="text-white">1 an et demi</strong> chez <strong className="text-[#10B981]">RTS Line</strong>, participation à des projets d'envergure</span>
+                    <span className="text-gray-300"><strong className="text-white">{t('about.careerRtsDuration')}</strong> {t('about.careerRts')} <strong className="text-[#10B981]">RTS Line</strong>{t('about.careerRtsDesc')}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-[#10B981] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span className="text-gray-300">Actuellement chez <strong className="text-[#10B981]">ILOMAD</strong> en tant qu'ingénieur confirmé, responsable du développement et de la livraison des projets</span>
+                    <span className="text-gray-300">{t('about.careerIlomad')} <strong className="text-[#10B981]">ILOMAD</strong> {t('about.careerIlomadDesc')}</span>
                   </li>
                 </ul>
               </div>
 
               <p>
-                Je m'intègre naturellement aux <span className="font-semibold text-[#10B981]">équipes agiles</span> et mets un point d'honneur à 
-                livrer des solutions <span className="font-semibold text-[#10B981]">fiables, maintenables et performantes</span>.
+                {t('about.teamwork')} <span className="font-semibold text-[#10B981]">{t('about.teamworkAgile')}</span> {t('about.teamworkDesc')} <span className="font-semibold text-[#10B981]">{t('about.teamworkQuality')}</span>.
               </p>
             </div>
 
@@ -158,7 +158,7 @@ const AboutSection = () => {
           <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             {/* Stats */}
             <div className="glass rounded-2xl p-8 themed-border mb-8 themed-border-hover">
-              <h3 className="text-xl font-bold text-white mb-8 text-center">Mes réalisations</h3>
+              <h3 className="text-xl font-bold text-white mb-8 text-center">{t('about.myAchievements')}</h3>
               <div className="grid grid-cols-2 gap-6">
                 {stats.map((stat, index) => (
                   <div 
@@ -192,10 +192,10 @@ const AboutSection = () => {
             <div className="glass rounded-xl p-6 themed-border mb-8 themed-border-hover">
               <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                 <Brain className="w-5 h-5 text-[#10B981]" />
-                Passionné par l'IA
+                {t('about.passionateAboutAI')}
               </h4>
               <p className="text-sm text-gray-400 mb-4">
-                Spécialisé dans la <span className="font-semibold text-[#10B981]">mise en place d'automatisation IA</span>, j'ai contribué au développement d'agents d'automatisation basés sur l'intelligence artificielle et réalisé plusieurs projets personnels dans ce domaine.
+                {t('about.passionateAboutAIDesc')}
               </p>
               <div className="grid gap-3">
                 {achievements.map((achievement, index) => (
@@ -214,13 +214,10 @@ const AboutSection = () => {
             <div className="glass rounded-xl p-6 themed-border themed-border-hover">
               <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                 <Code2 className="w-5 h-5 text-[#10B981]" />
-                Mon expertise technique
+                {t('about.myTechnicalExpertise')}
               </h4>
               <p className="text-sm text-gray-400">
-                Mon expertise couvre les <span className="font-semibold text-[#10B981]">architectures microservices</span>, 
-                le <span className="font-semibold text-[#10B981]">développement d'API REST sécurisées</span>, les 
-                <span className="font-semibold text-[#10B981]"> tests automatisés</span> (unitaires, fonctionnels) et les 
-                <span className="font-semibold text-[#10B981]"> pipelines CI/CD</span> (GitLab, Docker, etc.).
+                {t('about.technicalExpertiseDesc')}
               </p>
             </div>
           </div>

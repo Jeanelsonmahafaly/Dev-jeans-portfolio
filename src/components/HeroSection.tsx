@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { ChevronDown, Mail, Phone, MapPin, Download, Github, Linkedin, ExternalLink, Code, Brain, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Background3D from './Background3D';
 import CircuitAnimation from './CircuitAnimation';
 
 const HeroSection = () => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -77,9 +79,9 @@ const HeroSection = () => {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.25 }}
                 >
-                  <div className="text-lg md:text-xl font-bold text-white">RAZAFIMAHAFALY Jean Elson</div>
-                  <div className="text-sm md:text-base text-[#10B981] font-semibold">Développeur .NET & Ingénieur IA</div>
-                  <div className="text-xs md:text-sm text-gray-300 mt-2 max-w-lg">Je conçois des solutions intelligentes et performantes pour vos défis techniques.</div>
+                  <div className="text-lg md:text-xl font-bold text-white">{t('hero.name')}</div>
+                  <div className="text-sm md:text-base text-[#10B981] font-semibold">{t('hero.subtitle')}</div>
+                  <div className="text-xs md:text-sm text-gray-300 mt-2 max-w-lg">{t('hero.description')}</div>
                 </motion.div>
               </div>
             </motion.div>
@@ -127,7 +129,7 @@ const HeroSection = () => {
                   className="glass-strong text-base px-6 py-3 bg-[#10B981] hover:bg-[#059669] text-white border-0 shadow-2xl btn-micro-bounce"
                 >
                   <Download className="mr-2 h-4 w-4" />
-                  Télécharger CV
+                  {t('hero.downloadCV')}
                 </Button>
               </motion.div>
               
@@ -139,7 +141,7 @@ const HeroSection = () => {
                   className="glass text-base px-6 py-3 border-[#10B981]/50 text-[#10B981] hover:bg-[#10B981]/10 hover:border-[#10B981] shadow-lg btn-micro-bounce"
                 >
                   <ExternalLink className="mr-2 h-4 w-4" />
-                  En savoir plus
+                  {t('hero.viewProjects')}
                 </Button>
               </motion.div>
             </motion.div>
@@ -158,11 +160,11 @@ const HeroSection = () => {
                 <div className="w-12 h-12 rounded-xl bg-[#10B981]/20 flex items-center justify-center">
                   <Sparkles className="w-6 h-6 text-[#10B981]" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Ma Passion</h3>
+                <h3 className="text-2xl font-bold text-white">{t('hero.myPassion')}</h3>
               </div>
               
               <p className="text-gray-300 leading-relaxed mb-6">
-                Passionné par le <span className="font-semibold text-[#10B981]">développement .NET</span> et l'<span className="font-semibold text-[#10B981]">intelligence artificielle</span>, je transforme des idées complexes en solutions innovantes et performantes.
+                {t('hero.passionIntro')} <span className="font-semibold text-[#10B981]">{t('hero.passionDotNet')}</span> {t('hero.passionAnd')}<span className="font-semibold text-[#10B981]">{t('hero.passionAI')}</span>{t('hero.passionDesc')}
               </p>
 
               {/* Deux cartes : Dev .NET et Dev IA */}
@@ -173,10 +175,10 @@ const HeroSection = () => {
                     <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center">
                       <Code className="w-5 h-5 text-[#10B981]" />
                     </div>
-                    <h4 className="text-lg font-semibold text-white">Développement .NET</h4>
+                    <h4 className="text-lg font-semibold text-white">{t('hero.dotnetTitle')}</h4>
                   </div>
                   <p className="text-gray-400 text-sm leading-relaxed">
-                    Architecture microservices, APIs REST sécurisées, CI/CD Azure, Entity Framework. Plus de 2 ans d'expérience dans le développement d'applications robustes et évolutives.
+                    {t('hero.dotnetDesc')}
                   </p>
                 </div>
 
@@ -186,10 +188,10 @@ const HeroSection = () => {
                     <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center">
                       <Brain className="w-5 h-5 text-[#10B981]" />
                     </div>
-                    <h4 className="text-lg font-semibold text-white">Ingénierie IA</h4>
+                    <h4 className="text-lg font-semibold text-white">{t('hero.aiTitle')}</h4>
                   </div>
                   <p className="text-gray-400 text-sm leading-relaxed">
-                    RAG, LLM, LangChain, Machine Learning, Deep Learning. Conception et entraînement de modèles d'IA pour l'automatisation intelligente et l'analyse de données.
+                    {t('hero.aiDesc')}
                   </p>
                 </div>
               </div>
@@ -198,15 +200,15 @@ const HeroSection = () => {
               <div className="grid grid-cols-3 gap-4 mt-6 pt-6 themed-border-t">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-[#10B981]">2+</div>
-                  <div className="text-xs text-gray-400">Années</div>
+                  <div className="text-xs text-gray-400">{t('hero.yearsLabel')}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-[#10B981]">15+</div>
-                  <div className="text-xs text-gray-400">Projets</div>
+                  <div className="text-xs text-gray-400">{t('hero.projectsLabel')}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-[#10B981]">100%</div>
-                  <div className="text-xs text-gray-400">Satisfaction</div>
+                  <div className="text-xs text-gray-400">{t('hero.satisfactionLabel')}</div>
                 </div>
               </div>
             </div>
