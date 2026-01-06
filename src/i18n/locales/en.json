@@ -145,8 +145,9 @@
     }
   },
   "skills": {
-    "title": "Technical Skills",
-    "subtitle": "Technologies I master",
+    "title": "Technical",
+    "titleHighlight": "Skills",
+    "subtitle": "Technologies and tools I master on a daily basis",
     "level": {
       "expert": "Expert",
       "advanced": "Advanced",
@@ -154,13 +155,14 @@
       "beginner": "Beginner"
     },
     "categories": {
+      "languages": "Languages & Frameworks",
       "frontend": "Frontend",
       "backend": "Backend",
-      "database": "Database",
-      "devops": "DevOps",
+      "database": "Databases",
+      "devops": "DevOps & Cloud",
       "mobile": "Mobile",
       "ai": "Artificial Intelligence",
-      "tools": "Tools"
+      "tools": "Tools & Others"
     }
   },
   "education": {
@@ -219,11 +221,26 @@
   },
   "chatbot": {
     "title": "AI Assistant",
-    "placeholder": "Ask me a question...",
+    "subtitle": "Jean Elson - Available 24/7",
+    "placeholder": "Ask your question...",
     "send": "Send",
     "typing": "Typing...",
+    "thinking": "Assistant is thinking...",
     "error": "Error sending message",
-    "welcome": "Hello! I'm your AI assistant. How can I help you?"
+    "apiError": "❌ OpenAI API key is not configured.",
+    "generalError": "❌ An error occurred. Please try again.",
+    "openChat": "Open chatbot",
+    "closeChat": "Close",
+    "poweredBy": "Powered by Jean Elson",
+    "suggestionsTitle": "Suggestions:",
+    "welcome": "Hello! 👋 I'm Jean Elson Razafimahafaly's AI assistant. Nice to meet you! 🚀\n\nI'm here to help you discover how Jean can transform your projects with his skills in .NET, AI/ML, IoT and modern architectures. Whether you're looking to integrate AI into your systems, develop an IoT solution, or explore how LLMs can boost your project... I'm here for that!\n\n✨ My favorite topics:\n🤖 Artificial Intelligence & Machine Learning (RAG, LLMs, LangChain)\n⚡ .NET Development & microservices architectures\n💻 React & fullstack development\n🔧 IoT and intelligent embedded systems\n\nFeel free to ask me your questions! What interests you?",
+    "suggestions": [
+      "How can you help my project with AI?",
+      "Tell me about your experience in .NET and AI",
+      "What is your most impressive project?",
+      "Your specialties in Machine Learning and LLMs",
+      "How can I contact you for a mission?"
+    ]
   },
   "common": {
     "loading": "Loading...",

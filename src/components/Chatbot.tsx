@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, X, MessageCircle, Loader, AlertCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { openaiService } from '@/services/openaiService';
 import { ragService } from '@/services/ragService';
 import knowledgeBase from '@/data/knowledge.json';
@@ -12,22 +13,13 @@ interface ChatMessage {
 }
 
 const Chatbot = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: '1',
       role: 'assistant',
-      content: `Bonjour! 👋 Je suis l'assistant IA de Jean Elson Razafimahafaly. Je suis ravi de te rencontrer! 🚀
-
-Je suis ici pour t'aider à découvrir comment Jean peut transformer tes projets avec ses compétences en .NET, IA/ML, IoT et architectures modernes. Que tu cherches à intégrer de l'IA dans tes systèmes, à développer une solution IoT, ou à explorer comment les LLMs peuvent booster ton projet... je suis là pour ça!
-
-✨ Mes sujets favoris:
-🤖 Intelligence Artificielle & Machine Learning (RAG, LLMs, LangChain)
-⚡ Développement .NET & architectures microservices
-💻 React & développement fullstack
-🔧 IoT et systèmes embarqués intelligents
-
-N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
+      content: t('chatbot.welcome'),
       timestamp: new Date(),
     },
   ]);
@@ -51,12 +43,24 @@ N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
     }
   }, [isOpen]);
 
+  // Mettre à jour le message de bienvenue quand la langue change
+  useEffect(() => {
+    setMessages([
+      {
+        id: '1',
+        role: 'assistant',
+        content: t('chatbot.welcome'),
+        timestamp: new Date(),
+      },
+    ]);
+  }, [t]);
+
   const handleSendMessage = async () => {
     if (!inputValue.trim() || isLoading) return;
 
     // Vérifier que l'API est configurée
     if (!openaiService.isConfigured()) {
-      setApiError('❌ La clé API OpenAI n\'est pas configurée.');
+      setApiError(t('chatbot.apiError'));
       return;
     }
 
@@ -101,7 +105,7 @@ N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
       console.error('Error sending message:', error);
-      setApiError('❌ Une erreur est survenue. Veuillez réessayer.');
+      setApiError(t('chatbot.generalError'));
     } finally {
       setIsLoading(false);
       inputRef.current?.focus();
@@ -116,42 +120,38 @@ N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
   };
 
   // Suggestions de questions
-  const suggestions = [
-    'Comment pouvez-vous aider mon projet avec l\'IA?',
-    'Parlez-moi de votre expérience en .NET et IA',
-    'Quel est votre projet le plus impressionnant?',
-    'Vos spécialités en Machine Learning et LLMs',
-    'Comment puis-je vous contacter pour une mission?',
-  ];
+  const suggestions = t('chatbot.suggestions', { returnObjects: true }) as string[];
 
   return (
     <>
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-6 p-4 rounded-full shadow-lg transition-all duration-300 z-40 ${
+        className={`fixed bottom-4 right-4 md:bottom-6 md:right-6 p-3 md:p-4 rounded-full shadow-lg transition-all duration-300 z-40 ${
           isOpen
             ? 'bg-[#10B981] hover:bg-[#059669] scale-110'
             : 'bg-[#10B981] hover:bg-[#059669] hover:scale-110'
         }`}
-        title="Ouvrir le chatbot"
+        title={t('chatbot.openChat')}
+        aria-label={t('chatbot.openChat')}
       >
-        <MessageCircle className="w-6 h-6 text-white" />
+        <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-white" />
       </button>
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col border border-gray-200 z-50 animate-fade-in-up">
+        <div className="fixed inset-0 md:inset-auto md:bottom-20 md:right-4 lg:bottom-24 lg:right-6 w-full h-full md:w-96 md:h-[600px] md:max-h-[calc(100vh-8rem)] bg-white md:rounded-2xl shadow-2xl flex flex-col border-0 md:border border-gray-200 z-50 animate-fade-in-up">
           {/* Header */}
-          <div className="bg-gradient-to-r from-[#10B981] to-[#059669] text-white p-6 rounded-t-2xl flex items-center justify-between">
+          <div className="bg-gradient-to-r from-[#10B981] to-[#059669] text-white p-4 md:p-6 rounded-t-none md:rounded-t-2xl flex items-center justify-between">
             <div>
-              <h3 className="font-bold text-lg">Assistant IA</h3>
-              <p className="text-sm text-emerald-50">Jean Elson - Disponible 24/7</p>
+              <h3 className="font-bold text-base md:text-lg">{t('chatbot.title')}</h3>
+              <p className="text-xs md:text-sm text-emerald-50">{t('chatbot.subtitle')}</p>
             </div>
             <button
               onClick={() => setIsOpen(false)}
               className="p-1 hover:bg-white/20 rounded-lg transition-colors"
-              title="Fermer"
+              title={t('chatbot.closeChat')}
+              aria-label={t('chatbot.closeChat')}
             >
               <X className="w-5 h-5" />
             </button>
@@ -187,7 +187,7 @@ N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
                 <div className="bg-gray-100 rounded-lg rounded-bl-none px-4 py-3 border border-gray-300">
                   <div className="flex items-center gap-2">
                     <Loader className="w-4 h-4 animate-spin text-[#10B981]" />
-                    <span className="text-sm text-gray-700">L'assistant réfléchit...</span>
+                    <span className="text-sm text-gray-700">{t('chatbot.thinking')}</span>
                   </div>
                 </div>
               </div>
@@ -207,7 +207,7 @@ N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
             {/* Suggestions d'initial */}
             {messages.length === 1 && !isLoading && (
               <div className="space-y-2 mt-4">
-                <p className="text-xs text-gray-600 px-2">Suggestions:</p>
+                <p className="text-xs text-gray-600 px-2">{t('chatbot.suggestionsTitle')}</p>
                 {suggestions.map((suggestion, idx) => (
                   <button
                     key={idx}
@@ -215,7 +215,7 @@ N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
                       setInputValue(suggestion);
                       inputRef.current?.focus();
                     }}
-                    className="w-full text-left p-2 text-sm bg-gray-50 hover:bg-[#10B981]/10 rounded text-gray-700 transition-colors border border-gray-200"
+                    className="w-full text-left p-2 text-xs md:text-sm bg-gray-50 hover:bg-[#10B981]/10 rounded text-gray-700 transition-colors border border-gray-200"
                   >
                     💬 {suggestion}
                   </button>
@@ -227,7 +227,7 @@ N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
           </div>
 
           {/* Input Area */}
-          <div className="border-t border-gray-200 p-4 bg-white">
+          <div className="border-t border-gray-200 p-3 md:p-4 bg-white">
             <div className="flex gap-2">
               <input
                 ref={inputRef}
@@ -235,14 +235,15 @@ N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Posez votre question..."
+                placeholder={t('chatbot.placeholder')}
                 disabled={isLoading}
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:border-transparent disabled:opacity-50"
+                className="flex-1 px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:border-transparent disabled:opacity-50"
               />
               <button
                 onClick={handleSendMessage}
                 disabled={isLoading || !inputValue.trim()}
-                className="px-4 py-2 bg-[#10B981] hover:bg-[#059669] disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg transition-colors flex items-center gap-2"
+                className="px-3 md:px-4 py-2 bg-[#10B981] hover:bg-[#059669] disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg transition-colors flex items-center gap-2"
+                aria-label={t('chatbot.send')}
               >
                 {isLoading ? (
                   <Loader className="w-4 h-4 animate-spin" />
@@ -252,7 +253,7 @@ N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
               </button>
             </div>
             <p className="text-xs text-gray-600 mt-2 text-center">
-              Powered by Jean Elson
+              {t('chatbot.poweredBy')}
             </p>
           </div>
         </div>

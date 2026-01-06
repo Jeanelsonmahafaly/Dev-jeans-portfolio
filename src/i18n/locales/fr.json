@@ -145,8 +145,9 @@
     }
   },
   "skills": {
-    "title": "Compétences Techniques",
-    "subtitle": "Technologies que je maîtrise",
+    "title": "Compétences",
+    "titleHighlight": "Techniques",
+    "subtitle": "Technologies et outils que je maîtrise au quotidien",
     "level": {
       "expert": "Expert",
       "advanced": "Avancé",
@@ -154,13 +155,14 @@
       "beginner": "Débutant"
     },
     "categories": {
+      "languages": "Langages & Frameworks",
       "frontend": "Frontend",
       "backend": "Backend",
-      "database": "Base de données",
-      "devops": "DevOps",
+      "database": "Bases de Données",
+      "devops": "DevOps & Cloud",
       "mobile": "Mobile",
       "ai": "Intelligence Artificielle",
-      "tools": "Outils"
+      "tools": "Outils & Autres"
     }
   },
   "education": {
@@ -219,11 +221,26 @@
   },
   "chatbot": {
     "title": "Assistant IA",
-    "placeholder": "Posez-moi une question...",
+    "subtitle": "Jean Elson - Disponible 24/7",
+    "placeholder": "Posez votre question...",
     "send": "Envoyer",
     "typing": "En train d'écrire...",
+    "thinking": "L'assistant réfléchit...",
     "error": "Erreur lors de l'envoi du message",
-    "welcome": "Bonjour ! Je suis votre assistant IA. Comment puis-je vous aider ?"
+    "apiError": "❌ La clé API OpenAI n'est pas configurée.",
+    "generalError": "❌ Une erreur est survenue. Veuillez réessayer.",
+    "openChat": "Ouvrir le chatbot",
+    "closeChat": "Fermer",
+    "poweredBy": "Powered by Jean Elson",
+    "suggestionsTitle": "Suggestions:",
+    "welcome": "Bonjour! 👋 Je suis l'assistant IA de Jean Elson Razafimahafaly. Je suis ravi de te rencontrer! 🚀\n\nJe suis ici pour t'aider à découvrir comment Jean peut transformer tes projets avec ses compétences en .NET, IA/ML, IoT et architectures modernes. Que tu cherches à intégrer de l'IA dans tes systèmes, à développer une solution IoT, ou à explorer comment les LLMs peuvent booster ton projet... je suis là pour ça!\n\n✨ Mes sujets favoris:\n🤖 Intelligence Artificielle & Machine Learning (RAG, LLMs, LangChain)\n⚡ Développement .NET & architectures microservices\n💻 React & développement fullstack\n🔧 IoT et systèmes embarqués intelligents\n\nN'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?",
+    "suggestions": [
+      "Comment pouvez-vous aider mon projet avec l'IA?",
+      "Parlez-moi de votre expérience en .NET et IA",
+      "Quel est votre projet le plus impressionnant?",
+      "Vos spécialités en Machine Learning et LLMs",
+      "Comment puis-je vous contacter pour une mission?"
+    ]
   },
   "common": {
     "loading": "Chargement...",
