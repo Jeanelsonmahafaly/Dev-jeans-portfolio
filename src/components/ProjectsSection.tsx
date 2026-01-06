@@ -145,14 +145,14 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" ref={ref} className="py-20 bg-card relative overflow-hidden">
+    <section id="projects" ref={ref} className="py-20 bg-[#111827] relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Mes <span className="text-primary">Projets</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Mes <span className="text-[#10B981]">Projets</span>
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-6"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <div className="w-24 h-1 bg-[#10B981] mx-auto rounded-full mb-6"></div>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
             Découvrez quelques-uns de mes projets récents qui démontrent mon expertise 
             en développement full-stack, mobile et intelligence artificielle.
           </p>
@@ -163,7 +163,7 @@ const ProjectsSection = () => {
             <div 
               key={index}
               data-index={index}
-              className={`bg-background rounded-2xl p-8 themed-border themed-border-hover card-glow transition-all duration-500 ${
+              className={`bg-[#030712] rounded-2xl p-8 themed-border themed-border-hover card-glow transition-all duration-500 ${
                 visibleProjects.includes(index)
                   ? 'animate-fade-in-up opacity-100'
                   : 'opacity-0'
@@ -171,30 +171,30 @@ const ProjectsSection = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 rounded-xl bg-primary/20 text-primary group-hover:scale-110 transition-transform duration-300">
+                <div className="p-3 rounded-xl bg-[#10B981]/20 text-[#10B981] group-hover:scale-110 transition-transform duration-300">
                   {project.icon}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-foreground mb-2">{project.title}</h3>
-                  <span className="inline-block px-3 py-1 bg-[#1F2937] text-muted-foreground rounded-full text-xs font-medium border border-[#374151]">
+                  <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                  <span className="inline-block px-3 py-1 bg-[#1F2937] text-gray-300 rounded-full text-xs font-medium border border-[#374151]">
                     {project.category}
                   </span>
                 </div>
               </div>
               
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 {project.description}
               </p>
               
               <div className="mb-6">
-                <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
+                  <div className="w-2 h-2 bg-[#10B981] rounded-full"></div>
                   Fonctionnalités clés
                 </h4>
                 <ul className="space-y-2">
                   {project.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="text-muted-foreground text-sm flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
+                    <li key={featureIndex} className="text-gray-400 text-sm flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 bg-[#10B981] rounded-full mt-2 flex-shrink-0"></span>
                       {feature}
                     </li>
                   ))}
@@ -202,15 +202,15 @@ const ProjectsSection = () => {
               </div>
               
               <div className="mb-6">
-                <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2 text-sm">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <h4 className="font-semibold text-white mb-3 flex items-center gap-2 text-sm">
+                  <div className="w-2 h-2 bg-[#10B981] rounded-full"></div>
                   Technologies & Outils
                 </h4>
                 <div className="flex flex-wrap gap-3">
                   {project.technologies.map((tech, techIndex) => (
                     <div 
                       key={techIndex} 
-                      className="flex items-center gap-2 bg-[#1F2937] hover:bg-[#374151] rounded-lg px-3 py-2 transition-colors border border-[#374151] hover:border-primary"
+                      className="flex items-center gap-2 bg-[#1F2937] hover:bg-[#374151] rounded-lg px-3 py-2 transition-colors border border-[#374151] hover:border-[#10B981]"
                       title={tech}
                     >
                       <img 
@@ -219,7 +219,7 @@ const ProjectsSection = () => {
                         className="w-4 h-4 object-contain"
                         onError={(e) => { e.currentTarget.style.display = 'none'; }}
                       />
-                      <span className="text-muted-foreground text-xs font-medium hover:text-primary transition-colors">
+                      <span className="text-gray-300 text-xs font-medium hover:text-[#10B981] transition-colors">
                         {tech}
                       </span>
                     </div>
@@ -232,7 +232,7 @@ const ProjectsSection = () => {
                   asChild
                   variant="outline" 
                   size="sm" 
-                  className="flex items-center gap-2 border-[#374151] text-muted-foreground hover:bg-[#1F2937] hover:border-primary hover:text-primary btn-micro-bounce transition-all duration-300"
+                  className="flex items-center gap-2 border-[#374151] text-gray-300 hover:bg-[#1F2937] hover:border-[#10B981] hover:text-[#10B981] btn-micro-bounce transition-all duration-300"
                 >
                   <a href={project.github} target="_blank" rel="noopener noreferrer">
                     <Github className="w-4 h-4" />
@@ -242,7 +242,7 @@ const ProjectsSection = () => {
                 <Button 
                   asChild
                   size="sm" 
-                  className="flex items-center gap-2 bg-primary hover:bg-[#059669] text-foreground border-0 btn-micro-bounce transition-all duration-300"
+                  className="flex items-center gap-2 bg-[#10B981] hover:bg-[#059669] text-white border-0 btn-micro-bounce transition-all duration-300"
                 >
                   <a href={project.demo} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-4 h-4" />
@@ -258,7 +258,7 @@ const ProjectsSection = () => {
           <Button 
             size="lg" 
             variant="outline" 
-            className="border-primary text-primary hover:bg-primary/10 px-8 py-3 btn-micro-bounce transition-all duration-300"
+            className="border-[#10B981] text-[#10B981] hover:bg-[#10B981]/10 px-8 py-3 btn-micro-bounce transition-all duration-300"
           >
             Voir tous mes projets
           </Button>

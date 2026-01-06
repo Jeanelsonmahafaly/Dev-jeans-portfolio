@@ -101,7 +101,7 @@ export const CircuitAnimation: React.FC = () => {
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={`packet-${i}`}
-            className="absolute w-2 h-2 bg-primary rounded-full shadow-lg"
+            className="absolute w-2 h-2 bg-[#10B981] rounded-full shadow-lg"
             animate={{
               x: [0, 100, 200, 300, 400],
               y: [50 + i * 50, 25 + i * 50, 100 + i * 50, 150 + i * 50, 200 + i * 50],

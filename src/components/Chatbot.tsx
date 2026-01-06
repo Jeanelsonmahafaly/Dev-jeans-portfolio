@@ -131,19 +131,19 @@ N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
         onClick={() => setIsOpen(!isOpen)}
         className={`fixed bottom-6 right-6 p-4 rounded-full shadow-lg transition-all duration-300 z-40 ${
           isOpen
-            ? 'bg-primary hover:bg-[#059669] scale-110'
-            : 'bg-primary hover:bg-[#059669] hover:scale-110'
+            ? 'bg-[#10B981] hover:bg-[#059669] scale-110'
+            : 'bg-[#10B981] hover:bg-[#059669] hover:scale-110'
         }`}
         title="Ouvrir le chatbot"
       >
-        <MessageCircle className="w-6 h-6 text-foreground" />
+        <MessageCircle className="w-6 h-6 text-white" />
       </button>
 
       {/* Chat Window */}
       {isOpen && (
         <div className="fixed bottom-24 right-6 w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col border border-gray-200 z-50 animate-fade-in-up">
           {/* Header */}
-          <div className="bg-gradient-to-r from-[#10B981] to-[#059669] text-foreground p-6 rounded-t-2xl flex items-center justify-between">
+          <div className="bg-gradient-to-r from-[#10B981] to-[#059669] text-white p-6 rounded-t-2xl flex items-center justify-between">
             <div>
               <h3 className="font-bold text-lg">Assistant IA</h3>
               <p className="text-sm text-emerald-50">Jean Elson - Disponible 24/7</p>
@@ -167,7 +167,7 @@ N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
                 <div
                   className={`max-w-xs px-4 py-3 rounded-lg ${
                     message.role === 'user'
-                      ? 'bg-primary text-foreground rounded-br-none'
+                      ? 'bg-[#10B981] text-white rounded-br-none'
                       : 'bg-gray-100 text-gray-800 rounded-bl-none border border-gray-300'
                   }`}
                 >
@@ -186,7 +186,7 @@ N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
               <div className="flex justify-start">
                 <div className="bg-gray-100 rounded-lg rounded-bl-none px-4 py-3 border border-gray-300">
                   <div className="flex items-center gap-2">
-                    <Loader className="w-4 h-4 animate-spin text-primary" />
+                    <Loader className="w-4 h-4 animate-spin text-[#10B981]" />
                     <span className="text-sm text-gray-700">L'assistant réfléchit...</span>
                   </div>
                 </div>
@@ -215,7 +215,7 @@ N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
                       setInputValue(suggestion);
                       inputRef.current?.focus();
                     }}
-                    className="w-full text-left p-2 text-sm bg-gray-50 hover:bg-primary/10 rounded text-gray-700 transition-colors border border-gray-200"
+                    className="w-full text-left p-2 text-sm bg-gray-50 hover:bg-[#10B981]/10 rounded text-gray-700 transition-colors border border-gray-200"
                   >
                     💬 {suggestion}
                   </button>
@@ -242,7 +242,7 @@ N'hésite pas à me poser tes questions! Qu'est-ce qui t'intéresse?`,
               <button
                 onClick={handleSendMessage}
                 disabled={isLoading || !inputValue.trim()}
-                className="px-4 py-2 bg-primary hover:bg-[#059669] disabled:opacity-50 disabled:cursor-not-allowed text-foreground rounded-lg transition-colors flex items-center gap-2"
+                className="px-4 py-2 bg-[#10B981] hover:bg-[#059669] disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg transition-colors flex items-center gap-2"
               >
                 {isLoading ? (
                   <Loader className="w-4 h-4 animate-spin" />

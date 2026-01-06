@@ -87,18 +87,18 @@ const Skills = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-gray-950">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Compétences
           </h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full"></div>
+          <div className="w-16 h-1 bg-emerald-500 mx-auto rounded-full"></div>
         </div>
 
         {/* Carrousel d'icônes avec scroll automatique */}
         <div className="relative">
-          <div className="overflow-hidden rounded-xl bg-card border border-border">
+          <div className="overflow-hidden rounded-xl bg-gray-900 border border-gray-800">
             <div 
               ref={carouselRef} 
               className="flex gap-6 py-8 px-4 overflow-x-auto" 
@@ -107,7 +107,7 @@ const Skills = () => {
               {[...technologies, ...technologies].map((tech, index) => (
                 <div
                   key={`${tech.name}-${index}`}
-                  className="flex-shrink-0 w-32 h-32 bg-background rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:scale-110 flex flex-col items-center justify-center gap-3 group cursor-pointer border border-border hover:border-primary p-4"
+                  className="flex-shrink-0 w-32 h-32 bg-gray-950 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:scale-110 flex flex-col items-center justify-center gap-3 group cursor-pointer border border-gray-800 hover:border-emerald-500 p-4"
                 >
                   <div className="w-14 h-14 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <img 
@@ -119,7 +119,7 @@ const Skills = () => {
                       }}
                     />
                   </div>
-                  <div className="text-xs text-muted-foreground group-hover:text-primary text-center font-medium transition-colors duration-300">
+                  <div className="text-xs text-gray-300 group-hover:text-emerald-400 text-center font-medium transition-colors duration-300">
                     {tech.name}
                   </div>
                 </div>

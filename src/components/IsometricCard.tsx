@@ -47,7 +47,7 @@ export const IsometricCard: React.FC<IsometricCardProps> = ({
         <div className="relative z-10">
           {/* Icon Container */}
           <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
-            <div className={`w-12 h-12 rounded-lg bg-gradient-to-br from-${color} to-glacier-600 flex items-center justify-center text-foreground shadow-lg`}>
+            <div className={`w-12 h-12 rounded-lg bg-gradient-to-br from-${color} to-glacier-600 flex items-center justify-center text-white shadow-lg`}>
               {icon}
             </div>
           </div>

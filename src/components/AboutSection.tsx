@@ -46,91 +46,91 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" ref={ref} className="py-20 bg-card relative overflow-hidden transition-colors duration-300">
+    <section id="about" ref={ref} className="py-20 bg-[#111827] relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            À propos de <span className="text-primary">moi</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            À propos de <span className="text-[#10B981]">moi</span>
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-[#10B981] mx-auto rounded-full"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Colonne gauche : Contenu principal */}
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <h3 className="text-2xl font-bold text-foreground mb-6">
+            <h3 className="text-2xl font-bold text-white mb-6">
               Développeur .NET passionné par l'innovation
             </h3>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-gray-400 leading-relaxed">
               <p>
-                Passionné par le <span className="font-semibold text-primary">développement .NET</span>, je maîtrise l'ensemble de son écosystème, depuis la conception et le développement jusqu'au déploiement continu via Azure DevOps et d'autres outils modernes.
+                Passionné par le <span className="font-semibold text-[#10B981]">développement .NET</span>, je maîtrise l'ensemble de son écosystème, depuis la conception et le développement jusqu'au déploiement continu via Azure DevOps et d'autres outils modernes.
               </p>
               
               <p>
-                Fortement impliqué dans le domaine de l'<span className="font-semibold text-primary">intelligence artificielle</span>, je conçois et entraîne des modèles de machine learning et deep learning, et je mets en place des solutions d'automatisation intelligente, notamment à travers des workflows avancés avec n8n. Je développe également des <span className="font-semibold text-primary">systèmes embarqués intelligents</span> utilisant LLMs et LangChain pour l'analyse et la prise de décision autonome sur des appareils IoT.
+                Fortement impliqué dans le domaine de l'<span className="font-semibold text-[#10B981]">intelligence artificielle</span>, je conçois et entraîne des modèles de machine learning et deep learning, et je mets en place des solutions d'automatisation intelligente, notamment à travers des workflows avancés avec n8n. Je développe également des <span className="font-semibold text-[#10B981]">systèmes embarqués intelligents</span> utilisant LLMs et LangChain pour l'analyse et la prise de décision autonome sur des appareils IoT.
               </p>
 
               {/* AI Expertise Highlights */}
               <div className="my-6 space-y-3">
                 <div className="flex items-start gap-3 p-4 rounded-lg glass themed-border">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-6 w-6 rounded-md bg-primary/20 text-primary font-bold text-sm">✨</div>
+                    <div className="flex items-center justify-center h-6 w-6 rounded-md bg-[#10B981]/20 text-[#10B981] font-bold text-sm">✨</div>
                   </div>
                   <div>
-                    <p className="font-medium text-foreground">Intégration IA Avancée</p>
-                    <p className="text-sm text-muted-foreground">J'intègre des solutions d'IA sophistiquées dans des plateformes existantes, optimisant processus et augmentant l'intelligence des applications.</p>
+                    <p className="font-medium text-white">Intégration IA Avancée</p>
+                    <p className="text-sm text-gray-400">J'intègre des solutions d'IA sophistiquées dans des plateformes existantes, optimisant processus et augmentant l'intelligence des applications.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-4 rounded-lg glass themed-border">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-6 w-6 rounded-md bg-primary/20 text-primary font-bold text-sm">🤖</div>
+                    <div className="flex items-center justify-center h-6 w-6 rounded-md bg-[#10B981]/20 text-[#10B981] font-bold text-sm">🤖</div>
                   </div>
                   <div>
-                    <p className="font-medium text-foreground">Création de Projets IA de A à Z</p>
-                    <p className="text-sm text-muted-foreground">De la conception à la production, je développe des solutions IA complètes : vision par ordinateur, NLP, prédiction, et systèmes décisionnels autonomes.</p>
+                    <p className="font-medium text-white">Création de Projets IA de A à Z</p>
+                    <p className="text-sm text-gray-400">De la conception à la production, je développe des solutions IA complètes : vision par ordinateur, NLP, prédiction, et systèmes décisionnels autonomes.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-4 rounded-lg glass themed-border">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-6 w-6 rounded-md bg-primary/20 text-primary font-bold text-sm">⚡</div>
+                    <div className="flex items-center justify-center h-6 w-6 rounded-md bg-[#10B981]/20 text-[#10B981] font-bold text-sm">⚡</div>
                   </div>
                   <div>
-                    <p className="font-medium text-foreground">LLMs et Modèles Personnalisés</p>
-                    <p className="text-sm text-muted-foreground">J'intègre les derniers LLMs (GPT, Claude, Llama) et crée des modèles d'IA sur mesure adaptés à vos besoins spécifiques.</p>
+                    <p className="font-medium text-white">LLMs et Modèles Personnalisés</p>
+                    <p className="text-sm text-gray-400">J'intègre les derniers LLMs (GPT, Claude, Llama) et crée des modèles d'IA sur mesure adaptés à vos besoins spécifiques.</p>
                   </div>
                 </div>
               </div>
               
               <p>
-                <span className="font-semibold text-primary">Mon objectif</span> : allier performance, innovation et automatisation pour créer des solutions qui apportent une réelle valeur ajoutée.
+                <span className="font-semibold text-[#10B981]">Mon objectif</span> : allier performance, innovation et automatisation pour créer des solutions qui apportent une réelle valeur ajoutée.
               </p>
               
               <p>
-                Je cumule plus de <span className="font-semibold text-primary">2 ans d'expérience</span> dans le 
-                développement d'applications web <span className="font-semibold text-primary">robustes, évolutives et sécurisées</span>.
+                Je cumule plus de <span className="font-semibold text-[#10B981]">2 ans d'expérience</span> dans le 
+                développement d'applications web <span className="font-semibold text-[#10B981]">robustes, évolutives et sécurisées</span>.
               </p>
               
               <div className="glass rounded-xl p-6 themed-border themed-border-hover">
-                <h4 className="font-semibold text-foreground mb-3">Mon parcours professionnel :</h4>
+                <h4 className="font-semibold text-white mb-3">Mon parcours professionnel :</h4>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span className="text-muted-foreground"><strong className="text-foreground">1 an</strong> en tant que stagiaire puis alternant chez <strong className="text-primary">ARATO</strong></span>
+                    <span className="w-2 h-2 bg-[#10B981] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span className="text-gray-300"><strong className="text-white">1 an</strong> en tant que stagiaire puis alternant chez <strong className="text-[#10B981]">ARATO</strong></span>
                   </li>
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span className="text-muted-foreground"><strong className="text-foreground">1 an et demi</strong> chez <strong className="text-primary">RTS Line</strong>, participation à des projets d'envergure</span>
+                    <span className="w-2 h-2 bg-[#10B981] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span className="text-gray-300"><strong className="text-white">1 an et demi</strong> chez <strong className="text-[#10B981]">RTS Line</strong>, participation à des projets d'envergure</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span className="text-muted-foreground">Actuellement chez <strong className="text-primary">ILOMAD</strong> en tant qu'ingénieur confirmé, responsable du développement et de la livraison des projets</span>
+                    <span className="w-2 h-2 bg-[#10B981] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span className="text-gray-300">Actuellement chez <strong className="text-[#10B981]">ILOMAD</strong> en tant qu'ingénieur confirmé, responsable du développement et de la livraison des projets</span>
                   </li>
                 </ul>
               </div>
 
               <p>
-                Je m'intègre naturellement aux <span className="font-semibold text-primary">équipes agiles</span> et mets un point d'honneur à 
-                livrer des solutions <span className="font-semibold text-primary">fiables, maintenables et performantes</span>.
+                Je m'intègre naturellement aux <span className="font-semibold text-[#10B981]">équipes agiles</span> et mets un point d'honneur à 
+                livrer des solutions <span className="font-semibold text-[#10B981]">fiables, maintenables et performantes</span>.
               </p>
             </div>
 
@@ -144,11 +144,11 @@ const AboutSection = () => {
                   }`}
                   style={{ transitionDelay: `${(index + 4) * 100}ms` }}
                 >
-                  <div className="text-primary mb-2">
+                  <div className="text-[#10B981] mb-2">
                     {skill.icon}
                   </div>
-                  <h4 className="font-semibold text-foreground text-sm mb-1">{skill.title}</h4>
-                  <p className="text-muted-foreground text-xs">{skill.desc}</p>
+                  <h4 className="font-semibold text-white text-sm mb-1">{skill.title}</h4>
+                  <p className="text-gray-400 text-xs">{skill.desc}</p>
                 </div>
               ))}
             </div>
@@ -158,7 +158,7 @@ const AboutSection = () => {
           <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             {/* Stats */}
             <div className="glass rounded-2xl p-8 themed-border mb-8 themed-border-hover">
-              <h3 className="text-xl font-bold text-foreground mb-8 text-center">Mes réalisations</h3>
+              <h3 className="text-xl font-bold text-white mb-8 text-center">Mes réalisations</h3>
               <div className="grid grid-cols-2 gap-6">
                 {stats.map((stat, index) => (
                   <div 
@@ -168,10 +168,10 @@ const AboutSection = () => {
                     }`}
                     style={{ transitionDelay: `${(index + 6) * 150}ms` }}
                   >
-                    <div className="text-3xl font-bold text-primary mb-2">
+                    <div className="text-3xl font-bold text-[#10B981] mb-2">
                       {stat.number}
                     </div>
-                    <div className="text-muted-foreground text-sm">{stat.label}</div>
+                    <div className="text-gray-400 text-sm">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -179,10 +179,10 @@ const AboutSection = () => {
               {/* Awards Section */}
               <div className="mt-8 pt-6 themed-border-t">
                 <div className="flex items-center justify-center gap-3 glass rounded-lg p-4 themed-border themed-border-hover">
-                  <Trophy className="w-6 h-6 text-primary" />
+                  <Trophy className="w-6 h-6 text-[#10B981]" />
                   <div>
-                    <div className="font-semibold text-foreground text-sm">Agent d'automatisation IA</div>
-                    <div className="text-muted-foreground text-xs">Contribution chez ILOMAD</div>
+                    <div className="font-semibold text-white text-sm">Agent d'automatisation IA</div>
+                    <div className="text-gray-400 text-xs">Contribution chez ILOMAD</div>
                   </div>
                 </div>
               </div>
@@ -190,20 +190,20 @@ const AboutSection = () => {
 
             {/* Passionné par l'IA - Déplacé à droite */}
             <div className="glass rounded-xl p-6 themed-border mb-8 themed-border-hover">
-              <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-                <Brain className="w-5 h-5 text-primary" />
+              <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
+                <Brain className="w-5 h-5 text-[#10B981]" />
                 Passionné par l'IA
               </h4>
-              <p className="text-sm text-muted-foreground mb-4">
-                Spécialisé dans la <span className="font-semibold text-primary">mise en place d'automatisation IA</span>, j'ai contribué au développement d'agents d'automatisation basés sur l'intelligence artificielle et réalisé plusieurs projets personnels dans ce domaine.
+              <p className="text-sm text-gray-400 mb-4">
+                Spécialisé dans la <span className="font-semibold text-[#10B981]">mise en place d'automatisation IA</span>, j'ai contribué au développement d'agents d'automatisation basés sur l'intelligence artificielle et réalisé plusieurs projets personnels dans ce domaine.
               </p>
               <div className="grid gap-3">
                 {achievements.map((achievement, index) => (
                   <div key={index} className="flex items-center gap-3 glass rounded-lg p-3 themed-border themed-border-hover">
-                    <div className="text-primary">{achievement.icon}</div>
+                    <div className="text-[#10B981]">{achievement.icon}</div>
                     <div>
-                      <div className="font-medium text-foreground text-sm">{achievement.title}</div>
-                      <div className="text-muted-foreground text-xs">{achievement.desc}</div>
+                      <div className="font-medium text-white text-sm">{achievement.title}</div>
+                      <div className="text-gray-400 text-xs">{achievement.desc}</div>
                     </div>
                   </div>
                 ))}
@@ -212,15 +212,15 @@ const AboutSection = () => {
 
             {/* Expertise technique - Déplacé à droite */}
             <div className="glass rounded-xl p-6 themed-border themed-border-hover">
-              <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-                <Code2 className="w-5 h-5 text-primary" />
+              <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
+                <Code2 className="w-5 h-5 text-[#10B981]" />
                 Mon expertise technique
               </h4>
-              <p className="text-sm text-muted-foreground">
-                Mon expertise couvre les <span className="font-semibold text-primary">architectures microservices</span>, 
-                le <span className="font-semibold text-primary">développement d'API REST sécurisées</span>, les 
-                <span className="font-semibold text-primary"> tests automatisés</span> (unitaires, fonctionnels) et les 
-                <span className="font-semibold text-primary"> pipelines CI/CD</span> (GitLab, Docker, etc.).
+              <p className="text-sm text-gray-400">
+                Mon expertise couvre les <span className="font-semibold text-[#10B981]">architectures microservices</span>, 
+                le <span className="font-semibold text-[#10B981]">développement d'API REST sécurisées</span>, les 
+                <span className="font-semibold text-[#10B981]"> tests automatisés</span> (unitaires, fonctionnels) et les 
+                <span className="font-semibold text-[#10B981]"> pipelines CI/CD</span> (GitLab, Docker, etc.).
               </p>
             </div>
           </div>

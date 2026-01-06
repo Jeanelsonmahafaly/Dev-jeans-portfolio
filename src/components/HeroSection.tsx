@@ -26,14 +26,14 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background transition-colors duration-300">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#030712]">
       {/* Enhanced 3D Background avec format IA */}
       <Background3D />
       <CircuitAnimation />
       
       {/* Dark Premium Background avec effet IA */}
-      <div className="absolute inset-0 bg-background">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[#030712]">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#10B981]/10 via-transparent to-transparent" />
         {/* Pattern de grille IA */}
         <div className="absolute inset-0 opacity-5" style={{
           backgroundImage: `linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px)`,
@@ -77,9 +77,9 @@ const HeroSection = () => {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.25 }}
                 >
-                  <div className="text-lg md:text-xl font-bold text-foreground">RAZAFIMAHAFALY Jean Elson</div>
-                  <div className="text-sm md:text-base text-primary font-semibold">Développeur .NET & Ingénieur IA</div>
-                  <div className="text-xs md:text-sm text-muted-foreground mt-2 max-w-lg">Je conçois des solutions intelligentes et performantes pour vos défis techniques.</div>
+                  <div className="text-lg md:text-xl font-bold text-white">RAZAFIMAHAFALY Jean Elson</div>
+                  <div className="text-sm md:text-base text-[#10B981] font-semibold">Développeur .NET & Ingénieur IA</div>
+                  <div className="text-xs md:text-sm text-gray-300 mt-2 max-w-lg">Je conçois des solutions intelligentes et performantes pour vos défis techniques.</div>
                 </motion.div>
               </div>
             </motion.div>
@@ -101,11 +101,11 @@ const HeroSection = () => {
                 <motion.a
                   key={index}
                   href={item.href}
-                  className="glass rounded-lg px-3 py-2 flex items-center gap-2 text-xs text-muted-foreground hover:text-primary hover-lift group transition-all duration-300"
+                  className="glass rounded-lg px-3 py-2 flex items-center gap-2 text-xs text-gray-300 hover:text-[#10B981] hover-lift group transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <span className="text-primary group-hover:scale-110 transition-transform">
+                  <span className="text-[#10B981] group-hover:scale-110 transition-transform">
                     {item.icon}
                   </span>
                   {item.text}
@@ -124,7 +124,7 @@ const HeroSection = () => {
                 <Button 
                   onClick={downloadCV}
                   size="lg" 
-                  className="glass-strong text-base px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground border-0 shadow-2xl btn-micro-bounce"
+                  className="glass-strong text-base px-6 py-3 bg-[#10B981] hover:bg-[#059669] text-white border-0 shadow-2xl btn-micro-bounce"
                 >
                   <Download className="mr-2 h-4 w-4" />
                   Télécharger CV
@@ -136,7 +136,7 @@ const HeroSection = () => {
                   onClick={scrollToAbout}
                   variant="outline" 
                   size="lg" 
-                  className="glass text-base px-6 py-3 border-primary/50 text-primary hover:bg-primary/10 hover:border-primary shadow-lg btn-micro-bounce"
+                  className="glass text-base px-6 py-3 border-[#10B981]/50 text-[#10B981] hover:bg-[#10B981]/10 hover:border-[#10B981] shadow-lg btn-micro-bounce"
                 >
                   <ExternalLink className="mr-2 h-4 w-4" />
                   En savoir plus
@@ -155,14 +155,14 @@ const HeroSection = () => {
             {/* Carte principale passion */}
             <div className="glass rounded-2xl p-8 themed-border themed-border-hover card-glow">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 rounded-xl bg-[#10B981]/20 flex items-center justify-center">
+                  <Sparkles className="w-6 h-6 text-[#10B981]" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Ma Passion</h3>
+                <h3 className="text-2xl font-bold text-white">Ma Passion</h3>
               </div>
               
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Passionné par le <span className="font-semibold text-primary">développement .NET</span> et l'<span className="font-semibold text-primary">intelligence artificielle</span>, je transforme des idées complexes en solutions innovantes et performantes.
+              <p className="text-gray-300 leading-relaxed mb-6">
+                Passionné par le <span className="font-semibold text-[#10B981]">développement .NET</span> et l'<span className="font-semibold text-[#10B981]">intelligence artificielle</span>, je transforme des idées complexes en solutions innovantes et performantes.
               </p>
 
               {/* Deux cartes : Dev .NET et Dev IA */}
@@ -170,12 +170,12 @@ const HeroSection = () => {
                 {/* Carte Dev .NET */}
                 <div className="glass rounded-xl p-6 themed-border themed-border-hover card-glow transition-all duration-300">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                      <Code className="w-5 h-5 text-primary" />
+                    <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center">
+                      <Code className="w-5 h-5 text-[#10B981]" />
                     </div>
-                    <h4 className="text-lg font-semibold text-foreground">Développement .NET</h4>
+                    <h4 className="text-lg font-semibold text-white">Développement .NET</h4>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-gray-400 text-sm leading-relaxed">
                     Architecture microservices, APIs REST sécurisées, CI/CD Azure, Entity Framework. Plus de 2 ans d'expérience dans le développement d'applications robustes et évolutives.
                   </p>
                 </div>
@@ -183,12 +183,12 @@ const HeroSection = () => {
                 {/* Carte Dev IA */}
                 <div className="glass rounded-xl p-6 themed-border themed-border-hover card-glow transition-all duration-300">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                      <Brain className="w-5 h-5 text-primary" />
+                    <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center">
+                      <Brain className="w-5 h-5 text-[#10B981]" />
                     </div>
-                    <h4 className="text-lg font-semibold text-foreground">Ingénierie IA</h4>
+                    <h4 className="text-lg font-semibold text-white">Ingénierie IA</h4>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-gray-400 text-sm leading-relaxed">
                     RAG, LLM, LangChain, Machine Learning, Deep Learning. Conception et entraînement de modèles d'IA pour l'automatisation intelligente et l'analyse de données.
                   </p>
                 </div>
@@ -197,16 +197,16 @@ const HeroSection = () => {
               {/* Stats rapides */}
               <div className="grid grid-cols-3 gap-4 mt-6 pt-6 themed-border-t">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">2+</div>
-                  <div className="text-xs text-muted-foreground">Années</div>
+                  <div className="text-2xl font-bold text-[#10B981]">2+</div>
+                  <div className="text-xs text-gray-400">Années</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">15+</div>
-                  <div className="text-xs text-muted-foreground">Projets</div>
+                  <div className="text-2xl font-bold text-[#10B981]">15+</div>
+                  <div className="text-xs text-gray-400">Projets</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">100%</div>
-                  <div className="text-xs text-muted-foreground">Satisfaction</div>
+                  <div className="text-2xl font-bold text-[#10B981]">100%</div>
+                  <div className="text-xs text-gray-400">Satisfaction</div>
                 </div>
               </div>
             </div>
@@ -220,7 +220,7 @@ const HeroSection = () => {
                 <motion.a
                   key={index}
                   href={social.href}
-                  className="glass-strong rounded-full p-3 bg-card text-primary hover-glow group btn-micro-bounce"
+                  className="glass-strong rounded-full p-3 bg-[#111827] text-[#10B981] hover-glow group btn-micro-bounce"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -240,7 +240,7 @@ const HeroSection = () => {
           transition={{ duration: 2, repeat: Infinity }}
         >
           <div className="glass-strong rounded-full p-3 cursor-pointer hover-glow group" onClick={scrollToAbout}>
-            <ChevronDown className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+            <ChevronDown className="h-6 w-6 text-[#10B981] group-hover:scale-110 transition-transform" />
           </div>
         </motion.div>
       </div>

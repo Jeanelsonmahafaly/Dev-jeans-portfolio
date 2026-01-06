@@ -8,7 +8,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-background text-foreground relative overflow-hidden themed-border-t">
+    <footer className="bg-[#030712] text-white relative overflow-hidden themed-border-t">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -20,10 +20,10 @@ const Footer = () => {
         <div className="text-center">
           {/* Logo/Name */}
           <div className="mb-8">
-            <h3 className="text-2xl font-bold text-primary mb-2">
+            <h3 className="text-2xl font-bold text-[#10B981] mb-2">
               Razafimahafaly Jean Elson
             </h3>
-            <p className="text-muted-foreground">Développeur .NET & Ingénieur IA</p>
+            <p className="text-gray-400">Développeur .NET & Ingénieur IA</p>
           </div>
 
           {/* Quick Links */}
@@ -32,7 +32,7 @@ const Footer = () => {
               <a
                 key={index}
                 href={`#${link.toLowerCase().replace('à propos', 'about').replace('expérience', 'experience').replace('projets', 'projects')}`}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm hover:underline"
+                className="text-gray-400 hover:text-[#10B981] transition-colors duration-300 text-sm hover:underline"
               >
                 {link}
               </a>
@@ -44,10 +44,10 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-muted-foreground text-sm flex items-center gap-1">
-              Fait avec <Heart className="w-4 h-4 text-primary animate-pulse" /> à Fianarantsoa
+            <p className="text-gray-400 text-sm flex items-center gap-1">
+              Fait avec <Heart className="w-4 h-4 text-[#10B981] animate-pulse" /> à Fianarantsoa
             </p>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-gray-400 text-sm">
               © 2024 Jean Elson. Tous droits réservés.
             </p>
           </div>
@@ -57,7 +57,7 @@ const Footer = () => {
         <Button
           onClick={scrollToTop}
           size="icon"
-          className="fixed bottom-8 right-8 bg-primary hover:bg-[#059669] shadow-lg hover:shadow-xl btn-micro-bounce transition-all duration-300 z-50"
+          className="fixed bottom-8 right-8 bg-[#10B981] hover:bg-[#059669] shadow-lg hover:shadow-xl btn-micro-bounce transition-all duration-300 z-50"
         >
           <ArrowUp className="w-5 h-5" />
         </Button>
