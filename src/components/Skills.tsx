@@ -84,10 +84,10 @@ const Skills = () => {
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
       animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.3, delay: index * 0.05 }}
-      className="flex flex-col items-center justify-between gap-3 p-4 bg-gray-900 rounded-xl border border-gray-800 hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 group cursor-pointer h-full"
+      transition={{ duration: 0.3, delay: index * 0.02 }}
+      className="flex flex-col items-center justify-between gap-1.5 p-2.5 bg-gray-900 rounded-lg border border-gray-800 hover:border-emerald-500 hover:shadow-md hover:shadow-emerald-500/20 transition-all duration-300 group cursor-pointer h-full"
     >
-      <div className="w-14 h-14 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+      <div className="w-8 h-8 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
         <img 
           src={tech.icon} 
           alt={tech.name}
@@ -97,20 +97,20 @@ const Skills = () => {
           }}
         />
       </div>
-      <div className="w-full space-y-2">
-        <span className="text-xs text-gray-300 group-hover:text-emerald-400 text-center font-medium transition-colors duration-300 block">
+      <div className="w-full space-y-1">
+        <span className="text-[9px] text-gray-300 group-hover:text-emerald-400 text-center font-medium transition-colors duration-300 block leading-tight">
           {tech.name}
         </span>
         <div className="w-full">
-          <div className="flex justify-between items-center mb-1">
-            <span className="text-[10px] text-gray-500">Niveau</span>
-            <span className="text-[10px] text-emerald-400 font-semibold">{tech.level}%</span>
+          <div className="flex justify-between items-center mb-0.5">
+            <span className="text-[8px] text-gray-500">Niveau</span>
+            <span className="text-[8px] text-emerald-400 font-semibold">{tech.level}%</span>
           </div>
-          <div className="w-full bg-gray-800 rounded-full h-1.5 overflow-hidden">
+          <div className="w-full bg-gray-800 rounded-full h-0.5 overflow-hidden">
             <motion.div
               initial={{ width: 0 }}
               animate={isVisible ? { width: `${tech.level}%` } : {}}
-              transition={{ duration: 1, delay: index * 0.05 + 0.3, ease: "easeOut" }}
+              transition={{ duration: 1, delay: index * 0.02 + 0.2, ease: "easeOut" }}
               className="h-full bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full"
             />
           </div>
@@ -134,16 +134,16 @@ const Skills = () => {
         </div>
 
         {/* 💻 Langages & Frameworks */}
-        <div className="mb-16">
+        <div className="mb-10">
           <motion.h3 
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3"
+            className="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-2"
           >
-            <span className="text-3xl">💻</span>
+            <span className="text-2xl">💻</span>
             Langages & Frameworks
           </motion.h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2.5">
             {frameworks.map((tech, index) => (
               <TechCard key={tech.name} tech={tech} index={index} />
             ))}
@@ -151,17 +151,17 @@ const Skills = () => {
         </div>
 
         {/* 📊 Bases de Données */}
-        <div className="mb-16">
+        <div className="mb-10">
           <motion.h3 
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
-            className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3"
+            className="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-2"
           >
-            <span className="text-3xl">📊</span>
+            <span className="text-2xl">📊</span>
             Bases de Données
           </motion.h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4">
+          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2.5">
             {databases.map((tech, index) => (
               <TechCard key={tech.name} tech={tech} index={index} />
             ))}
@@ -169,17 +169,17 @@ const Skills = () => {
         </div>
 
         {/* 🛠️ DevOps & Outils */}
-        <div className="mb-16">
+        <div className="mb-10">
           <motion.h3 
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3"
+            className="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-2"
           >
-            <span className="text-3xl">🛠️</span>
+            <span className="text-2xl">🛠️</span>
             DevOps & Outils
           </motion.h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8 gap-4">
+          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2.5">
             {devopsTools.map((tech, index) => (
               <TechCard key={tech.name} tech={tech} index={index} />
             ))}
@@ -192,12 +192,12 @@ const Skills = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3 }}
-            className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3"
+            className="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-2"
           >
-            <span className="text-3xl">🤖</span>
+            <span className="text-2xl">🤖</span>
             Machine Learning & IA
           </motion.h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4">
+          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2.5">
             {mlAi.map((tech, index) => (
               <TechCard key={tech.name} tech={tech} index={index} />
             ))}
