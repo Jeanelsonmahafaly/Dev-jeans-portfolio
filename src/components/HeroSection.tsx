@@ -155,7 +155,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             {/* Carte principale passion */}
-            <div className="glass rounded-2xl p-8 themed-border themed-border-hover card-glow">
+            <div className="glass rounded-2xl p-8 themed-border themed-border-hover card-glow w-full max-w-7xl mx-auto">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-[#10B981]/20 flex items-center justify-center">
                   <Sparkles className="w-6 h-6 text-[#10B981]" />
@@ -168,42 +168,42 @@ const HeroSection = () => {
               </p>
 
               {/* Trois cartes : IA & Data, Dev .NET et Systèmes Embarqués */}
-              <div className="grid md:grid-cols-3 gap-4">
+              <div className="grid md:grid-cols-3 gap-8">
                 {/* Carte IA & Data */}
-                <div className="glass rounded-xl p-6 themed-border themed-border-hover card-glow transition-all duration-300">
+                <div className="glass rounded-xl p-7 themed-border themed-border-hover card-glow transition-all duration-300 min-w-0">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center flex-shrink-0">
                       <Brain className="w-5 h-5 text-[#10B981]" />
                     </div>
-                    <h4 className="text-lg font-semibold text-white">{t('hero.aiTitle')}</h4>
+                    <h4 className="text-lg font-semibold text-white break-words">{t('hero.aiTitle')}</h4>
                   </div>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-400 text-sm leading-relaxed break-words">
                     {t('hero.aiDesc')}
                   </p>
                 </div>
 
                 {/* Carte Dev .NET */}
-                <div className="glass rounded-xl p-6 themed-border themed-border-hover card-glow transition-all duration-300">
+                <div className="glass rounded-xl p-7 themed-border themed-border-hover card-glow transition-all duration-300 min-w-0">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center flex-shrink-0">
                       <Code className="w-5 h-5 text-[#10B981]" />
                     </div>
-                    <h4 className="text-lg font-semibold text-white">{t('hero.dotnetTitle')}</h4>
+                    <h4 className="text-lg font-semibold text-white break-words">{t('hero.dotnetTitle')}</h4>
                   </div>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-400 text-sm leading-relaxed break-words">
                     {t('hero.dotnetDesc')}
                   </p>
                 </div>
 
                 {/* Carte Systèmes Embarqués */}
-                <div className="glass rounded-xl p-6 themed-border themed-border-hover card-glow transition-all duration-300">
+                <div className="glass rounded-xl p-7 themed-border themed-border-hover card-glow transition-all duration-300 min-w-0">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center flex-shrink-0">
                       <Cpu className="w-5 h-5 text-[#10B981]" />
                     </div>
-                    <h4 className="text-lg font-semibold text-white">{t('hero.embeddedTitle')}</h4>
+                    <h4 className="text-lg font-semibold text-white break-words">{t('hero.embeddedTitle')}</h4>
                   </div>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-400 text-sm leading-relaxed break-words">
                     {t('hero.embeddedDesc')}
                   </p>
                 </div>
