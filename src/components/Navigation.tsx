@@ -79,18 +79,7 @@ const Navigation = () => {
             {/* Language Switcher */}
             <LanguageSwitcher />
             {/* Theme radio toggles */}
-            <div className="flex items-center gap-2 bg-white/5 rounded-full p-1">
-              <label className={`flex items-center gap-2 px-3 py-1 rounded-full cursor-pointer transition-colors ${theme === 'light' ? 'bg-white/10' : ''}`}>
-                <input type="radio" name="theme" value="light" className="hidden" onChange={() => setThemeHandler('light')} checked={theme === 'light'} />
-                <Sun className="w-4 h-4 text-yellow-300" />
-                <span className="text-xs text-gray-200">Clair</span>
-              </label>
-              <label className={`flex items-center gap-2 px-3 py-1 rounded-full cursor-pointer transition-colors ${theme === 'dark' ? 'bg-white/10' : ''}`}>
-                <input type="radio" name="theme" value="dark" className="hidden" onChange={() => setThemeHandler('dark')} checked={theme === 'dark'} />
-                <Moon className="w-4 h-4 text-indigo-300" />
-                <span className="text-xs text-gray-200">Sombre</span>
-              </label>
-            </div>
+            
           </div>
 
           {/* Mobile Menu Button */}
@@ -120,18 +109,7 @@ const Navigation = () => {
             <div className="flex items-center justify-center gap-2 px-4 py-2">
               <LanguageSwitcher />
             </div>
-            <div className="flex items-center gap-2 bg-white/5 rounded-full p-1 px-4">
-              <label className={`flex items-center gap-2 px-3 py-1 rounded-full cursor-pointer transition-colors ${theme === 'light' ? 'bg-white/10' : ''}`}>
-                <input type="radio" name="theme" value="light" className="hidden" onChange={() => setThemeHandler('light')} checked={theme === 'light'} />
-                <Sun className="w-4 h-4 text-yellow-300" />
-                <span className="text-sm text-gray-200">Clair</span>
-              </label>
-              <label className={`flex items-center gap-2 px-3 py-1 rounded-full cursor-pointer transition-colors ${theme === 'dark' ? 'bg-white/10' : ''}`}>
-                <input type="radio" name="theme" value="dark" className="hidden" onChange={() => setThemeHandler('dark')} checked={theme === 'dark'} />
-                <Moon className="w-4 h-4 text-indigo-300" />
-                <span className="text-sm text-gray-200">Sombre</span>
-              </label>
-            </div>
+          
           </div>
         </div>
       </div>

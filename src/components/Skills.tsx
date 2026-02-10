@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from 'react';
+import TechTree from './TechTree';
+import { useTranslation } from 'react-i18next';
 
 const Skills = () => {
   const carouselRef = useRef(null);
@@ -84,15 +86,22 @@ const Skills = () => {
     { name: "Firebase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
     { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
   ];
-
+  
+  const { i18n } = useTranslation();
+  const isFrench = i18n.language === 'fr';
   return (
     <section className="py-20 bg-gray-950">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
+         {/* Titre */}
+         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Compétences
+            {isFrench ? 'Stack Technologique' : 'Technology Stack'}
           </h2>
-          <div className="w-16 h-1 bg-emerald-500 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-[#10B981] mx-auto rounded-full"></div>
+        </div>
+        {/* Arbre technologique */}
+        <div className="mb-16">
+          <TechTree />
         </div>
 
         {/* Carrousel d'icônes avec scroll automatique */}

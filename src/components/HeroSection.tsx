@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Mail, Phone, MapPin, Download, Github, Linkedin, ExternalLink, Code, Brain, Sparkles } from 'lucide-react';
+import { ChevronDown, Mail, Phone, MapPin, Download, Github, Linkedin, ExternalLink, Code, Brain, Sparkles, Cpu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -164,11 +164,24 @@ const HeroSection = () => {
               </div>
               
               <p className="text-gray-300 leading-relaxed mb-6">
-                {t('hero.passionIntro')} <span className="font-semibold text-[#10B981]">{t('hero.passionDotNet')}</span> {t('hero.passionAnd')}<span className="font-semibold text-[#10B981]">{t('hero.passionAI')}</span>{t('hero.passionDesc')}
+                {t('hero.passionIntro')} <span className="font-semibold text-[#10B981]">{t('hero.passionAI')}</span>{t('hero.passionAnd1')} <span className="font-semibold text-[#10B981]">{t('hero.passionDotNet')}</span> {t('hero.passionAnd2')} <span className="font-semibold text-[#10B981]">{t('hero.passionEmbedded')}</span>{t('hero.passionDesc')}
               </p>
 
-              {/* Deux cartes : Dev .NET et Dev IA */}
-              <div className="grid md:grid-cols-2 gap-4">
+              {/* Trois cartes : IA & Data, Dev .NET et Systèmes Embarqués */}
+              <div className="grid md:grid-cols-3 gap-4">
+                {/* Carte IA & Data */}
+                <div className="glass rounded-xl p-6 themed-border themed-border-hover card-glow transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center">
+                      <Brain className="w-5 h-5 text-[#10B981]" />
+                    </div>
+                    <h4 className="text-lg font-semibold text-white">{t('hero.aiTitle')}</h4>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    {t('hero.aiDesc')}
+                  </p>
+                </div>
+
                 {/* Carte Dev .NET */}
                 <div className="glass rounded-xl p-6 themed-border themed-border-hover card-glow transition-all duration-300">
                   <div className="flex items-center gap-3 mb-4">
@@ -182,16 +195,16 @@ const HeroSection = () => {
                   </p>
                 </div>
 
-                {/* Carte Dev IA */}
+                {/* Carte Systèmes Embarqués */}
                 <div className="glass rounded-xl p-6 themed-border themed-border-hover card-glow transition-all duration-300">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center">
-                      <Brain className="w-5 h-5 text-[#10B981]" />
+                      <Cpu className="w-5 h-5 text-[#10B981]" />
                     </div>
-                    <h4 className="text-lg font-semibold text-white">{t('hero.aiTitle')}</h4>
+                    <h4 className="text-lg font-semibold text-white">{t('hero.embeddedTitle')}</h4>
                   </div>
                   <p className="text-gray-400 text-sm leading-relaxed">
-                    {t('hero.aiDesc')}
+                    {t('hero.embeddedDesc')}
                   </p>
                 </div>
               </div>
