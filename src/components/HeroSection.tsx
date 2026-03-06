@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Mail, Phone, MapPin, Download, Github, Linkedin, ExternalLink, Code, Brain, Sparkles, Cpu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Background3D from './Background3D';
 import CircuitAnimation from './CircuitAnimation';
 
+type PassionTab = 'ai' | 'dotnet' | 'embedded';
+
 const HeroSection = () => {
   const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
+  const [activePassion, setActivePassion] = useState<PassionTab>('ai');
 
   useEffect(() => {
     setIsVisible(true);
@@ -167,39 +170,90 @@ const HeroSection = () => {
                 {t('hero.passionIntro')} <span className="font-semibold text-[#10B981]">{t('hero.passionAI')}</span>{t('hero.passionAnd1')} <span className="font-semibold text-[#10B981]">{t('hero.passionDotNet')}</span> {t('hero.passionAnd2')} <span className="font-semibold text-[#10B981]">{t('hero.passionEmbedded')}</span>{t('hero.passionDesc')}
               </p>
 
-              {/* Trois cartes : IA & Data, Dev .NET et Systèmes Embarqués - Design aéré et lisible */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                {/* Carte IA & Data */}
-                <div className="glass-dark rounded-2xl p-8 md:p-10 themed-border themed-border-hover card-glow transition-all duration-300 flex flex-col min-h-[240px] group">
-                  <div className="w-14 h-14 rounded-2xl bg-[#10B981]/25 flex items-center justify-center mb-6 group-hover:bg-[#10B981]/35 transition-colors duration-300 flex-shrink-0">
-                    <Brain className="w-7 h-7 text-[#10B981]" />
-                  </div>
-                  <h4 className="text-xl font-bold text-white mb-4">{t('hero.aiTitle')}</h4>
-                  <p className="text-gray-400 text-base leading-loose flex-1">
-                    {t('hero.aiDesc')}
-                  </p>
-                </div>
+              {/* Interface type Bootstrap : 1 carte sélectionnée en haut, 2 onglets en dessous */}
+              <div className="space-y-4">
+                {/* Carte sélectionnée — affichée en haut, bien mise en avant */}
+                <AnimatePresence mode="wait">
+                  {activePassion === 'ai' && (
+                    <motion.div
+                      key="ai"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.3 }}
+                      className="glass-dark rounded-2xl p-6 md:p-8 themed-border border-[#10B981]/40 card-glow flex flex-col group ring-2 ring-[#10B981]/30"
+                    >
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-14 h-14 rounded-xl bg-[#10B981]/30 flex items-center justify-center flex-shrink-0">
+                          <Brain className="w-7 h-7 text-[#10B981]" />
+                        </div>
+                        <h4 className="text-xl font-bold text-white">{t('hero.aiTitle')}</h4>
+                      </div>
+                      <p className="text-gray-400 text-base leading-relaxed">{t('hero.aiDesc')}</p>
+                    </motion.div>
+                  )}
+                  {activePassion === 'dotnet' && (
+                    <motion.div
+                      key="dotnet"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.3 }}
+                      className="glass-dark rounded-2xl p-6 md:p-8 themed-border border-[#10B981]/40 card-glow flex flex-col group ring-2 ring-[#10B981]/30"
+                    >
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-14 h-14 rounded-xl bg-[#10B981]/30 flex items-center justify-center flex-shrink-0">
+                          <Code className="w-7 h-7 text-[#10B981]" />
+                        </div>
+                        <h4 className="text-xl font-bold text-white">{t('hero.dotnetTitle')}</h4>
+                      </div>
+                      <p className="text-gray-400 text-base leading-relaxed">{t('hero.dotnetDesc')}</p>
+                    </motion.div>
+                  )}
+                  {activePassion === 'embedded' && (
+                    <motion.div
+                      key="embedded"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.3 }}
+                      className="glass-dark rounded-2xl p-6 md:p-8 themed-border border-[#10B981]/40 card-glow flex flex-col group ring-2 ring-[#10B981]/30"
+                    >
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-14 h-14 rounded-xl bg-[#10B981]/30 flex items-center justify-center flex-shrink-0">
+                          <Cpu className="w-7 h-7 text-[#10B981]" />
+                        </div>
+                        <h4 className="text-xl font-bold text-white">{t('hero.embeddedTitle')}</h4>
+                      </div>
+                      <p className="text-gray-400 text-base leading-relaxed">{t('hero.embeddedDesc')}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
-                {/* Carte Dev .NET */}
-                <div className="glass-dark rounded-2xl p-8 md:p-10 themed-border themed-border-hover card-glow transition-all duration-300 flex flex-col min-h-[240px] group">
-                  <div className="w-14 h-14 rounded-2xl bg-[#10B981]/25 flex items-center justify-center mb-6 group-hover:bg-[#10B981]/35 transition-colors duration-300 flex-shrink-0">
-                    <Code className="w-7 h-7 text-[#10B981]" />
-                  </div>
-                  <h4 className="text-xl font-bold text-white mb-4">{t('hero.dotnetTitle')}</h4>
-                  <p className="text-gray-400 text-base leading-loose flex-1">
-                    {t('hero.dotnetDesc')}
-                  </p>
-                </div>
-
-                {/* Carte Systèmes Embarqués */}
-                <div className="glass-dark rounded-2xl p-8 md:p-10 themed-border themed-border-hover card-glow transition-all duration-300 flex flex-col min-h-[240px] group">
-                  <div className="w-14 h-14 rounded-2xl bg-[#10B981]/25 flex items-center justify-center mb-6 group-hover:bg-[#10B981]/35 transition-colors duration-300 flex-shrink-0">
-                    <Cpu className="w-7 h-7 text-[#10B981]" />
-                  </div>
-                  <h4 className="text-xl font-bold text-white mb-4">{t('hero.embeddedTitle')}</h4>
-                  <p className="text-gray-400 text-base leading-loose flex-1">
-                    {t('hero.embeddedDesc')}
-                  </p>
+                {/* Les deux autres en dessous — onglets cliquables style Bootstrap nav-pills */}
+                <div className="flex flex-wrap gap-2">
+                  {(
+                    [
+                      { id: 'ai' as PassionTab, icon: Brain, label: t('hero.aiTitle') },
+                      { id: 'dotnet' as PassionTab, icon: Code, label: t('hero.dotnetTitle') },
+                      { id: 'embedded' as PassionTab, icon: Cpu, label: t('hero.embeddedTitle') },
+                    ] as const
+                  ).map(({ id, icon: Icon, label }) => (
+                    <motion.button
+                      key={id}
+                      onClick={() => setActivePassion(id)}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                        activePassion === id
+                          ? 'bg-[#10B981] text-white shadow-lg shadow-[#10B981]/30'
+                          : 'glass-dark themed-border text-gray-400 hover:text-white hover:border-[#10B981]/50'
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                      {label}
+                    </motion.button>
+                  ))}
                 </div>
               </div>
 
