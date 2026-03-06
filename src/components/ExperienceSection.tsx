@@ -134,36 +134,6 @@ const ExperienceSection = () => {
         startDate: new Date('2025-06-01')
       },
       {
-        period: isFrench ? "Nov 2024 - Avril 2025" : "Nov 2024 - April 2025",
-        company: "EMIT",
-        position: isFrench ? "Développeur Agent IA" : "AI Agent Developer",
-        location: "Madagascar",
-        type: isFrench ? "Projet de mémoire (M2)" : "Master's Thesis Project (M2)",
-        description: isFrench 
-          ? "Conception et développement d'un système intelligent de suivi de véhicules intégrant des modèles d'IA pour la détection d'anomalies en temps réel et un assistant conversationnel basé sur RAG. Solution complète combinant télématique, machine learning et interface utilisateur interactive."
-          : "Design and development of an intelligent vehicle tracking system integrating AI models for real-time anomaly detection and a RAG-based conversational assistant. Complete solution combining telematics, machine learning and interactive user interface.",
-        tasks: isFrench ? [
-          "Architecture et implémentation d'un pipeline d'ingestion de données télématiques en temps réel depuis l'API Geotab (vitesse, position GPS, consommation, diagnostics)",
-          "Conception et entraînement de modèles de machine learning (Scikit-learn) pour la détection automatique d'anomalies véhicules (conduite agressive, maintenance préventive)",
-          "Développement d'un tableau de bord analytique avec visualisation avancée des données et système de classification des anomalies par niveaux de criticité",
-          "Création d'une interface cartographique interactive pour le suivi géolocalisé en temps réel et la reconstruction historique d'itinéraires",
-          "Intégration d'un assistant conversationnel intelligent basé sur RAG : indexation vectorielle avec Qdrant, orchestration LangChain, requêtes en langage naturel",
-          "Containerisation et orchestration complète via Docker : backend Symfony, API FastAPI, base de données MySQL, services IA",
-          "Optimisation des performances et monitoring du système pour assurer la scalabilité"
-        ] : [
-          "Architecture and implementation of a real-time telematics data ingestion pipeline from Geotab API (speed, GPS position, consumption, diagnostics)",
-          "Design and training of machine learning models (Scikit-learn) for automatic vehicle anomaly detection (aggressive driving, preventive maintenance)",
-          "Development of an analytical dashboard with advanced data visualization and anomaly classification system by criticality levels",
-          "Creation of an interactive map interface for real-time geolocated tracking and historical route reconstruction",
-          "Integration of an intelligent RAG-based conversational assistant: vector indexing with Qdrant, LangChain orchestration, natural language queries",
-          "Complete containerization and orchestration via Docker: Symfony backend, FastAPI API, MySQL database, AI services",
-          "Performance optimization and system monitoring to ensure scalability"
-        ],
-        technologies: ["Symfony", "FastAPI", "Python", "Docker", "MySQL", "Scikit-learn", "LangChain", "RAG"],
-        duration: isFrench ? "6 mois" : "6 months",
-        startDate: new Date('2024-11-01')
-      },
-      {
         period: isFrench ? "Fév 2024 - Juin 2025" : "Feb 2024 - June 2025",
         company: "ESN RTS LINE",
         position: isFrench ? "Développeur Fullstack Symfony" : "Fullstack Symfony Developer",
@@ -198,29 +168,27 @@ const ExperienceSection = () => {
         startDate: new Date('2024-02-01')
       },
       {
-        period: isFrench ? "Déc 2023 - Jan 2024" : "Dec 2023 - Jan 2024",
+        period: isFrench ? "Déc 2023 - Avril 2025" : "Dec 2023 - April 2025",
         company: "EMIT / EMITECH",
-        position: isFrench ? "Développeur Back-end & IA" : "Back-end & AI Developer",
+        position: isFrench ? "Développeur Back-end & Agent IA" : "Back-end & AI Agent Developer",
         location: "Madagascar",
-        type: isFrench ? "Projets d'école & d'équipe" : "School & Team Projects",
+        type: isFrench ? "Projets d'école, d'équipe & mémoire M2" : "School, Team & Master's Thesis Projects",
         description: isFrench 
-          ? "Deux projets académiques complémentaires au sein du même établissement : (1) Développement d'une API REST Symfony et d'une application mobile Flutter pour la gestion sécurisée des tickets de tombola (25ᵉ anniversaire EMIT) ; (2) Conception d'un système de classification d'images par deep learning (CNN) pour la reconnaissance visuelle."
-          : "Two complementary academic projects within the same institution: (1) Development of a Symfony REST API and Flutter mobile app for secure lottery ticket management (EMIT 25th anniversary); (2) Design of an image classification system using deep learning (CNN) for visual recognition.",
+          ? "Parcours académique complet au sein d'EMIT/EMITECH : (1) Projets d'école et d'équipe : API Symfony et app Flutter pour la tombola du 25ᵉ anniversaire, système de classification d'images par CNN ; (2) Projet de mémoire M2 : système intelligent de suivi de véhicules avec détection d'anomalies en temps réel et assistant conversationnel RAG."
+          : "Complete academic journey at EMIT/EMITECH: (1) School and team projects: Symfony API and Flutter app for 25th anniversary lottery, CNN-based image classification system; (2) Master's thesis M2: intelligent vehicle tracking system with real-time anomaly detection and RAG-based conversational assistant.",
         tasks: isFrench ? [
-          "Projet tombola : API REST Symfony pour le cycle de vie des tickets, codes QR sécurisés, application Flutter de validation",
-          "Projet tombola : Algorithmes cryptographiques pour prévention de la fraude, déploiement sur Tranokala Malagasy",
-          "Projet IA : Réseau de neurones convolutif (CNN) avec Keras et TensorFlow pour classification d'images d'animaux",
-          "Projet IA : Pipeline de données (collecte, augmentation, entraînement) et évaluation des performances (matrices de confusion, courbes ROC)",
-          "Documentation technique et présentation des résultats dans Jupyter Notebook"
+          "Projets d'école & d'équipe : API REST Symfony (tombola), codes QR sécurisés, app Flutter, classification d'images (CNN, Keras, TensorFlow)",
+          "Mémoire M2 : Pipeline d'ingestion de données télématiques Geotab, modèles ML pour détection d'anomalies véhicules",
+          "Mémoire M2 : Tableau de bord analytique, interface cartographique, assistant conversationnel RAG (Qdrant, LangChain)",
+          "Containerisation Docker, optimisation des performances et monitoring"
         ] : [
-          "Lottery project: Symfony REST API for ticket lifecycle, secure QR codes, Flutter validation app",
-          "Lottery project: Cryptographic algorithms for fraud prevention, deployment on Tranokala Malagasy",
-          "AI project: Convolutional Neural Network (CNN) with Keras and TensorFlow for animal image classification",
-          "AI project: Data pipeline (collection, augmentation, training) and performance evaluation (confusion matrices, ROC curves)",
-          "Technical documentation and results presentation in Jupyter Notebook"
+          "School & team projects: Symfony REST API (lottery), secure QR codes, Flutter app, image classification (CNN, Keras, TensorFlow)",
+          "M2 thesis: Geotab telematics data ingestion pipeline, ML models for vehicle anomaly detection",
+          "M2 thesis: Analytical dashboard, map interface, RAG-based conversational assistant (Qdrant, LangChain)",
+          "Docker containerization, performance optimization and monitoring"
         ],
-        technologies: ["Symfony", "Flutter", "Python", "Keras", "TensorFlow", "Jupyter", "GitHub"],
-        duration: isFrench ? "2 mois" : "2 months",
+        technologies: ["Symfony", "Flutter", "FastAPI", "Python", "Docker", "MySQL", "Keras", "TensorFlow", "Scikit-learn", "LangChain", "RAG", "Jupyter", "GitHub"],
+        duration: isFrench ? "1 an 5 mois" : "1 year 5 months",
         startDate: new Date('2023-12-01')
       },
       {

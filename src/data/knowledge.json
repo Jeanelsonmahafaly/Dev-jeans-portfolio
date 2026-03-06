@@ -76,23 +76,6 @@
       ]
     },
     {
-      "period": "Nov 2024 - Avril 2025",
-      "company": "EMIT",
-      "position": "Développeur Agent IA",
-      "location": "Madagascar",
-      "type": "Projet de mémoire (M2)",
-      "duration": "6 mois",
-      "description": "Conception et développement d'un système intelligent de suivi de véhicules intégrant des modèles d'IA pour la détection d'anomalies en temps réel.",
-      "key_achievements": [
-        "Pipeline d'ingestion de données télématiques en temps réel",
-        "Modèles ML pour détection d'anomalies (Scikit-learn)",
-        "Tableau de bord analytique avec visualisation avancée",
-        "Assistant conversationnel basé sur RAG (Qdrant + LangChain)",
-        "Containerisation complète avec Docker"
-      ],
-      "technologies": ["Symfony", "FastAPI", "Python", "Docker", "Scikit-learn", "LangChain", "RAG"]
-    },
-    {
       "period": "Fév 2024 - Juin 2025",
       "company": "ESN RTS LINE",
       "position": "Développeur Fullstack Symfony",
@@ -126,18 +109,19 @@
       "technologies": [".NET", "Angular", "Flutter", "Docker", "MySQL", "GitLab"]
     },
     {
-      "period": "Déc 2023 - Jan 2024",
+      "period": "Déc 2023 - Avril 2025",
       "company": "EMIT / EMITECH",
-      "position": "Développeur Back-end & IA",
+      "position": "Développeur Back-end & Agent IA",
       "location": "Madagascar",
-      "type": "Projets d'école & d'équipe",
-      "duration": "2 mois",
-      "description": "Deux projets académiques : (1) API REST Symfony et app Flutter pour gestion sécurisée des tickets de tombola ; (2) Système de classification d'images par CNN (Keras, TensorFlow).",
+      "type": "Projets d'école, d'équipe & mémoire M2",
+      "duration": "1 an 5 mois",
+      "description": "Parcours académique complet : projets tombola et classification d'images (Symfony, Flutter, CNN) ; mémoire M2 sur système de suivi véhicules avec détection d'anomalies et assistant RAG.",
       "key_achievements": [
-        "Projet tombola : API Symfony, codes QR sécurisés, app Flutter",
-        "Projet IA : CNN pour classification d'images, pipeline de données"
+        "Projets d'école & d'équipe : API Symfony tombola, app Flutter, classification d'images CNN",
+        "Mémoire M2 : pipeline Geotab, modèles ML anomalies véhicules, assistant RAG (Qdrant, LangChain)",
+        "Containerisation Docker complète"
       ],
-      "technologies": ["Symfony", "Flutter", "Python", "Keras", "TensorFlow", "Jupyter"]
+      "technologies": ["Symfony", "Flutter", "FastAPI", "Python", "Docker", "Scikit-learn", "LangChain", "RAG", "Keras", "TensorFlow", "Jupyter"]
     },
     {
       "period": "Sept - Nov 2023",
