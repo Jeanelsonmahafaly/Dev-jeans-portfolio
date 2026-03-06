@@ -126,6 +126,10 @@ const AboutSection = () => {
                     <span className="w-2 h-2 bg-[#10B981] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                     <span className="text-gray-300">{t('about.careerIlomad')} <strong className="text-[#10B981]">ILOMAD</strong> {t('about.careerIlomadDesc')}</span>
                   </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-[#10B981] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span className="text-gray-300">{t('about.careerVisionCompte')} <strong className="text-[#10B981]">VISION COMPTE</strong> {t('about.careerVisionCompteDesc')}</span>
+                  </li>
                 </ul>
               </div>
 
@@ -181,8 +185,8 @@ const AboutSection = () => {
                 <div className="flex items-center justify-center gap-3 glass rounded-lg p-4 themed-border themed-border-hover">
                   <Trophy className="w-6 h-6 text-[#10B981]" />
                   <div>
-                    <div className="font-semibold text-white text-sm">Agent d'automatisation IA</div>
-                    <div className="text-gray-400 text-xs">Contribution chez ILOMAD</div>
+                    <div className="font-semibold text-white text-sm">Agents RAG & IA</div>
+                    <div className="text-gray-400 text-xs">Contribution chez VISION COMPTE</div>
                   </div>
                 </div>
               </div>

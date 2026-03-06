@@ -55,6 +55,15 @@ const ExperienceSection = () => {
       'Oracle': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg',
       'FastAPI': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg',
       'Scikit-learn': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg',
+      'Selenium': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg',
+      'Beautiful Soup': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'LangGraph': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'LangSmith': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'RAG': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'LLM': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'LangChain': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'Ollama': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'Llama': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
     };
     
     return techIcons[name] || 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg';
@@ -65,7 +74,35 @@ const ExperienceSection = () => {
     
     return [
       {
-        period: isFrench ? "Juin 2025 - À ce jour" : "June 2025 - Present",
+        period: isFrench ? "Fév 2026 - À ce jour" : "Feb 2026 - Present",
+        company: "VISION COMPTE",
+        position: isFrench ? "Développeur IA & Data" : "AI & Data Developer",
+        location: "Madagascar",
+        type: isFrench ? "CDI" : "Permanent Contract",
+        description: isFrench 
+          ? "Conception et développement de solutions IA et Data complètes pour l'entreprise. Extraction et traitement de données à grande échelle, création d'agents intelligents RAG intégrés aux applications existantes, et automatisation des processus métier. Expertise en intégration de moteurs IA locaux (Ollama, VLM) et optimisation des performances applicatives."
+          : "Design and development of complete AI and Data solutions for the company. Large-scale data extraction and processing, creation of intelligent RAG agents integrated into existing applications, and business process automation. Expertise in integrating local AI engines (Ollama, VLM) and application performance optimization.",
+        tasks: isFrench ? [
+          "Extraction et collecte de données via web scraping (Selenium, Beautiful Soup) pour alimenter les pipelines de données",
+          "Création d'applications et services orientés données avec FastAPI pour le traitement et l'exposition des données",
+          "Développement d'agents RAG (Retrieval-Augmented Generation) et agents IA intégrés aux applications existantes",
+          "Mise en place d'automatisation des workflows métier pour optimiser les processus opérationnels",
+          "Optimisation des sites et applications existantes pour améliorer les performances et réduire la latence",
+          "Intégration de moteurs IA locaux (Ollama, VLM/Llama) pour des solutions d'IA déployables on-premise"
+        ] : [
+          "Data extraction and collection via web scraping (Selenium, Beautiful Soup) to feed data pipelines",
+          "Creation of data-oriented applications and services with FastAPI for data processing and exposure",
+          "Development of RAG (Retrieval-Augmented Generation) agents and AI agents integrated into existing applications",
+          "Implementation of business workflow automation to optimize operational processes",
+          "Optimization of existing sites and applications to improve performance and reduce latency",
+          "Integration of local AI engines (Ollama, VLM/Llama) for on-premise deployable AI solutions"
+        ],
+        technologies: ["RAG", "LLM", "LangChain", "LangGraph", "LangSmith", "FastAPI", "Beautiful Soup", "Selenium", "Ollama", "Llama"],
+        duration: isFrench ? "En cours" : "Ongoing",
+        startDate: new Date('2026-02-01')
+      },
+      {
+        period: isFrench ? "Juin 2025 - Fév 2026" : "June 2025 - Feb 2026",
         company: "ESN ILOMAD",
         position: isFrench ? "Développeur .NET / Automatisation IA" : ".NET Developer / AI Automation",
         location: "Madagascar",
@@ -93,7 +130,7 @@ const ExperienceSection = () => {
           "Agile collaboration via Jira (sprint management, tickets, user stories) and code versioning with GitLab (merge requests, code reviews)"
         ],
         technologies: [".NET", "ASP.NET Core", "React", "Docker", "Azure DevOps", "Azure SQL", "Entity Framework", "GitLab", "Jira", "LangChain", "RAG", "N8N"],
-        duration: isFrench ? "En cours" : "Ongoing",
+        duration: isFrench ? "9 mois" : "9 months",
         startDate: new Date('2025-06-01')
       },
       {
@@ -161,119 +198,53 @@ const ExperienceSection = () => {
         startDate: new Date('2024-02-01')
       },
       {
-        period: isFrench ? "Jan 2024" : "Jan 2024",
-        company: "EMIT - EMITECH",
-        position: isFrench ? "Développeur Back-end Symfony" : "Symfony Back-end Developer",
-        location: "Madagascar",
-        type: isFrench ? "Projet d'équipe" : "Team Project",
-        description: isFrench 
-          ? "Développement d'une solution mobile innovante pour la gestion digitalisée des tickets de tombola à l'occasion du 25ᵉ anniversaire de l'EMIT. Mise en place de mécanismes de sécurisation avancés pour garantir l'unicité et l'authenticité de chaque ticket."
-          : "Development of an innovative mobile solution for digitalized lottery ticket management for EMIT's 25th anniversary. Implementation of advanced security mechanisms to guarantee uniqueness and authenticity of each ticket.",
-        tasks: isFrench ? [
-          "Conception et développement d'une API REST Symfony pour la gestion complète du cycle de vie des tickets de tombola",
-          "Génération automatique de codes QR uniques et sécurisés pour chaque ticket avec encodage de métadonnées",
-          "Implémentation d'algorithmes cryptographiques avancés pour la sécurisation des tickets et la prévention de la fraude (hashing, signatures numériques)",
-          "Développement de l'application mobile Flutter pour la lecture et la validation des tickets en temps réel",
-          "Déploiement du backend sur la plateforme Tranokala Malagasy avec configuration serveur et monitoring",
-          "Tests de charge et validation de la scalabilité pour gérer un grand nombre de participants simultanés"
-        ] : [
-          "Design and development of a Symfony REST API for complete lottery ticket lifecycle management",
-          "Automatic generation of unique and secure QR codes for each ticket with metadata encoding",
-          "Implementation of advanced cryptographic algorithms for ticket security and fraud prevention (hashing, digital signatures)",
-          "Development of Flutter mobile application for real-time ticket reading and validation",
-          "Backend deployment on Tranokala Malagasy platform with server configuration and monitoring",
-          "Load testing and scalability validation to handle large number of simultaneous participants"
-        ],
-        technologies: ["Symfony", "Flutter", "GitHub"],
-        duration: isFrench ? "1 mois" : "1 month",
-        startDate: new Date('2024-01-01')
-      },
-      {
         period: isFrench ? "Déc 2023 - Jan 2024" : "Dec 2023 - Jan 2024",
-        company: "EMIT",
-        position: isFrench ? "Développeur IA" : "AI Developer",
+        company: "EMIT / EMITECH",
+        position: isFrench ? "Développeur Back-end & IA" : "Back-end & AI Developer",
         location: "Madagascar",
-        type: isFrench ? "Projet d'école" : "School Project",
+        type: isFrench ? "Projets d'école & d'équipe" : "School & Team Projects",
         description: isFrench 
-          ? "Développement d'un système de classification automatique d'images d'animaux utilisant le deep learning. Projet académique permettant d'appliquer les concepts théoriques de l'intelligence artificielle à un cas d'usage concret de reconnaissance visuelle."
-          : "Development of an automatic animal image classification system using deep learning. Academic project applying theoretical artificial intelligence concepts to a concrete visual recognition use case.",
+          ? "Deux projets académiques complémentaires au sein du même établissement : (1) Développement d'une API REST Symfony et d'une application mobile Flutter pour la gestion sécurisée des tickets de tombola (25ᵉ anniversaire EMIT) ; (2) Conception d'un système de classification d'images par deep learning (CNN) pour la reconnaissance visuelle."
+          : "Two complementary academic projects within the same institution: (1) Development of a Symfony REST API and Flutter mobile app for secure lottery ticket management (EMIT 25th anniversary); (2) Design of an image classification system using deep learning (CNN) for visual recognition.",
         tasks: isFrench ? [
-          "Collecte et curation d'un dataset d'images d'animaux de qualité provenant de sources en ligne (web scraping, APIs publiques)",
-          "Prétraitement et augmentation des données : redimensionnement, normalisation, rotation, flipping pour améliorer la robustesse du modèle",
-          "Conception et implémentation d'une architecture de réseau de neurones convolutif (CNN) avec Keras et TensorFlow",
-          "Entraînement du modèle avec optimisation des hyperparamètres (learning rate, batch size, dropout) et techniques de régularisation",
-          "Évaluation rigoureuse des performances : matrices de confusion, courbes ROC, métriques de précision/recall",
-          "Documentation complète du projet et présentation des résultats avec visualisations dans Jupyter Notebook"
+          "Projet tombola : API REST Symfony pour le cycle de vie des tickets, codes QR sécurisés, application Flutter de validation",
+          "Projet tombola : Algorithmes cryptographiques pour prévention de la fraude, déploiement sur Tranokala Malagasy",
+          "Projet IA : Réseau de neurones convolutif (CNN) avec Keras et TensorFlow pour classification d'images d'animaux",
+          "Projet IA : Pipeline de données (collecte, augmentation, entraînement) et évaluation des performances (matrices de confusion, courbes ROC)",
+          "Documentation technique et présentation des résultats dans Jupyter Notebook"
         ] : [
-          "Collection and curation of quality animal image dataset from online sources (web scraping, public APIs)",
-          "Data preprocessing and augmentation: resizing, normalization, rotation, flipping to improve model robustness",
-          "Design and implementation of Convolutional Neural Network (CNN) architecture with Keras and TensorFlow",
-          "Model training with hyperparameter optimization (learning rate, batch size, dropout) and regularization techniques",
-          "Rigorous performance evaluation: confusion matrices, ROC curves, precision/recall metrics",
-          "Complete project documentation and results presentation with visualizations in Jupyter Notebook"
+          "Lottery project: Symfony REST API for ticket lifecycle, secure QR codes, Flutter validation app",
+          "Lottery project: Cryptographic algorithms for fraud prevention, deployment on Tranokala Malagasy",
+          "AI project: Convolutional Neural Network (CNN) with Keras and TensorFlow for animal image classification",
+          "AI project: Data pipeline (collection, augmentation, training) and performance evaluation (confusion matrices, ROC curves)",
+          "Technical documentation and results presentation in Jupyter Notebook"
         ],
-        technologies: ["Jupyter", "Python", "Keras", "TensorFlow"],
+        technologies: ["Symfony", "Flutter", "Python", "Keras", "TensorFlow", "Jupyter", "GitHub"],
         duration: isFrench ? "2 mois" : "2 months",
         startDate: new Date('2023-12-01')
       },
       {
-        period: isFrench ? "Nov 2023" : "Nov 2023",
-        company: "CHU Andrainjato",
-        position: isFrench ? "Datawarehouse Engineer" : "Data Warehouse Engineer",
-        location: "Madagascar",
-        type: isFrench ? "Stage" : "Internship",
-        description: isFrench 
-          ? "Conception et mise en place d'un data warehouse centralisé pour consolider les données hospitalières dispersées. Création de tableaux de bord décisionnels pour améliorer la prise de décision stratégique de l'établissement de santé."
-          : "Design and implementation of a centralized data warehouse to consolidate dispersed hospital data. Creation of decision-making dashboards to improve strategic decision-making in the healthcare facility.",
-        tasks: isFrench ? [
-          "Analyse des sources de données hétérogènes de l'hôpital (systèmes de gestion des patients, facturation, stocks, plannings)",
-          "Développement d'un pipeline ETL complet en Python : extraction, transformation et chargement des données avec gestion des erreurs",
-          "Modélisation dimensionnelle du Data Warehouse selon le modèle en étoile (fait et dimensions) pour optimiser les requêtes analytiques",
-          "Structuration des données avec Oracle : création de schémas, tables de faits, tables de dimensions, indexation",
-          "Développement de modèles de données pour différents domaines métier (activité médicale, ressources humaines, finances)",
-          "Création de tableaux de bord interactifs avec Power BI : KPIs hospitaliers, visualisations, drill-down et rapports automatisés",
-          "Optimisation des requêtes DAX pour des performances optimales et création de mesures calculées avancées"
-        ] : [
-          "Analysis of heterogeneous hospital data sources (patient management systems, billing, inventory, schedules)",
-          "Development of complete ETL pipeline in Python: extraction, transformation and data loading with error handling",
-          "Dimensional modeling of Data Warehouse using star schema (fact and dimensions) to optimize analytical queries",
-          "Data structuring with Oracle: schema creation, fact tables, dimension tables, indexing",
-          "Development of data models for different business domains (medical activity, human resources, finances)",
-          "Creation of interactive dashboards with Power BI: hospital KPIs, visualizations, drill-down and automated reports",
-          "DAX query optimization for optimal performance and creation of advanced calculated measures"
-        ],
-        technologies: ["Python", "Power BI", "Oracle"],
-        duration: isFrench ? "1 mois" : "1 month",
-        startDate: new Date('2023-11-01')
-      },
-      {
         period: isFrench ? "Sept - Nov 2023" : "Sept - Nov 2023",
         company: "CHU Andrainjato",
-        position: isFrench ? "Développeur Back-end Symfony" : "Symfony Back-end Developer",
+        position: isFrench ? "Développeur Back-end & Ingénieur Data Warehouse" : "Back-end Developer & Data Warehouse Engineer",
         location: "Madagascar",
         type: isFrench ? "Stage" : "Internship",
         description: isFrench 
-          ? "Développement d'une plateforme numérique complète pour moderniser la gestion des rendez-vous médicaux et faciliter la communication sécurisée entre patients et médecins. Solution visant à réduire les temps d'attente et améliorer la qualité du parcours de soins."
-          : "Development of a complete digital platform to modernize medical appointment management and facilitate secure communication between patients and doctors. Solution aimed at reducing waiting times and improving quality of care pathway.",
+          ? "Double mission au sein du même établissement hospitalier : (1) Développement d'une plateforme numérique complète pour la gestion des rendez-vous médicaux et la communication sécurisée patients-médecins ; (2) Conception d'un data warehouse centralisé et création de tableaux de bord décisionnels pour la prise de décision stratégique."
+          : "Dual role within the same healthcare facility: (1) Development of a complete digital platform for medical appointment management and secure patient-doctor communication; (2) Design of a centralized data warehouse and creation of decision-making dashboards for strategic decision-making.",
         tasks: isFrench ? [
-          "Conception de l'architecture applicative complète : backend Symfony, application mobile Flutter, interface web React",
-          "Développement d'une plateforme de gestion intelligente des rendez-vous médicaux avec système de disponibilités et notifications automatiques",
-          "Implémentation d'un système de communication sécurisé RGPD-compliant pour l'envoi et la consultation d'ordonnances électroniques",
-          "Création d'une API REST documentée pour l'intégration avec les applications mobiles et web",
-          "Développement d'interfaces utilisateur adaptatives pour les patients, médecins et personnel administratif",
-          "Mise en place de la base de données MySQL avec gestion des relations complexes et optimisation des performances",
-          "Déploiement et intégration dans l'infrastructure informatique hospitalière existante avec formation des utilisateurs"
+          "Plateforme digitale : architecture complète (Symfony, Flutter, React), gestion des rendez-vous, ordonnances électroniques RGPD-compliant",
+          "Plateforme digitale : API REST documentée, base MySQL, déploiement et formation des utilisateurs",
+          "Data Warehouse : pipeline ETL en Python, modélisation dimensionnelle (Oracle), schémas en étoile",
+          "Data Warehouse : tableaux de bord Power BI, KPIs hospitaliers, optimisations DAX"
         ] : [
-          "Design of complete application architecture: Symfony backend, Flutter mobile app, React web interface",
-          "Development of intelligent medical appointment management platform with availability system and automatic notifications",
-          "Implementation of GDPR-compliant secure communication system for sending and consulting electronic prescriptions",
-          "Creation of documented REST API for integration with mobile and web applications",
-          "Development of adaptive user interfaces for patients, doctors and administrative staff",
-          "MySQL database setup with complex relationship management and performance optimization",
-          "Deployment and integration into existing hospital IT infrastructure with user training"
+          "Digital platform: complete architecture (Symfony, Flutter, React), appointment management, GDPR-compliant electronic prescriptions",
+          "Digital platform: documented REST API, MySQL database, deployment and user training",
+          "Data Warehouse: Python ETL pipeline, dimensional modeling (Oracle), star schema",
+          "Data Warehouse: Power BI dashboards, hospital KPIs, DAX optimizations"
         ],
-        technologies: ["Symfony", "React", "Flutter", "MySQL"],
-        duration: isFrench ? "3 mois" : "3 months",
+        technologies: ["Symfony", "React", "Flutter", "MySQL", "Python", "Power BI", "Oracle"],
+        duration: isFrench ? "4 mois" : "4 months",
         startDate: new Date('2023-09-01')
       },
       {

@@ -27,8 +27,8 @@
       "backend": [".NET", "ASP.NET Core", "Symfony", "FastAPI"],
       "frontend": ["React", "Angular", "TypeScript", "Tailwind CSS"],
       "mobile": ["Flutter"],
-      "ai_ml": ["LangChain", "OpenAI", "Scikit-learn", "TensorFlow", "Keras", "RAG", "NLP"],
-      "data": ["Python", "Pandas", "Power BI", "Oracle", "MySQL", "MongoDB"],
+      "ai_ml": ["LangChain", "LangGraph", "LangSmith", "OpenAI", "Ollama", "Llama", "Scikit-learn", "TensorFlow", "Keras", "RAG", "NLP", "VLM"],
+      "data": ["Python", "Pandas", "Power BI", "Oracle", "MySQL", "MongoDB", "Selenium", "Beautiful Soup", "FastAPI"],
       "devops": ["Docker", "Kubernetes", "Azure DevOps", "GitLab CI/CD", "N8N"]
     },
     "specializations": [
@@ -42,12 +42,30 @@
   },
   "experiences": [
     {
-      "period": "Juin 2025 - À ce jour",
+      "period": "Fév 2026 - À ce jour",
+      "company": "VISION COMPTE",
+      "position": "Développeur IA & Data",
+      "location": "Madagascar",
+      "type": "CDI",
+      "duration": "En cours",
+      "description": "Conception et développement de solutions IA et Data complètes. Extraction et traitement de données à grande échelle (web scraping avec Selenium, Beautiful Soup), création d'agents RAG et agents IA intégrés aux applications existantes, automatisation des workflows. Intégration de moteurs IA locaux (Ollama, VLM/Llama) et optimisation des performances applicatives.",
+      "key_achievements": [
+        "Extraction de données via web scraping (Selenium, Beautiful Soup)",
+        "Création d'applications et services orientés données (FastAPI)",
+        "Développement d'agents RAG et agents IA dans les applications existantes",
+        "Automatisation des workflows métier",
+        "Optimisation des sites existants pour réduire la latence",
+        "Intégration de moteurs IA (Ollama, VLM/Llama)"
+      ],
+      "technologies": ["RAG", "LLM", "LangChain", "LangGraph", "LangSmith", "FastAPI", "Beautiful Soup", "Selenium", "Ollama", "Llama"]
+    },
+    {
+      "period": "Juin 2025 - Fév 2026",
       "company": "ESN ILOMAD",
       "position": "Développeur .NET / Automatisation IA",
       "location": "Madagascar",
       "type": "CDI",
-      "duration": "En cours",
+      "duration": "9 mois",
       "description": "Développement de services back-end robustes dans une architecture microservices moderne avec déploiement sur Microsoft Azure. Intégration avancée de solutions d'automatisation intelligentes basées sur l'IA générative (RAG, LLMs).",
       "key_achievements": [
         "Architecture et développement de services back-end scalables",
@@ -108,20 +126,32 @@
       "technologies": [".NET", "Angular", "Flutter", "Docker", "MySQL", "GitLab"]
     },
     {
+      "period": "Déc 2023 - Jan 2024",
+      "company": "EMIT / EMITECH",
+      "position": "Développeur Back-end & IA",
+      "location": "Madagascar",
+      "type": "Projets d'école & d'équipe",
+      "duration": "2 mois",
+      "description": "Deux projets académiques : (1) API REST Symfony et app Flutter pour gestion sécurisée des tickets de tombola ; (2) Système de classification d'images par CNN (Keras, TensorFlow).",
+      "key_achievements": [
+        "Projet tombola : API Symfony, codes QR sécurisés, app Flutter",
+        "Projet IA : CNN pour classification d'images, pipeline de données"
+      ],
+      "technologies": ["Symfony", "Flutter", "Python", "Keras", "TensorFlow", "Jupyter"]
+    },
+    {
       "period": "Sept - Nov 2023",
       "company": "CHU Andrainjato",
-      "position": "Développeur Back-end Symfony",
+      "position": "Développeur Back-end & Ingénieur Data Warehouse",
       "location": "Madagascar",
       "type": "Stage",
-      "duration": "3 mois",
-      "description": "Développement d'une plateforme numérique pour la gestion des rendez-vous médicaux et communication sécurisée.",
+      "duration": "4 mois",
+      "description": "Double mission : plateforme numérique de gestion des rendez-vous médicaux (Symfony, Flutter, React) et data warehouse centralisé avec tableaux de bord Power BI.",
       "key_achievements": [
-        "Plateforme de gestion des rendez-vous avec système de disponibilités",
-        "Système de communication RGPD-compliant",
-        "API REST documentée",
-        "Interfaces adaptatives pour patients et médecins"
+        "Plateforme digitale : rendez-vous, ordonnances électroniques RGPD-compliant",
+        "Data Warehouse : pipeline ETL Python, Oracle, Power BI"
       ],
-      "technologies": ["Symfony", "React", "Flutter", "MySQL"]
+      "technologies": ["Symfony", "React", "Flutter", "MySQL", "Python", "Power BI", "Oracle"]
     }
   ],
   "projects": [
@@ -222,7 +252,7 @@
     }
   ],
   "faqs": {
-    "about_experience": "Je cumule plus de 2 ans d'expérience dans le développement d'applications web robustes, évolutives et sécurisées. J'ai travaillé avec plusieurs ESN à Madagascar et participé à des projets d'envergure.",
+    "about_experience": "Je cumule plus de 2 ans d'expérience dans le développement d'applications web robustes, évolutives et sécurisées. Actuellement Développeur IA & Data chez VISION COMPTE, j'ai précédemment travaillé chez ILOMAD, RTS Line, ARATO et participé à des projets d'envergure.",
     "about_ai": "Je suis spécialisé dans l'IA avec expertise en machine learning, deep learning, RAG (Retrieval-Augmented Generation), et intégration de LLMs. Je développe aussi des systèmes embarqués intelligents avec IoT.",
     "about_tech_stack": "Mon stack technique couvre .NET/ASP.NET Core pour le backend, React/Angular pour le frontend, Flutter pour le mobile, et Python pour la data science et l'IA. Je maîtrise aussi les architectures microservices et le DevOps.",
     "about_projects": "Mes projets incluent des applications web complètes, des systèmes IoT intelligents, des assistants conversationnels basés sur l'IA, et des solutions de machine learning pour la classification et la prédiction. Mon projet phare en IoT est Smart Fire Guard - un système intelligent de détection d'incendies avec IA embarquée. Vous pouvez le découvrir sur GitHub: https://github.com/Jeanelsonmahafaly/iot-ia et voir la démo en ligne: https://iot-fire.onrender.com/",
