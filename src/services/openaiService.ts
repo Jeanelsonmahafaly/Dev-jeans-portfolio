@@ -1,6 +1,6 @@
 /**
- * Service OpenAI - Appels API directement depuis le front
- * Utilise la clé API stockée dans les variables d'environnement
+ * Service LLM (Groq ou OpenAI) — API chat compatible OpenAI depuis le navigateur.
+ * Préfère VITE_GROQ_API_KEY si définie (clés au format gsk_...), sinon VITE_OPENAI_API_KEY.
  */
 
 interface Message {
@@ -16,62 +16,34 @@ interface OpenAIResponse {
   }>;
 }
 
-const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
+const GROQ_API_KEY = (import.meta.env.VITE_GROQ_API_KEY as string | undefined)?.trim();
+const OPENAI_API_KEY = (import.meta.env.VITE_OPENAI_API_KEY as string | undefined)?.trim();
+
+const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 
-const SYSTEM_PROMPT = `Tu es l'assistant personnel IA de Jean Elson Razafimahafaly, un développeur .NET et ingénieur IA passionné basé à Madagascar.
+const useGroq = Boolean(GROQ_API_KEY);
+const apiKey = useGroq ? GROQ_API_KEY! : OPENAI_API_KEY!;
+const apiUrl = useGroq ? GROQ_API_URL : OPENAI_API_URL;
 
-Tu es son représentant auprès des visiteurs. Ton rôle est de créer une connexion positive, d'attirer l'intérêt, et de montrer comment Jean peut aider à résoudre les défis techniques et d'IA de ses visiteurs.
+const chatModel = useGroq
+  ? (import.meta.env.VITE_GROQ_MODEL as string | undefined)?.trim() || 'llama-3.3-70b-versatile'
+  : (import.meta.env.VITE_OPENAI_MODEL as string | undefined)?.trim() || 'gpt-4-turbo-preview';
 
-✨ OBJECTIF PRINCIPAL
-- Accueillir chaleureusement les visiteurs
-- Présenter Jean de manière positive et engageante (sans arrogance)
-- Montrer comment ses compétences peuvent créer de la valeur
-- Encourager la collaboration et le dialogue
-- Être inspirant mais honnête
-- TOUJOURS fournir les liens (GitHub, liens live) quand ils sont disponibles
+const SYSTEM_PROMPT = `Tu es l'assistant de Jean Elson Razafimahafaly (développeur .NET / IA, Madagascar).
 
-🧠 APPROCHE ET TON
-1. Chaleureux et accessible : Sois comme un ami expert, pas un robot
-2. Positif et constructif : Mets en avant les solutions, pas les limitations
-3. Modeste mais confiant : Montre l'expertise sans prétention
-4. Engageant : Pose des questions pour mieux comprendre les besoins
-5. Pratique : Offre des exemples concrets et des cas d'usage avec liens directs
-6. Inspirant : Montre comment les projets passés créent de la valeur
+LONGUEUR ADAPTATIVE (très important)
+1) Question simple (contact, oui/non, une info ponctuelle) → 2 à 5 phrases, direct, sans blabla.
+2) Question qui demande à COMPRENDRE ou DÉCRIRE un projet, un outil ou une techno : ex. « c'est quoi », « ce quoi », « explique », « décris », « comment ça marche », « quel type », « en quoi ça consiste », « parle-moi de », « détails sur »…
+   → Réponse PLUS COMPLÈTE : un court paragraphe d'introduction (2-3 phrases), puis 3 à 6 puces avec rôle du système, capteurs/stack ou techno principales, et lien démo/GitHub si présents dans le contexte.
+   → Viser environ 120 à 200 mots pour ce mode. Toujours FINIR par une phrase complète (ne jamais couper au milieu d'une idée).
 
-📋 RÈGLES STRICTES
-1. Tu réponds EXCLUSIVEMENT à partir des informations du contexte fourni
-2. Ne JAMAIS inventer d'expériences, projets, technologies ou dates
-3. IMPORTANT: Si un projet, expérience ou ressource a un lien (github, live, url, email, téléphone), INCLUS LE TOUJOURS dans ta réponse
-4. Si une info manque, trouve une réponse positive :
-   - Au lieu de "Je n'ai pas cette info", dis : "Je ne suis pas sûr de ce détail spécifique, mais je peux te dire que..."
-   - Redirection vers une info connexe du contexte
-   - Offre un contact direct : "Tu peux contacter Jean à jelsonmahafaly@gmail.com ou +261 34 21 166 56 pour les détails"
-5. Sois concis mais riche (2-3 paragraphes max, mais bien structurés)
-6. Utilise le "je/nous" pour Jean (assistant personnel = extension de Jean)
-7. Enrichis les réponses avec contexte et exemples du knowledge base
-8. Formate les liens lisibles: "Voir le projet: https://lien.com" ou "GitHub: https://github.com/..."
+CONTENU
+- Uniquement à partir du contexte fourni ; n'invente pas de faits.
+- Inclure les liens (GitHub, démo, email, téléphone) quand le contexte les contient, en fin de message ou après les puces.
 
-🌟 GRILLE DE RÉPONSES IDÉALES
-Pour chaque question, tu dois :
-1. Reconnaître et valoriser la question
-2. Fournir une réponse directe et informative avec détails concrets
-3. INCLURE les liens directs (GitHub, démo live, etc.) si disponibles
-4. Ajouter du contexte enrichi (exemples, technos, réalisations)
-5. Finir par une action positive (proposition, curiosité, contact)
-
-💡 EXEMPLE DE RÉPONSES CORRECTES
-❌ MAUVAIS: "Je n'ai pas cette information"
-✅ BON: "Oui! Le projet Smart Fire Guard est disponible en ligne. Vous pouvez découvrir le code sur GitHub: https://github.com/Jeanelsonmahafaly/iot-ia et voir la démo live ici: https://iot-fire.onrender.com/"
-
-⚡ NE JAMAIS FAIRE
-- Ne dis JAMAIS "Je n'ai pas l'information" si elle existe dans le contexte
-- Ne soit jamais arrogant ou prétentieux
-- Ne donne pas de réponses vagues ou évasives
-- Ne fais pas de réponses trop longues (max 3 paragraphes)
-- N'oublie pas les liens quand ils existent
-
-Mémore-toi : Tu es un vendeur de solutions, pas un chatbot classique. Chaque réponse doit donner envie au visiteur de travailler avec Jean ou d'en savoir plus. Les liens sont essentiels!`;
+TON
+- Clair, naturel, professionnel. Pas de ton publicitaire excessif.`;
 
 export const openaiService = {
   /**
@@ -86,9 +58,14 @@ export const openaiService = {
     context: string,
     conversationHistory: Message[] = []
   ): Promise<string> {
-    if (!OPENAI_API_KEY) {
-      return "❌ Erreur: La clé API OpenAI n'est pas configurée. Veuillez ajouter VITE_OPENAI_API_KEY dans votre fichier .env";
+    if (!apiKey) {
+      return "❌ Erreur: Aucune clé API configurée. Ajoutez VITE_GROQ_API_KEY (Groq) ou VITE_OPENAI_API_KEY dans .env à la racine du projet, puis redémarrez le serveur (npm run dev).";
     }
+
+    const detailPattern =
+      /c['']est quoi|cest quoi|ce quoi|qu['']est[- ]ce que|explique|décris|décri|détails?|detail|comment (ça|ca) marche|parle[- ]moi|raconte|en savoir plus|quel(le)?s? types?|de quoi s['']agit|what is|describe|explain|how does|tell me about/i;
+    const wantsDetail = detailPattern.test(userMessage.trim());
+    const maxTokens = wantsDetail ? 720 : 420;
 
     try {
       // Construire le contexte enrichi
@@ -110,33 +87,38 @@ ${context}`;
         },
       ];
 
-      // Appel API OpenAI
-      const response = await fetch(OPENAI_API_URL, {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${OPENAI_API_KEY}`,
+          Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-          model: 'gpt-4-turbo-preview',
+          model: chatModel,
           messages: messages,
-          temperature: 0.7,
-          max_tokens: 800,
-          top_p: 0.9,
+          temperature: wantsDetail ? 0.55 : 0.48,
+          max_tokens: maxTokens,
+          top_p: 0.88,
         }),
       });
 
       if (!response.ok) {
-        const error = await response.json();
-        console.error('OpenAI API Error:', error);
-        
-        if (response.status === 401) {
-          return "❌ Erreur d'authentification: La clé API OpenAI est invalide.";
-        } else if (response.status === 429) {
-          return "⏱️ Limite d'utilisation atteinte. Veuillez réessayer dans quelques instants.";
-        } else {
-          return `❌ Erreur: ${error.error?.message || 'Impossible de récupérer la réponse'}`;
+        let errMsg = 'Impossible de récupérer la réponse';
+        try {
+          const error = await response.json();
+          console.error('LLM API Error:', error);
+          errMsg = error.error?.message || error.message || errMsg;
+        } catch {
+          errMsg = await response.text().catch(() => errMsg);
         }
+
+        if (response.status === 401) {
+          return `❌ Erreur d'authentification: clé API ${useGroq ? 'Groq' : 'OpenAI'} invalide ou expirée.`;
+        }
+        if (response.status === 429) {
+          return "⏱️ Limite d'utilisation atteinte. Veuillez réessayer dans quelques instants.";
+        }
+        return `❌ Erreur: ${errMsg}`;
       }
 
       const data: OpenAIResponse = await response.json();
@@ -144,15 +126,15 @@ ${context}`;
       
       return assistantMessage;
     } catch (error) {
-      console.error('OpenAI Service Error:', error);
+      console.error('LLM Service Error:', error);
       return "❌ Erreur de connexion au service IA. Veuillez réessayer.";
     }
   },
 
   /**
-   * Vérifie si la clé API est configurée
+   * Vérifie si une clé API (Groq ou OpenAI) est configurée
    */
   isConfigured(): boolean {
-    return !!OPENAI_API_KEY && OPENAI_API_KEY.trim().length > 0;
+    return Boolean((GROQ_API_KEY && GROQ_API_KEY.length > 0) || (OPENAI_API_KEY && OPENAI_API_KEY.length > 0));
   },
 };

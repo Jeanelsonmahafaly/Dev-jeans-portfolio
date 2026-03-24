@@ -165,13 +165,13 @@ const Chatbot = () => {
                 className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-xs px-4 py-3 rounded-lg ${
+                  className={`max-w-[min(92vw,20rem)] sm:max-w-md px-4 py-3 rounded-lg ${
                     message.role === 'user'
                       ? 'bg-[#10B981] text-white rounded-br-none'
                       : 'bg-gray-100 text-gray-800 rounded-bl-none border border-gray-300'
                   }`}
                 >
-                  <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.content}</p>
+                  <p className="text-sm leading-relaxed whitespace-pre-wrap break-words">{message.content}</p>
                   <span className="text-xs mt-2 block opacity-70">
                     {message.timestamp.toLocaleTimeString('fr-FR', {
                       hour: '2-digit',
