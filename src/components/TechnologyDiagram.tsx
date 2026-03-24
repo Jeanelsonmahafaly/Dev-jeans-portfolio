@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Code, Globe, Server, Database, Layers, Sparkles, Brain, Wrench } from 'lucide-react';
 
 interface TechItem {
@@ -10,9 +9,6 @@ interface TechItem {
 }
 
 const TechnologyDiagram: React.FC = () => {
-  const { i18n } = useTranslation();
-  const isFrench = i18n.language === 'fr';
-
   // Technologies organisées par catégorie et sous-catégorie
   const technologies: TechItem[] = [
     // Frontend - Languages
@@ -88,32 +84,32 @@ const TechnologyDiagram: React.FC = () => {
   const categories = [
     {
       id: 'frontend',
-      label: isFrench ? 'Front End' : 'Front End',
+      label: 'Front End',
       icon: <Globe className="w-5 h-5" />,
       color: 'from-blue-500 to-cyan-500',
       bgColor: 'bg-blue-500',
       position: 'top-right',
       subcategories: [
-        { id: 'language', label: isFrench ? 'Language' : 'Language' },
-        { id: 'framework', label: isFrench ? 'Framework' : 'Framework' },
-        { id: 'library', label: isFrench ? 'Libraries' : 'Libraries' }
+        { id: 'language', label: 'Language' },
+        { id: 'framework', label: 'Framework' },
+        { id: 'library', label: 'Libraries' }
       ]
     },
     {
       id: 'backend',
-      label: isFrench ? 'Back End' : 'Back End',
+      label: 'Back End',
       icon: <Server className="w-5 h-5" />,
       color: 'from-green-500 to-emerald-500',
       bgColor: 'bg-green-500',
       position: 'bottom-right',
       subcategories: [
-        { id: 'language', label: isFrench ? 'Language' : 'Language' },
-        { id: 'framework', label: isFrench ? 'Framework' : 'Framework' }
+        { id: 'language', label: 'Language' },
+        { id: 'framework', label: 'Framework' }
       ]
     },
     {
       id: 'database',
-      label: isFrench ? 'Base de Données' : 'Database',
+      label: 'Database',
       icon: <Database className="w-5 h-5" />,
       color: 'from-purple-500 to-pink-500',
       bgColor: 'bg-purple-500',
@@ -121,12 +117,12 @@ const TechnologyDiagram: React.FC = () => {
       subcategories: [
         { id: 'sql', label: 'SQL' },
         { id: 'nosql', label: 'NoSQL' },
-        { id: 'vector', label: isFrench ? 'Vectorielle' : 'Vector' }
+        { id: 'vector', label: 'Vector' }
       ]
     },
     {
       id: 'ai',
-      label: isFrench ? 'IA / ML' : 'AI / ML',
+      label: 'AI / ML',
       icon: <Brain className="w-5 h-5" />,
       color: 'from-pink-500 to-rose-500',
       bgColor: 'bg-pink-500',
@@ -138,15 +134,15 @@ const TechnologyDiagram: React.FC = () => {
     },
     {
       id: 'tools',
-      label: isFrench ? 'Outils Dev' : 'Dev Tools',
+      label: 'Dev Tools',
       icon: <Wrench className="w-5 h-5" />,
       color: 'from-yellow-500 to-amber-500',
       bgColor: 'bg-yellow-500',
       position: 'left',
       subcategories: [
         { id: 'devops', label: 'DevOps' },
-        { id: 'version', label: isFrench ? 'Version' : 'Version' },
-        { id: 'editor', label: isFrench ? 'Éditeur' : 'Editor' },
+        { id: 'version', label: 'Version' },
+        { id: 'editor', label: 'Editor' },
         { id: 'api', label: 'API' }
       ]
     }
@@ -296,8 +292,8 @@ const TechnologyDiagram: React.FC = () => {
                 <Code className="w-8 h-8" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold drop-shadow-lg">{isFrench ? 'Technologies' : 'Technologies'}</h2>
-                <p className="text-sm opacity-90 font-medium">{isFrench ? 'Stack Tech' : 'Tech Stack'}</p>
+                <h2 className="text-2xl font-bold drop-shadow-lg">Technologies</h2>
+                <p className="text-sm opacity-90 font-medium">Tech stack</p>
               </div>
             </div>
           </div>

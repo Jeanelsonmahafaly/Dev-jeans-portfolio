@@ -35,7 +35,7 @@ const Portfolio = () => {
       title: "Classification d'Images Médicales IA",
       description: "Système d'intelligence artificielle pour la classification automatique d'images médicales utilisant des réseaux de neurones convolutifs.",
       technologies: ["Python", "PyTorch", "Keras", "TensorFlow", "Jupyter"],
-      category: "Intelligence Artificielle",
+      category: "Artificial Intelligence",
       icon: <Database className="w-8 h-8" />,
       features: [
         "Réseaux de neurones convolutifs",
@@ -77,7 +77,7 @@ const Portfolio = () => {
     const colors = {
       "Web Application": "bg-blue-100 text-blue-800",
       "Mobile & Backend": "bg-green-100 text-green-800",
-      "Intelligence Artificielle": "bg-purple-100 text-purple-800",
+      "Artificial Intelligence": "bg-purple-100 text-purple-800",
       "Healthcare System": "bg-red-100 text-red-800",
       "E-invoicing & conformité": "bg-amber-100 text-amber-900"
     };

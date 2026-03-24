@@ -48,16 +48,17 @@
       "location": "Madagascar",
       "type": "CDI",
       "duration": "En cours",
-      "description": "Conception et développement de solutions IA et Data complètes. Extraction et traitement de données à grande échelle (web scraping avec Selenium, Beautiful Soup), création d'agents RAG et agents IA intégrés aux applications existantes, automatisation des workflows. Intégration de moteurs IA locaux (Ollama, VLM/Llama) et optimisation des performances applicatives.",
+      "description": "Solutions IA et Data complètes (extraction, RAG, automatisation, Ollama/VLM). En parallèle : facturation électronique — transformation des factures existantes en flux normés, intégration API PISTE et Chorus Pro, formats Factur-X, UBL et CII (logique PDP).",
       "key_achievements": [
         "Extraction de données via web scraping (Selenium, Beautiful Soup)",
         "Création d'applications et services orientés données (FastAPI)",
         "Développement d'agents RAG et agents IA dans les applications existantes",
         "Automatisation des workflows métier",
         "Optimisation des sites existants pour réduire la latence",
-        "Intégration de moteurs IA (Ollama, VLM/Llama)"
+        "Intégration de moteurs IA (Ollama, VLM/Llama)",
+        "Transformation factures existantes → factures électroniques (API PISTE, Chorus Pro, Factur-X, UBL, CII)"
       ],
-      "technologies": ["RAG", "LLM", "LangChain", "LangGraph", "LangSmith", "FastAPI", "Beautiful Soup", "Selenium", "Ollama", "Llama"]
+      "technologies": ["RAG", "LLM", "LangChain", "LangGraph", "LangSmith", "FastAPI", "Beautiful Soup", "Selenium", "Ollama", "Llama", "API PISTE", "Chorus Pro", "Factur-X", "UBL", "CII"]
     },
     {
       "period": "Juin 2025 - Fév 2026",

@@ -136,12 +136,12 @@ const ProjectsSection = () => {
           ? "Application de surveillance et détection d'incendie en temps réel, conçue pour fonctionner avec un microcontrôleur ESP32 (outil principal) et des capteurs de température. Système intelligent utilisant des modèles d'IA/ML pour la détection prédictive d'incendies, intégrant LangChain pour l'analyse intelligente des données et des outils embarqués pour le traitement edge computing."
           : "Real-time fire monitoring and detection application, designed to work with ESP32 microcontroller (main tool) and temperature sensors. Intelligent system using AI/ML models for predictive fire detection, integrating LangChain for intelligent sensor data analysis and embedded tools for edge computing processing.",
         technologies: ["React 18", "TypeScript", "Tailwind CSS", "Shadcn/UI", "Recharts", "Python", "Machine Learning", "LLM", "LangChain", "IoT", "ESP32", "Edge Computing"],
-        category: isFrench ? "IoT & Intelligence Artificielle" : "IoT & Artificial Intelligence",
+        category: "IoT & Artificial Intelligence",
         icon: <Globe className="w-8 h-8" />,
         features: isFrench ? [
           "Surveillance en temps réel des températures intérieure et extérieure",
           "Détection automatique des risques d'incendie basée sur l'écart de température",
-          "Modèles IA/ML pour la prédiction et l'analyse intelligente",
+          "Modèles AI/ML pour la prédiction et l'analyse intelligente",
           "Intégration LangChain pour le traitement intelligent des données de capteurs",
           "Système de notifications et alertes avec buzzer",
           "Gestion et configuration des capteurs à distance",
@@ -173,7 +173,7 @@ const ProjectsSection = () => {
           ? "Application web complète pour la gestion des services VTC avec interface utilisateur avancée et système de réservation en temps réel."
           : "Comprehensive web application for VTC service management with advanced user interface and real-time booking system.",
         technologies: ["Symfony", "React", "TypeScript", "Docker", "MongoDB"],
-        category: isFrench ? "Application Web" : "Web Application",
+        category: "Web Application",
         icon: <Globe className="w-8 h-8" />,
         features: isFrench ? [
           "Interface utilisateur multi-fonctionnelle",
@@ -217,7 +217,7 @@ const ProjectsSection = () => {
           ? "Système d'intelligence artificielle pour la classification automatique d'images médicales utilisant des réseaux de neurones convolutifs."
           : "Artificial intelligence system for automatic medical image classification using convolutional neural networks.",
         technologies: ["Python", "PyTorch", "Keras", "TensorFlow", "Jupyter"],
-        category: isFrench ? "Intelligence Artificielle" : "Artificial Intelligence",
+        category: "Artificial Intelligence",
         icon: <Database className="w-8 h-8" />,
         features: isFrench ? [
           "Réseaux de neurones convolutifs",
@@ -239,7 +239,7 @@ const ProjectsSection = () => {
           ? "Application web robuste pour la gestion des systèmes hospitaliers avec tableaux de bord analytiques et modules de demandes."
           : "Robust web application for hospital system management with analytical dashboards and request modules.",
         technologies: ["Flutter", "Power BI", "DAX", "Oracle"],
-        category: isFrench ? "Système de Santé" : "Healthcare System",
+        category: "Healthcare System",
         icon: <Code2 className="w-8 h-8" />,
         features: isFrench ? [
           "Gestion complète des systèmes hospitaliers",

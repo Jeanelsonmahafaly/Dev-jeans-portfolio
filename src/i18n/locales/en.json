@@ -124,7 +124,8 @@
     "pastExperiences": "Past experiences",
     "responsibilities": "Responsibilities",
     "tasks": "Main missions",
-    "technologies": "Technologies used",
+    "missionsCompleted": "Key responsibilities",
+    "technologies": "Technologies",
     "achievements": "Achievements"
   },
   "projects": {
@@ -136,7 +137,7 @@
     "viewCode": "Code",
     "viewDemo": "Demo",
     "viewAll": "View all my projects",
-    "technologies": "Technologies & Tools",
+    "technologies": "Technologies",
     "features": "Key features",
     "category": "Category",
     "categories": {

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 const ExperienceSection = () => {
   const { t, i18n } = useTranslation();
+  const isFrench = Boolean(i18n.language?.startsWith('fr'));
   const [visibleItems, setVisibleItems] = useState([]);
   const ref = useRef(null);
 
@@ -64,40 +65,59 @@ const ExperienceSection = () => {
       'LangChain': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
       'Ollama': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
       'Llama': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'API PISTE': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'Chorus Pro': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'Factur-X': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'UBL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'CII': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
     };
     
     return techIcons[name] || 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg';
   };
 
   const getExperiences = () => {
-    const isFrench = i18n.language === 'fr';
-    
     return [
       {
         period: isFrench ? "Fév 2026 - À ce jour" : "Feb 2026 - Present",
         company: "VISION COMPTE",
         position: isFrench ? "Développeur IA & Data" : "AI & Data Developer",
         location: "Madagascar",
-        type: isFrench ? "CDI" : "Permanent Contract",
-        description: isFrench 
-          ? "Conception et développement de solutions IA et Data complètes pour l'entreprise. Extraction et traitement de données à grande échelle, création d'agents intelligents RAG intégrés aux applications existantes, et automatisation des processus métier. Expertise en intégration de moteurs IA locaux (Ollama, VLM) et optimisation des performances applicatives."
-          : "Design and development of complete AI and Data solutions for the company. Large-scale data extraction and processing, creation of intelligent RAG agents integrated into existing applications, and business process automation. Expertise in integrating local AI engines (Ollama, VLM) and application performance optimization.",
+        type: "CDI",
+        description: isFrench ? (
+          <>
+            Conception et développement de solutions IA et Data complètes pour l&apos;entreprise : extraction et traitement de données à grande échelle, agents RAG intégrés aux applications existantes, automatisation des processus métier.{' '}
+            <strong className="text-emerald-400/95 font-semibold">À la croisée du métier et de la conformité réglementaire</strong>
+            , accompagnement de la bascule vers la facturation électronique — transformation des factures historiques en flux normés, interfaçage{' '}
+            <strong className="text-white">API PISTE</strong> et <strong className="text-white">Chorus Pro</strong>, formats{' '}
+            <strong className="text-white">Factur-X</strong>, <strong className="text-white">UBL</strong> et <strong className="text-white">CII</strong> dans une logique PDP. Expertise en moteurs IA locaux (Ollama, VLM) et optimisation des performances applicatives.
+          </>
+        ) : (
+          <>
+            Design and development of complete AI and Data solutions for the company: large-scale data extraction and processing, RAG agents embedded in existing applications, and business process automation.{' '}
+            <strong className="text-emerald-400/95 font-semibold">At the intersection of business and regulatory compliance</strong>
+            , driving the shift to e-invoicing — turning legacy invoices into standardized electronic flows, integrating the{' '}
+            <strong className="text-white">API PISTE</strong> and <strong className="text-white">Chorus Pro</strong>, and delivering{' '}
+            <strong className="text-white">Factur-X</strong>, <strong className="text-white">UBL</strong>, and <strong className="text-white">CII</strong> formats within a PDP-oriented approach. Expertise in local AI engines (Ollama, VLM) and application performance optimization.
+          </>
+        ),
         tasks: isFrench ? [
           "Extraction et collecte de données via web scraping (Selenium, Beautiful Soup) pour alimenter les pipelines de données",
           "Création d'applications et services orientés données avec FastAPI pour le traitement et l'exposition des données",
           "Développement d'agents RAG (Retrieval-Augmented Generation) et agents IA intégrés aux applications existantes",
           "Mise en place d'automatisation des workflows métier pour optimiser les processus opérationnels",
           "Optimisation des sites et applications existantes pour améliorer les performances et réduire la latence",
-          "Intégration de moteurs IA locaux (Ollama, VLM/Llama) pour des solutions d'IA déployables on-premise"
+          "Intégration de moteurs IA locaux (Ollama, VLM/Llama) pour des solutions d'IA déployables on-premise",
+          "Transformation des factures existantes en factures électroniques : intégration des API PISTE et Chorus Pro, génération et contrôle des formats Factur-X, UBL et CII (interopérabilité et conformité PDP)"
         ] : [
           "Data extraction and collection via web scraping (Selenium, Beautiful Soup) to feed data pipelines",
           "Creation of data-oriented applications and services with FastAPI for data processing and exposure",
           "Development of RAG (Retrieval-Augmented Generation) agents and AI agents integrated into existing applications",
           "Implementation of business workflow automation to optimize operational processes",
           "Optimization of existing sites and applications to improve performance and reduce latency",
-          "Integration of local AI engines (Ollama, VLM/Llama) for on-premise deployable AI solutions"
+          "Integration of local AI engines (Ollama, VLM/Llama) for on-premise deployable AI solutions",
+          "Transformation of existing invoices into e-invoices: API PISTE and Chorus Pro integration, Factur-X, UBL, and CII generation and validation (interoperability and PDP compliance)"
         ],
-        technologies: ["RAG", "LLM", "LangChain", "LangGraph", "LangSmith", "FastAPI", "Beautiful Soup", "Selenium", "Ollama", "Llama"],
+        technologies: ["RAG", "LLM", "LangChain", "LangGraph", "LangSmith", "FastAPI", "Beautiful Soup", "Selenium", "Ollama", "Llama", "API PISTE", "Chorus Pro", "Factur-X", "UBL", "CII"],
         duration: isFrench ? "En cours" : "Ongoing",
         startDate: new Date('2026-02-01')
       },
@@ -106,7 +126,7 @@ const ExperienceSection = () => {
         company: "ESN ILOMAD",
         position: isFrench ? "Développeur .NET / Automatisation IA" : ".NET Developer / AI Automation",
         location: "Madagascar",
-        type: isFrench ? "CDI" : "Permanent Contract",
+        type: "CDI",
         description: isFrench 
           ? "Développement de services back-end robustes dans une architecture microservices moderne avec déploiement sur Microsoft Azure. Intégration avancée de solutions d'automatisation intelligentes basées sur l'IA générative (RAG, LLMs) pour optimiser les processus métier et améliorer l'efficacité opérationnelle."
           : "Development of robust back-end services in a modern microservices architecture with deployment on Microsoft Azure. Advanced integration of intelligent automation solutions based on generative AI (RAG, LLMs) to optimize business processes and improve operational efficiency.",
@@ -138,7 +158,7 @@ const ExperienceSection = () => {
         company: "ESN RTS LINE",
         position: isFrench ? "Développeur Fullstack Symfony" : "Fullstack Symfony Developer",
         location: "Madagascar",
-        type: isFrench ? "CDI" : "Permanent Contract",
+        type: "CDI",
         description: isFrench 
           ? "Développement fullstack d'applications web complexes avec une forte emphase sur la qualité du code et les bonnes pratiques. Intégration de solutions d'intelligence artificielle pour automatiser des tâches répétitives sur des sites existants, améliorant ainsi la productivité et l'expérience utilisateur."
           : "Fullstack development of complex web applications with strong emphasis on code quality and best practices. Integration of artificial intelligence solutions to automate repetitive tasks on existing sites, improving productivity and user experience.",
@@ -321,7 +341,7 @@ const ExperienceSection = () => {
       <div className="mb-4 md:mb-6">
         <h5 className="text-white font-bold text-xs md:text-sm mb-3 md:mb-4 flex items-center gap-2">
           <CheckCircle2 size={16} className="text-emerald-500 md:w-[18px] md:h-[18px]" />
-          Missions réalisées
+          {t('experience.missionsCompleted')}
         </h5>
         <ul className="space-y-2 md:space-y-3">
           {exp.tasks.map((task, taskIndex) => (
@@ -334,7 +354,7 @@ const ExperienceSection = () => {
       </div>
 
       <div>
-        <h5 className="text-white font-bold text-xs md:text-sm mb-3 md:mb-4">Technologies utilisées</h5>
+        <h5 className="text-white font-bold text-xs md:text-sm mb-3 md:mb-4">{t('experience.technologies')}</h5>
         <div className="flex flex-wrap gap-2 md:gap-3">
           {exp.technologies.map((tech, techIndex) => (
             <div

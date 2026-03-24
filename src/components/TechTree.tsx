@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Code, Globe, Server, Database, Layers, Brain, Wrench, Sparkles, Cpu, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -120,9 +119,6 @@ const TechItem: React.FC<TechItemProps> = ({ name, icon, color, borderColor, glo
 };
 
 const TechTree: React.FC = () => {
-  const { i18n } = useTranslation();
-  const isFrench = i18n.language === 'fr';
-
   return (
     <div className="w-full py-12">
       <div className="container mx-auto px-4">
@@ -134,8 +130,7 @@ const TechTree: React.FC = () => {
           {/* Nœud central - Web Develop */}
           <div className="relative z-10 flex-shrink-0">
             <TechNode
-             // label={isFrench ? "Développement Web, Mobile & Embarqué" : "Web, Mobile & Embedded Development"}
-              label={isFrench ? "" : ""}
+              label=""
               icon={<Code className="w-6 h-6" />}
               color="bg-[#1F2937]"
               borderColor="border-[#10B981]"
@@ -158,7 +153,7 @@ const TechTree: React.FC = () => {
                    style={{ transform: 'translateY(-50%)' }} />
               
               <TechNode
-                label={isFrench ? "Front End" : "Front End"}
+                label={"Front End"}
                 icon={<Globe className="w-5 h-5" />}
                 color="bg-[#1F2937]"
                 borderColor="border-[#374151]"
@@ -168,7 +163,7 @@ const TechTree: React.FC = () => {
                 <div className="relative pl-6">
                   <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-[#10B981]" style={{ transform: 'translateY(-50%)' }} />
                   <div className="space-y-2">
-                    <h4 className="text-xs font-semibold text-gray-400 mb-2">{isFrench ? "Language" : "Language"}</h4>
+                    <h4 className="text-xs font-semibold text-gray-400 mb-2">Language</h4>
                     <div className="flex flex-wrap gap-2">
                       <TechItem
                         name="HTML"
@@ -206,7 +201,7 @@ const TechTree: React.FC = () => {
                 <div className="relative pl-6">
                   <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-[#10B981]" style={{ transform: 'translateY(-50%)' }} />
                   <div className="space-y-2">
-                    <h4 className="text-xs font-semibold text-gray-400 mb-2">{isFrench ? "Framework" : "Framework"}</h4>
+                    <h4 className="text-xs font-semibold text-gray-400 mb-2">Framework</h4>
                     <div className="flex flex-wrap gap-2">
                       <TechItem
                         name="React"
@@ -237,7 +232,7 @@ const TechTree: React.FC = () => {
                 <div className="relative pl-6">
                   <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-[#10B981]" style={{ transform: 'translateY(-50%)' }} />
                   <div className="space-y-2">
-                    <h4 className="text-xs font-semibold text-gray-400 mb-2">{isFrench ? "Libraries" : "Libraries"}</h4>
+                    <h4 className="text-xs font-semibold text-gray-400 mb-2">Libraries</h4>
                     <div className="flex flex-wrap gap-2">
                       <TechItem
                         name="Tailwind"
@@ -266,7 +261,7 @@ const TechTree: React.FC = () => {
                    style={{ transform: 'translateY(-50%)' }} />
               
               <TechNode
-                label={isFrench ? "Back End" : "Back End"}
+                label={"Back End"}
                 icon={<Server className="w-5 h-5" />}
                 color="bg-[#1F2937]"
                 borderColor="border-[#374151]"
@@ -276,7 +271,7 @@ const TechTree: React.FC = () => {
                 <div className="relative pl-6">
                   <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-[#10B981]" style={{ transform: 'translateY(-50%)' }} />
                   <div className="space-y-2">
-                    <h4 className="text-xs font-semibold text-gray-400 mb-2">{isFrench ? "Language" : "Language"}</h4>
+                    <h4 className="text-xs font-semibold text-gray-400 mb-2">Language</h4>
                     <div className="flex flex-wrap gap-2">
                       <TechItem
                         name="Python"
@@ -307,7 +302,7 @@ const TechTree: React.FC = () => {
                 <div className="relative pl-6">
                   <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-[#10B981]" style={{ transform: 'translateY(-50%)' }} />
                   <div className="space-y-2">
-                    <h4 className="text-xs font-semibold text-gray-400 mb-2">{isFrench ? "Database" : "Database"}</h4>
+                    <h4 className="text-xs font-semibold text-gray-400 mb-2">Database</h4>
                     <div className="flex flex-wrap gap-2">
                       <TechItem
                         name="MySQL"
@@ -381,7 +376,7 @@ const TechTree: React.FC = () => {
                    style={{ transform: 'translateY(-50%)' }} />
               
               <TechNode
-                label={isFrench ? "Ingénierie IA" : "AI Engineering"}
+                label={"AI Engineering"}
                 icon={<Brain className="w-5 h-5" />}
                 color="bg-[#1F2937]"
                 borderColor="border-[#374151]"
@@ -391,7 +386,7 @@ const TechTree: React.FC = () => {
                 <div className="relative pl-6">
                   <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-[#10B981]" style={{ transform: 'translateY(-50%)' }} />
                   <div className="space-y-2">
-                    <h4 className="text-xs font-semibold text-gray-400 mb-2">{isFrench ? "Modèles" : "Models"}</h4>
+                    <h4 className="text-xs font-semibold text-gray-400 mb-2">Models</h4>
                     <div className="flex flex-wrap gap-2">
                       <TechItem
                         name="LLM"
@@ -429,7 +424,7 @@ const TechTree: React.FC = () => {
                 <div className="relative pl-6">
                   <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-[#10B981]" style={{ transform: 'translateY(-50%)' }} />
                   <div className="space-y-2">
-                    <h4 className="text-xs font-semibold text-gray-400 mb-2">{isFrench ? "Outils/Frameworks" : "Tools/Frameworks"}</h4>
+                    <h4 className="text-xs font-semibold text-gray-400 mb-2">Tools/Frameworks</h4>
                     <div className="flex flex-wrap gap-2">
                       <TechItem
                         name="RAG"
@@ -489,7 +484,7 @@ const TechTree: React.FC = () => {
                    style={{ transform: 'translateY(-50%)' }} />
               
               <TechNode
-                label={isFrench ? "Système Embarqué" : "Embedded Systems"}
+                label={"Embedded Systems"}
                 icon={<Cpu className="w-5 h-5" />}
                 color="bg-[#1F2937]"
                 borderColor="border-[#374151]"
@@ -499,7 +494,7 @@ const TechTree: React.FC = () => {
                 <div className="relative pl-6">
                   <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-[#10B981]" style={{ transform: 'translateY(-50%)' }} />
                   <div className="space-y-2">
-                    <h4 className="text-xs font-semibold text-gray-400 mb-2">{isFrench ? "Microcontrôleurs" : "Microcontrollers"}</h4>
+                    <h4 className="text-xs font-semibold text-gray-400 mb-2">Microcontrollers</h4>
                     <div className="flex flex-wrap gap-2">
                       <TechItem
                         name="ESP32"
@@ -530,7 +525,7 @@ const TechTree: React.FC = () => {
                 <div className="relative pl-6">
                   <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-[#10B981]" style={{ transform: 'translateY(-50%)' }} />
                   <div className="space-y-2">
-                    <h4 className="text-xs font-semibold text-gray-400 mb-2">{isFrench ? "IoT & Edge" : "IoT & Edge"}</h4>
+                    <h4 className="text-xs font-semibold text-gray-400 mb-2">IoT & Edge</h4>
                     <div className="flex flex-wrap gap-2">
                       <TechItem
                         name="IoT"
@@ -575,7 +570,7 @@ const TechTree: React.FC = () => {
                 <div className="relative pl-6">
                   <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-[#10B981]" style={{ transform: 'translateY(-50%)' }} />
                   <div className="space-y-2">
-                    <h4 className="text-xs font-semibold text-gray-400 mb-2">{isFrench ? "Conteneurisation" : "Containerization"}</h4>
+                    <h4 className="text-xs font-semibold text-gray-400 mb-2">Containerization</h4>
                     <div className="flex flex-wrap gap-2">
                       <TechItem
                         name="Docker"
@@ -629,7 +624,7 @@ const TechTree: React.FC = () => {
                 <div className="relative pl-6">
                   <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-[#10B981]" style={{ transform: 'translateY(-50%)' }} />
                   <div className="space-y-2">
-                    <h4 className="text-xs font-semibold text-gray-400 mb-2">{isFrench ? "Cloud" : "Cloud"}</h4>
+                    <h4 className="text-xs font-semibold text-gray-400 mb-2">Cloud</h4>
                     <div className="flex flex-wrap gap-2">
                       <TechItem
                         name="AWS"
@@ -653,7 +648,7 @@ const TechTree: React.FC = () => {
                 <div className="relative pl-6">
                   <div className="absolute left-0 top-1/2 w-4 h-0.5 bg-[#10B981]" style={{ transform: 'translateY(-50%)' }} />
                   <div className="space-y-2">
-                    <h4 className="text-xs font-semibold text-gray-400 mb-2">{isFrench ? "Monitoring" : "Monitoring"}</h4>
+                    <h4 className="text-xs font-semibold text-gray-400 mb-2">Monitoring</h4>
                     <div className="flex flex-wrap gap-2">
                       <TechItem
                         name="Grafana"
