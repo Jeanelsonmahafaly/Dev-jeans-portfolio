@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ExternalLink, Github, Smartphone, Globe, Database } from 'lucide-react';
+import { ExternalLink, Github, Smartphone, Globe, Database, FileText } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const Portfolio = () => {
@@ -56,6 +56,20 @@ const Portfolio = () => {
         "Optimisation des performances",
         "Interface utilisateur intuitive"
       ]
+    },
+    {
+      title: "Vision Compte — Facturation électronique & PDP",
+      description:
+        "Anticipez la réforme sans casser votre quotidien : vos factures « classiques » deviennent des flux électroniques conformes, prêts pour l’échange avec l’administration et vos partenaires. Une transition maîtrisée, de la donnée métier aux formats normés, avec les bons canaux officiels.",
+      technologies: ["Python", "FastAPI", "API PISTE", "Chorus Pro", "Factur-X", "UBL", "CII"],
+      category: "E-invoicing & conformité",
+      icon: <FileText className="w-8 h-8" />,
+      features: [
+        "Transformation des factures existantes en factures électroniques (parcours bout en bout)",
+        "Connexion aux écosystèmes publics via l’API PISTE et Chorus Pro",
+        "Production multi-formats : Factur-X, UBL et CII (interopérabilité européenne)",
+        "Alignement sur les exigences de la facturation électronique et du PDP"
+      ]
     }
   ];
 
@@ -64,7 +78,8 @@ const Portfolio = () => {
       "Web Application": "bg-blue-100 text-blue-800",
       "Mobile & Backend": "bg-green-100 text-green-800",
       "Intelligence Artificielle": "bg-purple-100 text-purple-800",
-      "Healthcare System": "bg-red-100 text-red-800"
+      "Healthcare System": "bg-red-100 text-red-800",
+      "E-invoicing & conformité": "bg-amber-100 text-amber-900"
     };
     return colors[category as keyof typeof colors] || "bg-gray-100 text-gray-800";
   };
@@ -76,8 +91,8 @@ const Portfolio = () => {
           Mes Projets
         </h2>
         <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Découvrez quelques-uns de mes projets récents qui démontrent mon expertise 
-          en développement full-stack, mobile et intelligence artificielle.
+          Découvrez quelques-uns de mes projets récents : applications web et mobiles, IA appliquée,
+          systèmes métiers — et désormais la facturation électronique (PDP, PISTE, Chorus Pro) au service de la conformité.
         </p>
         
         <div className="grid lg:grid-cols-2 gap-8">
