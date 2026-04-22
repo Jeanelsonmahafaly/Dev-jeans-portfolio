@@ -260,7 +260,7 @@ const HeroSection = () => {
               {/* Stats rapides */}
               <div className="grid grid-cols-3 gap-4 mt-6 pt-6 themed-border-t">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-[#10B981]">2+</div>
+                  <div className="text-2xl font-bold text-[#10B981]">3+</div>
                   <div className="text-xs text-gray-400">{t('hero.yearsLabel')}</div>
                 </div>
                 <div className="text-center">

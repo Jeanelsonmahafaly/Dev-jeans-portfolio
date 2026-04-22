@@ -110,9 +110,9 @@
     "technicalExpertiseDesc": "Mon expertise couvre les architectures microservices, le développement d'API REST sécurisées, les tests automatisés (unitaires, fonctionnels) et les pipelines CI/CD (GitLab, Docker, etc.).",
     "education": {
       "title": "Diplômes et formations",
-      "bac": "2018 - Baccalauréat scientifique, Série C",
-      "licence": "2022 - Licence en informatique (parcours DA2I)",
-      "master": "2024 - Master en modélisation et ingénierie informatique (M2I)"
+      "bac": "2018 - Baccalauréat scientifique, Série C, Lycée Manandriana",
+      "licence": "2022 - Licence en informatique (parcours DA2I), EMIT Université de Fianarantsoa",
+      "master": "2024 - Master en modélisation et ingénierie informatique (M2I), EMIT Université de Fianarantsoa"
     }
   },
   "experience": {
