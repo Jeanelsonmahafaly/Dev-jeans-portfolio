@@ -107,7 +107,13 @@
     "passionateAboutAI": "Passionate about AI",
     "passionateAboutAIDesc": "Specialized in AI automation implementation, I have contributed to the development of AI-based automation agents and completed several personal projects in this field.",
     "myTechnicalExpertise": "My technical expertise",
-    "technicalExpertiseDesc": "My expertise covers microservices architectures, secure REST API development, automated testing (unit, functional) and CI/CD pipelines (GitLab, Docker, etc.)."
+    "technicalExpertiseDesc": "My expertise covers microservices architectures, secure REST API development, automated testing (unit, functional) and CI/CD pipelines (GitLab, Docker, etc.).",
+    "education": {
+      "title": "Education & Degrees",
+      "bac": "2018 - Scientific Baccalaureate, Series C",
+      "licence": "2022 - Bachelor's degree in Computer Science (DA2I track)",
+      "master": "2024 - Master's degree in Modeling and Computer Engineering (M2I)"
+    }
   },
   "experience": {
     "title": "Professional",

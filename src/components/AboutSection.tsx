@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Code2, Database, Server, Shield, Trophy, Users, GitBranch, TestTube, Brain, Zap } from 'lucide-react';
+import { Code2, Database, Server, Shield, Trophy, Users, GitBranch, TestTube, Brain, Zap, GraduationCap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
@@ -45,6 +45,12 @@ const AboutSection = () => {
     { number: "3", label: t('about.partners') },
     { number: "15+", label: t('about.projects') },
     { number: "100%", label: t('about.satisfaction') }
+  ];
+
+  const educationItems = [
+    t('about.education.bac'),
+    t('about.education.licence'),
+    t('about.education.master')
   ];
 
   return (
@@ -223,6 +229,21 @@ const AboutSection = () => {
               <p className="text-sm text-gray-400">
                 {t('about.technicalExpertiseDesc')}
               </p>
+            </div>
+
+            <div className="glass rounded-xl p-6 themed-border themed-border-hover mt-8">
+              <h4 className="font-semibold text-white mb-4 flex items-center gap-2">
+                <GraduationCap className="w-5 h-5 text-[#10B981]" />
+                {t('about.education.title')}
+              </h4>
+              <ul className="space-y-3 text-sm">
+                {educationItems.map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="w-2 h-2 bg-[#10B981] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span className="text-gray-300">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

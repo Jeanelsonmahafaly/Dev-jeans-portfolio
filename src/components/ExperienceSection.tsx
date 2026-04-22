@@ -65,6 +65,10 @@ const ExperienceSection = () => {
       'LangChain': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
       'Ollama': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
       'Llama': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'OpenBao': 'https://cdn.simpleicons.org/vault',
+      'Keycloak': 'https://cdn.simpleicons.org/keycloak',
+      'RabbitMQ': 'https://cdn.simpleicons.org/rabbitmq',
+      'OpenSearch': 'https://cdn.simpleicons.org/opensearch',
       'API PISTE': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
       'Chorus Pro': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
       'Factur-X': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
@@ -85,39 +89,48 @@ const ExperienceSection = () => {
         type: "CDI",
         description: isFrench ? (
           <>
-            Conception et développement de solutions IA et Data complètes pour l&apos;entreprise : extraction et traitement de données à grande échelle, agents RAG intégrés aux applications existantes, automatisation des processus métier.{' '}
+            Conception et développement de solutions IA & Data à forte valeur métier : extraction et traitement de données, services applicatifs, agents RAG intégrés et automatisation des processus.{' '}
             <strong className="text-emerald-400/95 font-semibold">À la croisée du métier et de la conformité réglementaire</strong>
-            , accompagnement de la bascule vers la facturation électronique — transformation des factures historiques en flux normés, interfaçage{' '}
+            , pilotage de la bascule vers la facturation électronique : transformation des factures historiques en flux normés, interfaçage{' '}
             <strong className="text-white">API PISTE</strong> et <strong className="text-white">Chorus Pro</strong>, formats{' '}
-            <strong className="text-white">Factur-X</strong>, <strong className="text-white">UBL</strong> et <strong className="text-white">CII</strong> dans une logique PDP. Expertise en moteurs IA locaux (Ollama, VLM) et optimisation des performances applicatives.
+            <strong className="text-white">Factur-X</strong>, <strong className="text-white">UBL</strong> et <strong className="text-white">CII</strong> dans une logique PDP agréée par l&apos;État français. Mise en place de <strong className="text-white">OpenBao</strong> (secrets), <strong className="text-white">Keycloak</strong> (rôles/permissions), <strong className="text-white">RabbitMQ</strong> (orchestration des messages) et <strong className="text-white">OpenSearch</strong> (optimisation des requêtes).
           </>
         ) : (
           <>
-            Design and development of complete AI and Data solutions for the company: large-scale data extraction and processing, RAG agents embedded in existing applications, and business process automation.{' '}
+            Design and development of complete AI and Data solutions for the company: large-scale data extraction and processing, application service development, RAG agents embedded in existing applications, and business process automation.{' '}
             <strong className="text-emerald-400/95 font-semibold">At the intersection of business and regulatory compliance</strong>
             , driving the shift to e-invoicing — turning legacy invoices into standardized electronic flows, integrating the{' '}
             <strong className="text-white">API PISTE</strong> and <strong className="text-white">Chorus Pro</strong>, and delivering{' '}
-            <strong className="text-white">Factur-X</strong>, <strong className="text-white">UBL</strong>, and <strong className="text-white">CII</strong> formats within a PDP-oriented approach. Expertise in local AI engines (Ollama, VLM) and application performance optimization.
+            <strong className="text-white">Factur-X</strong>, <strong className="text-white">UBL</strong>, and <strong className="text-white">CII</strong> formats within a PDP model approved by the French State. Implemented <strong className="text-white">OpenBao</strong> for secrets management, <strong className="text-white">Keycloak</strong> for roles and permissions, <strong className="text-white">RabbitMQ</strong> for message orchestration, and <strong className="text-white">OpenSearch</strong> for query optimization. Expertise in local AI engines (Ollama, VLM) and application performance optimization.
           </>
         ),
         tasks: isFrench ? [
-          "Extraction et collecte de données via web scraping (Selenium, Beautiful Soup) pour alimenter les pipelines de données",
-          "Création d'applications et services orientés données avec FastAPI pour le traitement et l'exposition des données",
-          "Développement d'agents RAG (Retrieval-Augmented Generation) et agents IA intégrés aux applications existantes",
-          "Mise en place d'automatisation des workflows métier pour optimiser les processus opérationnels",
-          "Optimisation des sites et applications existantes pour améliorer les performances et réduire la latence",
-          "Intégration de moteurs IA locaux (Ollama, VLM/Llama) pour des solutions d'IA déployables on-premise",
-          "Transformation des factures existantes en factures électroniques : intégration des API PISTE et Chorus Pro, génération et contrôle des formats Factur-X, UBL et CII (interopérabilité et conformité PDP)"
+          "Extraction et collecte de données (Selenium, Beautiful Soup) pour alimenter les pipelines métier",
+          "Développement de services applicatifs et API orientés données avec FastAPI",
+          "Conception d'agents RAG et d'agents IA intégrés aux applications existantes",
+          "Automatisation des workflows métier pour améliorer la productivité opérationnelle",
+          "Optimisation des applications existantes pour réduire la latence et améliorer les performances",
+          "Intégration de moteurs IA locaux (Ollama, VLM/Llama) pour des déploiements on-premise",
+          "Mise en place d'OpenBao pour la gestion sécurisée des secrets",
+          "Intégration de Keycloak pour la gestion des rôles et des permissions",
+          "Mise en place de RabbitMQ pour l'orchestration des messages entre services",
+          "Intégration d'OpenSearch pour accélérer la recherche et l'exécution des requêtes",
+          "Mise en place de la facturation électronique : API PISTE, Chorus Pro, formats Factur-X/UBL/CII et flux PDP agréé par l'État français"
         ] : [
           "Data extraction and collection via web scraping (Selenium, Beautiful Soup) to feed data pipelines",
           "Creation of data-oriented applications and services with FastAPI for data processing and exposure",
           "Development of RAG (Retrieval-Augmented Generation) agents and AI agents integrated into existing applications",
+          "Development of application services to support business processes and compliance needs",
           "Implementation of business workflow automation to optimize operational processes",
           "Optimization of existing sites and applications to improve performance and reduce latency",
           "Integration of local AI engines (Ollama, VLM/Llama) for on-premise deployable AI solutions",
-          "Transformation of existing invoices into e-invoices: API PISTE and Chorus Pro integration, Factur-X, UBL, and CII generation and validation (interoperability and PDP compliance)"
+          "OpenBao implementation for secure application secrets management",
+          "Keycloak integration for role and permission management",
+          "RabbitMQ setup for message orchestration across services",
+          "OpenSearch integration for query and business search optimization",
+          "Transformation of existing invoices into e-invoices: API PISTE and Chorus Pro integration, Factur-X, UBL, and CII generation and validation, with implementation of a PDP flow approved by the French State"
         ],
-        technologies: ["RAG", "LLM", "LangChain", "LangGraph", "LangSmith", "FastAPI", "Beautiful Soup", "Selenium", "Ollama", "Llama", "API PISTE", "Chorus Pro", "Factur-X", "UBL", "CII"],
+        technologies: ["RAG", "LLM", "LangChain", "LangGraph", "LangSmith", "FastAPI", "OpenBao", "Keycloak", "RabbitMQ", "OpenSearch", "Beautiful Soup", "Selenium", "Ollama", "Llama", "API PISTE", "Chorus Pro", "Factur-X", "UBL", "CII"],
         duration: isFrench ? "En cours" : "Ongoing",
         startDate: new Date('2026-02-01')
       },

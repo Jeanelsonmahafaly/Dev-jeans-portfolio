@@ -27,7 +27,7 @@
     "passionDotNet": ".NET",
     "passionAnd2": "et les",
     "passionEmbedded": "systèmes embarqués",
-    "passionDesc": ", je transforme des idées en solutions innovantes.",
+    "passionDesc": ", je transforme des idées en solutions innovantes, avec un fort accent sur la sécurité des données, la gestion des accès et la protection des secrets.",
     "aiTitle": "IA & Data",
     "aiDesc": "RAG, LLM, LangChain, Machine Learning, Deep Learning. Conception et entraînement de modèles d'IA pour l'automatisation intelligente et l'analyse de données.",
     "dotnetTitle": "Développement .NET",
@@ -48,7 +48,7 @@
     "satisfaction": "Satisfaction client",
     "intro1": "Passionné par le",
     "intro1Bold": "développement .NET",
-    "intro1End": ", je maîtrise l'ensemble de son écosystème, depuis la conception et le développement jusqu'au déploiement continu via Azure DevOps et d'autres outils modernes.",
+    "intro1End": ", je maîtrise l'ensemble de son écosystème, depuis la conception et le développement jusqu'au déploiement continu via Azure DevOps et d'autres outils modernes, avec une attention particulière portée à la sécurité applicative (authentification, autorisations, gestion des secrets).",
     "intro2Start": "Fortement impliqué dans le domaine de l'",
     "intro2AI": "intelligence artificielle",
     "intro2Middle": ", je conçois et entraîne des modèles de machine learning et deep learning, et je mets en place des solutions d'automatisation intelligente, notamment à travers des workflows avancés avec n8n. Je développe également des",
@@ -107,7 +107,13 @@
     "passionateAboutAI": "Passionné par l'IA",
     "passionateAboutAIDesc": "Spécialisé dans la mise en place d'automatisation IA, j'ai contribué au développement d'agents d'automatisation basés sur l'intelligence artificielle et réalisé plusieurs projets personnels dans ce domaine.",
     "myTechnicalExpertise": "Mon expertise technique",
-    "technicalExpertiseDesc": "Mon expertise couvre les architectures microservices, le développement d'API REST sécurisées, les tests automatisés (unitaires, fonctionnels) et les pipelines CI/CD (GitLab, Docker, etc.)."
+    "technicalExpertiseDesc": "Mon expertise couvre les architectures microservices, le développement d'API REST sécurisées, les tests automatisés (unitaires, fonctionnels) et les pipelines CI/CD (GitLab, Docker, etc.).",
+    "education": {
+      "title": "Diplômes et formations",
+      "bac": "2018 - Baccalauréat scientifique, Série C",
+      "licence": "2022 - Licence en informatique (parcours DA2I)",
+      "master": "2024 - Master en modélisation et ingénierie informatique (M2I)"
+    }
   },
   "experience": {
     "title": "Expérience",

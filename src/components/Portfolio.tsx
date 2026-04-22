@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ExternalLink, Github, Smartphone, Globe, Database, FileText } from 'lucide-react';
+import { ExternalLink, Github, Smartphone, Globe, Database, ShieldCheck } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const Portfolio = () => {
@@ -60,15 +60,19 @@ const Portfolio = () => {
     {
       title: "Vision Compte — Facturation électronique & PDP",
       description:
-        "Anticipez la réforme sans casser votre quotidien : vos factures « classiques » deviennent des flux électroniques conformes, prêts pour l’échange avec l’administration et vos partenaires. Une transition maîtrisée, de la donnée métier aux formats normés, avec les bons canaux officiels.",
-      technologies: ["Python", "FastAPI", "API PISTE", "Chorus Pro", "Factur-X", "UBL", "CII"],
+        "Mise en place d'une architecture applicative claire et robuste pour la facturation électronique : sécurité des secrets, gestion des accès, orchestration des messages et optimisation des recherches. Le tout aligné avec un flux PDP agréé par l'État français.",
+      technologies: ["Python", "FastAPI", "OpenBao", "Keycloak", "RabbitMQ", "OpenSearch", "API PISTE", "Chorus Pro", "Factur-X", "UBL", "CII"],
       category: "E-invoicing & conformité",
-      icon: <FileText className="w-8 h-8" />,
+      icon: <ShieldCheck className="w-8 h-8" />,
       features: [
-        "Transformation des factures existantes en factures électroniques (parcours bout en bout)",
-        "Connexion aux écosystèmes publics via l’API PISTE et Chorus Pro",
-        "Production multi-formats : Factur-X, UBL et CII (interopérabilité européenne)",
-        "Alignement sur les exigences de la facturation électronique et du PDP"
+        "Développement de services applicatifs pour la facturation électronique",
+        "OpenBao pour la gestion sécurisée des secrets",
+        "Keycloak pour la gestion des rôles et des permissions",
+        "RabbitMQ pour l'orchestration des messages asynchrones",
+        "OpenSearch pour optimiser la recherche et les requêtes",
+        "Connexion aux écosystèmes publics via l'API PISTE et Chorus Pro",
+        "Production des formats Factur-X, UBL et CII",
+        "Mise en place d'un flux PDP agréé par l'État français"
       ]
     }
   ];

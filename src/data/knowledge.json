@@ -48,17 +48,22 @@
       "location": "Madagascar",
       "type": "CDI",
       "duration": "En cours",
-      "description": "Solutions IA et Data complètes (extraction, RAG, automatisation, Ollama/VLM). En parallèle : facturation électronique — transformation des factures existantes en flux normés, intégration API PISTE et Chorus Pro, formats Factur-X, UBL et CII (logique PDP).",
+      "description": "Solutions IA et Data orientées métier (extraction, RAG, automatisation, services applicatifs, Ollama/VLM). En parallèle : mise en place de la facturation électronique avec API PISTE, Chorus Pro, formats Factur-X/UBL/CII et flux PDP agréé par l'État français.",
       "key_achievements": [
         "Extraction de données via web scraping (Selenium, Beautiful Soup)",
-        "Création d'applications et services orientés données (FastAPI)",
-        "Développement d'agents RAG et agents IA dans les applications existantes",
+        "Développement de services applicatifs et API orientés données (FastAPI)",
+        "Développement d'agents RAG et d'agents IA dans les applications existantes",
+        "Développement de services applicatifs orientés métier et conformité",
         "Automatisation des workflows métier",
         "Optimisation des sites existants pour réduire la latence",
         "Intégration de moteurs IA (Ollama, VLM/Llama)",
-        "Transformation factures existantes → factures électroniques (API PISTE, Chorus Pro, Factur-X, UBL, CII)"
+        "OpenBao pour la gestion sécurisée des secrets",
+        "Keycloak pour la gestion des rôles et permissions",
+        "RabbitMQ pour l'orchestration des messages",
+        "OpenSearch pour l'optimisation des requêtes",
+        "Transformation des factures existantes en factures électroniques (API PISTE, Chorus Pro, Factur-X, UBL, CII, PDP agréé par l'État français)"
       ],
-      "technologies": ["RAG", "LLM", "LangChain", "LangGraph", "LangSmith", "FastAPI", "Beautiful Soup", "Selenium", "Ollama", "Llama", "API PISTE", "Chorus Pro", "Factur-X", "UBL", "CII"]
+      "technologies": ["RAG", "LLM", "LangChain", "LangGraph", "LangSmith", "FastAPI", "OpenBao", "Keycloak", "RabbitMQ", "OpenSearch", "Beautiful Soup", "Selenium", "Ollama", "Llama", "API PISTE", "Chorus Pro", "Factur-X", "UBL", "CII"]
     },
     {
       "period": "Juin 2025 - Fév 2026",
