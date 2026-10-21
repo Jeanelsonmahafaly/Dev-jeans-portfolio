@@ -102,7 +102,7 @@ const HeroSection = () => {
               {[
                 { icon: <Mail className="w-4 h-4" />, text: "jelsonmahafaly@gmail.com", href: "mailto:jelsonmahafaly@gmail.com", external: false },
                 { icon: <Phone className="w-4 h-4" />, text: "+261 34 21 166 56", href: "tel:+261347216656", external: false },
-                { icon: <SiWhatsapp width={16} height={16} aria-hidden />, text: "WhatsApp", href: "https://wa.me/261347216656", external: true },
+                { icon: <SiWhatsapp width={16} height={16} aria-hidden />, text: "WhatsApp", href: "https://web.whatsapp.com/send?phone=261347216656", external: true },
                 { icon: <MapPin className="w-4 h-4" />, text: "Antananarivo", href: "#", external: false }
               ].map((item, index) => (
                 <motion.a

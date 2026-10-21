@@ -82,7 +82,7 @@ const ContactSection = () => {
       title: t('contact.phone'),
       value: "+261 34 72 166 56",
       link: "tel:+261347216656",
-      whatsapp: "https://wa.me/261347216656",
+      whatsapp: "https://web.whatsapp.com/send?phone=261347216656",
       description: t('contact.phoneDesc')
     },
     {
