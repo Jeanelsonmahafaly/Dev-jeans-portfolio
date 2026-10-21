@@ -15,140 +15,153 @@ interface KnowledgeBase {
 }
 
 /**
- * Calcule la similarité simple entre deux strings (score Dice)
+ * Normalise une string : minuscules, sans accents, espaces réduits
  */
-function calculateSimilarity(str1: string, str2: string): number {
-  const s1 = str1.toLowerCase().trim();
-  const s2 = str2.toLowerCase().trim();
-  
-  if (s1 === s2) return 1;
-  
-  const longer = s1.length > s2.length ? s1 : s2;
-  const shorter = s1.length > s2.length ? s2 : s1;
-  
-  if (longer.length === 0) return 1;
-  
-  const editDistance = getEditDistance(longer, shorter);
-  return (longer.length - editDistance) / longer.length;
+function normalize(str: string): string {
+  return str
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9+#.\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 /**
- * Calcule la distance d'édition de Levenshtein
+ * Tokenise une requête : mots significatifs (stopwords retirés, stemming léger)
  */
-function getEditDistance(s1: string, s2: string): number {
-  const costs: number[] = [];
-  
-  for (let i = 0; i <= s1.length; i++) {
-    let lastValue = i;
-    for (let j = 0; j <= s2.length; j++) {
-      if (i === 0) {
-        costs[j] = j;
-      } else if (j > 0) {
-        let newValue = costs[j - 1];
-        if (s1.charAt(i - 1) !== s2.charAt(j - 1)) {
-          newValue = Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
-        }
-        costs[j - 1] = lastValue;
-        lastValue = newValue;
-      }
+const STOPWORDS = new Set([
+  'le', 'la', 'les', 'un', 'une', 'des', 'du', 'de', 'et', 'est', 'sont', 'avec', 'pour',
+  'dans', 'sur', 'que', 'qui', 'quoi', 'quel', 'quelle', 'quels', 'quelles', 'ce', 'cette',
+  'ces', 'mon', 'ma', 'mes', 'son', 'sa', 'ses', 'votre', 'notre', 'vous', 'nous', 'je',
+  'tu', 'il', 'elle', 'on', 'ils', 'elles', 'se', 'au', 'aux', 'en', 'y', 'a', 'as', 'ai',
+  'avoir', 'etre', 'fait', 'faire', 'peux', 'peut', 'puis', 'aussi', 'bien', 'alors',
+  'donc', 'mais', 'ou', 'od', 'si', 'ne', 'pas', 'plus', 'très', 'tres', 'tu', 't', 's',
+  'j', 'd', 'l', 'n', 'c', 'qu', 'the', 'and', 'for', 'are', 'you', 'your', 'with', 'what',
+  'how', 'does', 'about', 'tell', 'me', 'is', 'in', 'on', 'of', 'my', 'have', 'has', 'can',
+  'vous', 'avez', 'etes', 'ete', 'chez', ' travail', 'travail', 'poste', 'ans', 'mois',
+]);
+
+function tokenize(text: string): string[] {
+  return normalize(text)
+    .split(' ')
+    .map((w) => w.replace(/(ements|ement|ations|ation|eurs|euse|ance|ence|ique|iques|ifs|ive|ives|age|ages|tion|sion|er|ir|re|e|s)$/i, ''))
+    .filter((w) => w.length > 2 && !STOPWORDS.has(w));
+}
+
+/**
+ * Score de pertinence : combien de tokens de la requête apparaissent dans le texte
+ */
+function scoreText(queryTokens: string[], text: string): number {
+  if (queryTokens.length === 0) return 0;
+  const normText = ` ${normalize(text)} `;
+  let hits = 0;
+  for (const token of queryTokens) {
+    if (normText.includes(` ${token}`) || normText.includes(`${token} `) || normText.includes(` ${token} `)) {
+      hits++;
     }
-    if (i > 0) costs[s2.length] = lastValue;
   }
-  
-  return costs[s2.length];
+  return hits / queryTokens.length;
 }
 
 /**
- * Récupère les sections pertinentes du knowledge base basées sur les mots-clés
- * VERSION AMÉLIORÉE : Extraction plus intelligente et complète
+ * Formate un objet de la knowledge base en texte searchable
+ */
+function sectionToText(item: unknown): string {
+  return JSON.stringify(item);
+}
+
+/**
+ * Récupère les sections pertinentes du knowledge base basées sur un scoring de tokens.
+ * Robuste aux fautes de frappe et aux formes de mots grâce à normalize() + stemming léger.
  */
 export function retrieveRelevantContext(
   query: string,
   knowledgeBase: KnowledgeBase
 ): string {
-  const queryLower = query.toLowerCase();
-  const keywords = queryLower.split(/[\s,]+/).filter(k => k.length > 2);
+  const queryTokens = tokenize(query);
+  const queryLower = normalize(query);
   const relevantSections: string[] = [];
-  
-  // TOUJOURS inclure le profil comme base
+
+  // TOUJOURS inclure le profil + contact comme base
   if (knowledgeBase.profile) {
     relevantSections.push(
-      `PROFIL DE BASE: Nom: ${knowledgeBase.profile.name}, Titre: ${knowledgeBase.profile.title}, Bio: ${knowledgeBase.profile.bio}, Email: ${knowledgeBase.profile.email}, Téléphone: ${knowledgeBase.profile.phone}, Location: ${knowledgeBase.profile.location}`
+      `PROFIL:\n- Nom: ${knowledgeBase.profile.name}\n- Titre: ${knowledgeBase.profile.title}\n- Bio: ${knowledgeBase.profile.bio}\n- Résumé: ${knowledgeBase.profile.summary}\n- Email: ${knowledgeBase.profile.email}\n- Téléphone: ${knowledgeBase.profile.phone}\n- Localisation: ${knowledgeBase.profile.location}\n- CV: ${knowledgeBase.profile.cv_url}`
     );
   }
-  
-  // Recherche intelligente sur l'expérience
-  if (keywords.some(k => ['expérience', 'experience', 'travail', 'carrière', 'poste', 'entreprise', 'company', 'ans', 'années', 'cv'].includes(k))) {
-    if (knowledgeBase.experiences?.length) {
-      const experienceText = knowledgeBase.experiences
-        .map(exp => `[${exp.period}] ${exp.position} @ ${exp.company}: ${exp.description}. Réalisations: ${exp.key_achievements?.join(', ')}. Tech: ${exp.technologies?.join(', ')}`)
-        .join('\n');
-      relevantSections.push(`EXPÉRIENCES PROFESSIONNELLES (${knowledgeBase.experiences.length} postes):\n${experienceText}`);
-    }
+
+  // EXPÉRIENCES : scorer chaque expérience et garder celles pertinentes (ou les 3 dernières)
+  if (knowledgeBase.experiences?.length) {
+    const scored = knowledgeBase.experiences.map((exp) => ({
+      exp,
+      score: scoreText(queryTokens, sectionToText(exp)),
+    }));
+    const relevant = scored.filter((s) => s.score >= 0.15).sort((a, b) => b.score - a.score);
+    const toInclude = relevant.length > 0 ? relevant : scored.slice(0, 3);
+    const experienceText = toInclude
+      .map(({ exp }) => `- [${exp.period}] ${exp.position} @ ${exp.company} (${exp.type || ''}, ${exp.duration || ''}) : ${exp.description}\n  Réalisations: ${(exp.key_achievements || []).join(' ; ')}\n  Technologies: ${(exp.technologies || []).join(', ')}`)
+      .join('\n');
+    relevantSections.push(`EXPÉRIENCES PROFESSIONNELLES:\n${experienceText}`);
   }
-  
-  // Recherche intelligente sur les projets
-  if (keywords.some(k => ['projet', 'projects', 'portfolio', 'réalisé', 'travaux', 'iot', 'ia', 'feu', 'fire', 'smart', 'drim', 'fintech', 'classification', 'business', 'kintana', 'vtc', 'lien', 'link', 'github', 'live', 'disponible', 'online'].includes(k))) {
-    if (knowledgeBase.projects?.length) {
-      const projectText = knowledgeBase.projects
-        .map(proj => `[${proj.category}] ${proj.title}: ${proj.description}. Features: ${proj.key_features?.join(', ')}. Technologies: ${proj.technologies?.join(', ')}. LIENS - GitHub: ${proj.github}, Démo Live: ${proj.live}`)
-        .join('\n');
-      relevantSections.push(`PROJETS NOTABLES (${knowledgeBase.projects.length} projets) - INCLURE SYSTÉMATIQUEMENT LES LIENS:\n${projectText}`);
-    }
+
+  // PROJETS : scorer chaque projet
+  if (knowledgeBase.projects?.length) {
+    const scored = knowledgeBase.projects.map((proj) => ({
+      proj,
+      score: scoreText(queryTokens, sectionToText(proj)),
+    }));
+    const relevant = scored.filter((s) => s.score >= 0.15).sort((a, b) => b.score - a.score);
+    const toInclude = relevant.length > 0 ? relevant : scored;
+    const projectText = toInclude
+      .map(({ proj }) => `- ${proj.title} [${proj.category}] : ${proj.description}\n  Fonctionnalités: ${(proj.key_features || []).join(' ; ')}\n  Technologies: ${(proj.technologies || []).join(', ')}\n  GitHub: ${proj.github || '—'} | Démo live: ${proj.live || '—'}`)
+      .join('\n');
+    relevantSections.push(`PROJETS (toujours citer GitHub/démo quand présents):\n${projectText}`);
   }
-  
-  // Recherche intelligente sur les compétences IA
-  if (keywords.some(k => ['compétence', 'competence', 'skill', 'technology', 'technologie', 'expertise', 'savoir', 'maitriser', 'ia', 'ai', 'ml', 'machine', 'learning', 'langchain', 'llm', 'rag', 'neural', '.net', 'react', 'python'].includes(k))) {
-    if (knowledgeBase.expertise) {
-      const expertiseText = `Core Skills: ${knowledgeBase.expertise.core_skills?.join(', ')}. Specializations: ${knowledgeBase.expertise.specializations?.join(', ')}. AI/ML: ${knowledgeBase.expertise.technical_expertise?.ai_ml?.join(', ')}. Backend: ${knowledgeBase.expertise.technical_expertise?.backend?.join(', ')}. Frontend: ${knowledgeBase.expertise.technical_expertise?.frontend?.join(', ')}`;
+
+  // EXPERTISE
+  if (knowledgeBase.expertise) {
+    const expertiseText = `Compétences clés: ${(knowledgeBase.expertise.core_skills || []).join(', ')}.\nSpécialisations: ${(knowledgeBase.expertise.specializations || []).join(', ')}.\nBackend: ${(knowledgeBase.expertise.technical_expertise?.backend || []).join(', ')}.\nFrontend: ${(knowledgeBase.expertise.technical_expertise?.frontend || []).join(', ')}.\nMobile: ${(knowledgeBase.expertise.technical_expertise?.mobile || []).join(', ')}.\nIA/ML: ${(knowledgeBase.expertise.technical_expertise?.ai_ml || []).join(', ')}.\nData: ${(knowledgeBase.expertise.technical_expertise?.data || []).join(', ')}.\nDevOps: ${(knowledgeBase.expertise.technical_expertise?.devops || []).join(', ')}`;
+    // Inclure si le score est pertinent ou si la requête est générique (peu de tokens)
+    if (queryTokens.length === 0 || scoreText(queryTokens, expertiseText) >= 0.15 || queryTokens.some((t) => /^(net|react|ia|ai|python|docker|azure|langchain|llm|rag|ml|flutter|symfony|typescript|node|fastapi|sql|devop|cloud|stack|techno|compet|skill)/.test(t))) {
       relevantSections.push(`EXPERTISE TECHNIQUE:\n${expertiseText}`);
     }
   }
-  
-  // Recherche d'éducation
-  if (keywords.some(k => ['formation', 'education', 'diplôme', 'école', 'études', 'master', 'licence'].includes(k))) {
-    if (knowledgeBase.education?.length) {
-      const educationText = knowledgeBase.education
-        .map(edu => `[${edu.year}] ${edu.degree} @ ${edu.institution}${edu.focus ? ` - Focus: ${edu.focus}` : ''}`)
-        .join('\n');
+
+  // FORMATION
+  if (knowledgeBase.education?.length) {
+    const educationText = knowledgeBase.education
+      .map((edu) => `- [${edu.year}] ${edu.degree} @ ${edu.institution}${edu.focus ? ` — Focus: ${edu.focus}` : ''}`)
+      .join('\n');
+    if (scoreText(queryTokens, sectionToText(knowledgeBase.education)) >= 0.15 || queryTokens.some((t) => /^(form|diplom|ecol|etud|master|licence|licence|diplom)/.test(t)) || queryTokens.length === 0) {
       relevantSections.push(`FORMATION ACADÉMIQUE:\n${educationText}`);
     }
   }
-  
-  // Recherche de contact
-  if (keywords.some(k => ['contact', 'mail', 'email', 'téléphone', 'phone', 'appel', 'message', 'disponible', 'joindre'].includes(k))) {
-    relevantSections.push(
-      `CONTACT DIRECT: Email: ${knowledgeBase.profile?.email}, Téléphone: ${knowledgeBase.profile?.phone}, Location: ${knowledgeBase.profile?.location}`
-    );
-  }
-  
-  // Recherche d'achievements
-  if (keywords.some(k => ['achievement', 'accomplissement', 'réussite', 'prix', 'award', 'hackathon'].includes(k))) {
-    if (knowledgeBase.achievements?.length) {
-      const achievementText = knowledgeBase.achievements
-        .map(ach => `${ach.title}: ${ach.description}`)
-        .join('\n');
+
+  // ACCOMPLISSEMENTS
+  if (knowledgeBase.achievements?.length) {
+    const achievementText = knowledgeBase.achievements
+      .map((ach) => `- ${ach.title}: ${ach.description}`)
+      .join('\n');
+    if (scoreText(queryTokens, sectionToText(knowledgeBase.achievements)) >= 0.15 || queryTokens.some((t) => /^(award|hack|recompens|prix|accompl|realisat|succes)/.test(t))) {
       relevantSections.push(`ACCOMPLISSEMENTS:\n${achievementText}`);
     }
   }
-  
-  // Recherche FAQ spécifiques
+
+  // FAQ : matcher sur les clés ET le contenu
   if (knowledgeBase.faqs) {
     for (const [faqKey, faqValue] of Object.entries(knowledgeBase.faqs)) {
-      if (queryLower.includes(faqKey.replace(/_/g, ' ')) || queryLower.includes(faqKey)) {
-        relevantSections.push(`RÉPONSE PRÉPARÉE (${faqKey}): ${faqValue}`);
+      const keyWords = faqKey.replace(/_/g, ' ');
+      if (queryLower.includes(keyWords) || scoreText(queryTokens, `${keyWords} ${faqValue}`) >= 0.4) {
+        relevantSections.push(`RÉPONSE FAQ (${faqKey}) — s'en inspirer sans la recopier mot pour mot:\n${faqValue}`);
       }
     }
   }
-  
-  // Si aucune section précise trouvée, inclure TOUTE la knowledge base
-  // Car le contexte entier peut aider à générer une bonne réponse
-  if (relevantSections.length <= 1) { // Seulement profil de base
-    relevantSections.push(
-      `CONTEXTE COMPLET: ${JSON.stringify(knowledgeBase, null, 2)}`
-    );
+
+  // Fallback : si très peu de contexte, inclure la knowledge base entière (elle est petite)
+  if (relevantSections.length <= 2) {
+    relevantSections.push(`BASE DE CONNAISSANCE COMPLÈTE:\n${JSON.stringify(knowledgeBase, null, 2)}`);
   }
-  
+
   return relevantSections.join('\n\n---\n\n');
 }
 

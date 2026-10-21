@@ -43,27 +43,22 @@
   "experiences": [
     {
       "period": "Fév 2026 - À ce jour",
-      "company": "VISION COMPTE",
-      "position": "Développeur IA & Data",
-      "location": "Madagascar",
-      "type": "CDI",
-      "duration": "En cours",
-      "description": "Solutions IA et Data orientées métier (extraction, RAG, automatisation, services applicatifs, Ollama/VLM). En parallèle : mise en place de la facturation électronique avec API PISTE, Chorus Pro, formats Factur-X/UBL/CII et flux PDP agréé par l'État français.",
+      "company": "VISIOcompte",
+      "position": "AI & Data Engineer | LLM, RAG, IA documentaire & Facturation électronique",
+      "location": "Antananarivo, Analamanga, Madagascar",
+      "type": "CDI - Temps plein, Sur site",
+      "duration": "9 mois (en cours)",
+      "description": "Conception et développement de solutions d'intelligence artificielle, de services backend et de VISIOfact, une plateforme de facturation électronique intégrant les exigences techniques et d'interopérabilité de l'écosystème français, en référence aux spécifications AFNOR applicables et aux formats Factur-X, UBL et CII.",
       "key_achievements": [
-        "Extraction de données via web scraping (Selenium, Beautiful Soup)",
-        "Développement de services applicatifs et API orientés données (FastAPI)",
-        "Développement d'agents RAG et d'agents IA dans les applications existantes",
-        "Développement de services applicatifs orientés métier et conformité",
-        "Automatisation des workflows métier",
-        "Optimisation des sites existants pour réduire la latence",
-        "Intégration de moteurs IA (Ollama, VLM/Llama)",
-        "OpenBao pour la gestion sécurisée des secrets",
-        "Keycloak pour la gestion des rôles et permissions",
-        "RabbitMQ pour l'orchestration des messages",
-        "OpenSearch pour l'optimisation des requêtes",
-        "Transformation des factures existantes en factures électroniques (API PISTE, Chorus Pro, Factur-X, UBL, CII, PDP agréé par l'État français)"
+        "AI Engineering & IA documentaire : étude et évaluation de solutions OCR (PaddleOCR) et LLM (Qwen) pour l'extraction intelligente de données et l'automatisation des processus métier",
+        "LLM & RAG Engineering : développement de solutions RAG avec Python, LangChain, Ollama et Qdrant, combinant modèles de langage, embeddings et recherche vectorielle",
+        "Facturation électronique : évolution des flux de factures entrantes et sortantes, suivi du cycle de vie et intégration des formats Factur-X, UBL et CII (spécifications AFNOR, écosystème français, API PISTE / Chorus Pro, PDP agréé par l'État)",
+        "Backend & API Engineering : conception de services applicatifs et d'API REST avec Python et FastAPI",
+        "Sécurité applicative : SSO, authentification, JWT, gestion des identités avec Keycloak et gestion des secrets avec OpenBao",
+        "Architecture distribuée & Data : traitements asynchrones avec RabbitMQ, cache Redis, données métier PostgreSQL, recherche vectorielle Qdrant, analyse des logs OpenSearch",
+        "Conteneurisation & CI/CD : Docker et pipelines d'intégration/déploiement continus"
       ],
-      "technologies": ["RAG", "LLM", "LangChain", "LangGraph", "LangSmith", "FastAPI", "OpenBao", "Keycloak", "RabbitMQ", "OpenSearch", "Beautiful Soup", "Selenium", "Ollama", "Llama", "API PISTE", "Chorus Pro", "Factur-X", "UBL", "CII"]
+      "technologies": ["Python", "FastAPI", "LangChain", "Ollama", "LLM", "RAG", "PaddleOCR", "Qwen", "Qdrant", "PostgreSQL", "Redis", "RabbitMQ", "OpenSearch", "Keycloak", "OpenBao", "JWT", "Docker", "CI/CD", "Factur-X", "UBL", "CII", "API PISTE", "Chorus Pro", "PDP"]
     },
     {
       "period": "Juin 2025 - Fév 2026",
@@ -242,7 +237,7 @@
     }
   ],
   "faqs": {
-    "about_experience": "Je cumule plus de 2 ans d'expérience dans le développement d'applications web robustes, évolutives et sécurisées. Actuellement Développeur IA & Data chez VISION COMPTE, j'ai précédemment travaillé chez ILOMAD, RTS Line, ARATO et participé à des projets d'envergure.",
+    "about_experience": "Je cumule plus de 2 ans d'expérience dans le développement d'applications web robustes, évolutives et sécurisées. Actuellement AI & Data Engineer (LLM, RAG, IA documentaire & facturation électronique) chez VISIOcompte, j'ai précédemment travaillé chez ILOMAD, RTS Line, ARATO et participé à des projets d'envergure.",
     "about_ai": "Je suis spécialisé dans l'IA avec expertise en machine learning, deep learning, RAG (Retrieval-Augmented Generation), et intégration de LLMs. Je développe aussi des systèmes embarqués intelligents avec IoT.",
     "about_tech_stack": "Mon stack technique couvre .NET/ASP.NET Core pour le backend, React/Angular pour le frontend, Flutter pour le mobile, et Python pour la data science et l'IA. Je maîtrise aussi les architectures microservices et le DevOps.",
     "about_projects": "Mes projets incluent des applications web complètes, des systèmes IoT intelligents, des assistants conversationnels basés sur l'IA, et des solutions de machine learning pour la classification et la prédiction. Mon projet phare en IoT est Smart Fire Guard - un système intelligent de détection d'incendies avec IA embarquée. Vous pouvez le découvrir sur GitHub: https://github.com/Jeanelsonmahafaly/iot-ia et voir la démo en ligne: https://iot-fire.onrender.com/",

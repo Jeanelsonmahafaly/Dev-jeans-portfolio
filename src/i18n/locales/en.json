@@ -6,7 +6,9 @@
     "projects": "Projects",
     "skills": "Skills",
     "education": "Education",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "greeting": "Hello, I'm",
@@ -240,19 +242,20 @@
     "typing": "Typing...",
     "thinking": "Assistant is thinking...",
     "error": "Error sending message",
-    "apiError": "❌ No AI API key configured (Groq or OpenAI). Check your .env file and restart the dev server.",
-    "generalError": "❌ An error occurred. Please try again.",
+    "apiError": "No API key is configured for the assistant.",
+    "generalError": "Something went wrong. You can try again.",
     "openChat": "Open chatbot",
     "closeChat": "Close",
     "poweredBy": "Powered by Jean Elson",
+    "retry": "Retry",
+    "newConversation": "New conversation",
+    "tooltip": "Ask me a question",
     "suggestionsTitle": "Suggestions:",
     "welcome": "Hi 👋 Jean Elson's assistant. Ask anything (profile, projects, contact).",
     "suggestions": [
-      "How can you help my project with AI?",
-      "Tell me about your experience in .NET and AI",
-      "What is your most impressive project?",
-      "Your specialties in Machine Learning and LLMs",
-      "How can I contact you for a mission?"
+      "What is your profile?",
+      "Your main projects?",
+      "How to contact you?"
     ]
   },
   "common": {
@@ -277,4 +280,3 @@
     "no": "No"
   }
 }
-

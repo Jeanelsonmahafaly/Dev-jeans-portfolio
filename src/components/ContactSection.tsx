@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, User, FileText } from 'lucide-react';
+import { SiWhatsapp } from 'react-icons/si';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -80,7 +81,8 @@ const ContactSection = () => {
       icon: <Phone className="w-6 h-6" />,
       title: t('contact.phone'),
       value: "+261 34 72 166 56",
-      link: "tel:+2613472116656",
+      link: "tel:+261347216656",
+      whatsapp: "https://wa.me/261347216656",
       description: t('contact.phoneDesc')
     },
     {
@@ -132,16 +134,29 @@ const ContactSection = () => {
                     <div className="flex-1">
                       <h4 className="font-semibold text-white mb-1">{method.title}</h4>
                       <p className="text-gray-400 text-sm mb-2">{method.description}</p>
-                      {method.link ? (
-                        <a
-                          href={method.link}
-                          className="text-[#10B981] hover:text-[#059669] transition-colors font-medium"
-                        >
-                          {method.value}
-                        </a>
-                      ) : (
-                        <span className="text-gray-300">{method.value}</span>
-                      )}
+                      <div className="flex items-center gap-3">
+                        {method.link ? (
+                          <a
+                            href={method.link}
+                            className="text-[#10B981] hover:text-[#059669] transition-colors font-medium"
+                          >
+                            {method.value}
+                          </a>
+                        ) : (
+                          <span className="text-gray-300">{method.value}</span>
+                        )}
+                        {'whatsapp' in method && method.whatsapp ? (
+                          <a
+                            href={method.whatsapp}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Ouvrir WhatsApp"
+                            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#25D366]/40 text-[#25D366] transition-[transform,opacity,border-color] duration-150 hover:scale-105 hover:border-[#25D366]"
+                          >
+                            <SiWhatsapp width={20} height={20} aria-hidden />
+                          </a>
+                        ) : null}
+                      </div>
                     </div>
                   </div>
                 </div>

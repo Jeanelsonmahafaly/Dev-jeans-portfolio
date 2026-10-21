@@ -63,7 +63,14 @@ const ExperienceSection = () => {
       'RAG': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
       'LLM': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
       'LangChain': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
-      'Ollama': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      'Ollama': 'https://cdn.simpleicons.org/ollama',
+      'Qwen': 'https://cdn.simpleicons.org/qwen',
+      'PaddleOCR': 'https://cdn.simpleicons.org/paddlepaddle',
+      'Qdrant': 'https://cdn.simpleicons.org/qdrant',
+      'PostgreSQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+      'Redis': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg',
+      'JWT': 'https://cdn.simpleicons.org/jsonwebtokens',
+      'CI/CD': 'https://cdn.simpleicons.org/gitlabci',
       'Llama': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
       'OpenBao': 'https://cdn.simpleicons.org/vault',
       'Keycloak': 'https://cdn.simpleicons.org/keycloak',
@@ -83,8 +90,8 @@ const ExperienceSection = () => {
     return [
       {
         period: isFrench ? "Fév 2026 - À ce jour" : "Feb 2026 - Present",
-        company: "VISION COMPTE",
-        position: isFrench ? "Développeur IA & Data" : "AI & Data Developer",
+        company: "VISIOcompte",
+        position: isFrench ? "Développeur IA & Data" : "AI & Data Engineer",
         location: "Madagascar",
         type: "CDI",
         description: isFrench ? (
@@ -130,7 +137,7 @@ const ExperienceSection = () => {
           "OpenSearch integration for query and business search optimization",
           "Transformation of existing invoices into e-invoices: API PISTE and Chorus Pro integration, Factur-X, UBL, and CII generation and validation, with implementation of a PDP flow approved by the French State"
         ],
-        technologies: ["RAG", "LLM", "LangChain", "LangGraph", "LangSmith", "FastAPI", "OpenBao", "Keycloak", "RabbitMQ", "OpenSearch", "Beautiful Soup", "Selenium", "Ollama", "Llama", "API PISTE", "Chorus Pro", "Factur-X", "UBL", "CII"],
+        technologies: ["RAG", "LLM", "LangChain", "LangGraph", "LangSmith", "FastAPI", "Python", "Ollama", "Qwen", "PaddleOCR", "Qdrant", "PostgreSQL", "Redis", "RabbitMQ", "OpenSearch", "Keycloak", "OpenBao", "JWT", "Docker", "CI/CD", "API PISTE", "Chorus Pro", "Factur-X", "UBL", "CII"],
         duration: isFrench ? "En cours" : "Ongoing",
         startDate: new Date('2026-02-01')
       },

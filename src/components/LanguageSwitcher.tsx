@@ -6,14 +6,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
 
 const LanguageSwitcher = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const languages = [
-    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'en', name: 'English', flag: '🇬🇧' }
+    { code: 'fr', name: 'Français' },
+    { code: 'en', name: 'English' }
   ];
 
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
@@ -26,26 +25,23 @@ const LanguageSwitcher = () => {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="relative h-10 w-10 rounded-full hover:bg-accent transition-colors"
-          aria-label="Change language"
+        <button
+          className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-[#10B981] hover:bg-[#111827] transition-colors"
+          style={{ fontSize: 14 }}
+          aria-label={t('nav.changeLanguage')}
+          aria-haspopup="dialog"
         >
-          <Globe className="h-5 w-5" />
-          <span className="absolute -bottom-1 -right-1 text-xs">
-            {currentLanguage.flag}
-          </span>
-        </Button>
+          <Globe className="h-4 w-4" aria-hidden="true" />
+          <span aria-hidden="true">{currentLanguage.code.toUpperCase()}</span>
+        </button>
       </PopoverTrigger>
-      <PopoverContent className="w-48 p-2" align="end">
-        <div className="space-y-1">
-          <div className="px-2 py-1.5 text-sm font-semibold text-muted-foreground">
-            Select Language
-          </div>
+      <PopoverContent className="w-44 p-2" align="end">
+        <div className="space-y-1" role="menu" aria-label={t('nav.changeLanguage')}>
           {languages.map((language) => (
             <button
               key={language.code}
+              role="menuitemradio"
+              aria-checked={i18n.language === language.code}
               onClick={() => changeLanguage(language.code)}
               className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-md transition-colors ${
                 i18n.language === language.code
@@ -53,10 +49,9 @@ const LanguageSwitcher = () => {
                   : 'hover:bg-accent/50'
               }`}
             >
-              <span className="text-xl">{language.flag}</span>
               <span className="flex-1 text-left">{language.name}</span>
               {i18n.language === language.code && (
-                <span className="text-xs text-primary">✓</span>
+                <span className="text-xs text-[#10B981]" aria-hidden="true">✓</span>
               )}
             </button>
           ))}
@@ -67,4 +62,3 @@ const LanguageSwitcher = () => {
 };
 
 export default LanguageSwitcher;
-

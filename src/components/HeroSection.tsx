@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Mail, Phone, MapPin, Download, Github, Linkedin, ExternalLink, Code, Brain, Sparkles, Cpu } from 'lucide-react';
+import { SiWhatsapp } from 'react-icons/si';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -99,13 +100,15 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               {[
-                { icon: <Mail className="w-4 h-4" />, text: "jelsonmahafaly@gmail.com", href: "mailto:jelsonmahafaly@gmail.com" },
-                { icon: <Phone className="w-4 h-4" />, text: "+261 34 21 166 56", href: "tel:+261347216656" },
-                { icon: <MapPin className="w-4 h-4" />, text: "Antananarivo", href: "#" }
+                { icon: <Mail className="w-4 h-4" />, text: "jelsonmahafaly@gmail.com", href: "mailto:jelsonmahafaly@gmail.com", external: false },
+                { icon: <Phone className="w-4 h-4" />, text: "+261 34 21 166 56", href: "tel:+261347216656", external: false },
+                { icon: <SiWhatsapp width={16} height={16} aria-hidden />, text: "WhatsApp", href: "https://wa.me/261347216656", external: true },
+                { icon: <MapPin className="w-4 h-4" />, text: "Antananarivo", href: "#", external: false }
               ].map((item, index) => (
                 <motion.a
                   key={index}
                   href={item.href}
+                  {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   className="glass rounded-lg px-3 py-2 flex items-center gap-2 text-xs text-gray-300 hover:text-[#10B981] hover-lift group transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

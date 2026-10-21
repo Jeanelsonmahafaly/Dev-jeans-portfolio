@@ -6,7 +6,9 @@
     "projects": "Projets",
     "skills": "Compétences",
     "education": "Formation",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
   },
   "hero": {
     "greeting": "Bonjour, je suis",
@@ -240,19 +242,20 @@
     "typing": "En train d'écrire...",
     "thinking": "L'assistant réfléchit...",
     "error": "Erreur lors de l'envoi du message",
-    "apiError": "❌ Aucune clé API IA configurée (Groq ou OpenAI). Vérifiez le fichier .env et redémarrez le serveur.",
-    "generalError": "❌ Une erreur est survenue. Veuillez réessayer.",
+    "apiError": "Aucune clé API n'est configurée pour l'assistant.",
+    "generalError": "Une erreur est survenue. Vous pouvez réessayer.",
     "openChat": "Ouvrir le chatbot",
     "closeChat": "Fermer",
     "poweredBy": "Powered by Jean Elson",
+    "retry": "Réessayer",
+    "newConversation": "Nouvelle conversation",
+    "tooltip": "Posez-moi une question",
     "suggestionsTitle": "Suggestions:",
     "welcome": "Bonjour 👋 Assistant de Jean Elson. Posez votre question (profil, projets, contact).",
     "suggestions": [
-      "Comment pouvez-vous aider mon projet avec l'IA?",
-      "Parlez-moi de votre expérience en .NET et IA",
-      "Quel est votre projet le plus impressionnant?",
-      "Vos spécialités en Machine Learning et LLMs",
-      "Comment puis-je vous contacter pour une mission?"
+      "Quel est votre profil ?",
+      "Vos projets principaux ?",
+      "Comment vous contacter ?"
     ]
   },
   "common": {
@@ -277,4 +280,3 @@
     "no": "Non"
   }
 }
-
